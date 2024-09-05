@@ -1,31 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1mvh8b2l3bpp"]
+[gd_scene load_steps=3 format=3 uid="uid://d1mvh8b2l3bpp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ne68s"]
 size = Vector3(5, 0.01, 5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_phhtd"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8ild4"]
-
-[sub_resource type="Sky" id="Sky_evp6q"]
-sky_material = SubResource("ProceduralSkyMaterial_8ild4")
-
-[sub_resource type="Environment" id="Environment_batfp"]
-background_mode = 2
-sky = SubResource("Sky_evp6q")
-ssr_fade_in = 0.172305
-ssr_depth_tolerance = 50.71
-ssao_radius = 6.77
-ssao_intensity = 0.0
-ssil_radius = 13.11
-ssil_intensity = 11.14
-sdfgi_bounce_feedback = 0.39
-sdfgi_min_cell_size = 22.73
-sdfgi_cascade0_distance = 1454.72
-sdfgi_max_distance = 23275.5
-adjustment_brightness = 1.11
-adjustment_contrast = 0.77
-adjustment_saturation = 4.15
+[sub_resource type="CylinderMesh" id="CylinderMesh_tmbjo"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -33,14 +11,8 @@ adjustment_saturation = 4.15
 mesh = SubResource("BoxMesh_ne68s")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.830217, 0)
-mesh = SubResource("BoxMesh_phhtd")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.39632, 0)
+mesh = SubResource("CylinderMesh_tmbjo")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21683, 4.3912)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Camera3D"]
-environment = SubResource("Environment_batfp")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D/WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 0.614974, 0.788548, 0, -0.788548, 0.614974, 0, 1.72465, 3.25984)

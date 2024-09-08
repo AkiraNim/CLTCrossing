@@ -107,12 +107,12 @@ reflected_light_source = 2
 [node name="World" type="Node3D"]
 
 [node name="CameraPivot" type="Node3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.758032, 0.652217, 0, -0.652217, 0.758032, 0, 3.25119, 3.2357)
+transform = Transform3D(1, 0, 0, 0, 0.609924, 0.79246, 0, -0.79246, 0.609924, 0, 3.25119, 3.2357)
 script = ExtResource("1_bvt6o")
 target = NodePath("../Player")
 
 [node name="Camera" type="Camera3D" parent="CameraPivot"]
-fov = 37.7902
+fov = 23.8755
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("view")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503828, 0)

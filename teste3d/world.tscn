@@ -146,7 +146,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15484, 0.50793, 0.243949)
 
 [node name="Node3D2" parent="." instance=ExtResource("5_c5rjj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22835, 0.650781, 0.233054)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22835, 0.504548, 0.233054)
 
 [node name="Node3D3" parent="." instance=ExtResource("4_7rjqu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69625, -2.38419e-07, 4.11135)

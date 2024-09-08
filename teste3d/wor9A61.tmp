@@ -22,7 +22,6 @@ var rotation_direction : float
 
 func _physics_process(delta):
 	handle_input(delta)
-	jump (delta)
 	
 	var applied_velocity : Vector3
 	applied_velocity = velocity.lerp(movement_velocity, delta * 10)

@@ -23,7 +23,7 @@ var rotation_direction : float
 func _physics_process(delta):
 	handle_input(delta)
 	jump (delta)
-	handle_animations()
+	 handle_animations()
 	
 	var applied_velocity : Vector3
 	applied_velocity = velocity.lerp(movement_velocity, delta * 10)
@@ -38,12 +38,6 @@ func _physics_process(delta):
 
 	
 	move_and_slide()
-	
-	if Vector2(velocity.z, velocity.x).length()>0:
-		rotation_direction = Vector2(velocity.z, velocity.x).angle()
-		
-	rotation.y = lerp_angle(rotation.y, rotation_direction, delta * 10)
-	
 
 func handle_input(delta) :
 	var input = Vector3.ZERO
@@ -55,16 +49,8 @@ func handle_input(delta) :
 	velocity = input * SPEED * delta
 
 func handle_animations():
-	if is_on_floor():
-		if abs(velocity.x) > 1 or abs(velocity.z) > 1:
-			animator.play(\"Run\", 0.3)
-		else:
-			animator.play(\"Idle\", 0.3)
-	else:
-		animator.play(\"Jump\", 0.3)
-		
-	if !is_on_floor() and gravity > 2:
-		animator.play(\"Fall\", 0.3)
+	if abs(velocity.x) > 1 or abs(velocity.z) > 1:
+		animator.play(\"Run\", 0.3)
 	
 	
 func apply_gravity(delta):
@@ -80,7 +66,7 @@ func jump (delta):
 "
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r6f1i"]
-radius = 0.905066
+radius = 0.684322
 height = 2.4773
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia8ws"]
@@ -115,15 +101,15 @@ target = NodePath("../Player")
 fov = 37.7902
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("view")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503828, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37379, 0)
 script = SubResource("GDScript_dw44y")
 view = NodePath("../CameraPivot")
 
 [node name="sophia" parent="Player" instance=ExtResource("3_50pb6")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.37213, 0.0217149)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.555997, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.74199, 0.0217149)
 shape = SubResource("CapsuleShape3D_r6f1i")
 
 [node name="Floor" type="MeshInstance3D" parent="."]

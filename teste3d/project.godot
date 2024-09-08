@@ -13,7 +13,3 @@ config_version=5
 config/name="teste 3d"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
-
-[rendering]
-
-renderer/rendering_method="forward_plus"

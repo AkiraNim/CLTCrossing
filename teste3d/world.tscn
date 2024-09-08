@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://b87xkv30pttbn"]
+
+[ext_resource type="Texture2D" uid="uid://brf6ayh15fh18" path="res://Texturas/Grass_02_Green_1.png" id="1_1y0oo"]
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_rby87"]
+[ext_resource type="Texture2D" uid="uid://ckukhwxmi4h20" path="res://Texturas/anime_skybox.jpg" id="2_2fltk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a2f0e"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r6f1i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia8ws"]
+albedo_texture = ExtResource("1_1y0oo")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oq3r5"]
+size = Vector2(10, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_was46"]
+data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fbmgm"]
+panorama = ExtResource("2_2fltk")
+
+[sub_resource type="Sky" id="Sky_mkk40"]
+sky_material = SubResource("PanoramaSkyMaterial_fbmgm")
+
+[sub_resource type="Environment" id="Environment_1eof4"]
+background_mode = 2
+sky = SubResource("Sky_mkk40")
+
+[node name="World" type="Node3D"]
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(0.0501355, 0.897512, -0.43813, -0.102037, 0.440989, 0.891693, 0.993516, 0, 0.113689, -4.30132, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(0.0501355, -0.834994, 0.54797, 0.897512, 0.278354, 0.342039, -0.43813, 0.474661, 0.763373, 2.05356, 6.30072, 3.32461)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04429, 0)
+script = ExtResource("1_rby87")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_a2f0e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_r6f1i")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ia8ws")
+mesh = SubResource("PlaneMesh_oq3r5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_was46")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1eof4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.0501355, 0.897512, -0.43813, -0.102037, 0.440989, 0.891693, 0.993516, 0, 0.113689, -4.30132, 0, 0)
+shadow_enabled = true

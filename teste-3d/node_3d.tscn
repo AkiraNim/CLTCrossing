@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://character_body_3d.gd" id="1_euu72"]
 [ext_resource type="Texture2D" uid="uid://b5qrdac42i5wn" path="res://anime_skybox.jpg" id="1_wsxma"]
 [ext_resource type="PackedScene" uid="uid://bkwesm7ftnm4a" path="res://GLB format/block-grass-hexagon.glb" id="3_4n25n"]
+[ext_resource type="PackedScene" uid="uid://16iu10wxub40" path="res://actors/models/sophia/model/sophia.glb" id="3_wcd4e"]
 [ext_resource type="PackedScene" uid="uid://c866d380inju3" path="res://block_grass_hexagon_2.tscn" id="4_mmucc"]
 [ext_resource type="PackedScene" uid="uid://dgcdg5o6eywbq" path="res://Formas/Paredes/Parede_de_tijolos_vermelhos.tscn" id="5_vlicv"]
 [ext_resource type="PackedScene" uid="uid://cwu1uk163134l" path="res://Formas/Rampas/Rampa_pedra.tscn" id="6_21a7k"]
@@ -39,9 +40,7 @@ glow_blend_mode = 0
 glow_hdr_threshold = 2.1
 glow_hdr_scale = 2.45
 
-[sub_resource type="SphereMesh" id="SphereMesh_p8x17"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_imphw"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jk8ak"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_wwa2w"]
 
@@ -80,12 +79,12 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.785545, 0.732661, 0)
 script = ExtResource("1_euu72")
 
-[node name="playerf" type="MeshInstance3D" parent="CharacterBody3D"]
-mesh = SubResource("SphereMesh_p8x17")
-skeleton = NodePath("../..")
+[node name="sophia2" parent="CharacterBody3D" instance=ExtResource("3_wcd4e")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("SphereShape3D_imphw")
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.46992, 0)
+shape = SubResource("CapsuleShape3D_jk8ak")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.724328, 0.689456, 0, -0.689456, 0.724328, -0.205644, 3.98768, 2.49146)

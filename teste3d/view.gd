@@ -10,6 +10,9 @@ extends Node3D
 
 @export_group("Rotation")
 @export var rotation_speed = 120
+@export var min_rotation_x = -80
+@export var max_rotation_x = -10
+
 
 var camera_rotation:Vector3
 var zoom = 20
@@ -45,7 +48,7 @@ func handle_input(delta):
 	input.x = Input.get_axis("camera_up", "camera_down")
 	
 	camera_rotation += input.limit_length(1.0) * rotation_speed * delta
-	camera_rotation.x = clamp(camera_rotation.x, -80, -10)
+	camera_rotation.x = clamp(camera_rotation.x, min_rotation_x,  min_rotation_x)
 	
 	# Zooming
 	

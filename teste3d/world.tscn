@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b87xkv30pttbn"]
+[gd_scene load_steps=14 format=3 uid="uid://b87xkv30pttbn"]
 
 [ext_resource type="Texture2D" uid="uid://brf6ayh15fh18" path="res://Texturas/Grass_02_Green_1.png" id="1_1y0oo"]
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_rby87"]
 [ext_resource type="Texture2D" uid="uid://ckukhwxmi4h20" path="res://Texturas/anime_skybox.jpg" id="2_2fltk"]
+[ext_resource type="PackedScene" uid="uid://dgcdg5o6eywbq" path="res://Formas/Paredes/Parede_de_tijolos_vermelhos.tscn" id="4_7rjqu"]
+[ext_resource type="PackedScene" uid="uid://cwu1uk163134l" path="res://Formas/Rampas/Rampa_pedra.tscn" id="5_c5rjj"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a2f0e"]
 
@@ -12,10 +14,10 @@
 albedo_texture = ExtResource("1_1y0oo")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_oq3r5"]
-size = Vector2(10, 10)
+size = Vector2(20, 20)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_was46"]
-data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s5uph"]
+data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fbmgm"]
 panorama = ExtResource("2_2fltk")
@@ -52,7 +54,7 @@ mesh = SubResource("PlaneMesh_oq3r5")
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_was46")
+shape = SubResource("ConcavePolygonShape3D_s5uph")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1eof4")
@@ -60,3 +62,15 @@ environment = SubResource("Environment_1eof4")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(0.0501355, 0.897512, -0.43813, -0.102037, 0.440989, 0.891693, 0.993516, 0, 0.113689, -4.30132, 0, 0)
 shadow_enabled = true
+
+[node name="Node3D" parent="." instance=ExtResource("4_7rjqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15484, 0.50793, 0.243949)
+
+[node name="Node3D2" parent="." instance=ExtResource("5_c5rjj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22835, 0.650781, 0.233054)
+
+[node name="Node3D3" parent="." instance=ExtResource("4_7rjqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69625, -2.38419e-07, 4.11135)
+
+[node name="Node3D4" parent="." instance=ExtResource("4_7rjqu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69768, 2.38419e-07, -3.26425)

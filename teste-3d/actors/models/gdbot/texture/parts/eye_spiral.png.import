@@ -3,22 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt0veafbpw6ih"
-path="res://.godot/imported/eye_spiral.png-c4e31ee2f1792d866709cd4fcfeb4077.ctex"
+path="res://.godot/imported/eye_spiral.png-3ffd8908535eb535f16bc2df01356c1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/gdbot/texture/parts/eye_spiral.png"
-dest_files=["res://.godot/imported/eye_spiral.png-c4e31ee2f1792d866709cd4fcfeb4077.ctex"]
+source_file="res://actors/models/gdbot/texture/parts/eye_spiral.png"
+dest_files=["res://.godot/imported/eye_spiral.png-3ffd8908535eb535f16bc2df01356c1b.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

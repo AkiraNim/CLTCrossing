@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqt3cyb0h0isw"
-path.s3tc="res://.godot/imported/bat_albedo.png-ae48f58d0f00028007be39149c52b9e0.s3tc.ctex"
+path.s3tc="res://.godot/imported/bat_albedo.png-8f31aeb1d5758fa7de4524599af15b32.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://models/round_bat/model/bat_albedo.png"
-dest_files=["res://.godot/imported/bat_albedo.png-ae48f58d0f00028007be39149c52b9e0.s3tc.ctex"]
+source_file="res://actors/models/round_bat/model/bat_albedo.png"
+dest_files=["res://.godot/imported/bat_albedo.png-8f31aeb1d5758fa7de4524599af15b32.s3tc.ctex"]
 
 [params]
 

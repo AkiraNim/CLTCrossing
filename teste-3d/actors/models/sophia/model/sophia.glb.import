@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://16iu10wxub40"
-path="res://.godot/imported/sophia.glb-4163a70dfb98164b27fd4d151b9ef66a.scn"
+path="res://.godot/imported/sophia.glb-2e0bfb9f87dc7bd02d8a8fa4a812a7f9.scn"
 
 [deps]
 
-source_file="res://models/sophia/model/sophia.glb"
-dest_files=["res://.godot/imported/sophia.glb-4163a70dfb98164b27fd4d151b9ef66a.scn"]
+source_file="res://actors/models/sophia/model/sophia.glb"
+dest_files=["res://.godot/imported/sophia.glb-2e0bfb9f87dc7bd02d8a8fa4a812a7f9.scn"]
 
 [params]
 
@@ -17,6 +17,7 @@ nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -28,6 +29,7 @@ animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "animations": {

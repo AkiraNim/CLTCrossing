@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dbqoj8oam1dsg"
-path="res://.godot/imported/beetle_bot_fused.glb-2bab892159f1836e86b5d18db40eaa71.scn"
+path="res://.godot/imported/beetle_bot_fused.glb-ed81242c83f3be3587b16bd7112cce49.scn"
 
 [deps]
 
-source_file="res://models/beetle_bot/model/beetle_bot_fused.glb"
-dest_files=["res://.godot/imported/beetle_bot_fused.glb-2bab892159f1836e86b5d18db40eaa71.scn"]
+source_file="res://actors/models/beetle_bot/model/beetle_bot_fused.glb"
+dest_files=["res://.godot/imported/beetle_bot_fused.glb-ed81242c83f3be3587b16bd7112cce49.scn"]
 
 [params]
 
@@ -17,6 +17,7 @@ nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -28,6 +29,7 @@ animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "animations": {

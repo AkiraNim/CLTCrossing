@@ -3,22 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://blacn6s3yc88h"
-path="res://.godot/imported/eye_open.png-f4f988e5f75cde90b1820571b8233ab1.ctex"
+path="res://.godot/imported/eye_open.png-b1b5ab3c29136efbf1032bfff35269f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/gdbot/texture/parts/eye_open.png"
-dest_files=["res://.godot/imported/eye_open.png-f4f988e5f75cde90b1820571b8233ab1.ctex"]
+source_file="res://actors/models/gdbot/texture/parts/eye_open.png"
+dest_files=["res://.godot/imported/eye_open.png-b1b5ab3c29136efbf1032bfff35269f4.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

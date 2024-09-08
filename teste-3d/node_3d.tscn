@@ -107,7 +107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.685077, 0, 2.46223)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.314923, 0, 4.11575)
 
 [node name="Node3D" parent="." instance=ExtResource("5_vlicv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21345, 0.153754, 1.73642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87283, 0.153754, 1.73642)
 
 [node name="Node3D2" parent="." instance=ExtResource("6_21a7k")]
-transform = Transform3D(1, 0, 0, 0, 1.2, 0, 0, 0, 2, 1.69821, 0.0844529, 1.69995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69821, 0.0844529, 1.69995)

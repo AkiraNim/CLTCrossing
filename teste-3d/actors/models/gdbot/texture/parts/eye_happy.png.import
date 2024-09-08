@@ -3,22 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbp882a2a27qw"
-path="res://.godot/imported/eye_happy.png-5e63d34678f2f7314263be97805c9e97.ctex"
+path="res://.godot/imported/eye_happy.png-7ea8545158dea762a324814b237dc1c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/gdbot/texture/parts/eye_happy.png"
-dest_files=["res://.godot/imported/eye_happy.png-5e63d34678f2f7314263be97805c9e97.ctex"]
+source_file="res://actors/models/gdbot/texture/parts/eye_happy.png"
+dest_files=["res://.godot/imported/eye_happy.png-7ea8545158dea762a324814b237dc1c4.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

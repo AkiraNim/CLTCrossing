@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1pq1cajdhkwv"
-path.s3tc="res://.godot/imported/bat_roughness.png-4851df361ea516128bf24ef8ea871ccf.s3tc.ctex"
+path.s3tc="res://.godot/imported/bat_roughness.png-f90ac5a02e68177e61a86f40dc8646e3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://models/round_bat/model/bat_roughness.png"
-dest_files=["res://.godot/imported/bat_roughness.png-4851df361ea516128bf24ef8ea871ccf.s3tc.ctex"]
+source_file="res://actors/models/round_bat/model/bat_roughness.png"
+dest_files=["res://.godot/imported/bat_roughness.png-f90ac5a02e68177e61a86f40dc8646e3.s3tc.ctex"]
 
 [params]
 

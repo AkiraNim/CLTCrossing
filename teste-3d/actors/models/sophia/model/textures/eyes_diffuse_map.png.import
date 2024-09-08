@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctfbobgg7ts8d"
-path.s3tc="res://.godot/imported/eyes_diffuse_map.png-e9c6ed837fb2dc44efed8b667baae037.s3tc.ctex"
+path.s3tc="res://.godot/imported/eyes_diffuse_map.png-ed246e02c0813f9acb086c51861e0843.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://models/sophia/model/textures/eyes_diffuse_map.png"
-dest_files=["res://.godot/imported/eyes_diffuse_map.png-e9c6ed837fb2dc44efed8b667baae037.s3tc.ctex"]
+source_file="res://actors/models/sophia/model/textures/eyes_diffuse_map.png"
+dest_files=["res://.godot/imported/eyes_diffuse_map.png-ed246e02c0813f9acb086c51861e0843.s3tc.ctex"]
 
 [params]
 

@@ -81,7 +81,7 @@ func jump (delta):
 "
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r6f1i"]
-radius = 0.905066
+radius = 0.439717
 height = 2.4773
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pp4vq"]

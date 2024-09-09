@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://b87xkv30pttbn"]
+[gd_scene load_steps=17 format=3 uid="uid://b87xkv30pttbn"]
 
 [ext_resource type="Texture2D" uid="uid://brf6ayh15fh18" path="res://Texturas/Grass_02_Green_1.png" id="1_1y0oo"]
 [ext_resource type="Script" path="res://view.gd" id="1_bvt6o"]
 [ext_resource type="Texture2D" uid="uid://ckukhwxmi4h20" path="res://Texturas/anime_skybox.jpg" id="2_2fltk"]
+[ext_resource type="PackedScene" uid="uid://cnkghjwf38br7" path="res://Formas/Moeda/coin_3.tscn" id="2_fhpoo"]
 [ext_resource type="PackedScene" uid="uid://16iu10wxub40" path="res://actors/models/sophia/model/sophia.glb" id="3_50pb6"]
-[ext_resource type="PackedScene" uid="uid://dgcdg5o6eywbq" path="res://Formas/Paredes/Parede_de_tijolos_vermelhos.tscn" id="4_7rjqu"]
+[ext_resource type="MeshLibrary" uid="uid://cntjcka4kouxo" path="res://Formas/Paredes/Paredes.tres" id="3_evqhv"]
 [ext_resource type="PackedScene" uid="uid://cwu1uk163134l" path="res://Formas/Rampas/Rampa_pedra.tscn" id="5_c5rjj"]
 
 [sub_resource type="GDScript" id="GDScript_dw44y"]
@@ -83,11 +84,13 @@ func jump (delta):
 radius = 0.905066
 height = 2.4773
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pp4vq"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia8ws"]
 albedo_texture = ExtResource("1_1y0oo")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_oq3r5"]
-size = Vector2(20, 20)
+size = Vector2(50, 50)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s5uph"]
 data = PackedVector3Array(10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, 10, -10, 0, -10, 10, 0, -10)
@@ -126,13 +129,38 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.555997, 0)
 shape = SubResource("CapsuleShape3D_r6f1i")
 
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("3_evqhv")
+physics_material = SubResource("PhysicsMaterial_pp4vq")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(2, 3, 2, 2, 2, 0, 2, 1, 0, 2, 0, 2, 2, 65535, 2, 2, 65534, 2, 2, 65533, 2, 2, 65532, 0, 2, 65531, 0, 3, 65531, 0, 3, 65532, 0, 3, 65533, 0, 3, 65534, 0, 3, 65535, 0, 3, 0, 0, 3, 1, 0, 3, 2, 0, 3, 3, 0, 3, 4, 0, 2, 4, 0, 1, 4, 0, 1, 3, 0, 1, 2, 0, 1, 1, 0, 1, 65535, 0, 1, 65534, 0, 1, 65533, 0, 1, 65532, 0, 1, 65531, 0)
+}
+
 [node name="Floor" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_ia8ws")
 mesh = SubResource("PlaneMesh_oq3r5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+[node name="wall_1" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(9, 0, 0, 0, -2.59843, 8.61674, 0, -8.61674, -2.59843, 4.58471, 0, 25.0948)
+shape = SubResource("ConcavePolygonShape3D_s5uph")
+
+[node name="wall_2" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(9, 0, 0, 0, -2.59843, 8.61674, 0, -8.61674, -2.59843, 4.58471, 0, -24.6504)
+shape = SubResource("ConcavePolygonShape3D_s5uph")
+
+[node name="wall_3" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(0.0548204, 8.61658, 2.59838, 1.59872e-14, -2.59843, 8.61674, 8.99983, -0.0524859, -0.0158274, 23.0916, 0, -24.6504)
+shape = SubResource("ConcavePolygonShape3D_s5uph")
+
+[node name="wall_4" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(0.0548204, 8.61658, 2.59838, 1.59872e-14, -2.59843, 8.61674, 8.99983, -0.0524859, -0.0158274, -24.4042, 0, -24.6504)
+shape = SubResource("ConcavePolygonShape3D_s5uph")
+
+[node name="floor_collision_shape" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_s5uph")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -142,14 +170,16 @@ environment = SubResource("Environment_1eof4")
 transform = Transform3D(0.0501355, 0.897512, -0.43813, -0.102037, 0.440989, 0.891693, 0.993516, 0, 0.113689, -4.30132, 0, 0)
 shadow_enabled = true
 
-[node name="Node3D" parent="." instance=ExtResource("4_7rjqu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.15484, 0.50793, 0.243949)
-
 [node name="Node3D2" parent="." instance=ExtResource("5_c5rjj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22835, 0.504548, 0.233054)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22835, 0.504548, 0.546086)
 
-[node name="Node3D3" parent="." instance=ExtResource("4_7rjqu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69625, -2.38419e-07, 4.11135)
+[node name="Coins" type="Node3D" parent="."]
 
-[node name="Node3D4" parent="." instance=ExtResource("4_7rjqu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69768, 2.38419e-07, -3.26425)
+[node name="coin5" parent="Coins" instance=ExtResource("2_fhpoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757199, 0.973121, 9.98179)
+
+[node name="coin4" parent="Coins" instance=ExtResource("2_fhpoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60938, 1.71613, 14.4531)
+
+[node name="coin3" parent="Coins" instance=ExtResource("2_fhpoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75244, 0.858064, 5.832)

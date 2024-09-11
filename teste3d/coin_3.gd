@@ -1,7 +1,7 @@
 extends Area3D
 
 
-const ROTATION_SPEED :=50.0
+const RATATION_SPEED :=50.0
 
 var start_pos := position.y
 var end_pos := position.y + 0.5
@@ -15,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	rotate_y(deg_to_rad(ROTATION_SPEED * delta))
+	rotate_y(deg_to_rad(RATATION_SPEED * delta))
 
 
 func _on_body_entered(body: Node3D):

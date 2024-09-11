@@ -20,4 +20,5 @@ func _process(delta):
 
 func _on_body_entered(body: Node3D):
 	if body.name == "Player":
+		body.collect_coins()
 		queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dgcdg5o6eywbq"]
+[gd_scene load_steps=21 format=3 uid="uid://dgcdg5o6eywbq"]
 
 [ext_resource type="Texture2D" uid="uid://dg8djeco8jefm" path="res://Texturas/Bricks_01_Orange_1.png" id="1_o1fhf"]
 [ext_resource type="Texture2D" uid="uid://blge04pec7vb6" path="res://Texturas/Bricks_02_Orange_8.png" id="2_41kc6"]
@@ -43,6 +43,8 @@ left_to_right = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txbge"]
 albedo_texture = ExtResource("4_ntr34")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8f2jc"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8l5yu"]
 data = PackedVector3Array(0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -94,6 +96,7 @@ mesh = SubResource("PrismMesh_grupj")
 surface_material_override/0 = SubResource("StandardMaterial3D_txbge")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ramp"]
+physics_material_override = SubResource("PhysicsMaterial_8f2jc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ramp/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_8l5yu")

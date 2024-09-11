@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 
-@onready var coin_label: Label = $coinLabel
+@onready var life_label: Label = $"../../HUD2/lifeContainer/lifeLabel"
 
-func update_coin(amount: int):
-	coin_label.text = "%d" % amount
+func update_life(amount: int):
+	life_label.text = "%d" % amount

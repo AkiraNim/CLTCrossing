@@ -16,6 +16,8 @@ var knockbacked := false
 var life := 3
 var coins := 0
 
+var is_dead := false
+
 func _physics_process(delta):
 	if !knockbacked:
 		handle_input(delta)
@@ -49,19 +51,23 @@ func handle_input(delta) :
 		velocity = input * SPEED * delta
 
 func handle_animations():
-	if is_on_floor():
-		if abs(velocity.x) > 1 or abs(velocity.z) > 1:
-			animator.play("Run", 0.3)
-		else:
-			animator.play("Idle", 0.3)
-	else:
-		animator.play("Jump", 0.3)
+	if !is_dead:
 		
-	if knockbacked:
-		animator.play("Fall", 0.3)
-	if !is_on_floor() and gravity > 2:
-		animator.play("Fall", 0.3)
-	
+		if is_on_floor():
+			if abs(velocity.x) > 1 or abs(velocity.z) > 1:
+				animator.play("Run", 0.3)
+			else:
+				animator.play("Idle", 0.3)
+		else:
+			animator.play("Jump", 0.3)
+			
+		if knockbacked:
+			animator.play("Fall", 0.3)
+		if !is_on_floor() and gravity > 2:
+			animator.play("Fall", 0.3)
+	else:
+		get_parent().get_node("gameOver").visible = true
+		get_tree().paused = true
 	
 func apply_gravity(delta):
 	if !is_on_floor():
@@ -81,13 +87,17 @@ func knockback(impact_poing: Vector3, force:Vector3) -> void:
 	
 	
 func _on_hurtbox_body_entered(body: Node3D) -> void:
+	if life > 1:
+		lost_life()
+	else:
+		is_dead = true
 	var body_collision = (body.global_position - global_position)
 	var force = -body_collision
 	force *= 10.0
 	gravity = -5
 	knockback(body_collision, force)
 	knockbacked = true
-	lost_life()
+	
 	await get_tree().create_timer(0.3).timeout
 	knockbacked = false
 	

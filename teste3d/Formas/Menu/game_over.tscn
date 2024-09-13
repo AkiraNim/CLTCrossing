@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_vj7mt"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmklk"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0r3e"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g484k"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3vok"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vkqrs"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5y7ut"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2d5c8"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_von84"]
 
 [sub_resource type="Theme" id="Theme_lr0hv"]
 default_font_size = 46
@@ -16,10 +16,10 @@ Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_focus_color = Color(0.94902, 0.94902, 0, 1)
 Button/colors/font_hover_color = Color(0.94902, 0.94902, 0, 1)
 Button/colors/font_hover_pressed_color = Color(0, 1, 1, 1)
-Button/styles/focus = SubResource("StyleBoxEmpty_mmklk")
-Button/styles/hover = SubResource("StyleBoxEmpty_g484k")
-Button/styles/normal = SubResource("StyleBoxEmpty_vkqrs")
-Button/styles/pressed = SubResource("StyleBoxEmpty_2d5c8")
+Button/styles/focus = SubResource("StyleBoxEmpty_k0r3e")
+Button/styles/hover = SubResource("StyleBoxEmpty_u3vok")
+Button/styles/normal = SubResource("StyleBoxEmpty_5y7ut")
+Button/styles/pressed = SubResource("StyleBoxEmpty_von84")
 
 [node name="gameOver" type="CanvasLayer"]
 process_mode = 3
@@ -59,7 +59,7 @@ text = "Tentar novamente"
 
 [node name="quitButton" type="Button" parent="ColorRect/menuGameOver"]
 layout_mode = 2
-text = "Sair do jogo"
+text = "Sair"
 
 [connection signal="pressed" from="ColorRect/menuGameOver/retryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="ColorRect/menuGameOver/quitButton" to="." method="_on_quit_button_pressed"]

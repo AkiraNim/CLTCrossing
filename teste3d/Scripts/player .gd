@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 const SPEED = 200.0
 const JUMP_VELOCITY = 10.0
 @onready var  animator = get_node("sophia/AnimationPlayer") as AnimationPlayer
@@ -107,4 +106,5 @@ func collect_coins():
 func lost_life():
 	life-=1
 	life_container.update_life(life)
+	
 	

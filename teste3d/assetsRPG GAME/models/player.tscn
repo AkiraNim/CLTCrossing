@@ -6967,7 +6967,7 @@ libraries = {
 autoplay = "Idle"
 
 [node name="camera_point" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 7.4641, 4.26795)
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8.19586, 4.69043)
 
 [node name="hurtbox" type="Area3D" parent="."]
 collision_mask = 2

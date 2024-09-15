@@ -1,36 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bxithodbbv2wn"]
 
-[sub_resource type="GDScript" id="GDScript_clp3v"]
-script/source = "extends CanvasLayer
-
-@onready var resume_button: Button = $ColorRect2/menuGameOver/resume_button
-@onready var quit_button: Button = $ColorRect2/menuGameOver/quit_button
-
-func _process(delta) :
-	paused()
-
-func _on_resume_button_pressed() -> void:
-	resume()
-
-func _on_quit_button_pressed() -> void:
-	get_tree().quit()
-
-func pause():
-	get_tree().paused = true
-	get_parent().get_node(\"pause_menu\").visible = true
-	
-func resume():
-	get_tree().paused = false
-	get_parent().get_node(\"pause_menu\").visible = false
-	
-func paused():
-	if Input.is_action_just_pressed(\"pause_resume\") and get_tree().paused == false:
-		pause()
-		
-	elif Input.is_action_just_pressed(\"pause_resume\") and get_tree().paused:
-		
-		resume()
-"
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_jkk8d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmklk"]
 
@@ -52,7 +22,7 @@ Button/styles/normal = SubResource("StyleBoxEmpty_vkqrs")
 Button/styles/pressed = SubResource("StyleBoxEmpty_2d5c8")
 
 [node name="pause_menu" type="CanvasLayer"]
-script = SubResource("GDScript_clp3v")
+script = ExtResource("1_jkk8d")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 anchors_preset = 15

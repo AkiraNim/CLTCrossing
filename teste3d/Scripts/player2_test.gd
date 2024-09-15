@@ -14,6 +14,10 @@ var coins := 0
 
 var is_dead := false 
 
+
+
+
+
 @onready var animation_player: AnimationPlayer = $visuals/sophia/AnimationPlayer
 
 @onready var visuals: Node3D = $visuals
@@ -95,11 +99,12 @@ func jump ():
 	if gravity > 0 and is_on_floor():
 		gravity = 0
 		
-func knockback(impact_poing: Vector3, force:Vector3) -> void:
+func knockback(impact_point: Vector3, force:Vector3) -> void:
 	force.y = abs(force.y)
 	velocity = force.limit_length(15.0)
 	
 func _on_hurtbox_body_entered(body: Node3D) -> void:
+	print("acertou")
 	if life > 1:
 		lost_life()
 	else:
@@ -113,7 +118,12 @@ func _on_hurtbox_body_entered(body: Node3D) -> void:
 	
 	await get_tree().create_timer(0.3).timeout
 	knockbacked = false
+	
+func collect_coins():
+	coins +=1
 
+	
+	
 func lost_life():
 	life-=1
 	

@@ -80,12 +80,14 @@ func jump ():
 		gravity = 0
 
 
-func knockback(impact_poing: Vector3, force:Vector3) -> void:
+func knockback(impact_poing: Vector3, force:Vector3):
 	force.y = abs(force.y)
 	velocity = force.limit_length(15.0)
 	
 	
-func _on_hurtbox_body_entered(body: Node3D) -> void:
+
+func _on_hurtbox_body_entered(body):
+	
 	if life > 1:
 		lost_life()
 	else:

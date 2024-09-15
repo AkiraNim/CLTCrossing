@@ -20,6 +20,8 @@ var is_dead := false
 
 @onready var camera_point = $camera_point
 
+
+
 var walking = false
 
 func _ready():
@@ -29,29 +31,27 @@ func _ready():
 
 func _physics_process(delta):
 	
-		
-	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-		visuals.look_at(direction + position)
-		
-		if !walking:
-			walking=true
+	if !knockbacked:
+		var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+			visuals.look_at(direction + position)
 			
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-		
-		if walking:
-			walking=false
+			if !walking:
+				walking=true
+				
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
 			
+			if walking:
+				walking=false
+				
 	jump()
 	
 	handle_animations()
-	
-	move_and_slide()
 	
 	var applied_velocity : Vector3
 	applied_velocity = velocity.lerp(movement_velocity, delta * 10)
@@ -60,10 +60,14 @@ func _physics_process(delta):
 	velocity = applied_velocity
 	
 	apply_gravity(delta)
+	
+	if !is_on_floor():
+		velocity.y -= gravity * delta
+	
+	move_and_slide()
 
 func handle_animations():
 	if !is_dead:
-		
 		if is_on_floor():
 			if abs(velocity.x) > 1 or abs(velocity.z) > 1:
 				animation_player.play("Run", 0.3)
@@ -90,3 +94,26 @@ func jump ():
 		
 	if gravity > 0 and is_on_floor():
 		gravity = 0
+		
+func knockback(impact_poing: Vector3, force:Vector3) -> void:
+	force.y = abs(force.y)
+	velocity = force.limit_length(15.0)
+	
+func _on_hurtbox_body_entered(body: Node3D) -> void:
+	if life > 1:
+		lost_life()
+	else:
+		is_dead = true
+	var body_collision = (body.global_position - global_position)
+	var force = -body_collision
+	force *= 10.0
+	gravity = -5
+	knockback(body_collision, force)
+	knockbacked = true
+	
+	await get_tree().create_timer(0.3).timeout
+	knockbacked = false
+
+func lost_life():
+	life-=1
+	

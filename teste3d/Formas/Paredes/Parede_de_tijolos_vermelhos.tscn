@@ -52,6 +52,7 @@ data = PackedVector3Array(0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [node name="MeshLibrary" type="Node3D"]
 
 [node name="wall_brick_green" type="MeshInstance3D" parent="."]
+layers = 2
 mesh = SubResource("BoxMesh_sdxii")
 surface_material_override/0 = SubResource("StandardMaterial3D_p5b4n")
 
@@ -62,6 +63,7 @@ shape = SubResource("ConcavePolygonShape3D_lg16y")
 
 [node name="wall_brick_red" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17772, 0, 0)
+layers = 2
 mesh = SubResource("BoxMesh_pjpv0")
 surface_material_override/0 = SubResource("StandardMaterial3D_af1pd")
 

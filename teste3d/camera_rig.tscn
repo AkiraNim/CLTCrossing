@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4203g7dbfahl"]
+[gd_scene load_steps=4 format=3 uid="uid://b4203g7dbfahl"]
 
 [ext_resource type="Script" path="res://Scripts/camera_rig.gd" id="1_4dw1s"]
 [ext_resource type="Shader" path="res://assetsRPG GAME/shaders/forground_shader.gdshader" id="2_womgt"]
-[ext_resource type="Shader" path="res://world.gdshader" id="3_rlun2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n3voj"]
 shader = ExtResource("2_womgt")
@@ -10,13 +9,6 @@ shader_parameter/MULTIPLIER = 0.56
 shader_parameter/SCALE = 0.5
 shader_parameter/SOFTNESS = 0.45
 shader_parameter/BASE_OPACITY = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_smvut"]
-render_priority = 0
-shader = ExtResource("3_rlun2")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_goq6t"]
-material = SubResource("ShaderMaterial_smvut")
 
 [node name="CameraRig" type="Node3D"]
 script = ExtResource("1_4dw1s")
@@ -54,8 +46,3 @@ render_target_update_mode = 4
 
 [node name="foreground_camera" type="Camera3D" parent="base_camera/foreground_viewport_container/foreground_viewport"]
 cull_mask = 1047554
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-8.42914e-07, 1.00455e-06, 30, -2.61467, 29.8858, -1.07419e-06, -29.8858, -2.61467, -7.52154e-07, 0.222885, 4.18602, 2.70059)
-layers = 3
-mesh = SubResource("PlaneMesh_goq6t")

@@ -16,7 +16,5 @@ void fragment() {
 	
 	ALBEDO = texture(SCREEN_TEXTURE, vec2(x,y) / VIEWPORT_SIZE).xyz;
 	
-	
-	
 }
 

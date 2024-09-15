@@ -13,7 +13,7 @@
 radius = 0.410933
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_b6eke"]
-height = 1.11405
+height = 1.30184
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_132hf"]
 resource_name = "sophia_material"
@@ -6283,7 +6283,7 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wapsa"]
-size = Vector3(1.56768, 1.68375, 1.44822)
+size = Vector3(2.32185, 1.68375, 2.47814)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_j4lay")
@@ -6973,5 +6973,5 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8.19586
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0118915, 0.895609, 0.0991429)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025282, 0.895609, 0.117512)
 shape = SubResource("BoxShape3D_wapsa")

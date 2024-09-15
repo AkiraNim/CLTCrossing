@@ -9,8 +9,11 @@ const ATTACK_RANGE :=1.3
 @onready var animation_tree: AnimationTree = $BeetlebotSkin/AnimationTree
 @onready var state_machine = animation_tree.get("parameters/playback")
 
+var is_dead:= false
 
 func _process(delta):
+	if is_dead:
+		return
 	velocity = Vector3.ZERO
 	
 	match state_machine.get_current_node():
@@ -37,3 +40,13 @@ func chase_player():
 
 func attack_player():
 	return global_position.distance_to(target.global_position) < ATTACK_RANGE
+
+
+func _on_hurtbox_body_entered(body: Node3D) -> void:
+	if !is_dead:
+		body.gravity = -body.JUMP_VELOCITY
+	is_dead = true
+	$CollisionBody.set_deferred("disabled", true)
+	state_machine.travel("poweroff")
+	await animation_tree.animation_finished
+	queue_free()

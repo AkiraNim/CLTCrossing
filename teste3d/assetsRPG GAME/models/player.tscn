@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://cpc45iqjlvppm"]
+[gd_scene load_steps=30 format=4 uid="uid://cpc45iqjlvppm"]
 
 [ext_resource type="Script" path="res://Scripts/player2_test.gd" id="1_j4lay"]
 [ext_resource type="Texture2D" uid="uid://6jb7dt4d54ck" path="res://actors/models/sophia/model/sophia_diffuse.png" id="2_ca0nv"]
@@ -8,10 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://pcq7xge7vncv" path="res://actors/models/sophia/model/sophia_eye_open_normal.png" id="6_3ivg2"]
 [ext_resource type="Texture2D" uid="uid://d3gigd8y5hjg" path="res://actors/models/sophia/model/sophia_mouth_smile_diffuse.png" id="7_jnh83"]
 [ext_resource type="Texture2D" uid="uid://c36m8cv33f0yi" path="res://actors/models/sophia/model/sophia_mouth_smile_normal.png" id="8_g8hpu"]
-[ext_resource type="Script" path="res://Scripts/life_container.gd" id="9_gddpo"]
-[ext_resource type="Script" path="res://Scripts/coins_container.gd" id="9_otweo"]
-[ext_resource type="PackedScene" uid="uid://b5j3b76hvdtbd" path="res://godot_coin.glb" id="10_b7e2r"]
-[ext_resource type="PackedScene" uid="uid://wqg81t8e4w6" path="res://heartlow-poly.glb" id="10_o3r6s"]
+[ext_resource type="Shader" path="res://world.gdshader" id="9_l2ir2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_la4yh"]
 radius = 0.410933
@@ -6286,83 +6283,15 @@ _data = {
 "WallSlide": SubResource("Animation_mpvua")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1f8fu"]
+render_priority = 0
+shader = ExtResource("9_l2ir2")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k7vtl"]
+material = SubResource("ShaderMaterial_1f8fu")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_wapsa"]
 size = Vector3(2.32185, 1.68375, 2.47814)
-
-[sub_resource type="Animation" id="Animation_waaeh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_4q63w"]
-resource_name = "lifeRotation"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ir7we"]
-_data = {
-"RESET": SubResource("Animation_waaeh"),
-"lifeRotation": SubResource("Animation_4q63w")
-}
-
-[sub_resource type="Animation" id="Animation_2u7bn"]
-length = 0.001
-loop_mode = 1
-
-[sub_resource type="Animation" id="Animation_2rys8"]
-resource_name = "rotate_coin_hud"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.02, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_26sp5"]
-_data = {
-"RESET": SubResource("Animation_2u7bn"),
-"rotate_coin_hud": SubResource("Animation_2rys8")
-}
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_j4lay")
@@ -7048,145 +6977,17 @@ autoplay = "Idle"
 [node name="camera_point" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8.19586, 4.69043)
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="camera_point"]
+transform = Transform3D(-6.55671e-07, 1.13566e-06, 30, 25.9807, 15, -6.39488e-14, -15, 25.9807, -1.31134e-06, 0.222885, 4.0174, -5.02912)
+layers = 1021
+mesh = SubResource("PlaneMesh_k7vtl")
+skeleton = NodePath("../background_viewport_container/background_viewport/background_camera")
+
 [node name="hurtbox" type="Area3D" parent="."]
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hurtbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025282, 0.895609, 0.117512)
 shape = SubResource("BoxShape3D_wapsa")
-
-[node name="HUD1" type="Control" parent="."]
-layout_mode = 3
-anchor_left = 0.774306
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = 117.0
-offset_right = 2.0
-offset_bottom = -426.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="lifeContainer" type="HBoxContainer" parent="HUD1"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -261.0
-offset_right = -2.0
-offset_bottom = 96.0
-grow_horizontal = 0
-script = ExtResource("9_gddpo")
-
-[node name="lifeIndicator" type="SubViewportContainer" parent="HUD1/lifeContainer"]
-custom_minimum_size = Vector2(96, 96)
-layout_mode = 2
-size_flags_horizontal = 0
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="HUD1/lifeContainer/lifeIndicator"]
-own_world_3d = true
-transparent_bg = true
-handle_input_locally = false
-gui_disable_input = true
-size = Vector2i(96, 96)
-render_target_update_mode = 4
-
-[node name="lifeHolder" type="Node3D" parent="HUD1/lifeContainer/lifeIndicator/SubViewport"]
-
-[node name="Sketchfab_Scene" parent="HUD1/lifeContainer/lifeIndicator/SubViewport/lifeHolder" instance=ExtResource("10_o3r6s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.34666, 0)
-
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="HUD1/lifeContainer/lifeIndicator/SubViewport/lifeHolder/Sketchfab_Scene"]
-libraries = {
-"": SubResource("AnimationLibrary_ir7we")
-}
-autoplay = "lifeRotation"
-speed_scale = 0.3
-
-[node name="Camera3D" type="Camera3D" parent="HUD1/lifeContainer/lifeIndicator/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.09751, 11.3428)
-current = true
-fov = 20.0
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="HUD1/lifeContainer/lifeIndicator/SubViewport"]
-transform = Transform3D(0.805773, 0, 0.592225, 0, 1, 0, -0.592225, 0, 0.805773, 0, 0, 0)
-
-[node name="lifeLabel" type="Label" parent="HUD1/lifeContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_outline_color = Color(0.568627, 0.741176, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 64
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HUD2" type="Control" parent="."]
-layout_mode = 3
-anchor_left = 0.769965
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 4.0
-offset_bottom = -543.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="coinsContainer" type="HBoxContainer" parent="HUD2"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -261.0
-offset_bottom = 96.0
-grow_horizontal = 0
-script = ExtResource("9_otweo")
-
-[node name="coinIndicator" type="SubViewportContainer" parent="HUD2/coinsContainer"]
-light_mask = 3
-visibility_layer = 3
-custom_minimum_size = Vector2(96, 96)
-layout_mode = 2
-size_flags_horizontal = 0
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="HUD2/coinsContainer/coinIndicator"]
-own_world_3d = true
-transparent_bg = true
-handle_input_locally = false
-gui_disable_input = true
-size = Vector2i(96, 96)
-render_target_update_mode = 4
-
-[node name="coinHolder" type="Node3D" parent="HUD2/coinsContainer/coinIndicator/SubViewport"]
-
-[node name="godot_coin" parent="HUD2/coinsContainer/coinIndicator/SubViewport/coinHolder" instance=ExtResource("10_b7e2r")]
-
-[node name="anim" type="AnimationPlayer" parent="HUD2/coinsContainer/coinIndicator/SubViewport/coinHolder/godot_coin"]
-libraries = {
-"": SubResource("AnimationLibrary_26sp5")
-}
-autoplay = "rotate_coin_hud"
-speed_scale = 0.3
-
-[node name="Camera3D" type="Camera3D" parent="HUD2/coinsContainer/coinIndicator/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.50081)
-current = true
-fov = 20.0
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="HUD2/coinsContainer/coinIndicator/SubViewport"]
-transform = Transform3D(0.67044, 0, -0.741964, 0, 1, 0, 0.741964, 0, 0.67044, 0, 0, 0)
-
-[node name="coinLabel" type="Label" parent="HUD2/coinsContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_outline_color = Color(0.568627, 0.741176, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 64
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

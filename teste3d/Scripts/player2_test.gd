@@ -8,25 +8,18 @@ var gravity = 0
 var movement_velocity : Vector3
 var rotation_direction : float
 var knockbacked := false
-
 var life := 3
 var coins := 0
-
 var is_dead := false 
-
-
-
-
+var walking = false
 
 @onready var animation_player: AnimationPlayer = $visuals/sophia/AnimationPlayer
-
 @onready var visuals: Node3D = $visuals
-
 @onready var camera_point = $camera_point
+@onready var coins_container: HBoxContainer = $"../CameraRig/HUD/coinsContainer"
+@onready var life_container: HBoxContainer = $"../CameraRig/HUD3/lifeContainer"
 
 
-
-var walking = false
 
 func _ready():
 	GameManager.set_player(self)
@@ -69,6 +62,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	
 	move_and_slide()
+
 
 func handle_animations():
 	if !is_dead:
@@ -121,9 +115,9 @@ func _on_hurtbox_body_entered(body: Node3D) -> void:
 	
 func collect_coins():
 	coins +=1
-
+	coins_container.update_coin(coins)
 	
 	
 func lost_life():
 	life-=1
-	
+	life_container.update_life(life)

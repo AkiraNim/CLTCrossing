@@ -84,8 +84,6 @@ func knockback(impact_poing: Vector3, force:Vector3):
 	force.y = abs(force.y)
 	velocity = force.limit_length(15.0)
 	
-	
-
 func _on_hurtbox_body_entered(body):
 	
 	if life > 1:

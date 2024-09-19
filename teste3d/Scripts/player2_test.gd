@@ -1,10 +1,8 @@
 extends CharacterBody3D
 
-
-
 const SPEED = 3.0
 const JUMP_VELOCITY = 10
-
+var stack = false
 var gravity = 0
 var movement_velocity : Vector3
 var rotation_direction : float
@@ -19,6 +17,8 @@ var walking = false
 @onready var camera_point = $camera_point
 @onready var coins_container: HBoxContainer = $"../CameraRig/HUD/coinsContainer"
 @onready var life_container: HBoxContainer = $"../CameraRig/HUD3/lifeContainer"
+@onready var pause_menu: CanvasLayer = $"../pause_menu"
+
 
 
 
@@ -36,19 +36,17 @@ func _physics_process(delta):
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
 			visuals.look_at(direction + position)
-			
 			if !walking:
 				walking=true
 				
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
-			
 			if walking:
 				walking=false
 				
 	jump()
-	
+	pause_menu.pause_resume()
 	handle_animations()
 	
 	var applied_velocity : Vector3
@@ -59,9 +57,14 @@ func _physics_process(delta):
 	
 	apply_gravity(delta)
 	
+	if is_on_floor():
+			stack = true
+		
 	if !is_on_floor():
 		velocity.y -= gravity * delta
-	
+		if stack:
+			gravity = -JUMP_VELOCITY+5
+			stack= false
 	move_and_slide()
 
 
@@ -89,7 +92,7 @@ func apply_gravity(delta):
 		
 func jump ():
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		gravity = -JUMP_VELOCITY
+		gravity = -JUMP_VELOCITY-5
 		
 	if gravity > 0 and is_on_floor():
 		gravity = 0
@@ -99,7 +102,6 @@ func knockback(impact_point: Vector3, force:Vector3) -> void:
 	velocity = force.limit_length(15.0)
 	
 func _on_hurtbox_body_entered(body: Node3D) -> void:
-	print("acertou")
 	if life > 1:
 		lost_life()
 	else:
@@ -110,7 +112,7 @@ func _on_hurtbox_body_entered(body: Node3D) -> void:
 	gravity = -5
 	knockback(body_collision, force)
 	knockbacked = true
-	
+	stack = false
 	await get_tree().create_timer(0.3).timeout
 	knockbacked = false
 	
@@ -122,3 +124,4 @@ func collect_coins():
 func lost_life():
 	life-=1
 	life_container.update_life(life)
+	

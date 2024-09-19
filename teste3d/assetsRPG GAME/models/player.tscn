@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://pcq7xge7vncv" path="res://actors/models/sophia/model/sophia_eye_open_normal.png" id="6_3ivg2"]
 [ext_resource type="Texture2D" uid="uid://d3gigd8y5hjg" path="res://actors/models/sophia/model/sophia_mouth_smile_diffuse.png" id="7_jnh83"]
 [ext_resource type="Texture2D" uid="uid://c36m8cv33f0yi" path="res://actors/models/sophia/model/sophia_mouth_smile_normal.png" id="8_g8hpu"]
-[ext_resource type="Shader" path="res://world.gdshader" id="9_l2ir2"]
+[ext_resource type="Shader" path="res://assets/shaders/pixelart.gdshader" id="9_l2ir2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_la4yh"]
 radius = 0.410933

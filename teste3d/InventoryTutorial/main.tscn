@@ -1,12 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://dbbj87l5yk8ll"]
+[gd_scene load_steps=24 format=3 uid="uid://dbbj87l5yk8ll"]
 
 [ext_resource type="Script" path="res://InventoryTutorial/main.gd" id="1_7gwkj"]
 [ext_resource type="PackedScene" uid="uid://cncmcjrmt7rx7" path="res://InventoryTutorial/player/player_test.tscn" id="1_fick3"]
 [ext_resource type="PackedScene" uid="uid://c7lwx2o8obigc" path="res://InventoryTutorial/Inventory/inventory.tscn" id="2_itj6t"]
 [ext_resource type="Resource" uid="uid://4f6ei4n1umqh" path="res://InventoryTutorial/test_inv.tres" id="2_q0t02"]
+[ext_resource type="Script" path="res://InventoryTutorial/Inventory/inventory_data_equip.gd" id="4_ny14l"]
 [ext_resource type="Script" path="res://InventoryTutorial/Inventory/inventory_interface.gd" id="4_yyeef"]
 [ext_resource type="PackedScene" uid="uid://dqilpeh4bal8a" path="res://InventoryTutorial/Inventory/slot.tscn" id="6_yh5x2"]
 [ext_resource type="PackedScene" uid="uid://ckeu7h6bwny30" path="res://InventoryTutorial/Interactable/chest.tscn" id="7_byofx"]
+[ext_resource type="PackedScene" uid="uid://dspsslshob2iq" path="res://InventoryTutorial/Inventory/hot_bar_inventory.tscn" id="7_trif5"]
 [ext_resource type="Script" path="res://InventoryTutorial/Inventory/inventory_data.gd" id="8_0dltp"]
 [ext_resource type="Script" path="res://InventoryTutorial/Inventory/slot_data.gd" id="9_vc02m"]
 [ext_resource type="Resource" uid="uid://rnseho1pahua" path="res://InventoryTutorial/Item/Items/blue_book.tres" id="10_mqfku"]
@@ -30,6 +32,10 @@ glow_enabled = true
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_euw2y"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="Resource" id="Resource_gwn5w"]
+script = ExtResource("4_ny14l")
+slot_datas = Array[ExtResource("9_vc02m")]([null, null, null, null, null])
 
 [sub_resource type="Resource" id="Resource_y3t7h"]
 script = ExtResource("9_vc02m")
@@ -67,6 +73,7 @@ shape = SubResource("ConcavePolygonShape3D_euw2y")
 [node name="Player" parent="." instance=ExtResource("1_fick3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.990587, 0)
 inventory_data = ExtResource("2_q0t02")
+equip_inventory_data = SubResource("Resource_gwn5w")
 
 [node name="Ui" type="CanvasLayer" parent="."]
 
@@ -88,6 +95,13 @@ offset_top = 10.0
 offset_right = 50.0
 offset_bottom = 50.0
 
+[node name="EquipInventory" parent="Ui/InventoryInterface" instance=ExtResource("2_itj6t")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 250.0
+offset_right = 50.0
+offset_bottom = 290.0
+
 [node name="ExternalInventory" parent="Ui/InventoryInterface" instance=ExtResource("2_itj6t")]
 visible = false
 layout_mode = 0
@@ -103,6 +117,12 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
+
+[node name="HotBarInventory" parent="Ui" instance=ExtResource("7_trif5")]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 430.0
+offset_bottom = 90.0
 
 [node name="Chest" parent="." instance=ExtResource("7_byofx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)

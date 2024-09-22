@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=3 uid="uid://cva5a56g6g5lt"]
+
+[ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/models/sophia/player.tscn" id="1_n8nx6"]
+[ext_resource type="Texture2D" uid="uid://bjwxs3f2p6tb6" path="res://Texturas/Pattern_02_BlueWhite_1.png" id="1_xbts6"]
+[ext_resource type="PackedScene" uid="uid://ce5rla4e6hqbf" path="res://Formas/Menu/game_over.tscn" id="2_qam8m"]
+[ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://Formas/Menu/pause_menu.tscn" id="3_adn6m"]
+[ext_resource type="MeshLibrary" uid="uid://cev73pdj3xqu8" path="res://Formas/Paredes/Paredes.tres" id="5_tx4og"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yecuh"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_orrfq"]
+sky_material = SubResource("ProceduralSkyMaterial_yecuh")
+
+[sub_resource type="Environment" id="Environment_oa4o7"]
+background_mode = 2
+sky = SubResource("Sky_orrfq")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epd4g"]
+albedo_texture = ExtResource("1_xbts6")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_24a3e"]
+material = SubResource("StandardMaterial3D_epd4g")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m4201"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="ShopHouse1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oa4o7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.551686, -0.831824, -0.0609211, 0.236431, 0.0859239, 0.967842, -0.799839, -0.548348, 0.244072, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("PlaneMesh_24a3e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_m4201")
+
+[node name="Player" parent="." instance=ExtResource("1_n8nx6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.31867, 0, 0.604198)
+collision_layer = 5
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(2, 0, 0, 0, 0.517638, 1.93185, 0, -1.93185, 0.517638, 0, 11.5926, 2)
+
+[node name="gameOver" parent="." instance=ExtResource("2_qam8m")]
+visible = false
+
+[node name="pause_menu" parent="." instance=ExtResource("3_adn6m")]
+process_mode = 3
+visible = false
+
+[node name="Walls" type="GridMap" parent="."]
+mesh_library = ExtResource("5_tx4og")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65531, 4, 2, 4, 4, 2, 4, 65531, 2, 65531, 65531, 2, 65530, 5, 2, 65530, 4, 2, 65530, 3, 2, 65530, 2, 2, 65530, 1, 2, 65530, 0, 2, 65530, 65535, 2, 65530, 65534, 2, 65530, 65533, 2, 65530, 65532, 2, 65530, 65531, 2, 65530, 65530, 2, 65531, 65530, 2, 65532, 65530, 2, 65533, 65530, 2, 65534, 65530, 2, 1, 65530, 2, 2, 65530, 2, 3, 65530, 2, 4, 65530, 2, 5, 65530, 2, 5, 65531, 2, 5, 65532, 2, 5, 65533, 2, 5, 65534, 2, 5, 65535, 2, 5, 0, 2, 5, 1, 2, 5, 2, 2, 5, 3, 2, 5, 4, 2, 5, 5, 2, 4, 5, 2, 3, 5, 2, 2, 5, 2, 1, 5, 2, 0, 5, 2, 65535, 5, 2, 65534, 5, 2, 65533, 5, 2, 65532, 5, 2, 65531, 5, 2, 131066, 5, 2, 131066, 4, 2, 131066, 3, 2, 131067, 4, 2, 131067, 5, 2, 131068, 5, 2, 131069, 5, 2, 131070, 5, 2, 131071, 5, 2, 65536, 5, 2, 65537, 5, 2, 65538, 5, 2, 65539, 5, 2, 65540, 5, 2, 65541, 5, 2, 65541, 4, 2, 65541, 3, 2, 65541, 2, 2, 65541, 1, 2, 65541, 0, 2, 65541, 65535, 2, 65541, 65534, 2, 65541, 65533, 2, 65541, 65532, 2, 65541, 65531, 2, 65541, 65530, 2, 65540, 65530, 2, 65539, 65530, 2, 65538, 65530, 2, 65537, 65530, 2, 65540, 65531, 2, 65540, 4, 2, 131067, 65531, 2, 131066, 2, 2, 131066, 1, 2, 131066, 0, 2, 131066, 65535, 2, 131066, 65534, 2, 131066, 65533, 2, 131066, 65532, 2, 131066, 65531, 2, 131066, 65530, 2, 131067, 65530, 2, 131068, 65530, 2, 131069, 65530, 2, 131070, 65530, 2)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)

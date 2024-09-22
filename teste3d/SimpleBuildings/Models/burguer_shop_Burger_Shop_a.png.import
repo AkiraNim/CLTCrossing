@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr68n8yylgwdo"
+uid="uid://8a74wr3pmpsg"
 path.s3tc="res://.godot/imported/burguer_shop_Burger_Shop_a.png-07985252fc573cae782db451999e669b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "23cd769491567bbe77769fe9497efc6d"
 }
 
 [deps]

@@ -1,10 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://cva5a56g6g5lt"]
+[gd_scene load_steps=20 format=3 uid="uid://cva5a56g6g5lt"]
 
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/models/sophia/player.tscn" id="1_n8nx6"]
 [ext_resource type="Texture2D" uid="uid://bjwxs3f2p6tb6" path="res://Texturas/Pattern_02_BlueWhite_1.png" id="1_xbts6"]
 [ext_resource type="PackedScene" uid="uid://ce5rla4e6hqbf" path="res://Formas/Menu/game_over.tscn" id="2_qam8m"]
 [ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://Formas/Menu/pause_menu.tscn" id="3_adn6m"]
+[ext_resource type="Shader" path="res://assets/shaders/pixelart.gdshader" id="3_mic82"]
 [ext_resource type="MeshLibrary" uid="uid://cev73pdj3xqu8" path="res://Formas/Paredes/Paredes.tres" id="5_tx4og"]
+[ext_resource type="PackedScene" uid="uid://fxp0mfswfat8" path="res://assets/mobilia/mobiliaScenes/cashier_table.tscn" id="6_bckcx"]
+[ext_resource type="PackedScene" uid="uid://blxiq38o3y2tx" path="res://assets/mobilia/mobiliaScenes/cash_register.tscn" id="7_dgr0e"]
+[ext_resource type="PackedScene" uid="uid://d2g1val25j6c3" path="res://assets/mobilia/mobiliaScenes/industrial_shelve.tscn" id="8_2lyi3"]
+[ext_resource type="Script" path="res://scenes/ScriptsScenes/collision_door.gd" id="9_jocj1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yecuh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,8 +30,18 @@ albedo_texture = ExtResource("1_xbts6")
 [sub_resource type="PlaneMesh" id="PlaneMesh_24a3e"]
 material = SubResource("StandardMaterial3D_epd4g")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m4201"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ua6mg"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxpjv"]
+render_priority = 0
+shader = ExtResource("3_mic82")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2drvw"]
+material = SubResource("ShaderMaterial_bxpjv")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ea07v"]
+size = Vector3(2.89001, 3.65674, 0.737427)
 
 [node name="ShopHouse1" type="Node3D"]
 
@@ -38,13 +53,13 @@ transform = Transform3D(0.551686, -0.831824, -0.0609211, 0.236431, 0.0859239, 0.
 shadow_enabled = true
 
 [node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 mesh = SubResource("PlaneMesh_24a3e")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_m4201")
+shape = SubResource("ConcavePolygonShape3D_ua6mg")
 
 [node name="Player" parent="." instance=ExtResource("1_n8nx6")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.31867, 0, 0.604198)
@@ -52,6 +67,10 @@ collision_layer = 5
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(2, 0, 0, 0, 0.517638, 1.93185, 0, -1.93185, 0.517638, 0, 11.5926, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Camera3D"]
+transform = Transform3D(30, 0, 0, 0, 7.76458, -28.9778, 0, 28.9778, 7.76458, 0, 12.0775, -5.17688)
+mesh = SubResource("PlaneMesh_2drvw")
 
 [node name="gameOver" parent="." instance=ExtResource("2_qam8m")]
 visible = false
@@ -67,3 +86,40 @@ data = {
 "cells": PackedInt32Array(65531, 4, 2, 4, 4, 2, 4, 65531, 2, 65531, 65531, 2, 65530, 5, 2, 65530, 4, 2, 65530, 3, 2, 65530, 2, 2, 65530, 1, 2, 65530, 0, 2, 65530, 65535, 2, 65530, 65534, 2, 65530, 65533, 2, 65530, 65532, 2, 65530, 65531, 2, 65530, 65530, 2, 65531, 65530, 2, 65532, 65530, 2, 65533, 65530, 2, 65534, 65530, 2, 1, 65530, 2, 2, 65530, 2, 3, 65530, 2, 4, 65530, 2, 5, 65530, 2, 5, 65531, 2, 5, 65532, 2, 5, 65533, 2, 5, 65534, 2, 5, 65535, 2, 5, 0, 2, 5, 1, 2, 5, 2, 2, 5, 3, 2, 5, 4, 2, 5, 5, 2, 4, 5, 2, 3, 5, 2, 2, 5, 2, 1, 5, 2, 0, 5, 2, 65535, 5, 2, 65534, 5, 2, 65533, 5, 2, 65532, 5, 2, 65531, 5, 2, 131066, 5, 2, 131066, 4, 2, 131066, 3, 2, 131067, 4, 2, 131067, 5, 2, 131068, 5, 2, 131069, 5, 2, 131070, 5, 2, 131071, 5, 2, 65536, 5, 2, 65537, 5, 2, 65538, 5, 2, 65539, 5, 2, 65540, 5, 2, 65541, 5, 2, 65541, 4, 2, 65541, 3, 2, 65541, 2, 2, 65541, 1, 2, 65541, 0, 2, 65541, 65535, 2, 65541, 65534, 2, 65541, 65533, 2, 65541, 65532, 2, 65541, 65531, 2, 65541, 65530, 2, 65540, 65530, 2, 65539, 65530, 2, 65538, 65530, 2, 65537, 65530, 2, 65540, 65531, 2, 65540, 4, 2, 131067, 65531, 2, 131066, 2, 2, 131066, 1, 2, 131066, 0, 2, 131066, 65535, 2, 131066, 65534, 2, 131066, 65533, 2, 131066, 65532, 2, 131066, 65531, 2, 131066, 65530, 2, 131067, 65530, 2, 131068, 65530, 2, 131069, 65530, 2, 131070, 65530, 2)
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
+
+[node name="cashierTable" parent="." instance=ExtResource("6_bckcx")]
+transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -2.9389, 0, 0.214484)
+
+[node name="CashRegister" parent="cashierTable" instance=ExtResource("7_dgr0e")]
+transform = Transform3D(0.205212, 0, 0.563815, 0, 0.6, 0, -0.563815, 0, 0.205212, -2.0598e-08, 0.904958, 0.235613)
+
+[node name="IndustrialShelves" type="Node3D" parent="."]
+
+[node name="IndustrialShelve" parent="IndustrialShelves" instance=ExtResource("8_2lyi3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.60016, 0, -1.81582)
+
+[node name="IndustrialShelve5" parent="IndustrialShelves" instance=ExtResource("8_2lyi3")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.04188, 0, 4.98417)
+
+[node name="IndustrialShelve6" parent="IndustrialShelves" instance=ExtResource("8_2lyi3")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.1806, 0, 4.98417)
+
+[node name="IndustrialShelve2" parent="IndustrialShelves" instance=ExtResource("8_2lyi3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.60016, 0, 1.05031)
+
+[node name="IndustrialShelve3" parent="IndustrialShelves" instance=ExtResource("8_2lyi3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.43734, 0, -1.81582)
+
+[node name="IndustrialShelve4" parent="IndustrialShelves" instance=ExtResource("8_2lyi3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.43734, 0, 1.85387)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionDoor" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.219543, 1.32837, -5.07133)
+shape = SubResource("BoxShape3D_ea07v")
+script = ExtResource("9_jocj1")
+
+[connection signal="body_entered" from="Area3D" to="Area3D/CollisionDoor" method="_on_area_3d_body_entered"]

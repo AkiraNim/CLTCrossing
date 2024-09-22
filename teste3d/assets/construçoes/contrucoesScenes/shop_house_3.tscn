@@ -53,21 +53,21 @@ size = Vector3(2.52332, 2.19678, 5.7251)
 
 [node name="shop_house_3" type="Node3D" parent="."]
 
-[node name="shop_classic_mesh" type="MeshInstance3D" parent="shop_house_3"]
+[node name="shop_classic_mesh2" type="MeshInstance3D" parent="shop_house_3"]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_qskhf")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="shop_house_3/shop_classic_mesh"]
+[node name="StaticBody3D" type="StaticBody3D" parent="shop_house_3/shop_classic_mesh2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="shop_house_3/shop_classic_mesh/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shop_house_3/shop_classic_mesh2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_di82c")
 
-[node name="Area3D" type="Area3D" parent="shop_house_3/shop_classic_mesh"]
+[node name="Area3D" type="Area3D" parent="shop_house_3/shop_classic_mesh2"]
 
-[node name="CollisionShopHouse" type="CollisionShape3D" parent="shop_house_3/shop_classic_mesh/Area3D"]
+[node name="CollisionShopHouse" type="CollisionShape3D" parent="shop_house_3/shop_classic_mesh2/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.15152, 0.138428, -2.36255)
 shape = SubResource("BoxShape3D_qgjf3")
 script = ExtResource("2_h0oxq")
 
-[connection signal="body_entered" from="shop_house_3/shop_classic_mesh/Area3D" to="shop_house_3/shop_classic_mesh/Area3D/CollisionShopHouse" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="shop_house_3/shop_classic_mesh2/Area3D" to="shop_house_3/shop_classic_mesh2/Area3D/CollisionShopHouse" method="_on_area_3d_body_entered"]

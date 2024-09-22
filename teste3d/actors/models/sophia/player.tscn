@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://cpc45iqjlvppm"]
+[gd_scene load_steps=30 format=4 uid="uid://cpc45iqjlvppm"]
 
 [ext_resource type="Script" path="res://Scripts/player2_test.gd" id="1_j4lay"]
 [ext_resource type="Texture2D" uid="uid://6jb7dt4d54ck" path="res://actors/models/sophia/model/sophia_diffuse.png" id="2_ca0nv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://pcq7xge7vncv" path="res://actors/models/sophia/model/sophia_eye_open_normal.png" id="6_3ivg2"]
 [ext_resource type="Texture2D" uid="uid://d3gigd8y5hjg" path="res://actors/models/sophia/model/sophia_mouth_smile_diffuse.png" id="7_jnh83"]
 [ext_resource type="Texture2D" uid="uid://c36m8cv33f0yi" path="res://actors/models/sophia/model/sophia_mouth_smile_normal.png" id="8_g8hpu"]
+[ext_resource type="Shader" path="res://assets/shaders/pixelart.gdshader" id="9_ct4x8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_la4yh"]
 radius = 0.400776
@@ -6282,6 +6283,13 @@ _data = {
 "WallSlide": SubResource("Animation_mpvua")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f6ytl"]
+render_priority = 0
+shader = ExtResource("9_ct4x8")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tsxfu"]
+material = SubResource("ShaderMaterial_f6ytl")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_wapsa"]
 size = Vector3(1.56768, 1.68375, 1.44822)
 
@@ -6967,7 +6975,11 @@ libraries = {
 autoplay = "Idle"
 
 [node name="camera_point" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 4.86603, 2.76795)
+transform = Transform3D(1, 0, 0, 0, 0.846843, 0.531842, 0, -0.531842, 0.846843, 0, 8.76179, 6.4877)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="camera_point"]
+transform = Transform3D(30, 0, 0, 0, 15, -25.9808, 0, 25.9808, 15, 0, 15.3, -9.87307)
+mesh = SubResource("PlaneMesh_tsxfu")
 
 [node name="hurtbox" type="Area3D" parent="."]
 collision_mask = 2

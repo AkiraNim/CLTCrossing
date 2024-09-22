@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwd2dvvkk4xur"]
+
+[ext_resource type="PackedScene" uid="uid://d2g1val25j6c3" path="res://assets/mobilia/mobiliaScenes/industrial_shelve.tscn" id="1_u4ofk"]
+[ext_resource type="PackedScene" uid="uid://gvvevl0l86s0" path="res://assets/mobilia/mobiliaScenes/fride_and_cage.tscn" id="2_gygty"]
+[ext_resource type="PackedScene" uid="uid://8r6u27n5ewjq" path="res://assets/mobilia/mobiliaScenes/desktop_table.tscn" id="3_cpk7m"]
+[ext_resource type="PackedScene" uid="uid://blxiq38o3y2tx" path="res://assets/mobilia/mobiliaScenes/cash_register.tscn" id="4_85578"]
+[ext_resource type="PackedScene" uid="uid://fxp0mfswfat8" path="res://assets/mobilia/mobiliaScenes/cashier_table.tscn" id="5_cmv8k"]
+[ext_resource type="PackedScene" uid="uid://cir3nvbhjs85d" path="res://assets/mobilia/mobiliaScenes/sala_de_jantar.tscn" id="6_fv6dh"]
+[ext_resource type="PackedScene" uid="uid://b3ln0ocr4n86y" path="res://assets/mobilia/mobiliaScenes/table_and_chair.tscn" id="7_ge4aq"]
+[ext_resource type="PackedScene" uid="uid://bkccuvdhow0cd" path="res://assets/mobilia/mobiliaScenes/freezer.tscn" id="8_aqvhd"]
+
+[node name="Furniture" type="Node3D"]
+
+[node name="IndustrialShelve" parent="." instance=ExtResource("1_u4ofk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5799, 0, 0)
+
+[node name="FrideAndCage" parent="." instance=ExtResource("2_gygty")]
+
+[node name="DesktopTable" parent="." instance=ExtResource("3_cpk7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="CashRegister" parent="." instance=ExtResource("4_85578")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="cashierTable" parent="." instance=ExtResource("5_cmv8k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="salaDeJantar" parent="." instance=ExtResource("6_fv6dh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+
+[node name="TableAndChair" parent="." instance=ExtResource("7_ge4aq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
+
+[node name="Freezer" parent="." instance=ExtResource("8_aqvhd")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 16.8613, 0, 11.0159)

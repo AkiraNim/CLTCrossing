@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://v41a7mjdtp6p"]
+
+[ext_resource type="PackedScene" uid="uid://cnjwys1bvea8a" path="res://GLB format/fence-corner.glb" id="1_7ck2h"]
+[ext_resource type="PackedScene" uid="uid://chytptsegueo1" path="res://GLB format/fence-straight.glb" id="1_rcbjd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hv23t"]
+size = Vector3(1, 0.540527, 1.00366)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dcyh2"]
+size = Vector3(1, 0.540527, 0.233887)
+
+[node name="fence_wooden" type="Node3D"]
+
+[node name="fence-corner2" parent="." instance=ExtResource("1_7ck2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19974, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="fence-corner2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence-corner2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229736, -0.00183105)
+shape = SubResource("BoxShape3D_hv23t")
+
+[node name="fence-straight2" parent="." instance=ExtResource("1_rcbjd")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="fence-straight2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence-straight2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.229736, 0.383057)
+shape = SubResource("BoxShape3D_dcyh2")

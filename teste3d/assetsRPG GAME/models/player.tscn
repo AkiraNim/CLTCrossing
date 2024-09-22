@@ -6975,7 +6975,7 @@ libraries = {
 autoplay = "Idle"
 
 [node name="camera_point" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8.19586, 4.69043)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707106, 0, -0.707106, 0.707107, 0, 12.4385, 6.10464)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="camera_point"]
 transform = Transform3D(-6.55671e-07, 1.13566e-06, 30, 25.9807, 15, -6.39488e-14, -15, 25.9807, -1.31134e-06, 0.222885, 4.0174, -5.02912)

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv7iwhg7msbrw"]
+
+[ext_resource type="PackedScene" uid="uid://ckuwvtj1xxt0l" path="res://SimpleBuildings/Models/burguer_shop.glb" id="1_onlq2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qfd2c"]
+size = Vector3(0.0256042, 0.165863, 0.0185299)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2jqg"]
+size = Vector3(0.113373, 0.0725098, 0.0395403)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oqoei"]
+size = Vector3(0.137833, 0.13678, 0.176729)
+
+[node name="BurguerShop" type="Node3D"]
+
+[node name="burguer_shop" parent="." instance=ExtResource("1_onlq2")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="burguer_shop"]
+
+[node name="collision_banner" type="CollisionShape3D" parent="burguer_shop/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00050354, 0.0664215, 0.057847)
+shape = SubResource("BoxShape3D_qfd2c")
+
+[node name="collision_drive_trhu" type="CollisionShape3D" parent="burguer_shop/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0164948, 0.0272217, -0.0833154)
+shape = SubResource("BoxShape3D_t2jqg")
+
+[node name="collision_burguer_shop" type="CollisionShape3D" parent="burguer_shop/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000526428, 0.0428162, -0.205085)
+shape = SubResource("BoxShape3D_oqoei")

@@ -1,0 +1,6 @@
+Classe Inventory é responsável por mostrar o inventario do player nela está contida o seguinte script:
+
+inventory.gd: Este script gerencia a interface visual do inventário, criando e populando slots de itens dentro 
+de um contêiner de grade. Ele conecta sinais para garantir que a interface reaja às mudanças nos dados do inventário, 
+permitindo que os slots sejam atualizados quando o estado do inventário muda. A função populate_item_grid é responsável 
+por limpar e repopular o grid com slots com base nos dados atuais do inventário.

@@ -1,0 +1,6 @@
+Classe Slot é responsável por representar os espaços de inventário, nela está contida o script:
+
+slot.gd: Este script define a classe Slot, que representa um espaço no inventário onde um item pode ser exibido. 
+A função set_slot_data() atualiza a textura, o tooltip, e a quantidade do item no slot com base nos dados 
+fornecidos. A função _on_gui_input() detecta cliques no slot e emite um sinal indicando qual botão do mouse foi 
+clicado, permitindo que outras partes do código respondam a essa interação.

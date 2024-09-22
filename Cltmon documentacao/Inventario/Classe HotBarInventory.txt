@@ -1,0 +1,8 @@
+Classe Hot Bar Inventory é responsável por mostrar alguns
+itens do inventário sem precisar abri-lo nele está contido o seguinte script:
+
+hot_bar_inventory.gd: Este script gerencia a barra de atalhos do inventário, 
+que permite ao jogador usar itens rapidamente pressionando teclas específicas (de 1 a 7). 
+Ele conecta sinais para garantir que a barra de atalhos seja atualizada quando os dados do inventário mudam 
+e lida com a entrada do teclado para emitir eventos ao usar itens da barra. A função populate_hot_bar é responsável 
+por limpar e repopular os slots na barra com base nos dados do inventário.

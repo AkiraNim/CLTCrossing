@@ -1,0 +1,8 @@
+
+Classe Interactable consiste de elementos interagiveis no cenario nele está contido:
+
+chest.gd: Esse script define a classe Chest, que representa um baú no mundo do jogo. 
+Ele possui um sinal que permite que a interação do jogador com o baú acione a abertura 
+ou fechamento do inventário associado a ele. A função player_interact é chamada quando o 
+jogador interage com o baú, emitindo o sinal toggle_inventory para notificar outras partes 
+do jogo sobre essa interação.

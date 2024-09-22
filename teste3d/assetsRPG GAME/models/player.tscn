@@ -14,7 +14,7 @@
 radius = 0.410933
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_b6eke"]
-height = 1.30184
+height = 1.02089
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_132hf"]
 resource_name = "sophia_material"

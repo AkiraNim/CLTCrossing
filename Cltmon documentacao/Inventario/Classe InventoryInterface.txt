@@ -1,0 +1,5 @@
+Classe InventoryInterface consiste em gerenciar a interface do inventário nela está contida o script:
+
+inventory_interface.gd: Este script gerencia a interface do inventário, permitindo interações complexas como agarrar, 
+soltar e usar itens. Ele conecta os inventários do jogador, de equipamentos e externos, e controla a lógica visual 
+e de entrada do jogador ao interagir com os slots do inventário.

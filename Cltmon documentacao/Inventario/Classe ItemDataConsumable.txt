@@ -1,0 +1,6 @@
+Classe ItemDataConsumable é responsável por itens consumiveis pelo jogador, nela está contido o script:
+
+item_data_consumable.gd: Este script define a classe ItemDataConsumable, que é voltada para itens consumíveis, 
+como poções de cura. A variável heal_value representa o quanto o item cura, e o método use() aplica esse valor 
+de cura a um alvo especificado. A função heal() do alvo é chamada para efetuar a cura, assumindo que o alvo 
+possui esse método implementado.

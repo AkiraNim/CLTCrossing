@@ -1,0 +1,6 @@
+Classe ItemData é responsável por dar caracteristicas para um item de um inventario, nela está contido o script:
+
+item_data.gd: Este script define a classe base ItemData, que fornece as propriedades fundamentais para um item 
+de inventário, como nome, descrição, se pode ser empilhado, e sua textura. A função use() é um placeholder que 
+pode ser sobrescrita em subclasses, como ItemDataConsumable, para definir comportamentos específicos quando o 
+item é usado.

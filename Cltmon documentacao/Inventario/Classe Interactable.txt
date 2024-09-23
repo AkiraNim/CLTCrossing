@@ -1,5 +1,5 @@
 
-Classe Interactable consiste de elementos interagiveis no cenario nele está contido:
+Classe Interactable consiste de elementos interagiveis no cenario nela está contida o script:
 
 chest.gd: Esse script define a classe Chest, que representa um baú no mundo do jogo. 
 Ele possui um sinal que permite que a interação do jogador com o baú acione a abertura 

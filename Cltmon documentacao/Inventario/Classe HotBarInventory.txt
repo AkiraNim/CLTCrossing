@@ -1,5 +1,5 @@
 Classe Hot Bar Inventory é responsável por mostrar alguns
-itens do inventário sem precisar abri-lo nele está contido o seguinte script:
+itens do inventário sem precisar abri-lo nela está contida o seguinte script:
 
 hot_bar_inventory.gd: Este script gerencia a barra de atalhos do inventário, 
 que permite ao jogador usar itens rapidamente pressionando teclas específicas (de 1 a 7). 

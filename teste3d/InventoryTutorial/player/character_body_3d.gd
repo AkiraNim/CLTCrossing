@@ -58,6 +58,7 @@ func _physics_process(delta: float) -> void:
  
 func interact() -> void:
 	if interact_ray.is_colliding():
+		print("Jilson")
 		interact_ray.get_collider().player_interact()
 		
 func get_drop_position() -> Vector3:

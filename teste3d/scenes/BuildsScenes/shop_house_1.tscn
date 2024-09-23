@@ -1,9 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://cva5a56g6g5lt"]
+[gd_scene load_steps=18 format=3 uid="uid://cva5a56g6g5lt"]
 
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/models/sophia/player.tscn" id="1_n8nx6"]
 [ext_resource type="Texture2D" uid="uid://bjwxs3f2p6tb6" path="res://Texturas/Pattern_02_BlueWhite_1.png" id="1_xbts6"]
-[ext_resource type="PackedScene" uid="uid://ce5rla4e6hqbf" path="res://Formas/Menu/game_over.tscn" id="2_qam8m"]
-[ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://Formas/Menu/pause_menu.tscn" id="3_adn6m"]
 [ext_resource type="Shader" path="res://assets/shaders/pixelart.gdshader" id="3_mic82"]
 [ext_resource type="MeshLibrary" uid="uid://cev73pdj3xqu8" path="res://Formas/Paredes/Paredes.tres" id="5_tx4og"]
 [ext_resource type="PackedScene" uid="uid://fxp0mfswfat8" path="res://assets/mobilia/mobiliaScenes/cashier_table.tscn" id="6_bckcx"]
@@ -71,13 +69,6 @@ transform = Transform3D(2, 0, 0, 0, 0.517638, 1.93185, 0, -1.93185, 0.517638, 0,
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Camera3D"]
 transform = Transform3D(30, 0, 0, 0, 7.76458, -28.9778, 0, 28.9778, 7.76458, 0, 12.0775, -5.17688)
 mesh = SubResource("PlaneMesh_2drvw")
-
-[node name="gameOver" parent="." instance=ExtResource("2_qam8m")]
-visible = false
-
-[node name="pause_menu" parent="." instance=ExtResource("3_adn6m")]
-process_mode = 3
-visible = false
 
 [node name="Walls" type="GridMap" parent="."]
 mesh_library = ExtResource("5_tx4og")

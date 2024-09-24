@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_jkk8d"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmklk"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6ql6"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g484k"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qpx6f"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vkqrs"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d057i"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2d5c8"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1vuh2"]
 
 [sub_resource type="Theme" id="Theme_vvw41"]
 default_font_size = 46
@@ -16,10 +16,10 @@ Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_focus_color = Color(0.94902, 0.94902, 0, 1)
 Button/colors/font_hover_color = Color(0.94902, 0.94902, 0, 1)
 Button/colors/font_hover_pressed_color = Color(0, 1, 1, 1)
-Button/styles/focus = SubResource("StyleBoxEmpty_mmklk")
-Button/styles/hover = SubResource("StyleBoxEmpty_g484k")
-Button/styles/normal = SubResource("StyleBoxEmpty_vkqrs")
-Button/styles/pressed = SubResource("StyleBoxEmpty_2d5c8")
+Button/styles/focus = SubResource("StyleBoxEmpty_j6ql6")
+Button/styles/hover = SubResource("StyleBoxEmpty_qpx6f")
+Button/styles/normal = SubResource("StyleBoxEmpty_d057i")
+Button/styles/pressed = SubResource("StyleBoxEmpty_1vuh2")
 
 [node name="pause_menu" type="CanvasLayer"]
 script = ExtResource("1_jkk8d")

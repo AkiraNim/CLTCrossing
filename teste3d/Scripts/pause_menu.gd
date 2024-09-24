@@ -11,6 +11,7 @@ func pause_resume():
 		resume()
 	
 func _on_resume_button_pressed() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	resume()
 	
 

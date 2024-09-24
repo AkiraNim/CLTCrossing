@@ -20,6 +20,7 @@ var walking = false
 @onready var pause_menu: CanvasLayer = $pause_menu
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var label: Label = $RayCast3D/Label
+@onready var background: ColorRect = $RayCast3D/Background
 
 
 
@@ -84,8 +85,10 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if ray_cast_3d.is_colliding():
+		label.show()
 		label.text = "Is colliding"
 	else:
+		label.hide()
 		label.text = ""
 
 func _unhandled_input(event: InputEvent) -> void:

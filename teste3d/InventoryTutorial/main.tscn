@@ -46,10 +46,10 @@ quantity = 1
 script = ExtResource("8_0dltp")
 slot_datas = Array[ExtResource("9_vc02m")]([SubResource("Resource_y3t7h"), null, null, null, null])
 
-[sub_resource type="Resource" id="Resource_qvvxr"]
+[sub_resource type="Resource" id="Resource_w7qch"]
 script = ExtResource("9_vc02m")
 item_data = ExtResource("12_j7dsw")
-quantity = 5
+quantity = 1
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7gwkj")
@@ -130,7 +130,7 @@ inventory_data = SubResource("Resource_vq4vq")
 
 [node name="PickUp" parent="." instance=ExtResource("11_156pc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520367, 1.47155, 2.10618)
-slot_data = SubResource("Resource_qvvxr")
+slot_data = SubResource("Resource_w7qch")
 
 [connection signal="drop_slot_data" from="Ui/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="Ui/InventoryInterface" to="Ui/InventoryInterface" method="_on_gui_input"]

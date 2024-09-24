@@ -1,9 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://bidlveeif4da2"]
+[gd_scene load_steps=12 format=3 uid="uid://bidlveeif4da2"]
 
-[ext_resource type="Texture2D" uid="uid://cbx41us1xmmvl" path="res://assetsRPG GAME/textures/Dark/texture_01.png" id="1_ei2vy"]
-[ext_resource type="Texture2D" uid="uid://d4gyabfm3wt38" path="res://assetsRPG GAME/textures/Green/texture_01.png" id="2_nbm1e"]
-[ext_resource type="Texture2D" uid="uid://bijvu7qkv1n21" path="res://assetsRPG GAME/textures/Orange/texture_01.png" id="2_prr0v"]
-[ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://assetsRPG GAME/models/player.tscn" id="3_t3x14"]
+[ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/models/sophia/player.tscn" id="3_t3x14"]
 [ext_resource type="PackedScene" uid="uid://b4203g7dbfahl" path="res://assets/camera/camera_rig.tscn" id="4_h4cqy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6n0o5"]
@@ -20,22 +17,19 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4lj0w"]
-albedo_texture = ExtResource("1_ei2vy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aukdd"]
-albedo_texture = ExtResource("2_nbm1e")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_roo5s"]
-albedo_texture = ExtResource("2_nbm1e")
+albedo_color = Color(1, 0, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23mfc"]
-albedo_texture = ExtResource("2_nbm1e")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2u6jt"]
-albedo_texture = ExtResource("2_prr0v")
+albedo_color = Color(0, 1, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcfvt"]
-albedo_texture = ExtResource("2_prr0v")
+albedo_color = Color(0, 1, 1, 1)
 
 [node name="world2 test" type="Node3D"]
 

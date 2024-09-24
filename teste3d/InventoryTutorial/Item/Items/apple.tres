@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://InventoryTutorial/Item/item_data.gd" id="1_qh0wj"]
 [ext_resource type="Texture2D" uid="uid://dn1inlnruiple" path="res://InventoryTutorial/Item/#1 - Transparent Icons.png" id="2_yr1vy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvvmu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmghq"]
 atlas = ExtResource("2_yr1vy")
 region = Rect2(0, 448, 32, 32)
 
@@ -12,4 +12,4 @@ script = ExtResource("1_qh0wj")
 name = "Apple"
 description = "A tasty Apple"
 stackable = true
-texture = SubResource("AtlasTexture_kvvmu")
+texture = SubResource("AtlasTexture_dmghq")

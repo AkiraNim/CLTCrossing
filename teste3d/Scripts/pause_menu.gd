@@ -5,6 +5,7 @@ extends CanvasLayer
 
 func pause_resume():
 	if Input.is_action_just_pressed("pause_resume") and !get_tree().paused:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		pause()
 	elif Input.is_action_just_pressed("pause_resume") and get_tree().paused:
 		resume()

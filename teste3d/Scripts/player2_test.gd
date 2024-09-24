@@ -18,11 +18,16 @@ var walking = false
 @onready var coins_container: HBoxContainer = $"../CameraRig/HUD/coinsContainer"
 @onready var life_container: HBoxContainer = $"../CameraRig/HUD3/lifeContainer"
 @onready var pause_menu: CanvasLayer = $pause_menu
+@onready var ray_cast_3d: RayCast3D = $RayCast3D
+@onready var label: Label = $RayCast3D/Label
+
+
 
 func _ready():
 	GameManager.set_player(self)
 	animation_player.set_blend_time("Idle", "Run", 0.2)
 	animation_player.set_blend_time("Run", "Idle", 0.2)
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta):
 
@@ -77,7 +82,16 @@ func _physics_process(delta):
 			gravity = -JUMP_VELOCITY+5
 			stack= false
 	move_and_slide()
+	
+	if ray_cast_3d.is_colliding():
+		label.text = "Is colliding"
+	else:
+		label.text = ""
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		rotate_y(-event.relative.x * .002)
+		
 func handle_animations():
 	if is_on_floor():
 		if abs(velocity.x) > 1 or abs(velocity.z) > 1:

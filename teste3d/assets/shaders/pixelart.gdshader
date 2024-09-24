@@ -1,6 +1,6 @@
 shader_type spatial;
 
-const int pixel_size = 2;
+const int pixel_size = 3;
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear;
 
 void vertex() {

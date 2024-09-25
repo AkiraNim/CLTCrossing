@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=4 uid="uid://dv7iwhg7msbrw"]
+[gd_scene load_steps=17 format=4 uid="uid://dv7iwhg7msbrw"]
 
-[ext_resource type="Texture2D" uid="uid://dr68n8yylgwdo" path="res://SimpleBuildings/Models/burguer_shop_Burger_Shop_a.png" id="1_04jg4"]
+[ext_resource type="Texture2D" uid="uid://8a74wr3pmpsg" path="res://SimpleBuildings/Models/burguer_shop_Burger_Shop_a.png" id="1_04jg4"]
 [ext_resource type="Script" path="res://assets/construçoes/contrucoesScenes/collision_burguer_shop.gd" id="2_h6p7f"]
+[ext_resource type="Script" path="res://Scripts/interactable.gd" id="2_qwg18"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hvlp"]
 resource_name = "lambert1.002"
@@ -164,9 +165,10 @@ transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, -0.209888)
 mesh = SubResource("ArrayMesh_lv6je")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="burguer_shop/burger_shop_base_mesh"]
+[node name="BurguerShop" type="StaticBody3D" parent="burguer_shop/burger_shop_base_mesh"]
+script = ExtResource("2_qwg18")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="burguer_shop/burger_shop_base_mesh/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="burguer_shop/burger_shop_base_mesh/BurguerShop"]
 shape = SubResource("ConcavePolygonShape3D_2ygpp")
 
 [node name="Area3D" type="Area3D" parent="burguer_shop/burger_shop_base_mesh"]

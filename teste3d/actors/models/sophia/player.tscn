@@ -6308,12 +6308,13 @@ size = Vector3(1.56768, 1.68375, 1.44822)
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_j4lay")
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="InteractRay" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 1.11375, 0)
 target_position = Vector3(0, -1, -2)
 collision_mask = 3
 
-[node name="Label" type="Label" parent="RayCast3D"]
+[node name="Prompt" type="Label" parent="InteractRay"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -6330,6 +6331,7 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_6xkom")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxTexture_op8ku")
+text = "Placeholder"
 horizontal_alignment = 1
 
 [node name="collisionHead" type="CollisionShape3D" parent="."]

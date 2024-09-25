@@ -18,9 +18,9 @@ var walking = false
 @onready var coins_container: HBoxContainer = $"../CameraRig/HUD/coinsContainer"
 @onready var life_container: HBoxContainer = $"../CameraRig/HUD3/lifeContainer"
 @onready var pause_menu: CanvasLayer = $pause_menu
-@onready var ray_cast_3d: RayCast3D = $RayCast3D
-@onready var label: Label = $RayCast3D/Label
 @onready var background: ColorRect = $RayCast3D/Background
+@onready var prompt: Label = $InteractRay/Prompt
+@onready var interact_ray: RayCast3D = $InteractRay
 
 
 
@@ -84,12 +84,14 @@ func _physics_process(delta):
 			stack= false
 	move_and_slide()
 	
-	if ray_cast_3d.is_colliding():
-		label.show()
-		label.text = "Is colliding"
+	if interact_ray.is_colliding():
+		var detected = interact_ray.get_collider()
+		if detected is Interactable:
+			prompt.show()
+			prompt.text = detected.name
 	else:
-		label.hide()
-		label.text = ""
+		prompt.hide()
+		prompt.text = ""
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ctb3puo7jqigv"]
+[gd_scene load_steps=16 format=3 uid="uid://ctb3puo7jqigv"]
 
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/models/sophia/player.tscn" id="1_3oxc4"]
 [ext_resource type="Texture2D" uid="uid://ckukhwxmi4h20" path="res://Texturas/anime_skybox.jpg" id="2_g2ib4"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://brf6ayh15fh18" path="res://Texturas/Grass_02_Green_1.png" id="5_dxx70"]
 [ext_resource type="MeshLibrary" uid="uid://m5iov5mceqdh" path="res://assets/estruturas/estruturasGridMap/structures.tres" id="6_h3rlo"]
 [ext_resource type="Script" path="res://assets/construçoes/contrucoesScenes/collision_shop_house.gd" id="7_3m88c"]
-[ext_resource type="PackedScene" uid="uid://dv7iwhg7msbrw" path="res://assets/construçoes/contrucoesScenes/burguer_shop.tscn" id="8_b2wun"]
 [ext_resource type="Script" path="res://Scripts/camera_rig2.gd" id="12_u3o0i"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fbmgm"]
@@ -114,11 +113,5 @@ script = ExtResource("12_u3o0i")
 
 [node name="background_camera" type="Camera3D" parent="CameraRig"]
 cull_mask = 1047553
-
-[node name="BurguerShop" parent="." instance=ExtResource("8_b2wun")]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, -2.89027, 0, 0)
-
-[node name="BurguerShop2" parent="." instance=ExtResource("8_b2wun")]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, -2.89027, 0, -12.2674)
 
 [connection signal="body_entered" from="NavigationRegion3D/Buildings/AreaShop" to="NavigationRegion3D/Buildings/AreaShop/CollisionShopHouse" method="_on_area_3d_body_entered"]

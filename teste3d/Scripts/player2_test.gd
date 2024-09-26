@@ -29,9 +29,8 @@ func _ready():
 	animation_player.set_blend_time("Idle", "Run", 0.2)
 	animation_player.set_blend_time("Run", "Idle", 0.2)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
+	
 func _physics_process(delta):
-
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -89,9 +88,11 @@ func _physics_process(delta):
 		if detected is Interactable:
 			prompt.show()
 			prompt.text = detected.name
+			
 	else:
 		prompt.hide()
 		prompt.text = ""
+		
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

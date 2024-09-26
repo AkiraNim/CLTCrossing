@@ -27,7 +27,7 @@ func _ready() -> void:
 # Função que alterna a visibilidade da interface do inventário
 func toggle_inventory_interface(external_inventory_owner = null) -> void:
 	# Alterna a visibilidade da interface do inventário
-	inventory_interface.visible = not inventory_interface.visible
+	inventory_interface.visible = !inventory_interface.visible
 	
 	# Configura o modo do mouse e visibilidade da barra de inventário rápido
 	if inventory_interface.visible:

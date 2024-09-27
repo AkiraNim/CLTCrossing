@@ -1,0 +1,137 @@
+[gd_scene load_steps=24 format=3 uid="uid://dbbj87l5yk8ll"]
+
+[ext_resource type="Script" path="res://Inventory/main.gd" id="1_7gwkj"]
+[ext_resource type="PackedScene" uid="uid://cncmcjrmt7rx7" path="res://Inventory/player/player_test.tscn" id="1_fick3"]
+[ext_resource type="PackedScene" uid="uid://c7lwx2o8obigc" path="res://Inventory/Inventory/inventory.tscn" id="2_itj6t"]
+[ext_resource type="Resource" uid="uid://4f6ei4n1umqh" path="res://Inventory/test_inv.tres" id="2_q0t02"]
+[ext_resource type="Script" path="res://Inventory/Inventory/inventory_data_equip.gd" id="4_ny14l"]
+[ext_resource type="Script" path="res://Inventory/Inventory/inventory_interface.gd" id="4_yyeef"]
+[ext_resource type="PackedScene" uid="uid://dqilpeh4bal8a" path="res://Inventory/Inventory/slot.tscn" id="6_yh5x2"]
+[ext_resource type="PackedScene" uid="uid://ckeu7h6bwny30" path="res://Inventory/Interactable/chest.tscn" id="7_byofx"]
+[ext_resource type="PackedScene" uid="uid://dspsslshob2iq" path="res://Inventory/Inventory/hot_bar_inventory.tscn" id="7_trif5"]
+[ext_resource type="Script" path="res://Inventory/Inventory/inventory_data.gd" id="8_0dltp"]
+[ext_resource type="Script" path="res://Inventory/Inventory/slot_data.gd" id="9_vc02m"]
+[ext_resource type="Resource" uid="uid://rnseho1pahua" path="res://Inventory/Item/Items/blue_book.tres" id="10_mqfku"]
+[ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="11_156pc"]
+[ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="12_j7dsw"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mtgxe"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_2gyel"]
+sky_material = SubResource("ProceduralSkyMaterial_mtgxe")
+
+[sub_resource type="Environment" id="Environment_kfbor"]
+background_mode = 2
+sky = SubResource("Sky_2gyel")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rdy6h"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_euw2y"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="Resource" id="Resource_gwn5w"]
+script = ExtResource("4_ny14l")
+slot_datas = Array[ExtResource("9_vc02m")]([null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_y3t7h"]
+script = ExtResource("9_vc02m")
+item_data = ExtResource("10_mqfku")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_vq4vq"]
+script = ExtResource("8_0dltp")
+slot_datas = Array[ExtResource("9_vc02m")]([SubResource("Resource_y3t7h"), null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_w7qch"]
+script = ExtResource("9_vc02m")
+item_data = ExtResource("12_j7dsw")
+quantity = 1
+
+[node name="Main" type="Node"]
+script = ExtResource("1_7gwkj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kfbor")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("PlaneMesh_rdy6h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_euw2y")
+
+[node name="Player" parent="." instance=ExtResource("1_fick3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.990587, 0)
+inventory_data = ExtResource("2_q0t02")
+equip_inventory_data = SubResource("Resource_gwn5w")
+
+[node name="Ui" type="CanvasLayer" parent="."]
+
+[node name="InventoryInterface" type="Control" parent="Ui"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_yyeef")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerInventory" parent="Ui/InventoryInterface" instance=ExtResource("2_itj6t")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="EquipInventory" parent="Ui/InventoryInterface" instance=ExtResource("2_itj6t")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 250.0
+offset_right = 50.0
+offset_bottom = 290.0
+
+[node name="ExternalInventory" parent="Ui/InventoryInterface" instance=ExtResource("2_itj6t")]
+visible = false
+layout_mode = 0
+offset_left = 797.0
+offset_top = 16.0
+offset_right = 837.0
+offset_bottom = 56.0
+
+[node name="GrabbedSlot" parent="Ui/InventoryInterface" instance=ExtResource("6_yh5x2")]
+visible = false
+modulate = Color(1, 1, 1, 0.572549)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="HotBarInventory" parent="Ui" instance=ExtResource("7_trif5")]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 430.0
+offset_bottom = 90.0
+
+[node name="Chest" parent="." instance=ExtResource("7_byofx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+inventory_data = SubResource("Resource_vq4vq")
+
+[node name="PickUp" parent="." instance=ExtResource("11_156pc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520367, 1.47155, 2.10618)
+slot_data = SubResource("Resource_w7qch")
+
+[connection signal="drop_slot_data" from="Ui/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
+[connection signal="gui_input" from="Ui/InventoryInterface" to="Ui/InventoryInterface" method="_on_gui_input"]
+[connection signal="visibility_changed" from="Ui/InventoryInterface" to="Ui/InventoryInterface" method="_on_visibility_changed"]

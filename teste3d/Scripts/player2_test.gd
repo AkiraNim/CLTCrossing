@@ -5,13 +5,15 @@ const JUMP_VELOCITY = 10
 var stack = false
 var gravity = 0
 var movement_velocity : Vector3
-var rotation_direction : float
-var knockbacked := false
-var life := 3
-var coins := 0
-var is_dead := false 
 var walking = false
+var health: int = 5
 
+signal toggle_inventory()
+
+@export var inventory_data: InventoryData
+@export var equip_inventory_data: InventoryDataEquip
+
+@onready var background_camera: Camera3D = $"../CameraRig/background_camera"
 @onready var animation_player: AnimationPlayer = $visuals/sophia/AnimationPlayer
 @onready var visuals: Node3D = $visuals
 @onready var camera_point = $camera_point
@@ -19,13 +21,13 @@ var walking = false
 @onready var life_container: HBoxContainer = $"../CameraRig/HUD3/lifeContainer"
 @onready var pause_menu: CanvasLayer = $pause_menu
 @onready var background: ColorRect = $RayCast3D/Background
-@onready var prompt: Label = $InteractRay/Prompt
 @onready var interact_ray: RayCast3D = $InteractRay
+@onready var prompt: Label = $InteractRay/PanelContainer/Prompt
 
 
 
 func _ready():
-	GameManager.set_player(self)
+	PlayerManager.player = self
 	animation_player.set_blend_time("Idle", "Run", 0.2)
 	animation_player.set_blend_time("Run", "Idle", 0.2)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -92,11 +94,15 @@ func _physics_process(delta):
 	else:
 		prompt.hide()
 		prompt.text = ""
-		
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * .002)
+	if Input.is_action_just_pressed("inventory"):
+		toggle_inventory.emit()
+	
+	if Input.is_action_just_pressed("interact"):
+		interact()
 		
 func handle_animations():
 	if is_on_floor():
@@ -107,8 +113,6 @@ func handle_animations():
 	else:
 		animation_player.play("Jump", 0.3)
 		
-	if knockbacked:
-		animation_player.play("Fall", 0.3)
 	if !is_on_floor() and gravity > 2:
 		animation_player.play("Fall", 0.3)
 	
@@ -123,4 +127,13 @@ func jump ():
 	if gravity > 0 and is_on_floor():
 		gravity = 0
 	
-	
+func interact() -> void:
+	if interact_ray.is_colliding():
+		interact_ray.get_collider().player_interact()
+		
+func get_drop_position() -> Vector3:
+	return visuals.global_position
+
+
+func heal(heal_value: int) -> void:
+	health += heal_value

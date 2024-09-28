@@ -6,3 +6,4 @@ class_name ItemDataEquip
 
 # Variável exportada que define o valor de defesa do item
 @export var defence: int  # Valor inteiro que representa a defesa fornecida pelo equipamento
+@export var sinopse_item: String

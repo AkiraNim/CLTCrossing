@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://ctb3puo7jqigv"]
 
-[ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/Scenes/player.tscn" id="1_3oxc4"]
+[ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/Scenes/Sophia.tscn" id="1_3oxc4"]
 [ext_resource type="Texture2D" uid="uid://ckukhwxmi4h20" path="res://Texturas/anime_skybox.jpg" id="2_g2ib4"]
 [ext_resource type="Texture2D" uid="uid://brf6ayh15fh18" path="res://Texturas/Grass_02_Green_1.png" id="5_dxx70"]
 [ext_resource type="MeshLibrary" uid="uid://m5iov5mceqdh" path="res://assets/estruturas/estruturasGridMap/structures.tres" id="6_h3rlo"]

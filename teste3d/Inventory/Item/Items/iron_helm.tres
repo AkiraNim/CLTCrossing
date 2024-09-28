@@ -10,6 +10,7 @@ region = Rect2(32, 224, 32, 32)
 [resource]
 script = ExtResource("1_hy4jv")
 defence = 5
+summary_item = ""
 name = "Iron Helm"
 description = "Iron Helm"
 stackable = false

@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Inventory/Inventory/slot_data.gd" id="9_vc02m"]
 [ext_resource type="Resource" uid="uid://rnseho1pahua" path="res://Inventory/Item/Items/blue_book.tres" id="10_mqfku"]
 [ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="11_156pc"]
-[ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/Scenes/player.tscn" id="12_ie6be"]
+[ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/Scenes/Sophia.tscn" id="12_ie6be"]
 [ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="12_j7dsw"]
 [ext_resource type="Script" path="res://Scripts/camera_rig2.gd" id="14_yxsun"]
 

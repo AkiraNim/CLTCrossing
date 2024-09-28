@@ -14,6 +14,7 @@ signal toggle_inventory()
 
 @onready var camera: Camera3D = $Camera3D
 @onready var interact_ray: RayCast3D = $Camera3D/InteractRay
+@onready var player: CharacterBody3D = $"."
 
 func _ready() -> void:
 	PlayerManager.player = self
@@ -58,12 +59,11 @@ func _physics_process(delta: float) -> void:
  
 func interact() -> void:
 	if interact_ray.is_colliding():
-		print("Jilson")
 		interact_ray.get_collider().player_interact()
 		
 func get_drop_position() -> Vector3:
-	var direction = -camera.global_transform.basis.z
-	return camera.global_position + direction
+	var direction = -player.global_transform.basis.z
+	return player.global_position + direction
 
 
 func heal(heal_value: int) -> void:

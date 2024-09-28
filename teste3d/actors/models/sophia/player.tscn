@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://cpc45iqjlvppm"]
+[gd_scene load_steps=33 format=4 uid="uid://cpc45iqjlvppm"]
 
 [ext_resource type="Script" path="res://Scripts/player2_test.gd" id="1_j4lay"]
 [ext_resource type="FontFile" uid="uid://ck2yl6jhv0vkn" path="res://Fonts/Karma Suture.otf" id="2_6xkom"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://d3gigd8y5hjg" path="res://actors/models/sophia/model/sophia_mouth_smile_diffuse.png" id="7_jnh83"]
 [ext_resource type="Texture2D" uid="uid://c36m8cv33f0yi" path="res://actors/models/sophia/model/sophia_mouth_smile_normal.png" id="8_g8hpu"]
 [ext_resource type="Shader" path="res://assets/shaders/pixelart.gdshader" id="9_ct4x8"]
-[ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://Formas/Menu/pause_menu.tscn" id="12_ns8kv"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_66kk2"]
 
@@ -7025,7 +7024,3 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="hurtbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0118915, 0.895609, 0.0991429)
 shape = SubResource("BoxShape3D_wapsa")
-
-[node name="pause_menu" parent="." instance=ExtResource("12_ns8kv")]
-process_mode = 3
-visible = false

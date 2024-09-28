@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://drdqahpk0ql3"]
+[gd_scene load_steps=34 format=4 uid="uid://drdqahpk0ql3"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/models/sophia/player.tscn" id="2_t5lnv"]
@@ -9,9 +9,8 @@
 [ext_resource type="Script" path="res://Inventory/Inventory/inventory_interface.gd" id="7_gxcgx"]
 [ext_resource type="PackedScene" uid="uid://c7lwx2o8obigc" path="res://Inventory/Inventory/inventory.tscn" id="8_fid25"]
 [ext_resource type="PackedScene" uid="uid://dqilpeh4bal8a" path="res://Inventory/Inventory/slot.tscn" id="9_f7jew"]
-[ext_resource type="PackedScene" uid="uid://dspsslshob2iq" path="res://Inventory/Inventory/hot_bar_inventory.tscn" id="10_3xk8e"]
 [ext_resource type="PackedScene" uid="uid://ckeu7h6bwny30" path="res://Inventory/Interactable/chest.tscn" id="11_dbpnn"]
-[ext_resource type="Resource" uid="uid://rnseho1pahua" path="res://Inventory/Item/Items/blue_book.tres" id="12_b5s0w"]
+[ext_resource type="Resource" uid="uid://bti2rgq3cgwlu" path="res://Inventory/Item/Items/blue_book.tres" id="12_b5s0w"]
 [ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://Fonts/prstart.ttf" id="12_o27jf"]
 [ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="13_bs3wm"]
 [ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="14_lhgay"]
@@ -32,7 +31,7 @@ glow_enabled = true
 
 [sub_resource type="Resource" id="Resource_ytbd3"]
 script = ExtResource("3_cs1x2")
-slot_datas = Array[ExtResource("4_nafn1")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+slot_datas = Array[ExtResource("4_nafn1")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 
 [sub_resource type="Resource" id="Resource_htpu5"]
 script = ExtResource("5_xkuvt")
@@ -50,7 +49,7 @@ quantity = 1
 
 [sub_resource type="Resource" id="Resource_vq4vq"]
 script = ExtResource("3_cs1x2")
-slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_y3t7h"), null, null, null, null])
+slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_y3t7h"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 
 [sub_resource type="Resource" id="Resource_w7qch"]
 script = ExtResource("4_nafn1")
@@ -440,7 +439,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 2)
 inventory_data = SubResource("Resource_vq4vq")
 name_type = "Baú"
 
-[node name="PickUp" parent="." instance=ExtResource("13_bs3wm")]
+[node name="ApplePickup" parent="." instance=ExtResource("13_bs3wm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520367, 1.47155, 2.10618)
 slot_data = SubResource("Resource_w7qch")
 
@@ -461,9 +460,9 @@ metadata/_edit_use_anchors_ = true
 visible = false
 
 [node name="ExternalInventoryLabel" type="Label" parent="Ui/InventoryInterface/ExternalInventory"]
-offset_left = 890.0
+offset_left = 850.0
 offset_top = 63.0
-offset_right = 1051.0
+offset_right = 1011.0
 offset_bottom = 86.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -472,17 +471,17 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nd4a4")
 horizontal_alignment = 1
 
 [node name="ExternalInventory" parent="Ui/InventoryInterface/ExternalInventory" instance=ExtResource("8_fid25")]
-offset_left = 790.0
+offset_left = 720.0
 offset_top = 100.0
-offset_right = 830.0
+offset_right = 760.0
 offset_bottom = 140.0
 
 [node name="PlayerInventory" type="Node2D" parent="Ui/InventoryInterface"]
 
 [node name="PlayerInventoryLabel" type="Label" parent="Ui/InventoryInterface/PlayerInventory"]
-offset_left = 430.0
+offset_left = 390.0
 offset_top = 63.0
-offset_right = 591.0
+offset_right = 551.0
 offset_bottom = 86.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -491,9 +490,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_v0ea1")
 text = "Inventário"
 
 [node name="PlayerEquipLabel" type="Label" parent="Ui/InventoryInterface/PlayerInventory"]
-offset_left = 430.0
+offset_left = 390.0
 offset_top = 365.0
-offset_right = 576.0
+offset_right = 536.0
 offset_bottom = 388.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -502,15 +501,15 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_r8xun")
 text = "Equipados"
 
 [node name="PlayerInventory" parent="Ui/InventoryInterface/PlayerInventory" instance=ExtResource("8_fid25")]
-offset_left = 300.0
+offset_left = 260.0
 offset_top = 100.0
-offset_right = 340.0
+offset_right = 300.0
 offset_bottom = 140.0
 
 [node name="EquipInventory" parent="Ui/InventoryInterface/PlayerInventory" instance=ExtResource("8_fid25")]
-offset_left = 300.0
+offset_left = 260.0
 offset_top = 400.0
-offset_right = 340.0
+offset_right = 300.0
 offset_bottom = 440.0
 
 [node name="GrabbedSlot" parent="Ui/InventoryInterface" instance=ExtResource("9_f7jew")]
@@ -520,12 +519,6 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
-
-[node name="HotBarInventory" parent="Ui" instance=ExtResource("10_3xk8e")]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 430.0
-offset_bottom = 90.0
 
 [node name="pause_menu" parent="." instance=ExtResource("15_00xag")]
 process_mode = 3

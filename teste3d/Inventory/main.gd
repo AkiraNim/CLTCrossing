@@ -18,7 +18,6 @@ func _ready() -> void:
 	# Define os dados de inventário de equipamentos na interface
 	inventory_interface.set_equip_inventory_data(player.equip_inventory_data)
 	# Define os dados do inventário na barra de inventário rápido
-	hot_bar_inventory.set_inventory_data(player.inventory_data)
 	
 	# Conecta a função de alternância para todos os inventários externos no grupo "external_inventory"
 	for node in get_tree().get_nodes_in_group("external_inventory"):
@@ -32,10 +31,8 @@ func toggle_inventory_interface(external_inventory_owner = null) -> void:
 	# Configura o modo do mouse e visibilidade da barra de inventário rápido
 	if inventory_interface.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE  # Mostra o cursor do mouse
-		hot_bar_inventory.hide()  # Esconde a barra de inventário rápido
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED  # Captura o cursor do mouse para o jogo
-		hot_bar_inventory.show()  # Mostra a barra de inventário rápido
 	
 	# Configura o inventário externo se houver um proprietário externo e a interface estiver visível
 	if external_inventory_owner and inventory_interface.visible:

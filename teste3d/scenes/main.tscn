@@ -87,6 +87,14 @@ mesh = SubResource("PlaneMesh_rdy6h")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_euw2y")
 
+[node name="Chest" parent="." instance=ExtResource("11_dbpnn")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 2)
+inventory_data = SubResource("Resource_vq4vq")
+
+[node name="PickUp" parent="." instance=ExtResource("13_bs3wm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520367, 1.47155, 2.10618)
+slot_data = SubResource("Resource_w7qch")
+
 [node name="Ui" type="CanvasLayer" parent="."]
 
 [node name="InventoryInterface" type="Control" parent="Ui"]
@@ -135,14 +143,6 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 430.0
 offset_bottom = 90.0
-
-[node name="Chest" parent="." instance=ExtResource("11_dbpnn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
-inventory_data = SubResource("Resource_vq4vq")
-
-[node name="PickUp" parent="." instance=ExtResource("13_bs3wm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520367, 1.47155, 2.10618)
-slot_data = SubResource("Resource_w7qch")
 
 [node name="pause_menu" parent="." instance=ExtResource("15_00xag")]
 process_mode = 3

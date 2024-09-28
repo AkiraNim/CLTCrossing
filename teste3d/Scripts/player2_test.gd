@@ -114,7 +114,6 @@ func get_drop_position() -> Vector3:
 	var direction = -player.global_transform.basis.z 
 	return player.global_position + direction
 
-
 func heal(heal_value: int) -> void:
 	health += heal_value
 
@@ -140,5 +139,3 @@ func jump ():
 		
 	if gravity > 0 and is_on_floor():
 		gravity = 0
-	
-	

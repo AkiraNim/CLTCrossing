@@ -1,6 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxithodbbv2wn"]
+[gd_scene load_steps=9 format=3 uid="uid://bxithodbbv2wn"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_jkk8d"]
+[ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://Fonts/prstart.ttf" id="2_3nvpk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gxset"]
+bg_color = Color(0.203922, 0.203922, 0.203922, 0.764706)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.354063, 0.354063, 0.354063, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6ql6"]
 
@@ -32,6 +45,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.192157, 0.219608, 0.266667, 0.737255)
 
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 230.0
+offset_right = 775.0
+offset_bottom = 410.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gxset")
+
 [node name="menuGameOver" type="VBoxContainer" parent="ColorRect2"]
 layout_mode = 1
 anchors_preset = 8
@@ -50,15 +71,24 @@ theme = SubResource("Theme_vvw41")
 [node name="paused" type="Label" parent="ColorRect2/menuGameOver"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_3nvpk")
 text = "Pausado"
 
 [node name="resume_button" type="Button" parent="ColorRect2/menuGameOver"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0.545098, 0, 1)
+theme_override_fonts/font = ExtResource("2_3nvpk")
 text = "Retomar
 "
 
 [node name="quit_button" type="Button" parent="ColorRect2/menuGameOver"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.584314, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_3nvpk")
 text = "Sair"
 
 [connection signal="pressed" from="ColorRect2/menuGameOver/resume_button" to="." method="_on_resume_button_pressed"]

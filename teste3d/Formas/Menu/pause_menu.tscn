@@ -1,14 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bxithodbbv2wn"]
+[gd_scene load_steps=7 format=3 uid="uid://bxithodbbv2wn"]
 
 [ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_jkk8d"]
-[ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://Fonts/prstart.ttf" id="2_6w7d7"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4tki8"]
-bg_color = Color(0.180392, 0.101961, 0.027451, 0.486275)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j6ql6"]
 
@@ -40,13 +32,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.192157, 0.219608, 0.266667, 0.737255)
 
-[node name="PanelContainer" type="PanelContainer" parent="ColorRect2"]
-offset_left = 401.0
-offset_top = 235.0
-offset_right = 741.0
-offset_bottom = 405.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_4tki8")
-
 [node name="menuGameOver" type="VBoxContainer" parent="ColorRect2"]
 layout_mode = 1
 anchors_preset = 8
@@ -65,24 +50,15 @@ theme = SubResource("Theme_vvw41")
 [node name="paused" type="Label" parent="ColorRect2/menuGameOver"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_6w7d7")
 text = "Pausado"
 
 [node name="resume_button" type="Button" parent="ColorRect2/menuGameOver"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0, 0.624757, 0, 1)
-theme_override_colors/font_pressed_color = Color(0.578408, 0.716513, 1, 1)
-theme_override_colors/font_color = Color(0, 1, 0, 1)
-theme_override_fonts/font = ExtResource("2_6w7d7")
 text = "Retomar
 "
 
 [node name="quit_button" type="Button" parent="ColorRect2/menuGameOver"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.676777, 2.62313e-06, 4.81307e-07, 1)
-theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_6w7d7")
 text = "Sair"
 
 [connection signal="pressed" from="ColorRect2/menuGameOver/resume_button" to="." method="_on_resume_button_pressed"]

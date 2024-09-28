@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckeu7h6bwny30"]
 
-[ext_resource type="Script" path="res://InventoryTutorial/Interactable/chest.gd" id="1_jb3a1"]
+[ext_resource type="Script" path="res://Inventory/Interactable/chest.gd" id="1_jb3a1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ib6b2"]
 albedo_color = Color(0.0862745, 1, 1, 1)

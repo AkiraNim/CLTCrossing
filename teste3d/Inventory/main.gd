@@ -2,7 +2,7 @@
 extends Node
 
 # Carrega o arquivo de cena para o item que pode ser pego
-const PickUp = preload("res://InventoryTutorial/Item/PickUp/pick_up.tscn")
+const PickUp = preload("res://Inventory/Item/PickUp/pick_up.tscn")
 
 # Declaração de variáveis com os nós referenciados
 @onready var player: CharacterBody3D = $Player  # Referência ao nó do jogador

@@ -5,7 +5,7 @@ extends PanelContainer
 signal hot_bar_use(index: int)
 
 # Pré-carrega a cena do slot que será utilizado na barra
-const Slot = preload("res://InventoryTutorial/Inventory/slot.tscn")
+const Slot = preload("res://Inventory/Inventory/slot.tscn")
 
 # Referência ao HBoxContainer onde os slots da barra de atalho serão exibidos
 @onready var h_box_container: HBoxContainer = $MarginContainer/HBoxContainer

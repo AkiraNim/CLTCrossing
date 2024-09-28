@@ -2,7 +2,7 @@
 extends PanelContainer
 
 # Pré-carrega a cena do slot que será utilizado na interface
-const Slot = preload("res://InventoryTutorial/Inventory/slot.tscn")
+const Slot = preload("res://Inventory/Inventory/slot.tscn")
 
 # Referência ao GridContainer onde os slots de itens serão exibidos
 @onready var item_grid: GridContainer = $MarginContainer/ItemGrid

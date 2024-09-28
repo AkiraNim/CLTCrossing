@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dn1inlnruiple"
-path="res://.godot/imported/#1 - Transparent Icons.png-42d9384f21f34befc43d53cdd59ccd5a.ctex"
+path="res://.godot/imported/#1 - Transparent Icons.png-fb1d9fea44c0676e2bbb084dae3c94df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://InventoryTutorial/Item/#1 - Transparent Icons.png"
-dest_files=["res://.godot/imported/#1 - Transparent Icons.png-42d9384f21f34befc43d53cdd59ccd5a.ctex"]
+source_file="res://Inventory/Item/#1 - Transparent Icons.png"
+dest_files=["res://.godot/imported/#1 - Transparent Icons.png-fb1d9fea44c0676e2bbb084dae3c94df.ctex"]
 
 [params]
 

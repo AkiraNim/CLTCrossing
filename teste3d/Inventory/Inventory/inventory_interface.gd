@@ -9,10 +9,11 @@ var grabbed_slot_data: SlotData  # Dados do slot que está sendo "segurado" pelo
 var external_inventory_owner  # Referência ao dono do inventário externo
 
 # Referências aos nós de diferentes inventários e do slot agarrado
-@onready var external_inventory: PanelContainer = $ExternalInventory  # Inventário externo, exibido quando acessado
-@onready var player_inventory: PanelContainer = $PlayerInventory  # Inventário do jogador
+@onready var external_inventory: PanelContainer = $ExternalInventory/ExternalInventory  # Inventário externo, exibido quando acessado
+@onready var player_inventory: PanelContainer = $PlayerInventory/PlayerInventory  # Inventário do jogador
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot  # Slot visual que segue o mouse quando um item é agarrado
-@onready var equip_inventory: PanelContainer = $EquipInventory  # Inventário de equipamentos do jogador
+@onready var equip_inventory: PanelContainer = $PlayerInventory/EquipInventory  # Inventário de equipamentos do jogador
+@onready var external_inventory_node: Node2D = $ExternalInventory
 
 # Função chamada a cada quadro de física, atualiza a posição do slot agarrado para seguir o mouse
 func _physics_process(delta: float) -> void:
@@ -37,7 +38,7 @@ func set_external_inventory(_external_inventory_owner) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	external_inventory.set_inventory_data(inventory_data)
 	
-	external_inventory.show()
+	external_inventory_node.show()
 
 # Função que limpa e esconde o inventário externo
 func clear_external_inventory() -> void:
@@ -47,7 +48,7 @@ func clear_external_inventory() -> void:
 		inventory_data.inventory_interact.disconnect(on_inventory_interact)
 		external_inventory.clear_inventory_data(inventory_data)
 		
-		external_inventory.hide()
+		external_inventory_node.hide()
 		external_inventory_owner = null
 
 # Função chamada quando há interação com o inventário

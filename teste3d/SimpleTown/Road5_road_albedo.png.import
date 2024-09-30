@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://ca4e3mp57sq3p"
+path.s3tc="res://.godot/imported/Road5_road_albedo.png-79ab9007d3b26025bfc0eae4144b6ab0.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "22230f4797bb4b3812ff26b2dc373eac"
+}
+
+[deps]
+
+source_file="res://SimpleTown/Road5_road_albedo.png"
+dest_files=["res://.godot/imported/Road5_road_albedo.png-79ab9007d3b26025bfc0eae4144b6ab0.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

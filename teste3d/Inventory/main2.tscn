@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://cqsoj581q83kh"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
-[ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/models/sophia/player.tscn" id="2_t5lnv"]
+[ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="2_t5lnv"]
 [ext_resource type="Script" path="res://Inventory/Inventory/inventory_data.gd" id="3_cs1x2"]
 [ext_resource type="Script" path="res://Inventory/Inventory/slot_data.gd" id="4_nafn1"]
 [ext_resource type="Script" path="res://Inventory/Inventory/inventory_data_equip.gd" id="5_xkuvt"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dqilpeh4bal8a" path="res://Inventory/Inventory/slot.tscn" id="9_f7jew"]
 [ext_resource type="PackedScene" uid="uid://dspsslshob2iq" path="res://Inventory/Inventory/hot_bar_inventory.tscn" id="10_3xk8e"]
 [ext_resource type="PackedScene" uid="uid://ckeu7h6bwny30" path="res://Inventory/Interactable/chest.tscn" id="11_dbpnn"]
-[ext_resource type="Resource" uid="uid://rnseho1pahua" path="res://Inventory/Item/Items/blue_book.tres" id="12_b5s0w"]
+[ext_resource type="Resource" uid="uid://bti2rgq3cgwlu" path="res://Inventory/Item/Items/blue_book.tres" id="12_b5s0w"]
 [ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="13_bs3wm"]
 [ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="14_lhgay"]
 [ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://Formas/Menu/pause_menu.tscn" id="15_00xag"]

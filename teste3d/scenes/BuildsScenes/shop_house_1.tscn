@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://cva5a56g6g5lt"]
 
-[ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/models/sophia/player.tscn" id="1_n8nx6"]
+[ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="1_n8nx6"]
 [ext_resource type="Texture2D" uid="uid://bjwxs3f2p6tb6" path="res://Texturas/Pattern_02_BlueWhite_1.png" id="1_xbts6"]
 [ext_resource type="Shader" path="res://assets/shaders/pixelart.gdshader" id="3_mic82"]
 [ext_resource type="MeshLibrary" uid="uid://cev73pdj3xqu8" path="res://Formas/Paredes/Paredes.tres" id="5_tx4og"]

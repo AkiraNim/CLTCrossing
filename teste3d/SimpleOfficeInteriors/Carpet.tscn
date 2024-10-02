@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=4 uid="uid://ci0rqj5hlw3is"]
+
+[ext_resource type="Texture2D" uid="uid://csslvjeb5ckv3" path="res://SimpleOfficeInteriors/Carpet_SimpleOffice_Texture.png" id="1_ev7ln"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4xh6"]
+resource_name = "lambert1.125"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("1_ev7ln")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1kpp8"]
+_surfaces = [{
+"aabb": AABB(-2.39716, -1.56322, -0.101247, 4.79432, 3.12645, 0.101247),
+"format": 34359742465,
+"index_count": 108,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAEAASABEAEAATABIABAAHAAUABAAGAAcABgABAAcABgAAAAEAAQAFAAcAAQADAAUABgACAAAABgAEAAIAAgAJAAMAAgAIAAkAAwAKAAUAAwAJAAoABQALAAQABQAKAAsABAAIAAIABAALAAgACAANAAkACAAMAA0ACQAOAAoACQANAA4ACgAPAAsACgAOAA8ACwAMAAgACwAPAAwADAARAA0ADAAQABEADQASAA4ADQARABIADgATAA8ADgASABMADwAQAAwADwATABAA"),
+"name": "lambert1.125",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("CGsZwLgXyL8AAACACGsZwLgXyD8AAACACGsZwLgXyL/IWs+9CGsZwLgXyD/IWs+9CGsZQLgXyL/IWs+9CGsZQLgXyD/IWs+9CGsZQLgXyL8AAACACGsZQLgXyD8AAACAVE8OwOC9r7/IWs+9VE8OwOC9rz/IWs+9RE8OQNi9rz/IWs+9RE8OQOi9r7/IWs+9mFbsvyByc7/IWs+9mFbsvwBycz/IWs+9eFbsP/Bxcz/IWs+9eFbsPxByc7/IWs+9nnzAv8ioHb/IWs+9knzAv3ioHT/IWs+9dnzAP3ioHT/IWs+9cnzAP4ioHb/IWs+9")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rpfsr"]
+resource_name = "Carpet_Mesh_129"
+_surfaces = [{
+"aabb": AABB(-2.39716, -1.56322, -0.101247, 4.79432, 3.12645, 0.101247),
+"attribute_data": PackedByteArray("IFzfPbtgcD98GTA+C29wP3wZMD4Lb3A/IFzfPbtgcD98GTA+C29wP3wZMD4Lb3A/0PR0PgtvcD98GTA+C29wP3wZMD4Lb3A/0PR0PgtvcD98GTA+C29wP3wZMD4Lb3A/0PR0PgtvcD98GTA+C29wP3wZMD4Lb3A/0PR0PgtvcD98GTA+C29wP3wZMD4Lb3A/IFzfPbtgcD98GTA+C29wP3wZMD4Lb3A/IFzfPbtgcD98GTA+C29wP3wZMD4Lb3A/Mn0RPvx/cD/Q9HQ+C29wPzJ9ET78f3A/0PR0PgtvcD8yfRE+/H9wP9D0dD4Lb3A/Mn0RPvx/cD/Q9HQ+C29wPzJ9ET78f3A/0PR0PgtvcD8yfRE+/H9wP9D0dD4Lb3A/Mn0RPvx/cD/Q9HQ+C29wPzJ9ET78f3A/0PR0PgtvcD8snlA+/H9wP9D0dD4Lb3A/LJ5QPvx/cD/Q9HQ+C29wPyyeUD78f3A/0PR0PgtvcD8snlA+/H9wP9D0dD4Lb3A/"),
+"format": 34359742487,
+"index_count": 108,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsAKAAsACoAKAAuACwADgAXABEADgAUABcAEgADABUAEgAAAAMABAAQABYABAAKABAAEwAHAAEAEwANAAcABgAbAAkABgAZABsACQAdAA8ACQAbAB0ADwAfAAwADwAdAB8ADAAZAAYADAAfABkAGAAiABoAGAAgACIAGgAkABwAGgAiACQAHAAmAB4AHAAkACYAHgAgABgAHgAmACAAIQArACMAIQApACsAIwAtACUAIwArAC0AJQAvACcAJQAtAC8AJwApACEAJwAvACkA"),
+"material": SubResource("StandardMaterial3D_n4xh6"),
+"name": "lambert1.125",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("CGsZwLgXyL8AAACACGsZwLgXyL8AAACACGsZwLgXyL8AAACACGsZwLgXyD8AAACACGsZwLgXyD8AAACACGsZwLgXyD8AAACACGsZwLgXyL/IWs+9CGsZwLgXyL/IWs+9CGsZwLgXyL/IWs+9CGsZwLgXyD/IWs+9CGsZwLgXyD/IWs+9CGsZwLgXyD/IWs+9CGsZQLgXyL/IWs+9CGsZQLgXyL/IWs+9CGsZQLgXyL/IWs+9CGsZQLgXyD/IWs+9CGsZQLgXyD/IWs+9CGsZQLgXyD/IWs+9CGsZQLgXyL8AAACACGsZQLgXyL8AAACACGsZQLgXyL8AAACACGsZQLgXyD8AAACACGsZQLgXyD8AAACACGsZQLgXyD8AAACAVE8OwOC9r7/IWs+9VE8OwOC9r7/IWs+9VE8OwOC9rz/IWs+9VE8OwOC9rz/IWs+9RE8OQNi9rz/IWs+9RE8OQNi9rz/IWs+9RE8OQOi9r7/IWs+9RE8OQOi9r7/IWs+9mFbsvyByc7/IWs+9mFbsvyByc7/IWs+9mFbsvwBycz/IWs+9mFbsvwBycz/IWs+9eFbsP/Bxcz/IWs+9eFbsP/Bxcz/IWs+9eFbsPxByc7/IWs+9eFbsPxByc7/IWs+9nnzAv8ioHb/IWs+9nnzAv8ioHb/IWs+9knzAv3ioHT/IWs+9knzAv3ioHT/IWs+9dnzAP3ioHT/IWs+9dnzAP3ioHT/IWs+9cnzAP4ioHb/IWs+9cnzAP4ioHb/IWs+9/3//f////z//fwAA////vwAA/3////+//3//f////z//f///////vwAA/3////+//////////7//fwAA////vwAA/3////+//////////7//f///////vwAA/3////+//////////7//fwAA////v////3////+//////////7//f///////v////3////+//3//f////z//fwAA////v////3////+//3//f////z//f///////v////3////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////v/////////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1kpp8")
+
+[node name="Carpet" type="Node3D"]
+
+[node name="SO_Rug_01" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
+mesh = SubResource("ArrayMesh_rpfsr")
+skeleton = NodePath("")

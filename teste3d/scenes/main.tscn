@@ -414,7 +414,7 @@ shadow_enabled = true
 environment = SubResource("Environment_kfbor")
 
 [node name="Player" parent="." instance=ExtResource("2_t5lnv")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.73997, 0, -4.74977)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -1.06082, 0, 3.88587)
 collision_layer = 7
 inventory_data = SubResource("Resource_ytbd3")
 equip_inventory_data = SubResource("Resource_htpu5")

@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=4 uid="uid://5y8sufjrss45"]
+
+[ext_resource type="Texture2D" uid="uid://bjvotxt4hlcsf" path="res://SimpleOfficeInteriors/Calendar_SimpleOffice_Texture.png" id="1_iohgm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrun3"]
+resource_name = "lambert1.014"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("1_iohgm")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hipqv"]
+_surfaces = [{
+"aabb": AABB(-0.380143, -0.0105608, -0.734151, 0.760285, 0.0211241, 0.734151),
+"format": 34359742465,
+"index_count": 72,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAFAAMAAgAEAAUABAAHAAUABAAGAAcABgABAAcABgAAAAEADAAKAA0ADAALAAoABgACAAAABgAEAAIAAQAIAAcAAQAJAAgACAAFAAcABQANAAoABQAIAA0ABQALAAMABQAKAAsACwABAAMAAQAMAAkAAQALAAwACQANAAgACQAMAA0A"),
+"name": "lambert1.014",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 14,
+"vertex_data": PackedByteArray("HqLCvgAHLbwAAACAAqLCvgARLTwAAACAHqLCvgAHLbxQ8Tu/AqLCvgARLTxQ8Tu/4qHCPgAGLbxQ8Tu//qHCPgASLTxQ8Tu/4qHCPgAGLbwAAACA/qHCPgASLTwAAACA/im8PgAQLTwA3ke8Aiq8vgAQLTwA3ke8/im8PgAQLTzY0Ti/Aiq8vgAQLTzY0Ti/Aiq8vgAQLTzA4/a+/im8PgAQLTzA4/a+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_28kxk"]
+resource_name = "Calendar_Mesh_014"
+_surfaces = [{
+"aabb": AABB(-0.380143, -0.0105608, -0.734151, 0.760285, 0.0211241, 0.734151),
+"attribute_data": PackedByteArray("HwWVPnrGBT8J87Q+esYFPxFjqD56xgU/HgWVPnrGBT8H87Q+esYFPxBjqD56xgU//TjGPnrGBT8J87Q+esYFPxFjqD56xgU/+zjGPnrGBT8H87Q+esYFPxBjqD56xgU//TjGPnrGBT8H87Q+esYFPxFjqD56xgU/+zjGPnrGBT8F87Q+esYFPxBjqD56xgU/HwWVPnrGBT8H87Q+esYFPxFjqD56xgU/HgWVPnrGBT8F87Q+esYFPxBjqD56xgU/BfO0PnrGBT8el38/yBHLPQfztD56xgU/WnJZP8gRyz0yU3A+BotQPwXztD56xgU/NlNwPgaLUD8H87Q+esYFPzZTcD4Gi1A/B/O0PnrGBT9aclk/AAASOzJTcD4Gi1A/BfO0PnrGBT8el38/AAASOw=="),
+"format": 34359742487,
+"index_count": 72,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAPAAkABgAMAA8ADgAXABEADgAUABcAEgADABUAEgAAAAMAIAAcACMAIAAeABwAEwAHAAEAEwANAAcABAAYABYABAAaABgAGAAQABYAEAAkAB0AEAAYACQAEAAfAAoAEAAdAB8AHwAEAAoABAAhABoABAAfACEAGwAlABkAGwAiACUA"),
+"material": SubResource("StandardMaterial3D_jrun3"),
+"name": "lambert1.014",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 38,
+"vertex_data": PackedByteArray("HqLCvgAHLbwAAACAHqLCvgAHLbwAAACAHqLCvgAHLbwAAACAAqLCvgARLTwAAACAAqLCvgARLTwAAACAAqLCvgARLTwAAACAHqLCvgAHLbxQ8Tu/HqLCvgAHLbxQ8Tu/HqLCvgAHLbxQ8Tu/AqLCvgARLTxQ8Tu/AqLCvgARLTxQ8Tu/AqLCvgARLTxQ8Tu/4qHCPgAGLbxQ8Tu/4qHCPgAGLbxQ8Tu/4qHCPgAGLbxQ8Tu//qHCPgASLTxQ8Tu//qHCPgASLTxQ8Tu//qHCPgASLTxQ8Tu/4qHCPgAGLbwAAACA4qHCPgAGLbwAAACA4qHCPgAGLbwAAACA/qHCPgASLTwAAACA/qHCPgASLTwAAACA/qHCPgASLTwAAACA/im8PgAQLTwA3ke8/im8PgAQLTwA3ke8Aiq8vgAQLTwA3ke8Aiq8vgAQLTwA3ke8/im8PgAQLTzY0Ti//im8PgAQLTzY0Ti/Aiq8vgAQLTzY0Ti/Aiq8vgAQLTzY0Ti/Aiq8vgAQLTzA4/a+Aiq8vgAQLTzA4/a+Aiq8vgAQLTzA4/a+/im8PgAQLTzA4/a+/im8PgAQLTzA4/a+/im8PgAQLTzA4/a+/3//f////z//fwAA////vwAA/3////+//3//f////z//f///////vwAA/3////+//////////7//fwAA////vwAA/3////+//////////7//f///////vwAA/3////+//////////7//fwAA////v////3////+//////////7//f///////v////3////+//3//f////z//fwAA////v////3////+//3//f////z//f///////v////3////+//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+//3///////7//f///////vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hipqv")
+
+[node name="Calendar" type="Node3D"]
+
+[node name="SO_Calendar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("ArrayMesh_28kxk")
+skeleton = NodePath("")

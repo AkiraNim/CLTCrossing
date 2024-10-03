@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=4 uid="uid://cswprw01bpyx7"]
+
+[ext_resource type="Texture2D" uid="uid://bapu4mw1lrwhi" path="res://SimpleShopInteriors/Enviroment/WallCorner2_SimpleShopInterior_Texture.png" id="1_p1wof"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucmnh"]
+resource_name = "lambert8.001"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("1_p1wof")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lbuid"]
+_surfaces = [{
+"aabb": AABB(-0.0841026, -0.0841026, -8.82893, 0.168205, 0.168205, 8.82893),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAFAAMAAgAEAAUABAAHAAUABAAGAAcABgABAAcABgAAAAEAAQAFAAcAAQADAAUABgACAAAABgAEAAIA"),
+"name": "lambert8.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AD6svQA+rL0AAACAAD6svQA+rD0AAACAAD6svQA+rL1KQw3BAD6svQA+rD1KQw3BAD6sPQA+rL1KQw3BAD6sPQA+rD1KQw3BAD6sPQA+rL0AAACAAD6sPQA+rD0AAACA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_82jkf"]
+resource_name = "WallCorner2_Mesh_012"
+_surfaces = [{
+"aabb": AABB(-0.0841026, -0.0841026, -8.82893, 0.168205, 0.168205, 8.82893),
+"attribute_data": PackedByteArray("l7QqPmrABj9pkGo+aMAGP3twUT5owAY/lbQqPmrABj9lkGo+aMAGP3lwUT5owAY/KY6GPmjABj9pkGo+aMAGP3twUT5owAY/J46GPmjABj9lkGo+aMAGP3lwUT5owAY/KY6GPmjABj9lkGo+aMAGP3twUT5owAY/J46GPmjABj9hkGo+aMAGP3lwUT5owAY/l7QqPmjABj9lkGo+aMAGP3twUT5owAY/lbQqPmjABj9hkGo+aMAGP3lwUT5owAY/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAPAAkABgAMAA8ADgAXABEADgAUABcAEgADABUAEgAAAAMABAAQABYABAAKABAAEwAHAAEAEwANAAcA"),
+"material": SubResource("StandardMaterial3D_ucmnh"),
+"name": "lambert8.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AD6svQA+rL0AAACAAD6svQA+rL0AAACAAD6svQA+rL0AAACAAD6svQA+rD0AAACAAD6svQA+rD0AAACAAD6svQA+rD0AAACAAD6svQA+rL1KQw3BAD6svQA+rL1KQw3BAD6svQA+rL1KQw3BAD6svQA+rD1KQw3BAD6svQA+rD1KQw3BAD6svQA+rD1KQw3BAD6sPQA+rL1KQw3BAD6sPQA+rL1KQw3BAD6sPQA+rL1KQw3BAD6sPQA+rD1KQw3BAD6sPQA+rD1KQw3BAD6sPQA+rD1KQw3BAD6sPQA+rL0AAACAAD6sPQA+rL0AAACAAD6sPQA+rL0AAACAAD6sPQA+rD0AAACAAD6sPQA+rD0AAACAAD6sPQA+rD0AAACA/3//f/9/AID/fwAA////vwAA/3////+//3//f/9/AID/f///////vwAA/3////+//////////7//fwAA////vwAA/3////+//////////7//f///////vwAA/3////+//////////7//fwAA////v////3////+//////////7//f///////v////3////+//3//f/9/AID/fwAA////v////3////+//3//f/9/AID/f///////v////3////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lbuid")
+
+[node name="WallCorner2" type="Node3D"]
+
+[node name="SI_Env_Wall_CornerBlock_large" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("ArrayMesh_82jkf")
+skeleton = NodePath("")

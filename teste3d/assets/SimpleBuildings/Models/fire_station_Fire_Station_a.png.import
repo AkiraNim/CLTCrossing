@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by705gc5828s"
-path.s3tc="res://.godot/imported/BoxFile2_SimpleOffice_Texture.png-f0d34ec065ef67445d0f1684e005b27f.s3tc.ctex"
+uid="uid://bxexspwawfuei"
+path.s3tc="res://.godot/imported/fire_station_Fire_Station_a.png-ea6e438423510a81d68a25759187db71.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "cd5b957d22a223403b30b3f78c9cdba1"
+}
 
 [deps]
 
-source_file="res://SimpleOfficeInteriors/BoxFile2_SimpleOffice_Texture.png"
-dest_files=["res://.godot/imported/BoxFile2_SimpleOffice_Texture.png-f0d34ec065ef67445d0f1684e005b27f.s3tc.ctex"]
+source_file="res://assets/SimpleBuildings/Models/fire_station_Fire_Station_a.png"
+dest_files=["res://.godot/imported/fire_station_Fire_Station_a.png-ea6e438423510a81d68a25759187db71.s3tc.ctex"]
 
 [params]
 

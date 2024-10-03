@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgbge7fxgte6o"
+uid="uid://dfynhjwohj4am"
 path.s3tc="res://.godot/imported/Carpet2_SimpleOffice_Texture.png-c1228cf6b222f750f59296945f6a37d2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "3d3a05e547ddd8cf2eb4f8ca64c00162"
 }
 
 [deps]

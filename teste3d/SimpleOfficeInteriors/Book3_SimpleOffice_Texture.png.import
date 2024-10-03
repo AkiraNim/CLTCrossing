@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpewwo0moatox"
+uid="uid://bg323gxuf08gt"
 path.s3tc="res://.godot/imported/Book3_SimpleOffice_Texture.png-fd0e74c446db0ce91dd122b9be12cb91.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "3d3a05e547ddd8cf2eb4f8ca64c00162"
 }
 
 [deps]

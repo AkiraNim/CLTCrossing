@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by705gc5828s"
-path.s3tc="res://.godot/imported/BoxFile2_SimpleOffice_Texture.png-f0d34ec065ef67445d0f1684e005b27f.s3tc.ctex"
+uid="uid://cohwemfq6auwl"
+path.s3tc="res://.godot/imported/factory_2_Factory_b.png-b354701ab33010f35e4fc79ccdd2a13c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://SimpleOfficeInteriors/BoxFile2_SimpleOffice_Texture.png"
-dest_files=["res://.godot/imported/BoxFile2_SimpleOffice_Texture.png-f0d34ec065ef67445d0f1684e005b27f.s3tc.ctex"]
+source_file="res://assets/SimpleBuildings/Models/factory_2_Factory_b.png"
+dest_files=["res://.godot/imported/factory_2_Factory_b.png-b354701ab33010f35e4fc79ccdd2a13c.s3tc.ctex"]
 
 [params]
 

@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by705gc5828s"
-path.s3tc="res://.godot/imported/BoxFile2_SimpleOffice_Texture.png-f0d34ec065ef67445d0f1684e005b27f.s3tc.ctex"
+uid="uid://ccy208dtvss71"
+path.s3tc="res://.godot/imported/TownHall_Town_Hall_a.png-2f4a5f680f402af807ed5f158060db00.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "9eccc539f735abe1adc91e5e15f447bb"
+}
 
 [deps]
 
-source_file="res://SimpleOfficeInteriors/BoxFile2_SimpleOffice_Texture.png"
-dest_files=["res://.godot/imported/BoxFile2_SimpleOffice_Texture.png-f0d34ec065ef67445d0f1684e005b27f.s3tc.ctex"]
+source_file="res://assets/SimpleBuildings/Models/TownHall_Town_Hall_a.png"
+dest_files=["res://.godot/imported/TownHall_Town_Hall_a.png-2f4a5f680f402af807ed5f158060db00.s3tc.ctex"]
 
 [params]
 

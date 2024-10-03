@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by705gc5828s"
-path.s3tc="res://.godot/imported/BoxFile2_SimpleOffice_Texture.png-f0d34ec065ef67445d0f1684e005b27f.s3tc.ctex"
+uid="uid://bj8agaylugyo1"
+path.s3tc="res://.godot/imported/fence_madera-textura.jpg-03e1565b6d71c3a516b67a5a7f8f25b1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "6f7f2e0c0d79f938023f32dd2ea96814"
+}
 
 [deps]
 
-source_file="res://SimpleOfficeInteriors/BoxFile2_SimpleOffice_Texture.png"
-dest_files=["res://.godot/imported/BoxFile2_SimpleOffice_Texture.png-f0d34ec065ef67445d0f1684e005b27f.s3tc.ctex"]
+source_file="res://assets/SimpleBuildings/Models/fence_madera-textura.jpg"
+dest_files=["res://.godot/imported/fence_madera-textura.jpg-03e1565b6d71c3a516b67a5a7f8f25b1.s3tc.ctex"]
 
 [params]
 

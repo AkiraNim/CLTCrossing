@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ioc7mp1bmptl"
+uid="uid://1k5xa1btb7fa"
 path.s3tc="res://.godot/imported/Ceilling_SimpleOffice_Texture.png-11734901851686754cae135f8c38b654.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "3d3a05e547ddd8cf2eb4f8ca64c00162"
 }
 
 [deps]

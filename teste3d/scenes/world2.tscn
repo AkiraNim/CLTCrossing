@@ -5,8 +5,8 @@
 [ext_resource type="MeshLibrary" uid="uid://c13pyq3xqngy8" path="res://assets/construçoes/construcoesGridMap/constructions.tres" id="5_1b2qs"]
 [ext_resource type="Texture2D" uid="uid://brf6ayh15fh18" path="res://Texturas/Grass_02_Green_1.png" id="5_dxx70"]
 [ext_resource type="MeshLibrary" uid="uid://m5iov5mceqdh" path="res://assets/estruturas/estruturasGridMap/structures.tres" id="6_h3rlo"]
-[ext_resource type="Script" path="res://assets/construçoes/contrucoesScenes/collision_shop_house.gd" id="7_3m88c"]
-[ext_resource type="PackedScene" uid="uid://dv7iwhg7msbrw" path="res://assets/construçoes/contrucoesScenes/burguer_shop.tscn" id="8_b2wun"]
+[ext_resource type="Script" path="res://assets/SimpleBuildings/Models/collision_shop_house.gd" id="7_3m88c"]
+[ext_resource type="PackedScene" uid="uid://dv7iwhg7msbrw" path="res://assets/SimpleBuildings/Models/burguer_shop.tscn" id="8_b2wun"]
 [ext_resource type="Script" path="res://Scripts/camera_rig2.gd" id="12_u3o0i"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fbmgm"]

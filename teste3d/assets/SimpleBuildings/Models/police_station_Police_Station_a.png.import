@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by705gc5828s"
-path.s3tc="res://.godot/imported/BoxFile2_SimpleOffice_Texture.png-f0d34ec065ef67445d0f1684e005b27f.s3tc.ctex"
+uid="uid://ci2eax0d0huk1"
+path.s3tc="res://.godot/imported/police_station_Police_Station_a.png-149c5b63890a9998e54315b7c49e025a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "8ffa4823b34cf5cd6ec102d1d15cdc49"
+}
 
 [deps]
 
-source_file="res://SimpleOfficeInteriors/BoxFile2_SimpleOffice_Texture.png"
-dest_files=["res://.godot/imported/BoxFile2_SimpleOffice_Texture.png-f0d34ec065ef67445d0f1684e005b27f.s3tc.ctex"]
+source_file="res://assets/SimpleBuildings/Models/police_station_Police_Station_a.png"
+dest_files=["res://.godot/imported/police_station_Police_Station_a.png-149c5b63890a9998e54315b7c49e025a.s3tc.ctex"]
 
 [params]
 

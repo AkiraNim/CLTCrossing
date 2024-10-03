@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by705gc5828s"
-path.s3tc="res://.godot/imported/BoxFile2_SimpleOffice_Texture.png-f0d34ec065ef67445d0f1684e005b27f.s3tc.ctex"
+uid="uid://d2eepvpihqrkf"
+path.s3tc="res://.godot/imported/table_chairs_Burger_Shop_a.png-0f9b6a330fcf908c51a0e7a96dd8e6d4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "23cd769491567bbe77769fe9497efc6d"
+}
 
 [deps]
 
-source_file="res://SimpleOfficeInteriors/BoxFile2_SimpleOffice_Texture.png"
-dest_files=["res://.godot/imported/BoxFile2_SimpleOffice_Texture.png-f0d34ec065ef67445d0f1684e005b27f.s3tc.ctex"]
+source_file="res://assets/SimpleBuildings/Models/table_chairs_Burger_Shop_a.png"
+dest_files=["res://.godot/imported/table_chairs_Burger_Shop_a.png-0f9b6a330fcf908c51a0e7a96dd8e6d4.s3tc.ctex"]
 
 [params]
 

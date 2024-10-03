@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bsrwm7j185lln"
+path.s3tc="res://.godot/imported/Women4_SimplePeople_HouseWife_Black.png-3d10f7ec23d2bde0b944aca02ce69408.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "fc9f8ff3b2b409ee676cb0109d154c33"
+}
+
+[deps]
+
+source_file="res://SimplePeople/Women4_SimplePeople_HouseWife_Black.png"
+dest_files=["res://.godot/imported/Women4_SimplePeople_HouseWife_Black.png-3d10f7ec23d2bde0b944aca02ce69408.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

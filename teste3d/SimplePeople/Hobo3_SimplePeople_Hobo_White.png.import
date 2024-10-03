@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://mhukbb6tdtju"
+path.s3tc="res://.godot/imported/Hobo3_SimplePeople_Hobo_White.png-8f8f952e3a5717e0aff54e1aff183eaa.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "ae5858866a221db8b7250435eb56325f"
+}
+
+[deps]
+
+source_file="res://SimplePeople/Hobo3_SimplePeople_Hobo_White.png"
+dest_files=["res://.godot/imported/Hobo3_SimplePeople_Hobo_White.png-8f8f952e3a5717e0aff54e1aff183eaa.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

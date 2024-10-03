@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=4 uid="uid://dqjrap17y5cmb"]
+
+[ext_resource type="Texture2D" uid="uid://7itvcnbpdpm6" path="res://SimpleShopInteriors/Enviroment/Wall4_SimpleShopInterior_Texture.png" id="1_1tybb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7s7d"]
+resource_name = "lambert4.003"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("1_1tybb")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4ulqj"]
+_surfaces = [{
+"aabb": AABB(-4.44089e-16, 0, -4.41446, 5, 0.0548747, 4.68513),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AgAAAAEAAgADAAAABQAGAAQABQAHAAYABAAIAAUABAABAAgACgALAAkACgAMAAsADAACAAsADAADAAIA"),
+"name": "lambert4.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 13,
+"vertex_data": PackedByteArray("AAAAAEILAAD//wAAQgsAAP//AADy5QAAAAAAAPLlAAD///7/QgsAAAAA//9CCwAA///+/wAAAAAAAP//AAAAAAAAAABCCwAA///+////AAAAAP////8AAP///v/y5QAAAAD///LlAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ybuk7"]
+resource_name = "Wall4_Mesh_010"
+_surfaces = [{
+"aabb": AABB(-4.44089e-16, 0, -4.41446, 5, 0.0548747, 4.68513),
+"attribute_data": PackedByteArray("8Gkg9PBpIPT2IyD08Gkg9PYjIPTwaSD09iMg9LdDIPT2IyD0t0Mg9LdDIPS3QyD09iMg9PYjIPS3QyD0t0Mg9PYjIPS3QyD09iMg9LdDIPQ="),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AwAAAAEAAwAFAAAACQAKAAcACQALAAoABgANAAgABgAMAA0ADwARAA4ADwATABEAEgACABAAEgAEAAIA"),
+"material": SubResource("StandardMaterial3D_o7s7d"),
+"name": "lambert4.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAEIL/7///wAAQgv/v///AADy5f////8AAPLl/78AAAAA8uX//wAAAADy5f+////+/0IL/n////7/Qgv/vwAA//9CC/5/AAD//0IL/7////7/AAD/vwAA//8AAP+///8AAEIL/n8AAAAAQgv+f////v////+/AAD//////7////7/8uX//////v/y5f+/AAD///Ll//8AAP//8uX/v////3////9/////f////3////9/////f/9///////9//3///////3////9/////f/9/////f///////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4ulqj")
+
+[node name="Wall4" type="Node3D"]
+
+[node name="SI_Env_Wall_04" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("ArrayMesh_ybuk7")
+skeleton = NodePath("")

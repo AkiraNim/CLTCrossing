@@ -15,7 +15,7 @@ var health: int = 5
 
 signal toggle_inventory()
 
-@onready var animation_player: AnimationPlayer = $visuals/sophia/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $visuals/Mage/AnimationPlayer
 @onready var visuals: Node3D = $visuals
 @onready var camera_point = $camera_point
 @onready var coins_container: HBoxContainer = $"../CameraRig/HUD/coinsContainer"
@@ -29,8 +29,8 @@ signal toggle_inventory()
 func _ready():
 	PlayerManager.player = self
 	GameManager.set_player(self)
-	animation_player.set_blend_time("Idle", "Run", 0.2)
-	animation_player.set_blend_time("Run", "Idle", 0.2)
+	animation_player.set_blend_time("Idle", "Walking_B", 0.2)
+	animation_player.set_blend_time("Walking_B", "Idle", 0.2)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta):
@@ -120,14 +120,14 @@ func heal(heal_value: int) -> void:
 func handle_animations():
 	if is_on_floor():
 		if abs(velocity.x) > 1 or abs(velocity.z) > 1:
-			animation_player.play("Run", 0.3)
+			animation_player.play("Walking_B", 0.3)
 		else:
 			animation_player.play("Idle", 0.3)
 	else:
-		animation_player.play("Jump", 0.3)
+		animation_player.play("Jump_Start", 0.3)
 		
 	if !is_on_floor() and gravity > 2:
-		animation_player.play("Fall", 0.3)
+		animation_player.play("Jump_Land", 0.3)
 	
 func apply_gravity(delta):
 	if !is_on_floor():

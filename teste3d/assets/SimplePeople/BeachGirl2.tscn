@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://bk080ageq4yjx"]
 
-[ext_resource type="Texture2D" uid="uid://cpqblxh0nyvun" path="res://assets/SimplePeople/BeachGirl2_SimplePeople_BeachBabe_Brown.png" id="1_qqer0"]
+[ext_resource type="Texture2D" uid="uid://744y7wyv115t" path="res://assets/SimplePeople/BeachGirl2_SimplePeople_BeachBabe_Brown.png" id="1_qqer0"]
 [ext_resource type="AnimationLibrary" uid="uid://drhpksvbvsgur" path="res://assets/SimplePeople/animation.res" id="2_lkvf4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eongt"]

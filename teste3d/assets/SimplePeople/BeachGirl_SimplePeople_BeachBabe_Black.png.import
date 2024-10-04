@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://b46dqyo6deguq"
+path.s3tc="res://.godot/imported/BeachGirl_SimplePeople_BeachBabe_Black.png-f7a1eb8663e7f0fb72a1b564929b500f.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "d70fc633c5898d0244083274cac2393a"
+}
+
+[deps]
+
+source_file="res://assets/SimplePeople/BeachGirl_SimplePeople_BeachBabe_Black.png"
+dest_files=["res://.godot/imported/BeachGirl_SimplePeople_BeachBabe_Black.png-f7a1eb8663e7f0fb72a1b564929b500f.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

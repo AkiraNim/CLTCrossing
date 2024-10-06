@@ -80,7 +80,6 @@ func use_slot_data(index: int) -> void:
 		if slot_data.quantity < 1:
 			slot_datas[index] = null  # Remove o slot se a quantidade chegar a zero
 
-	print(slot_data.item_data.name)  # Imprime o nome do item
 	PlayerManager.use_slot_data(slot_data)  # Chama a função de uso do PlayerManager
 
 	inventory_updated.emit(self)  # Emite sinal de atualização do inventário

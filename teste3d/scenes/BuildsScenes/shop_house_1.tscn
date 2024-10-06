@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cva5a56g6g5lt"]
+[gd_scene load_steps=41 format=4 uid="uid://cva5a56g6g5lt"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_funwh"]
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="1_n8nx6"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dqilpeh4bal8a" path="res://Inventory/Inventory/slot.tscn" id="13_ybic8"]
 [ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://Formas/Menu/pause_menu.tscn" id="14_3ixn2"]
 [ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="16_8blro"]
+[ext_resource type="Resource" uid="uid://bti2rgq3cgwlu" path="res://Inventory/Item/Items/blue_book.tres" id="17_xr3hy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yecuh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -398,9 +399,14 @@ script = ExtResource("5_irjyr")
 item_data = ExtResource("16_8blro")
 quantity = 1
 
+[sub_resource type="Resource" id="Resource_vcs5u"]
+script = ExtResource("5_irjyr")
+item_data = ExtResource("17_xr3hy")
+quantity = 1
+
 [sub_resource type="Resource" id="Resource_aoke0"]
 script = ExtResource("4_drcpu")
-slot_datas = Array[ExtResource("5_irjyr")]([SubResource("Resource_q6i5k"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+slot_datas = Array[ExtResource("5_irjyr")]([SubResource("Resource_q6i5k"), SubResource("Resource_vcs5u"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 
 [sub_resource type="Resource" id="Resource_umiw3"]
 script = ExtResource("6_y4sid")

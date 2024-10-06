@@ -11,5 +11,6 @@ region = Rect2(0, 448, 32, 32)
 script = ExtResource("1_qh0wj")
 name = "Apple"
 description = "A tasty Apple"
+tooltip = "A tasty Apple"
 stackable = true
 texture = SubResource("AtlasTexture_dmghq")

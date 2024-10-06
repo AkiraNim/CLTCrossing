@@ -12,5 +12,6 @@ script = ExtResource("1_hy4jv")
 defence = 5
 name = "Iron Helm"
 description = "Iron Helm"
+tooltip = "Iron Helm"
 stackable = false
 texture = SubResource("AtlasTexture_gccrg")

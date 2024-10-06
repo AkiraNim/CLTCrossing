@@ -7,6 +7,7 @@ class_name ItemData
 # Variáveis exportadas que definem as propriedades básicas de um item
 @export var name: String = ""  # Nome do item
 @export_multiline var description: String = ""  # Descrição do item, permite múltiplas linhas no editor
+@export_multiline var tooltip: String = ""  # Descrição do item, permite múltiplas linhas no editor
 @export var stackable: bool = false  # Define se o item pode ser empilhado (stackable) no inventário
 @export var texture: AtlasTexture  # Textura associada ao item, utilizada para representá-lo visualmente
 

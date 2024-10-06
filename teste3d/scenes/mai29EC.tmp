@@ -526,6 +526,7 @@ offset_right = 64.0
 offset_bottom = 64.0
 
 [node name="ItemDescripition" type="Label" parent="Ui/InventoryInterface"]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 

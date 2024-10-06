@@ -14,6 +14,7 @@ var external_inventory_owner  # Referência ao dono do inventário externo
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot  # Slot visual que segue o mouse quando um item é agarrado
 @onready var equip_inventory: PanelContainer = $PlayerInventory/EquipInventory  # Inventário de equipamentos do jogador
 @onready var external_inventory_node: Node2D = $ExternalInventory
+@onready var item_descripition: Label = $ItemDescripition
 
 # Função chamada a cada quadro de física, atualiza a posição do slot agarrado para seguir o mouse
 func _physics_process(delta: float) -> void:

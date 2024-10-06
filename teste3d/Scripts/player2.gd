@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var inventory_data: InventoryData
 @export var equip_inventory_data: InventoryDataEquip
 
-const SPEED = 5.0
+const SPEED = 3.0
 const JUMP_VELOCITY = 10
 
 var stack = false
@@ -111,7 +111,7 @@ func interact() -> void:
 		interact_ray.get_collider().player_interact()
 		
 func get_drop_position() -> Vector3:
-	var direction = -player.global_transform.basis.z 
+	var direction = -player.global_transform.basis.z*2 
 	return player.global_position + direction
 
 func heal(heal_value: int) -> void:

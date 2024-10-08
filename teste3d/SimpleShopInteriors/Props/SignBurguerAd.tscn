@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=4 uid="uid://b318jjhl6oue7"]
+
+[ext_resource type="Texture2D" uid="uid://bbdj2gmye3bfb" path="res://SimpleShopInteriors/Props/SignBurguerAd_SimpleShopInterior_Texture.png" id="1_o416u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hiyj5"]
+resource_name = "lambert1.164"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("1_o416u")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k8q17"]
+_surfaces = [{
+"aabb": AABB(-0.626942, 0, -1.95719, 1.25388, 0.114946, 1.95719),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("CAAKAAkACAALAAoAAgAFAAMAAgAEAAUABgABAAcABgAAAAEAAQAFAAcAAQADAAUABgACAAAABgAEAAIAAAAJAAEAAAAIAAkAAQAKAAMAAQAJAAoAAwALAAIAAwAKAAsAAgAIAAAAAgALAAgA"),
+"lods": [0.879202, PackedByteArray("AgAFAAMAAgAEAAUABgABAAcABgAAAAEAAQAFAAcAAQADAAUABgACAAAABgAEAAIAAAALAAEAAQALAAMAAgALAAAAAwALAAIA")],
+"name": "lambert1.164",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAD/////AAD///////8AAAAA//8AAAAA/////wAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAP//AAD//wAA//8AABIR///Q9gAA7O7//9D2AADs7v//LgkAABIR//8uCQAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_j882v"]
+resource_name = "SignBurguerAd_Mesh_190"
+_surfaces = [{
+"aabb": AABB(-0.626942, 0, -1.95719, 1.25388, 0.114946, 1.95719),
+"attribute_data": PackedByteArray("eyPL8I0yy/A5LMvweyPL8I0yy/A5LMvwmDvL8I0yy/A5LMvwmDvL8I0yy/A5LMvwmDvL8Dksy/CYO8vwOSzL8Hsjy/A5LMvweyPL8Dksy/CNMsvw9plc/40yy/C5slz/jTLL8Lmyd9uNMsvw9pl32w=="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("FQAZABcAFQAbABkABgAOAAkABgAMAA4AEAADABIAEAAAAAMABQAPABMABQALAA8AEQAIAAIAEQANAAgAAQAWAAQAAQAUABYABAAYAAoABAAWABgACgAaAAcACgAYABoABwAUAAEABwAaABQA"),
+"lods": [0.879202, PackedByteArray("BgAOAAkABgAMAA4AEAADABIAEAAAAAMABQAPABMABQALAA8AEQAIAAIAEQANAAgAAQAaAAQABAAaAAoABwAaAAEACgAaAAcA")],
+"material": SubResource("StandardMaterial3D_hiyj5"),
+"name": "lambert1.164",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AAD///////8AAP//////vwAA/////1TV////////////////////v////////6oqAAD//wAA//8AAP//AAD/vwAA//8AAFTV/////wAA////////AAD/v/////8AAKoqAAAAAAAA//8AAAAAAABU1f//AAAAAP////8AAAAAqioAAAAA/////wAAAAD//1TV//8AAP///////wAA//+qKhIR///Q9v+/EhH//9D2/7/s7v//0Pb/v+zu///Q9v+/7O7//y4J/7/s7v//Lgn/vxIR//8uCf+/EhH//y4J/7//f/9/////f1TVVNX/f/9/////f6oqqir///9/////f1TVVNX///9/////f6oqqir///9/VNVU1f///3+qKqoq/3//f1TVVNX/f/9/qiqqKv///3////9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_k8q17")
+
+[node name="SignBurguerAd" type="Node3D"]
+
+[node name="SI_Prop_Sign_BurgerAd_01" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("ArrayMesh_j882v")
+skeleton = NodePath("")

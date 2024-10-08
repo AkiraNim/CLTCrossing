@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://drdqahpk0ql3"]
+[gd_scene load_steps=37 format=4 uid="uid://drdqahpk0ql3"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="2_e5e43"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="13_bs3wm"]
 [ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="14_lhgay"]
 [ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://Formas/Menu/pause_menu.tscn" id="15_00xag"]
+[ext_resource type="PackedScene" uid="uid://ds4sbgxxyc1kt" path="res://Inventory/inventory_description.tscn" id="15_qcpu8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mtgxe"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -408,6 +409,15 @@ expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2mw0"]
+bg_color = Color(0.309385, 0.309385, 0.309385, 0.611765)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+
 [node name="Main" type="Node"]
 script = ExtResource("1_u6833")
 
@@ -525,11 +535,17 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 
-[node name="ItemDescripition" type="Label" parent="Ui/InventoryInterface"]
+[node name="InventoryDescription" parent="Ui" instance=ExtResource("15_qcpu8")]
 visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+
+[node name="ItemDescripition" type="Label" parent="Ui/InventoryDescription"]
+offset_left = 236.0
+offset_top = 150.0
+offset_right = 905.0
+offset_bottom = 560.0
+theme_override_fonts/font = ExtResource("12_o27jf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g2mw0")
+autowrap_mode = 2
 
 [node name="pause_menu" parent="." instance=ExtResource("15_00xag")]
 process_mode = 3

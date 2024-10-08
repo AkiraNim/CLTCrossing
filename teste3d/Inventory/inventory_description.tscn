@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=4 uid="uid://ds4sbgxxyc1kt"]
+[gd_scene load_steps=7 format=4 uid="uid://ds4sbgxxyc1kt"]
 
-[ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://Fonts/prstart.ttf" id="1_51ijx"]
 [ext_resource type="Script" path="res://Inventory/inventory_description.gd" id="1_54n3s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87agd"]
@@ -10,13 +9,6 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.354063, 0.354063, 0.354063, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_le4v8"]
-bg_color = Color(0.152941, 0.152941, 0.152941, 0.615686)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -303,18 +295,6 @@ offset_top = 90.0
 offset_right = 961.0
 offset_bottom = 575.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_87agd")
-
-[node name="paused" type="Label" parent="."]
-offset_left = 225.0
-offset_top = 93.0
-offset_right = 907.0
-offset_bottom = 140.0
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_51ijx")
-theme_override_styles/normal = SubResource("StyleBoxFlat_le4v8")
-text = "Descrição"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="exit_button" type="Button" parent="."]
 offset_left = 908.0

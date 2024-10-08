@@ -1,23 +1,24 @@
-[gd_scene load_steps=42 format=4 uid="uid://drdqahpk0ql3"]
+[gd_scene load_steps=43 format=4 uid="uid://xni2yan63tmr"]
 
-[ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
-[ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="2_e5e43"]
-[ext_resource type="Script" path="res://Inventory/Inventory/inventory_data.gd" id="3_cs1x2"]
-[ext_resource type="Script" path="res://Inventory/Inventory/slot_data.gd" id="4_nafn1"]
-[ext_resource type="Script" path="res://Inventory/Inventory/inventory_data_equip.gd" id="5_xkuvt"]
-[ext_resource type="Script" path="res://Scripts/camera_rig2.gd" id="6_krbft"]
-[ext_resource type="Script" path="res://Inventory/Inventory/inventory_interface.gd" id="7_gxcgx"]
-[ext_resource type="PackedScene" uid="uid://c7lwx2o8obigc" path="res://Inventory/Inventory/inventory.tscn" id="8_fid25"]
-[ext_resource type="PackedScene" uid="uid://dqilpeh4bal8a" path="res://Inventory/Inventory/slot.tscn" id="9_f7jew"]
-[ext_resource type="Resource" uid="uid://ci6nhaw5n1aya" path="res://Inventory/Item/Items/yellow_book.tres" id="10_1b03h"]
-[ext_resource type="PackedScene" uid="uid://ckeu7h6bwny30" path="res://Inventory/Interactable/chest.tscn" id="11_dbpnn"]
-[ext_resource type="Resource" uid="uid://drtte25c8ktfq" path="res://Inventory/Item/Items/red_book.tres" id="11_wyoqs"]
-[ext_resource type="Resource" uid="uid://bti2rgq3cgwlu" path="res://Inventory/Item/Items/blue_book.tres" id="12_b5s0w"]
-[ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://Fonts/prstart.ttf" id="12_o27jf"]
-[ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="13_bs3wm"]
-[ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="14_lhgay"]
-[ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://Formas/Menu/pause_menu.tscn" id="15_00xag"]
-[ext_resource type="PackedScene" uid="uid://ds4sbgxxyc1kt" path="res://Inventory/inventory_description.tscn" id="15_qcpu8"]
+[ext_resource type="Script" path="res://Inventory/main.gd" id="1_e34i7"]
+[ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="2_q1s5e"]
+[ext_resource type="Script" path="res://Inventory/Inventory/inventory_data.gd" id="3_yqjoi"]
+[ext_resource type="Script" path="res://Inventory/Inventory/slot_data.gd" id="4_csune"]
+[ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="5_frfoj"]
+[ext_resource type="Script" path="res://Inventory/Inventory/inventory_data_equip.gd" id="6_8rp32"]
+[ext_resource type="Script" path="res://Scripts/camera_rig2.gd" id="7_sr0yu"]
+[ext_resource type="PackedScene" uid="uid://ckeu7h6bwny30" path="res://Inventory/Interactable/chest.tscn" id="8_heedl"]
+[ext_resource type="Resource" uid="uid://bti2rgq3cgwlu" path="res://Inventory/Item/Items/blue_book.tres" id="9_n8fqi"]
+[ext_resource type="Resource" uid="uid://ci6nhaw5n1aya" path="res://Inventory/Item/Items/yellow_book.tres" id="10_so5sr"]
+[ext_resource type="Resource" uid="uid://drtte25c8ktfq" path="res://Inventory/Item/Items/red_book.tres" id="11_nh4vq"]
+[ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="12_bl8hy"]
+[ext_resource type="Script" path="res://Inventory/Inventory/inventory_interface.gd" id="13_4wcn6"]
+[ext_resource type="PackedScene" uid="uid://c7lwx2o8obigc" path="res://Inventory/Inventory/inventory.tscn" id="14_menfc"]
+[ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://Fonts/prstart.ttf" id="15_sfa3y"]
+[ext_resource type="PackedScene" uid="uid://dqilpeh4bal8a" path="res://Inventory/Inventory/slot.tscn" id="16_7f24j"]
+[ext_resource type="PackedScene" uid="uid://ds4sbgxxyc1kt" path="res://Inventory/inventory_description.tscn" id="17_icr3n"]
+[ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://Formas/Menu/pause_menu.tscn" id="18_lsd5f"]
+[ext_resource type="PackedScene" uid="uid://svgy5orp7sgb" path="res://assets/SimpleTown/Road2.tscn" id="19_7t1se"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mtgxe"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -33,17 +34,17 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="Resource" id="Resource_46at2"]
-script = ExtResource("4_nafn1")
-item_data = ExtResource("14_lhgay")
+script = ExtResource("4_csune")
+item_data = ExtResource("5_frfoj")
 quantity = 1
 
 [sub_resource type="Resource" id="Resource_aaflk"]
-script = ExtResource("3_cs1x2")
-slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_46at2"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+script = ExtResource("3_yqjoi")
+slot_datas = Array[ExtResource("4_csune")]([SubResource("Resource_46at2"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 
 [sub_resource type="Resource" id="Resource_kjrc8"]
-script = ExtResource("5_xkuvt")
-slot_datas = Array[ExtResource("4_nafn1")]([null, null, null, null, null, null])
+script = ExtResource("6_8rp32")
+slot_datas = Array[ExtResource("4_csune")]([null, null, null, null, null, null])
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rdy6h"]
 
@@ -51,27 +52,27 @@ slot_datas = Array[ExtResource("4_nafn1")]([null, null, null, null, null, null])
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [sub_resource type="Resource" id="Resource_y3t7h"]
-script = ExtResource("4_nafn1")
-item_data = ExtResource("12_b5s0w")
+script = ExtResource("4_csune")
+item_data = ExtResource("9_n8fqi")
 quantity = 1
 
 [sub_resource type="Resource" id="Resource_05ibi"]
-script = ExtResource("4_nafn1")
-item_data = ExtResource("10_1b03h")
+script = ExtResource("4_csune")
+item_data = ExtResource("10_so5sr")
 quantity = 1
 
 [sub_resource type="Resource" id="Resource_1u17u"]
-script = ExtResource("4_nafn1")
-item_data = ExtResource("11_wyoqs")
+script = ExtResource("4_csune")
+item_data = ExtResource("11_nh4vq")
 quantity = 1
 
 [sub_resource type="Resource" id="Resource_vq4vq"]
-script = ExtResource("3_cs1x2")
-slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_y3t7h"), SubResource("Resource_05ibi"), SubResource("Resource_1u17u"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+script = ExtResource("3_yqjoi")
+slot_datas = Array[ExtResource("4_csune")]([SubResource("Resource_y3t7h"), SubResource("Resource_05ibi"), SubResource("Resource_1u17u"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 
 [sub_resource type="Resource" id="Resource_w7qch"]
-script = ExtResource("4_nafn1")
-item_data = ExtResource("14_lhgay")
+script = ExtResource("4_csune")
+item_data = ExtResource("5_frfoj")
 quantity = 1
 
 [sub_resource type="Image" id="Image_yu2am"]
@@ -438,7 +439,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="Main" type="Node"]
-script = ExtResource("1_u6833")
+script = ExtResource("1_e34i7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -447,14 +448,14 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kfbor")
 
-[node name="Player" parent="." instance=ExtResource("2_e5e43")]
+[node name="Player" parent="." instance=ExtResource("2_q1s5e")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 7
 inventory_data = SubResource("Resource_aaflk")
 equip_inventory_data = SubResource("Resource_kjrc8")
 
 [node name="CameraRig" type="Node3D" parent="."]
-script = ExtResource("6_krbft")
+script = ExtResource("7_sr0yu")
 
 [node name="background_camera" type="Camera3D" parent="CameraRig"]
 cull_mask = 1047553
@@ -468,13 +469,13 @@ mesh = SubResource("PlaneMesh_rdy6h")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_euw2y")
 
-[node name="Chest" parent="." instance=ExtResource("11_dbpnn")]
+[node name="Chest" parent="." instance=ExtResource("8_heedl")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 2)
 inventory_data = SubResource("Resource_vq4vq")
 name_type = "Baú"
 
-[node name="ApplePickup" parent="." instance=ExtResource("13_bs3wm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520367, 1.47155, 2.10618)
+[node name="ApplePickup" parent="." instance=ExtResource("12_bl8hy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520367, 1.47155, -2.86444)
 slot_data = SubResource("Resource_w7qch")
 
 [node name="Ui" type="CanvasLayer" parent="."]
@@ -487,7 +488,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("7_gxcgx")
+script = ExtResource("13_4wcn6")
 metadata/_edit_use_anchors_ = true
 
 [node name="ExternalInventory" type="Node2D" parent="Ui/InventoryInterface"]
@@ -504,7 +505,7 @@ theme_override_fonts/font = SubResource("FontFile_bwvhn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nd4a4")
 horizontal_alignment = 1
 
-[node name="ExternalInventory" parent="Ui/InventoryInterface/ExternalInventory" instance=ExtResource("8_fid25")]
+[node name="ExternalInventory" parent="Ui/InventoryInterface/ExternalInventory" instance=ExtResource("14_menfc")]
 offset_left = 720.0
 offset_top = 100.0
 offset_right = 760.0
@@ -519,7 +520,7 @@ offset_right = 551.0
 offset_bottom = 86.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("12_o27jf")
+theme_override_fonts/font = ExtResource("15_sfa3y")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v0ea1")
 text = "Inventário"
 
@@ -530,23 +531,23 @@ offset_right = 536.0
 offset_bottom = 388.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("12_o27jf")
+theme_override_fonts/font = ExtResource("15_sfa3y")
 theme_override_styles/normal = SubResource("StyleBoxFlat_r8xun")
 text = "Equipados"
 
-[node name="PlayerInventory" parent="Ui/InventoryInterface/PlayerInventory" instance=ExtResource("8_fid25")]
+[node name="PlayerInventory" parent="Ui/InventoryInterface/PlayerInventory" instance=ExtResource("14_menfc")]
 offset_left = 260.0
 offset_top = 100.0
 offset_right = 300.0
 offset_bottom = 140.0
 
-[node name="EquipInventory" parent="Ui/InventoryInterface/PlayerInventory" instance=ExtResource("8_fid25")]
+[node name="EquipInventory" parent="Ui/InventoryInterface/PlayerInventory" instance=ExtResource("14_menfc")]
 offset_left = 260.0
 offset_top = 400.0
 offset_right = 300.0
 offset_bottom = 440.0
 
-[node name="GrabbedSlot" parent="Ui/InventoryInterface" instance=ExtResource("9_f7jew")]
+[node name="GrabbedSlot" parent="Ui/InventoryInterface" instance=ExtResource("16_7f24j")]
 visible = false
 modulate = Color(1, 1, 1, 0.572549)
 self_modulate = Color(1, 1, 1, 0)
@@ -554,7 +555,7 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 
-[node name="InventoryDescription" parent="Ui" instance=ExtResource("15_qcpu8")]
+[node name="InventoryDescription" parent="Ui" instance=ExtResource("17_icr3n")]
 visible = false
 
 [node name="ItemDescripition" type="Label" parent="Ui/InventoryDescription"]
@@ -562,7 +563,7 @@ offset_left = 236.0
 offset_top = 150.0
 offset_right = 905.0
 offset_bottom = 560.0
-theme_override_fonts/font = ExtResource("12_o27jf")
+theme_override_fonts/font = ExtResource("15_sfa3y")
 theme_override_styles/normal = SubResource("StyleBoxFlat_g2mw0")
 autowrap_mode = 2
 
@@ -572,14 +573,17 @@ offset_top = 93.0
 offset_right = 907.0
 offset_bottom = 140.0
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("12_o27jf")
+theme_override_fonts/font = ExtResource("15_sfa3y")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jdnre")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="pause_menu" parent="." instance=ExtResource("15_00xag")]
+[node name="pause_menu" parent="." instance=ExtResource("18_lsd5f")]
 process_mode = 3
 visible = false
+
+[node name="Road2" parent="." instance=ExtResource("19_7t1se")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0504812, -1.80654)
 
 [connection signal="drop_slot_data" from="Ui/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="Ui/InventoryInterface" to="Ui/InventoryInterface" method="_on_gui_input"]

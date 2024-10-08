@@ -46,7 +46,7 @@ shadow_mesh = SubResource("ArrayMesh_jci6b")
 
 [node name="Road5" type="Node3D"]
 
-[node name="Box123" type="MeshInstance3D" parent="."]
+[node name="Road5" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0.0293838, -3.36304e-06)
 mesh = SubResource("ArrayMesh_bjix5")
 skeleton = NodePath("")

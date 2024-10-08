@@ -94,4 +94,10 @@ func get_slot_data_description(index: int, description: String) -> String:
 		return  ""
 	description = slot_data.item_data.description
 	return description
-	
+
+func get_slot_data_name(index: int, name: String) -> String:
+	var slot_data = slot_datas[index]  # Obtém os dados do slot no índice
+	if !slot_data:
+		return  ""
+	name = slot_data.item_data.name
+	return name

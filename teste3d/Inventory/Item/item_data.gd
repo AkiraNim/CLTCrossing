@@ -10,6 +10,9 @@ class_name ItemData
 @export_multiline var tooltip: String = ""  # Descrição do item, permite múltiplas linhas no editor
 @export var stackable: bool = false  # Define se o item pode ser empilhado (stackable) no inventário
 @export var texture: AtlasTexture  # Textura associada ao item, utilizada para representá-lo visualmente
+@export var price: float
+@export var sellable: bool = false
+@export var buyable: bool = false
 
 # Função de uso do item, destinada a ser sobrescrita por subclasses
 func use(target) -> void:

@@ -18,6 +18,7 @@ var visible_external_inventory: bool = false
 @onready var inventory_description: CanvasLayer = $"../InventoryDescription"
 @onready var player_inventory_node: Node2D = $PlayerInventory
 @onready var external_inventory_node: Node2D = $ExternalInventory
+@onready var item_name: Label = $"../InventoryDescription/ItemName"
 
 # Função chamada a cada quadro de física, atualiza a posição do slot agarrado para seguir o mouse
 func _physics_process(delta: float) -> void:
@@ -66,7 +67,6 @@ func clear_external_inventory() -> void:
 
 # Função chamada quando há interação com o inventário
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int) -> void:
-	var description: String
 	# Realiza ações com base nos dados do slot agarrado e o botão pressionado
 	match [grabbed_slot_data, button]:
 		[null, MOUSE_BUTTON_LEFT]:
@@ -74,11 +74,15 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 		[_, MOUSE_BUTTON_LEFT]:
 			grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)  # Solta o item no slot
 		[null, MOUSE_BUTTON_RIGHT]:
+			var description: String
 			description = inventory_data.get_slot_data_description(index, description)  # Usa o item do slot
 			if description == "":
 				pass
 			elif description != "":
 				item_descripition.text = description
+				var name: String
+				name = inventory_data.get_slot_data_name(index, name)
+				item_name.text = name
 				inventory_description.show()
 		[_, MOUSE_BUTTON_RIGHT]:
 			grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)  # Solta um único item no slot

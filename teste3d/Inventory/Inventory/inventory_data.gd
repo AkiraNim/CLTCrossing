@@ -87,3 +87,11 @@ func use_slot_data(index: int) -> void:
 # Função chamada quando um slot é clicado
 func on_slot_clicked(index: int, button: int) -> void:
 	inventory_interact.emit(self, index, button)  # Emite sinal de interação, passando os dados do slot e o botão pressionado
+
+func get_slot_data_description(index: int, description: String) -> String:
+	var slot_data = slot_datas[index]  # Obtém os dados do slot no índice
+	if !slot_data:
+		return  ""
+	description = slot_data.item_data.description
+	return description
+	

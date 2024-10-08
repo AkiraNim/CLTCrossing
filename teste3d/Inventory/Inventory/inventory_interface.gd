@@ -54,7 +54,7 @@ func clear_external_inventory() -> void:
 
 # Função chamada quando há interação com o inventário
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int) -> void:
-	
+	var description: String
 	# Realiza ações com base nos dados do slot agarrado e o botão pressionado
 	match [grabbed_slot_data, button]:
 		[null, MOUSE_BUTTON_LEFT]:
@@ -62,7 +62,9 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 		[_, MOUSE_BUTTON_LEFT]:
 			grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)  # Solta o item no slot
 		[null, MOUSE_BUTTON_RIGHT]:
-			inventory_data.use_slot_data(index)  # Usa o item do slot
+			description = inventory_data.get_slot_data_description(index, description)  # Usa o item do slot
+			item_descripition.text = description
+			item_descripition.show()
 		[_, MOUSE_BUTTON_RIGHT]:
 			grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)  # Solta um único item no slot
 	

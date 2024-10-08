@@ -13,4 +13,5 @@ name = "Apple"
 description = "A tasty Apple"
 tooltip = "A tasty Apple"
 stackable = true
+description_bool = true
 texture = SubResource("AtlasTexture_dmghq")

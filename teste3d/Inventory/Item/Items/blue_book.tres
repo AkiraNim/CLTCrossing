@@ -14,4 +14,5 @@ name = "Blue Book"
 description = "A good read"
 tooltip = "A good read"
 stackable = false
+description_bool = true
 texture = SubResource("AtlasTexture_tgwii")

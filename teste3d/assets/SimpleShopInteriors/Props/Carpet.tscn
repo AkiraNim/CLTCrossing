@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=4 uid="uid://b1y2iplg1hlf1"]
+
+[ext_resource type="Texture2D" uid="uid://ihsfc856lrie" path="res://assets/SimpleShopInteriors/Props/Carpet_SimpleShopInterior_Texture.png" id="1_3ivck"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xlrqy"]
+resource_name = "lambert1.080"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("1_3ivck")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_12ubw"]
+_surfaces = [{
+"aabb": AABB(-1.60495, -0.711066, -0.058378, 3.20989, 1.42213, 0.058378),
+"format": 34359742465,
+"index_count": 60,
+"index_data": PackedByteArray("AAADAAEAAAACAAMACAAKAAkACAALAAoABAAHAAUABAAGAAcABgABAAcABgAAAAEAAQAFAAcAAQADAAUABgACAAAABgAEAAIAAgAJAAMAAgAIAAkAAwAKAAUAAwAJAAoABQALAAQABQAKAAsABAAIAAIABAALAAgA"),
+"lods": [1.11889, PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcABgABAAcABgAAAAEAAQAFAAcAAQADAAUABgACAAAABgAEAAIAAgAJAAMAAwAJAAUABAAJAAIABQAJAAQA")],
+"name": "lambert1.080",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("3G7Nv3AINj8AAACA3G7NP3AINj8AAACA3G7Nv3AINj/CHW+93G7NP3AINj/CHW+93G7Nv3AINr/CHW+93G7NP3AINr/CHW+93G7Nv3AINr8AAACA3G7NP3AINr8AAACADNG0v5vxCz/CHW+9DNG0P5vxCz/CHW+9DNG0P5vxC7/CHW+9DNG0v5vxC7/CHW+9")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a8or4"]
+resource_name = "Carpet_Mesh_096"
+_surfaces = [{
+"aabb": AABB(-1.60495, -0.711066, -0.058378, 3.20989, 1.42213, 0.058378),
+"attribute_data": PackedByteArray("2n4MPmQecD8cyEg+ZB5wPyR2Lz5kHnA/1n4MPmQecD8YyEg+ZB5wPyB2Lz5kHnA/EPRsPmQecD8cyEg+ZB5wPyR2Lz5kHnA/DPRsPmQecD8YyEg+ZB5wPyB2Lz5kHnA/EPRsPmQecD8cyEg+ZB5wPyJ2Lz5kHnA/DPRsPmQecD8YyEg+ZB5wPx52Lz5kHnA/2n4MPmQecD8cyEg+ZB5wPyJ2Lz5kHnA/1n4MPmQecD8YyEg+ZB5wPx52Lz5kHnA/PXcuPmQecD8Q9Gw+ZB5wPzl3Lj5kHnA/DPRsPmQecD85dy4+ZB5wPwz0bD5kHnA/PXcuPmQecD8Q9Gw+ZB5wPw=="),
+"format": 34359742487,
+"index_count": 60,
+"index_data": PackedByteArray("AQAKAAQAAQAHAAoAGAAcABoAGAAeABwADQAWABAADQATABYAEgADABUAEgAAAAMABQARABcABQALABEAFAAIAAIAFAAOAAgABgAbAAkABgAZABsACQAdAA8ACQAbAB0ADwAfAAwADwAdAB8ADAAZAAYADAAfABkA"),
+"lods": [1.11889, PackedByteArray("AQAKAAQAAQAHAAoADQAWABAADQATABYAEgADABUAEgAAAAMABQARABcABQALABEAFAAIAAIAFAAOAAgABgAbAAkACQAbAA8ADAAbAAYADwAbAAwA")],
+"material": SubResource("StandardMaterial3D_xlrqy"),
+"name": "lambert1.080",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("3G7Nv3AINj8AAACA3G7Nv3AINj8AAACA3G7Nv3AINj8AAACA3G7NP3AINj8AAACA3G7NP3AINj8AAACA3G7NP3AINj8AAACA3G7Nv3AINj/CHW+93G7Nv3AINj/CHW+93G7Nv3AINj/CHW+93G7NP3AINj/CHW+93G7NP3AINj/CHW+93G7NP3AINj/CHW+93G7Nv3AINr/CHW+93G7Nv3AINr/CHW+93G7Nv3AINr/CHW+93G7NP3AINr/CHW+93G7NP3AINr/CHW+93G7NP3AINr/CHW+93G7Nv3AINr8AAACA3G7Nv3AINr8AAACA3G7Nv3AINr8AAACA3G7NP3AINr8AAACA3G7NP3AINr8AAACA3G7NP3AINr8AAACADNG0v5vxCz/CHW+9DNG0v5vxCz/CHW+9DNG0P5vxCz/CHW+9DNG0P5vxCz/CHW+9DNG0P5vxC7/CHW+9DNG0P5vxC7/CHW+9DNG0v5vxC7/CHW+9DNG0v5vxC7/CHW+9/3//f////z//f///////vwAA/3////+//3//f////z//f///////v////3////+//////////7//f///////vwAA/3////+//////////7//f///////v////3////+//////////7//fwAA////vwAA/3////+//////////7//fwAA////v////3////+//3//f////z//fwAA////vwAA/3////+//3//f////z//fwAA////v////3////+//////////7//////////v/////////+//////////7//////////v/////////+//////////7//////////vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_12ubw")
+
+[node name="Carpet" type="Node3D"]
+
+[node name="SI_Prop_Mat_01" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("ArrayMesh_a8or4")
+skeleton = NodePath("")

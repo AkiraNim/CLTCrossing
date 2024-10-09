@@ -469,7 +469,7 @@ mesh = SubResource("PlaneMesh_rdy6h")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_euw2y")
 
-[node name="Chest" parent="." instance=ExtResource("8_heedl")]
+[node name="Baú" parent="." instance=ExtResource("8_heedl")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 2)
 inventory_data = SubResource("Resource_vq4vq")
 name_type = "Baú"

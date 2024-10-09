@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 GameManager="*res://Scripts/globals/game_manager.gd"
 PlayerManager="*res://Inventory/player/player_manager.gd"
 
+[global_group]
+
+interactable=""
+
 [input]
 
 move_left={

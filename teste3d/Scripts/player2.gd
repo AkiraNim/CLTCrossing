@@ -12,7 +12,7 @@ var movement_velocity : Vector3
 var rotation_direction : float
 var walking = false
 var health: int = 5
-
+var inventory_is_open: bool = false
 signal toggle_inventory()
 
 @onready var animation_player: AnimationPlayer = $visuals/sophia/AnimationPlayer
@@ -25,6 +25,7 @@ signal toggle_inventory()
 @onready var interact_ray: RayCast3D = $InteractRay
 @onready var player: CharacterBody3D = $"."
 @onready var pause_menu: CanvasLayer = $"../pause_menu"
+@onready var interact_label: Label = $InteractRay/InteractLabel
 
 func _ready():
 	PlayerManager.player = self
@@ -87,13 +88,15 @@ func _physics_process(delta):
 			stack= false
 	move_and_slide()
 	
-	if interact_ray.is_colliding():
+	if interact_ray.is_colliding() and !inventory_is_open:
 		var detected = interact_ray.get_collider()
 		if detected is Interactable:
 			prompt.show()
+			interact_label.show()
 			prompt.text = detected.name
 	else:
 		prompt.hide()
+		interact_label.hide()
 		prompt.text = ""
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -102,9 +105,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
+		
 	
 	if Input.is_action_just_pressed("interact"):
 		interact()
+		inventory_is_open = true
 		
 func interact() -> void:
 	if interact_ray.is_colliding():

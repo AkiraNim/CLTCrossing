@@ -1,5 +1,6 @@
 # Classe que representa um baú no jogo, herdando de StaticBody3D
 extends StaticBody3D
+class_name Interactable
 
 # Sinal que é emitido quando o inventário do baú é ativado ou desativado
 signal toggle_inventory(external_inventory_owner)

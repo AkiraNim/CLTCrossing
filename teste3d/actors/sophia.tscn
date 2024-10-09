@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=4 uid="uid://cpc45iqjlvppm"]
 
 [ext_resource type="Script" path="res://Scripts/player2.gd" id="1_eub8c"]
-[ext_resource type="FontFile" uid="uid://ck2yl6jhv0vkn" path="res://Fonts/Karma Suture.otf" id="2_dgroo"]
+[ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://Fonts/prstart.ttf" id="2_rex7g"]
 [ext_resource type="Texture2D" uid="uid://6jb7dt4d54ck" path="res://actors/models/sophia/model/sophia_diffuse.png" id="3_r5kxk"]
 [ext_resource type="Texture2D" uid="uid://dbg3uqtvqxigv" path="res://actors/models/sophia/model/sophia_roughness.png" id="4_uqeri"]
 [ext_resource type="Texture2D" uid="uid://mdhln8lltmyo" path="res://actors/models/sophia/model/sophia_normal.png" id="5_v0pbd"]
@@ -11,15 +11,31 @@
 [ext_resource type="Texture2D" uid="uid://c36m8cv33f0yi" path="res://actors/models/sophia/model/sophia_mouth_smile_normal.png" id="9_502h5"]
 [ext_resource type="Shader" path="res://assets/shaders/pixelart.gdshader" id="10_vrx17"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_0552o"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8tj8"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 0.788235)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.174028, 0.174028, 0.174028, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_op8ku"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-texture = SubResource("CanvasTexture_0552o")
-modulate_color = Color(0.211765, 0.235294, 0.270588, 0.764706)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfqg1"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 0.65098)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.169245, 0.169245, 0.169245, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_la4yh"]
 radius = 0.400776
@@ -6312,26 +6328,47 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 
 target_position = Vector3(0, -1, -2)
 collision_mask = 3
 
-[node name="Prompt" type="Label" parent="InteractRay"]
+[node name="InteractLabel" type="Label" parent="InteractRay"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -71.5
-offset_top = -18.5
-offset_right = 71.5
-offset_bottom = 18.5
+offset_left = -81.5
+offset_top = 36.0
+offset_right = 81.5
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_rex7g")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_t8tj8")
+text = "E-Interagir"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Prompt" type="Label" parent="InteractRay"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -20.5
+offset_right = 120.0
+offset_bottom = 20.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("2_dgroo")
+theme_override_fonts/font = ExtResource("2_rex7g")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxTexture_op8ku")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gfqg1")
 text = "Placeholder"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="collisionHead" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14702, 0)

@@ -474,7 +474,7 @@ inventory_data = SubResource("Resource_vq4vq")
 name_type = "Baú"
 
 [node name="ApplePickup" parent="." instance=ExtResource("13_bs3wm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520367, 1.47155, 2.10618)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.11184, 1.47155, 2.10618)
 slot_data = SubResource("Resource_w7qch")
 
 [node name="Ui" type="CanvasLayer" parent="."]

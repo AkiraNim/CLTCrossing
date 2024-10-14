@@ -25,5 +25,3 @@ func player_interact() -> void:
 	elif !external_inventory_node.visible:
 		animation_player.play("close")
 		
-func is_interactible() -> bool:
-	return true;

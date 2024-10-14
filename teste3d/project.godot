@@ -22,7 +22,7 @@ PlayerManager="*res://Inventory/player/player_manager.gd"
 
 [global_group]
 
-interactable=""
+Interactable=""
 
 [input]
 

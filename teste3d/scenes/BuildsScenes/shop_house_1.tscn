@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://cva5a56g6g5lt"]
+[gd_scene load_steps=39 format=4 uid="uid://cva5a56g6g5lt"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_funwh"]
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="1_n8nx6"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://Inventory/Inventory/slot_data.gd" id="5_irjyr"]
 [ext_resource type="MeshLibrary" uid="uid://cev73pdj3xqu8" path="res://Formas/Paredes/Paredes.tres" id="5_tx4og"]
 [ext_resource type="PackedScene" uid="uid://fxp0mfswfat8" path="res://assets/mobilia/mobiliaScenes/cashier_table.tscn" id="6_bckcx"]
-[ext_resource type="Script" path="res://Inventory/Inventory/inventory_data_equip.gd" id="6_y4sid"]
 [ext_resource type="PackedScene" uid="uid://blxiq38o3y2tx" path="res://assets/mobilia/mobiliaScenes/cash_register.tscn" id="7_dgr0e"]
 [ext_resource type="PackedScene" uid="uid://d2g1val25j6c3" path="res://assets/mobilia/mobiliaScenes/industrial_shelve.tscn" id="8_2lyi3"]
 [ext_resource type="Script" path="res://scenes/ScriptsScenes/collision_door.gd" id="9_jocj1"]
@@ -408,10 +407,6 @@ quantity = 1
 script = ExtResource("4_drcpu")
 slot_datas = Array[ExtResource("5_irjyr")]([SubResource("Resource_q6i5k"), SubResource("Resource_vcs5u"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 
-[sub_resource type="Resource" id="Resource_umiw3"]
-script = ExtResource("6_y4sid")
-slot_datas = Array[ExtResource("5_irjyr")]([])
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bxpjv"]
 render_priority = 0
 shader = ExtResource("3_mic82")
@@ -566,7 +561,6 @@ visible = false
 transform = Transform3D(-0.5, 0, 4.37114e-08, 0, 0.5, 0, -4.37114e-08, 0, -0.5, -0.367573, 0, -2.91495)
 collision_layer = 5
 inventory_data = SubResource("Resource_aoke0")
-equip_inventory_data = SubResource("Resource_umiw3")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(2, 0, 0, 0, 0.517638, 1.93185, 0, -1.93185, 0.517638, 0, 11.5926, 2)

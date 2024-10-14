@@ -41,7 +41,7 @@ quantity = 1
 script = ExtResource("3_cs1x2")
 slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_46at2"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 
-[sub_resource type="Resource" id="Resource_kjrc8"]
+[sub_resource type="Resource" id="Resource_ghs16"]
 script = ExtResource("5_xkuvt")
 slot_datas = Array[ExtResource("4_nafn1")]([null, null, null, null, null, null])
 
@@ -451,7 +451,7 @@ environment = SubResource("Environment_kfbor")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 7
 inventory_data = SubResource("Resource_aaflk")
-equip_inventory_data = SubResource("Resource_kjrc8")
+equip_inventory_data = SubResource("Resource_ghs16")
 
 [node name="CameraRig" type="Node3D" parent="."]
 script = ExtResource("6_krbft")
@@ -474,7 +474,7 @@ inventory_data = SubResource("Resource_vq4vq")
 name_type = "Baú"
 
 [node name="ApplePickup" parent="." instance=ExtResource("13_bs3wm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.11184, 1.47155, 2.10618)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00309205, 4.39376, 1.99096)
 slot_data = SubResource("Resource_w7qch")
 
 [node name="Ui" type="CanvasLayer" parent="."]

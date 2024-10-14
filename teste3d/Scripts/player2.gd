@@ -91,7 +91,7 @@ func _physics_process(delta):
 	
 	if interact_ray.is_colliding() and !inventory_interface.visible:
 		var detected = interact_ray.get_collider()
-		if detected is Interactable:
+		if detected.is_interactible():
 			prompt.show()
 			interact_label.show()
 			prompt.text = detected.name

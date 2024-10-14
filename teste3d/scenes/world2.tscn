@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://ctb3puo7jqigv"]
+[gd_scene load_steps=36 format=4 uid="uid://ctb3puo7jqigv"]
 
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="1_3oxc4"]
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_b2sbc"]
@@ -8,7 +8,6 @@
 [ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="4_2nnf1"]
 [ext_resource type="MeshLibrary" uid="uid://c13pyq3xqngy8" path="res://assets/construçoes/construcoesGridMap/constructions.tres" id="5_1b2qs"]
 [ext_resource type="Texture2D" uid="uid://brf6ayh15fh18" path="res://Texturas/Grass_02_Green_1.png" id="5_dxx70"]
-[ext_resource type="Script" path="res://Inventory/Inventory/inventory_data_equip.gd" id="5_t2mg3"]
 [ext_resource type="MeshLibrary" uid="uid://m5iov5mceqdh" path="res://assets/estruturas/estruturasGridMap/structures.tres" id="6_h3rlo"]
 [ext_resource type="Script" path="res://assets/SimpleBuildings/Models/collision_shop_house.gd" id="7_3m88c"]
 [ext_resource type="PackedScene" uid="uid://dv7iwhg7msbrw" path="res://assets/SimpleBuildings/Models/burguer_shop.tscn" id="8_b2wun"]
@@ -27,10 +26,6 @@ quantity = 1
 [sub_resource type="Resource" id="Resource_knnuu"]
 script = ExtResource("2_qei3b")
 slot_datas = Array[ExtResource("3_uvi03")]([SubResource("Resource_q6i5k"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
-
-[sub_resource type="Resource" id="Resource_bkxb8"]
-script = ExtResource("5_t2mg3")
-slot_datas = Array[ExtResource("3_uvi03")]([])
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fbmgm"]
 panorama = ExtResource("2_g2ib4")
@@ -416,7 +411,6 @@ script = ExtResource("1_b2sbc")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.73997, 0, -4.74977)
 collision_layer = 5
 inventory_data = SubResource("Resource_knnuu")
-equip_inventory_data = SubResource("Resource_bkxb8")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1eof4")

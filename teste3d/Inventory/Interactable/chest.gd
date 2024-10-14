@@ -1,6 +1,5 @@
 # Classe que representa um baú no jogo, herdando de StaticBody3D
 extends StaticBody3D
-class_name Interactable
 
 # Sinal que é emitido quando o inventário do baú é ativado ou desativado
 signal toggle_inventory(external_inventory_owner)
@@ -26,3 +25,5 @@ func player_interact() -> void:
 	elif !external_inventory_node.visible:
 		animation_player.play("close")
 		
+func is_interactible() -> bool:
+	return true;

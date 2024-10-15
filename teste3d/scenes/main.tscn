@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://drdqahpk0ql3"]
+[gd_scene load_steps=45 format=4 uid="uid://drdqahpk0ql3"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="2_e5e43"]
@@ -18,6 +18,8 @@
 [ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="14_lhgay"]
 [ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://Formas/Menu/pause_menu.tscn" id="15_00xag"]
 [ext_resource type="PackedScene" uid="uid://ds4sbgxxyc1kt" path="res://Inventory/inventory_description.tscn" id="15_qcpu8"]
+[ext_resource type="PackedScene" uid="uid://c53dclo0i7vm3" path="res://actors/NPCS/fire_fighter.tscn" id="19_d28hn"]
+[ext_resource type="Script" path="res://actors/NPCS/Script/fire_fighter.gd" id="20_1lony"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mtgxe"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -437,6 +439,13 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="Curve3D" id="Curve3D_j677g"]
+_data = {
+"points": PackedVector3Array(-1.26791, -5.8651e-05, -2.09147, 1.26791, 5.8651e-05, 2.09147, -5.90387, 0, -10.0074, 0, 0, 0, 0, 0, 0, -5.83625, 0, -6.49154, -1.23966, 5.8651e-05, 0.769416, 1.23966, -5.8651e-05, -0.769416, 9.10596, 0, -6.28871, -0.600568, 5.8651e-05, -1.46037, 0.600568, -5.8651e-05, 1.46037, 9.10596, 0, -10.2102, 0, 0, 0, 0, 0, 0, -5.90387, 0, -10.0074),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
 [node name="Main" type="Node"]
 script = ExtResource("1_u6833")
 
@@ -580,6 +589,20 @@ vertical_alignment = 1
 [node name="pause_menu" parent="." instance=ExtResource("15_00xag")]
 process_mode = 3
 visible = false
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.107363, 0)
+curve = SubResource("Curve3D_j677g")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.855132, -1.24317e-05, 0.518406, 0, 1, 2.39804e-05, -0.518406, -2.05065e-05, 0.855132, -5.90387, 0, -10.0074)
+rotation_mode = 4
+use_model_front = true
+
+[node name="Bombeiro" parent="Path3D/PathFollow3D" groups=["Interactable"] instance=ExtResource("19_d28hn")]
+transform = Transform3D(0.005, 5.92119e-15, 7.0121e-27, -5.92119e-15, 0.005, 5.92119e-15, 4.93038e-34, -5.92119e-15, 0.005, 0, -0.109831, -1.90735e-06)
+script = ExtResource("20_1lony")
+emotion = 3
 
 [connection signal="drop_slot_data" from="Ui/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="Ui/InventoryInterface" to="Ui/InventoryInterface" method="_on_gui_input"]

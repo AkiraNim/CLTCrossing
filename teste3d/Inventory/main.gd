@@ -24,6 +24,7 @@ func _ready() -> void:
 		node.toggle_inventory.connect(toggle_inventory_interface)
 
 # Função que alterna a visibilidade da interface do inventário
+
 func toggle_inventory_interface(external_inventory_owner = null) -> void:
 	# Alterna a visibilidade da interface do inventário
 	inventory_interface.visible = not inventory_interface.visible

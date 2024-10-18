@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cra3qoxyvig6u"
-path="res://.godot/imported/Simple.glb-cd00244ee5780f9d562ff2c098ec1ef2.scn"
+path="res://.godot/imported/Simple.glb-4f648463bed0993cc2f5e2457eee9d0b.scn"
 
 [deps]
 
-source_file="res://actors/NPCS/Simple.glb"
-dest_files=["res://.godot/imported/Simple.glb-cd00244ee5780f9d562ff2c098ec1ef2.scn"]
+source_file="res://actors/NPC's/NPCS tscn/Simple.glb"
+dest_files=["res://.godot/imported/Simple.glb-4f648463bed0993cc2f5e2457eee9d0b.scn"]
 
 [params]
 

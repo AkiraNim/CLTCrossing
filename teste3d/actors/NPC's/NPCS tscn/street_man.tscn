@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://pnqqq4fcjnt3"]
+[gd_scene load_steps=9 format=4 uid="uid://pnqqq4fcjnt3"]
 
 [ext_resource type="Texture2D" uid="uid://7qeyd7rdutis" path="res://actors/SimplePeople/StreetMan_SimplePeople_StreetMan_Black.png" id="1_3c1jr"]
+[ext_resource type="Script" path="res://actors/NPC's/Script/street_man.gd" id="1_thckk"]
 [ext_resource type="AnimationLibrary" uid="uid://drhpksvbvsgur" path="res://actors/SimplePeople/animation.res" id="2_a0j5w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmvbr"]
@@ -88,16 +89,18 @@ bind/17/name = &"Hand_Left_jnt.19"
 bind/17/bone = -1
 bind/17/pose = Transform3D(1, -2.58135e-08, 1.74846e-07, -3.57628e-07, -1, -2.19229e-13, 1.74846e-07, -3.42284e-08, -1, -147.672, 195.347, -2.58198e-05)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_oy65e"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_2t6hi"]
 size = Vector3(72.9935, 65.6607, 77.7065)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ieuuo"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ch5bv"]
 radius = 38.767
 height = 250.956
 
-[node name="StreetMan" type="CharacterBody3D"]
+[node name="StreetMan" type="CharacterBody3D" groups=["Interactable"]]
+script = ExtResource("1_thckk")
 
 [node name="StreetMan" type="Node3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
 
 [node name="SimplePeople_1" type="Node3D" parent="StreetMan"]
 
@@ -235,13 +238,13 @@ skin = SubResource("Skin_y1bxi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="StreetMan"]
 libraries = {
-"animation": ExtResource("2_a0j5w")
+"": ExtResource("2_a0j5w")
 }
 
 [node name="CollisionHead" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0652027, 241.212, 2.28833)
-shape = SubResource("BoxShape3D_oy65e")
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 1.22626, 0)
+shape = SubResource("BoxShape3D_2t6hi")
 
 [node name="CollisionBody" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 134.833, 0)
-shape = SubResource("CapsuleShape3D_ieuuo")
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.66516, 0)
+shape = SubResource("CapsuleShape3D_ch5bv")

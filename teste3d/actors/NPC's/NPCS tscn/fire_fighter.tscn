@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=4 uid="uid://c53dclo0i7vm3"]
+[gd_scene load_steps=10 format=4 uid="uid://c53dclo0i7vm3"]
 
 [ext_resource type="Texture2D" uid="uid://dxq4q4xpjajs" path="res://actors/SimplePeople/Firefighter_SimplePeople_FireFighter_Black.png" id="1_wyxn4"]
 [ext_resource type="AnimationLibrary" uid="uid://drhpksvbvsgur" path="res://actors/SimplePeople/animation.res" id="2_evh2l"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ieuuo"]
-radius = 65.9631
-height = 401.074
+[sub_resource type="BoxShape3D" id="BoxShape3D_0u4jg"]
+size = Vector3(72.9935, 65.6607, 77.7065)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0t3j5"]
+radius = 38.767
+height = 250.956
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76iuc"]
 resource_name = "Material_0.001"
@@ -119,13 +122,18 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[node name="FireFighter" type="CharacterBody3D"]
+[node name="FireFighter" type="CharacterBody3D" groups=["Interactable"]]
+
+[node name="CollisionHead" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 1.22626, 0)
+shape = SubResource("BoxShape3D_0u4jg")
 
 [node name="CollisionBody" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 186.434, 0)
-shape = SubResource("CapsuleShape3D_ieuuo")
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.66516, 0)
+shape = SubResource("CapsuleShape3D_0t3j5")
 
 [node name="Firefighter" type="Node3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
 
 [node name="SimplePeople_1" type="Node3D" parent="Firefighter"]
 

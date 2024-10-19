@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://drdqahpk0ql3"]
+[gd_scene load_steps=48 format=4 uid="uid://drdqahpk0ql3"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="2_e5e43"]
@@ -20,6 +20,30 @@
 [ext_resource type="PackedScene" uid="uid://ds4sbgxxyc1kt" path="res://Inventory/inventory_description.tscn" id="15_qcpu8"]
 [ext_resource type="PackedScene" uid="uid://c53dclo0i7vm3" path="res://actors/NPC's/NPCS tscn/fire_fighter.tscn" id="19_d28hn"]
 [ext_resource type="Script" path="res://actors/NPC's/Script/fire_fighter.gd" id="20_1lony"]
+[ext_resource type="PackedScene" uid="uid://cwnpdrf1f7sfu" path="res://actors/NPC's/NPCS tscn/business_man.tscn" id="21_gjno3"]
+
+[sub_resource type="Resource" id="Resource_46at2"]
+script = ExtResource("4_nafn1")
+item_data = ExtResource("14_lhgay")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_aaflk"]
+script = ExtResource("3_cs1x2")
+slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_46at2"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_53t87"]
+script = ExtResource("4_nafn1")
+item_data = ExtResource("12_b5s0w")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_iovv6"]
+script = ExtResource("4_nafn1")
+item_data = ExtResource("14_lhgay")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_ghs16"]
+script = ExtResource("5_xkuvt")
+slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_53t87"), SubResource("Resource_iovv6"), null, null, null, null])
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mtgxe"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -33,19 +57,6 @@ background_mode = 2
 sky = SubResource("Sky_2gyel")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="Resource" id="Resource_46at2"]
-script = ExtResource("4_nafn1")
-item_data = ExtResource("14_lhgay")
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_aaflk"]
-script = ExtResource("3_cs1x2")
-slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_46at2"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
-
-[sub_resource type="Resource" id="Resource_ghs16"]
-script = ExtResource("5_xkuvt")
-slot_datas = Array[ExtResource("4_nafn1")]([null, null, null, null, null, null])
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rdy6h"]
 
@@ -449,40 +460,45 @@ point_count = 5
 [node name="Main" type="Node"]
 script = ExtResource("1_u6833")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_kfbor")
-
 [node name="Player" parent="." instance=ExtResource("2_e5e43")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.92428, 0, -9.11045)
 collision_layer = 7
 inventory_data = SubResource("Resource_aaflk")
 equip_inventory_data = SubResource("Resource_ghs16")
 
-[node name="CameraRig" type="Node3D" parent="."]
+[node name="Root" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Root"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Root"]
+environment = SubResource("Environment_kfbor")
+
+[node name="CameraRig" type="Node3D" parent="Root"]
 script = ExtResource("6_krbft")
 
-[node name="background_camera" type="Camera3D" parent="CameraRig"]
+[node name="background_camera" type="Camera3D" parent="Root/CameraRig"]
 cull_mask = 1047553
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="Scenary" type="Node" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Scenary"]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 mesh = SubResource("PlaneMesh_rdy6h")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Scenary/Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenary/Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_euw2y")
 
-[node name="Chest" parent="." instance=ExtResource("11_dbpnn")]
+[node name="Chest" parent="Scenary" instance=ExtResource("11_dbpnn")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 2)
 inventory_data = SubResource("Resource_vq4vq")
 name_type = "Baú"
 
-[node name="ApplePickup" parent="." instance=ExtResource("13_bs3wm")]
+[node name="ApplePickup" parent="Scenary" instance=ExtResource("13_bs3wm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00309205, 4.39376, -1.88221)
 slot_data = SubResource("Resource_w7qch")
 
@@ -590,19 +606,32 @@ vertical_alignment = 1
 process_mode = 3
 visible = false
 
-[node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.107363, 0)
+[node name="Npcs" type="Node" parent="."]
+
+[node name="FireFighterPath" type="Path3D" parent="Npcs"]
 curve = SubResource("Curve3D_j677g")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.855132, -1.24317e-05, 0.518406, 0, 1, 2.39804e-05, -0.518406, -2.05065e-05, 0.855132, -5.90387, 0, -10.0074)
+[node name="PathFollow3D" type="PathFollow3D" parent="Npcs/FireFighterPath"]
+transform = Transform3D(0.855132, -1.24319e-05, 0.518406, 0, 1.00002, 2.39804e-05, -0.518406, -2.05069e-05, 0.855132, -5.90387, 0, -10.0074)
 rotation_mode = 4
 use_model_front = true
 
-[node name="Bombeiro" parent="Path3D/PathFollow3D" groups=["Interactable"] instance=ExtResource("19_d28hn")]
-transform = Transform3D(0.005, 5.92119e-15, 7.0121e-27, -5.92119e-15, 0.005, 5.92119e-15, 4.93038e-34, -5.92119e-15, 0.005, 0, -0.109831, -1.90735e-06)
+[node name="Bombeiro" parent="Npcs/FireFighterPath/PathFollow3D" instance=ExtResource("19_d28hn")]
+transform = Transform3D(1, 1.18424e-12, 1.40242e-24, -1.18424e-12, 1, 1.18424e-12, 1.97215e-31, -1.18424e-12, 1, 0, -0.109831, -1.90735e-06)
 script = ExtResource("20_1lony")
 emotion = 3
+npc_name = "Bombeiro1"
+
+[node name="FireFighterPath2" type="Path3D" parent="Npcs"]
+curve = SubResource("Curve3D_j677g")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Npcs/FireFighterPath2"]
+transform = Transform3D(0.855132, -1.24319e-05, 0.518406, 0, 1.00002, 2.39804e-05, -0.518406, -2.05069e-05, 0.855132, -5.90387, 0, -10.0074)
+rotation_mode = 4
+use_model_front = true
+
+[node name="BusinessMan" parent="Npcs/FireFighterPath2/PathFollow3D" instance=ExtResource("21_gjno3")]
+transform = Transform3D(1, 0, 0, 9.09495e-13, 1, 1.81899e-12, 0, 0, 1, 5.13928, -7.47115e-05, 3.11558)
 
 [connection signal="drop_slot_data" from="Ui/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="Ui/InventoryInterface" to="Ui/InventoryInterface" method="_on_gui_input"]

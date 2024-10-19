@@ -1,14 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://b5k2vxnw2h28f"]
+[gd_scene load_steps=9 format=4 uid="uid://b5k2vxnw2h28f"]
 
 [ext_resource type="Texture2D" uid="uid://c458f74mvqnbd" path="res://actors/SimplePeople/Women4_SimplePeople_HouseWife_Black.png" id="1_7dget"]
+[ext_resource type="Script" path="res://actors/NPC's/Script/women_4.gd" id="1_i61se"]
 [ext_resource type="AnimationLibrary" uid="uid://drhpksvbvsgur" path="res://actors/SimplePeople/animation.res" id="2_770af"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_oy65e"]
-size = Vector3(72.9935, 65.6607, 77.7065)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ieuuo"]
-radius = 38.767
-height = 250.956
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjipd"]
 resource_name = "Material_0"
@@ -95,17 +89,18 @@ bind/17/name = &"Hand_Left_jnt.19"
 bind/17/bone = -1
 bind/17/pose = Transform3D(1, -2.58135e-08, 1.74846e-07, -3.57628e-07, -1, -2.19229e-13, 1.74846e-07, -3.42284e-08, -1, -147.672, 195.347, -2.58198e-05)
 
-[node name="Women4" type="CharacterBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_pef45"]
+size = Vector3(72.9935, 65.6607, 77.7065)
 
-[node name="CollisionHead" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0652027, 241.212, 2.28833)
-shape = SubResource("BoxShape3D_oy65e")
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jbsh7"]
+radius = 38.767
+height = 250.956
 
-[node name="CollisionBody" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 134.833, 0)
-shape = SubResource("CapsuleShape3D_ieuuo")
+[node name="Women4" type="CharacterBody3D" groups=["Interactable"]]
+script = ExtResource("1_i61se")
 
 [node name="Women4" type="Node3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
 
 [node name="SimplePeople_1" type="Node3D" parent="Women4"]
 
@@ -243,5 +238,13 @@ skin = SubResource("Skin_iyq1u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Women4"]
 libraries = {
-"animation": ExtResource("2_770af")
+"": ExtResource("2_770af")
 }
+
+[node name="CollisionHead" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 1.22626, 0)
+shape = SubResource("BoxShape3D_pef45")
+
+[node name="CollisionBody" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.66516, 0)
+shape = SubResource("CapsuleShape3D_jbsh7")

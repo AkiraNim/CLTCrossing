@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scripts/globals/game_manager.gd"
 PlayerManager="*res://Inventory/player/player_manager.gd"
+NpcManager="*res://actors/NPC's/Script/NpcManager.gd"
 
 [global_group]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://4bt2i4u73v0v"]
+[gd_scene load_steps=11 format=4 uid="uid://4bt2i4u73v0v"]
 
 [ext_resource type="Texture2D" uid="uid://dsyb6txxigem6" path="res://actors/SimplePeople/RiotCop_SimplePeople_RiotCop_Black.png" id="1_3s0bb"]
+[ext_resource type="Script" path="res://actors/NPC's/Script/riot_cop.gd" id="1_mbit2"]
 [ext_resource type="AnimationLibrary" uid="uid://drhpksvbvsgur" path="res://actors/SimplePeople/animation.res" id="2_b2bdp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ieerv"]
@@ -115,16 +116,18 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_oy65e"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_r584y"]
 size = Vector3(72.9935, 65.6607, 77.7065)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ieuuo"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1rwuy"]
 radius = 38.767
 height = 250.956
 
-[node name="RiotCop" type="CharacterBody3D"]
+[node name="RiotCop" type="CharacterBody3D" groups=["Interactable"]]
+script = ExtResource("1_mbit2")
 
 [node name="RiotCop" type="Node3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
 
 [node name="SimplePeople_1" type="Node3D" parent="RiotCop"]
 
@@ -266,13 +269,13 @@ skin = SubResource("Skin_2kt2q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RiotCop"]
 libraries = {
-"animation": ExtResource("2_b2bdp")
+"": ExtResource("2_b2bdp")
 }
 
 [node name="CollisionHead" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0652027, 241.212, 2.28833)
-shape = SubResource("BoxShape3D_oy65e")
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 1.22626, 0)
+shape = SubResource("BoxShape3D_r584y")
 
 [node name="CollisionBody" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 134.833, 0)
-shape = SubResource("CapsuleShape3D_ieuuo")
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.66516, 0)
+shape = SubResource("CapsuleShape3D_1rwuy")

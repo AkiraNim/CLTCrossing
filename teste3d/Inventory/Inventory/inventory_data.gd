@@ -101,3 +101,9 @@ func get_slot_data_name(index: int, name: String) -> String:
 		return  ""
 	name = slot_data.item_data.name
 	return name
+
+func get_slot_data_item(index: int) -> ItemData:
+	var slot_data = slot_datas[index]  # Obtém os dados do slot no índice
+	if !slot_data:
+		return null  # Retorna nulo se o slot estiver vazio
+	return slot_data.item_data  # Retorna o item armazenado no slot

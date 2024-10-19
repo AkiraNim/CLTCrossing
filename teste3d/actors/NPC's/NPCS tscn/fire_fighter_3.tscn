@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://difjswp7uijiv" path="res://actors/SimplePeople/Firefighter3_SimplePeople_FireFighter_White.png" id="1_7p8h3"]
 [ext_resource type="AnimationLibrary" uid="uid://drhpksvbvsgur" path="res://actors/SimplePeople/animation.res" id="2_ld4qe"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_oy65e"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gcgj4"]
 size = Vector3(72.9935, 65.6607, 77.7065)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ieuuo"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hk1mk"]
 radius = 38.767
 height = 250.956
 
@@ -125,14 +125,15 @@ blend_shape_mode = 0
 [node name="FireFighter3" type="CharacterBody3D"]
 
 [node name="CollisionHead" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0652027, 241.212, 2.28833)
-shape = SubResource("BoxShape3D_oy65e")
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 1.22626, 0)
+shape = SubResource("BoxShape3D_gcgj4")
 
 [node name="CollisionBody" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 134.833, 0)
-shape = SubResource("CapsuleShape3D_ieuuo")
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.66516, 0)
+shape = SubResource("CapsuleShape3D_hk1mk")
 
 [node name="Firefighter3" type="Node3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
 
 [node name="SimplePeople_1" type="Node3D" parent="Firefighter3"]
 
@@ -156,7 +157,7 @@ bones/2/parent = 1
 bones/2/rest = Transform3D(0.50165, 0.865071, 0.000282336, -0.865071, 0.50165, 0.000154858, -7.67113e-06, -0.000321925, 1, 25.6983, 3.33786e-05, -1.83285e-06)
 bones/2/enabled = true
 bones/2/position = Vector3(25.6983, 3.33786e-05, -1.83285e-06)
-bones/2/rotation = Quaternion(-0.0546851, -0.16655, -0.465976, 0.867258)
+bones/2/rotation = Quaternion(-0.054685, -0.16655, -0.465976, 0.867258)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "LowerLeg_Left_jnt.5"
 bones/3/parent = 2
@@ -212,7 +213,7 @@ bones/10/parent = 9
 bones/10/rest = Transform3D(1, 4.43725e-15, 1.15516e-14, -4.43725e-15, 1, 2.9244e-15, -1.15516e-14, -2.9244e-15, 1, 31.0626, -1.71661e-05, 3.96895e-06)
 bones/10/enabled = true
 bones/10/position = Vector3(31.0626, -1.71661e-05, 3.96895e-06)
-bones/10/rotation = Quaternion(0.0483275, -0.209171, -0.106438, 0.970867)
+bones/10/rotation = Quaternion(0.0600343, -0.184708, -0.117542, 0.973891)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "Hat_jnt.13"
 bones/11/parent = 10
@@ -274,5 +275,5 @@ skin = SubResource("Skin_am6as")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Firefighter3"]
 libraries = {
-"animation": ExtResource("2_ld4qe")
+"": ExtResource("2_ld4qe")
 }

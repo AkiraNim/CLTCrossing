@@ -6,6 +6,7 @@ extends CharacterBody3D
 const SPEED = 3.0
 const JUMP_VELOCITY = 10
 
+var money: float = 100.25
 var stack = false
 var gravity = 0
 var movement_velocity : Vector3
@@ -30,7 +31,7 @@ signal toggle_inventory()
 
 func _ready():
 	PlayerManager.player = self
-	GameManager.set_player(self)
+
 	animation_player.set_blend_time("Idle", "Run", 0.2)
 	animation_player.set_blend_time("Run", "Idle", 0.2)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -112,7 +113,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		interact()
 		
 func interact() -> void:
-	if interact_ray.is_colliding():
+	var detected = interact_ray.get_collider()
+	if interact_ray.is_colliding() and detected.is_in_group("Interactable"):
 		interact_ray.get_collider().player_interact()
 		
 func get_drop_position() -> Vector3:

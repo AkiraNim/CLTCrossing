@@ -115,16 +115,17 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_oy65e"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_w1xm1"]
 size = Vector3(72.9935, 65.6607, 77.7065)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ieuuo"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x83dc"]
 radius = 38.767
 height = 250.956
 
 [node name="RedNeck3" type="CharacterBody3D"]
 
-[node name="RedNeck3" type="Node3D" parent="."]
+[node name="RedNeck3" type="Node3D" parent="." groups=["Interactable"]]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
 
 [node name="SimplePeople_1" type="Node3D" parent="RedNeck3"]
 
@@ -266,13 +267,13 @@ skin = SubResource("Skin_1c6f8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RedNeck3"]
 libraries = {
-"animation": ExtResource("2_5t4cf")
+"": ExtResource("2_5t4cf")
 }
 
 [node name="CollisionHead" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0652027, 241.212, 2.28833)
-shape = SubResource("BoxShape3D_oy65e")
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 1.22626, 0)
+shape = SubResource("BoxShape3D_w1xm1")
 
 [node name="CollisionBody" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 134.833, 0)
-shape = SubResource("CapsuleShape3D_ieuuo")
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.66516, 0)
+shape = SubResource("CapsuleShape3D_x83dc")

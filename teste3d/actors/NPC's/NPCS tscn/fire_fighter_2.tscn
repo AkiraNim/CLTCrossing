@@ -126,14 +126,15 @@ blend_shape_mode = 0
 [node name="FireFighter2" type="CharacterBody3D"]
 
 [node name="CollisionHead" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0652027, 241.212, 2.28833)
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 1.22626, 0)
 shape = SubResource("BoxShape3D_oy65e")
 
 [node name="CollisionBody" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 134.833, 0)
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.66516, 0)
 shape = SubResource("CapsuleShape3D_ieuuo")
 
 [node name="Firefighter2" type="Node3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
 
 [node name="SimplePeople_1" type="Node3D" parent="Firefighter2"]
 
@@ -275,5 +276,5 @@ skin = SubResource("Skin_1pyjd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Firefighter2"]
 libraries = {
-"animation": ExtResource("3_mydc5")
+"": ExtResource("3_mydc5")
 }

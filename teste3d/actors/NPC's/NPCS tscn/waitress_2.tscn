@@ -1,14 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://wcu5xujgtpc3"]
+[gd_scene load_steps=11 format=4 uid="uid://wcu5xujgtpc3"]
 
 [ext_resource type="Texture2D" uid="uid://ced7ab0coi2sk" path="res://actors/SimplePeople/Waitress2_SimplePeople_Waitress_Brown.png" id="1_ho3se"]
+[ext_resource type="Script" path="res://actors/NPC's/Script/waitress_2.gd" id="1_uo6l6"]
 [ext_resource type="AnimationLibrary" uid="uid://drhpksvbvsgur" path="res://actors/SimplePeople/animation.res" id="2_b7jv6"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_oy65e"]
-size = Vector3(72.9935, 65.6607, 77.7065)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ieuuo"]
-radius = 38.767
-height = 250.956
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6ucw"]
 resource_name = "Material_0"
@@ -122,17 +116,18 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[node name="Waitress2" type="CharacterBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dnep7"]
+size = Vector3(72.9935, 65.6607, 77.7065)
 
-[node name="CollisionHead" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0652027, 241.212, 2.28833)
-shape = SubResource("BoxShape3D_oy65e")
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a1uyn"]
+radius = 38.767
+height = 250.956
 
-[node name="CollisionBody" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 134.833, 0)
-shape = SubResource("CapsuleShape3D_ieuuo")
+[node name="Waitress2" type="CharacterBody3D" groups=["Interactable"]]
+script = ExtResource("1_uo6l6")
 
 [node name="Waitress2" type="Node3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
 
 [node name="SimplePeople_1" type="Node3D" parent="Waitress2"]
 
@@ -274,5 +269,13 @@ skin = SubResource("Skin_46yi0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Waitress2"]
 libraries = {
-"animation": ExtResource("2_b7jv6")
+"": ExtResource("2_b7jv6")
 }
+
+[node name="CollisionHead" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 1.22626, 0)
+shape = SubResource("BoxShape3D_dnep7")
+
+[node name="CollisionBody" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.66516, 0)
+shape = SubResource("CapsuleShape3D_a1uyn")

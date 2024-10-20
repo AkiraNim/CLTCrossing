@@ -54,7 +54,6 @@ func set_external_inventory(_external_inventory_owner) -> void:
 	
 	external_inventory_node.show()
 
-# Função que limpa e esconde o inventário externo
 func clear_external_inventory() -> void:
 	if external_inventory_owner:
 		var inventory_data = external_inventory_owner.inventory_data
@@ -66,12 +65,15 @@ func clear_external_inventory() -> void:
 		external_inventory_owner = null
 
 # Função chamada quando há interação com o inventário
+# Função chamada quando há interação com o inventário
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int) -> void:
 	# Realiza ações com base nos dados do slot agarrado e o botão pressionado
 	match [grabbed_slot_data, button]:
 		[null, MOUSE_BUTTON_LEFT]:
-			grabbed_slot_data = inventory_data.grab_slot_data(index)  # Agarra o item do slot
+			grabbed_slot_data = inventory_data.grab_slot_data(index)
+		  # Agarra o item do slot
 		[_, MOUSE_BUTTON_LEFT]:
+			
 			grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)  # Solta o item no slot
 		[null, MOUSE_BUTTON_RIGHT]:
 			var description: String
@@ -88,7 +90,6 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 			grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)  # Solta um único item no slot
 	
 	update_grabbed_slot()  # Atualiza o estado do slot agarrado
-
 # Função que atualiza o estado visual do slot agarrado
 func update_grabbed_slot() -> void:
 	if grabbed_slot_data:
@@ -106,17 +107,20 @@ func _on_gui_input(event: InputEvent) -> void:
 		# Verifica qual botão do mouse foi clicado e emite o sinal de soltar o item
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
-				drop_slot_data.emit(grabbed_slot_data)  # Solta o item agarrado
-				grabbed_slot_data = null
-			MOUSE_BUTTON_RIGHT:
-				drop_slot_data.emit(grabbed_slot_data.create_single_slot_data())  # Solta um único item
-				if grabbed_slot_data.quantity < 1:
+				if grabbed_slot_data.item_data.droppable:
+					drop_slot_data.emit(grabbed_slot_data)  # Solta o item agarrado
 					grabbed_slot_data = null
+			MOUSE_BUTTON_RIGHT:
+				if grabbed_slot_data.item_data.droppable:
+					drop_slot_data.emit(grabbed_slot_data.create_single_slot_data())  # Solta um único item
+					if grabbed_slot_data.quantity < 1:
+						grabbed_slot_data = null
 		update_grabbed_slot()  # Atualiza o estado do slot agarrado
 
 # Função chamada quando a visibilidade da interface muda
 func _on_visibility_changed() -> void:
 	if !visible and grabbed_slot_data:
-		drop_slot_data.emit(grabbed_slot_data)  # Solta o item se a interface for escondida
-		grabbed_slot_data = null
+		if grabbed_slot_data.item_data.droppable:
+			drop_slot_data.emit(grabbed_slot_data)  # Solta o item se a interface for escondida
+			grabbed_slot_data = null
 		update_grabbed_slot()

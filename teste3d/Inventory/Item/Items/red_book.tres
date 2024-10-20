@@ -21,4 +21,5 @@ stackable = false
 texture = SubResource("AtlasTexture_r0t0d")
 price = 0.0
 sellable = false
-buyable = false
+buyable = true
+unique = true

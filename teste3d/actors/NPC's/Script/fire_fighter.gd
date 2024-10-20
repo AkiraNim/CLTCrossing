@@ -2,7 +2,6 @@ extends StaticBody3D
 
 # Sinais para comunicação
 signal dialog
-signal drop_slot_data(slot_data: SlotData)
 
 # Variáveis exportadas
 @export var pickup_scene: PackedScene  # Cena que representa o item dropado
@@ -11,10 +10,11 @@ signal drop_slot_data(slot_data: SlotData)
 @export var equip_inventory_data: InventoryDataEquip
 @onready var npc: StaticBody3D = $"."
 
-var mission_completed: bool = false
+
 # Variáveis de controle
 var rng = RandomNumberGenerator.new()
 var mission_found = false
+var mission_completed: bool = false
 
 # Constantes para movimento e emoções
 const RUN_SPEED = 5.0
@@ -71,23 +71,25 @@ func play_animation_based_on_emotion(delta: float) -> void:
 
 # Função chamada quando o jogador interage com o NPC
 func player_interact() -> void:
-	dialog.emit(self)
+	if PlayerManager.player.check_player_items_by_name("Apple") !="":
+		print(PlayerManager.player.check_player_items_by_name("Apple"))
+	if PlayerManager.player.get_player_inventory_slot_data_quantity_by_name("Apple")>=6:
+		pass
 	
-	if get_player_equiped_slot_data_index_by_name("Blue Book") != -1:
-		check_npc_items()
+	if PlayerManager.player.get_player_equiped_slot_data_index_by_name("Blue Book") != -1:
 		drop_all_npc_slot_data()
-	
+		dialog.emit(self)
 	# Obtém missões baseadas na emoção do NPC
-	var available_missions = MissionManager.get_available_missions(emotion)
+	var available_missions = MissionManager.get_available_missions(npc_name)
 
 	if available_missions.size() > 0:
 		for mission in available_missions:
 			print("Missão disponível: ", mission.title)
 	else:
-		print("Nenhuma missão disponível para essa emoção.")
+		print("Nenhuma missão disponível.")
 		
 	if NpcManager.npc_name == "Bombeiro1":
-		if get_player_equiped_slot_data_index_by_name("Red Book")!=-1:
+		if PlayerManager.player.get_player_inventory_slot_data_quantity_by_name("Apple")>=2:
 			for mission in MissionManager.missions:
 				if mission.title == "Encontrar o Livro Vermelho":
 					mission.complete_mission()
@@ -95,12 +97,6 @@ func player_interact() -> void:
 					break
 
 # Função que checa os itens do jogador
-func check_player_items() -> void:
-	for i in range(PlayerManager.player.equip_inventory_data.slot_datas.size()):
-		var slot_data = PlayerManager.player.equip_inventory_data.slot_datas[i]
-		if slot_data:
-			var item_name = PlayerManager.player.equip_inventory_data.get_slot_data_name(i, "")
-			print(item_name)
 
 # Função que checa os itens do NPC
 func check_npc_items() -> void:
@@ -108,7 +104,6 @@ func check_npc_items() -> void:
 		var slot_data = NpcManager.npc.equip_inventory_data.slot_datas[i]
 		if slot_data:
 			var item_name = NpcManager.npc.equip_inventory_data.get_slot_data_name(i, "")
-			print(item_name)
 
 # Solta todos os dados de slot do NPC
 func drop_all_npc_slot_data() -> void:
@@ -156,17 +151,12 @@ func get_npc_equiped_slot_data_index_by_name(name: String) -> int:
 	return -1
 
 # Função que retorna o índice do item no inventário do jogador baseado no nome
-func get_player_equiped_slot_data_index_by_name(name: String) -> int:
-	for i in range(PlayerManager.player.equip_inventory_data.slot_datas.size()):
-		if PlayerManager.player.equip_inventory_data.get_slot_data_name(i, "") == name:
-			print(PlayerManager.player.equip_inventory_data.get_slot_data_name(i, ""))
-			return i
-	return -1
+
 func create_new_mission() -> void:
 	var new_mission = ResourceLoader.load("res://Mission/mission.gd").new()  # Carrega o script da missão
 	new_mission.title = "Encontrar o Livro Vermelho"
 	new_mission.description = "Ajude o NPC a encontrar o Livro Vermelho perdido."
-	new_mission.emotion_requirement = 3  # Emoção do NPC necessária para ativar a missão (Idle, por exemplo)
+	new_mission.npc_name = npc_name # Emoção do NPC necessária para ativar a missão (Idle, por exemplo)
 	new_mission.reward = "50 moedas de ouro"
 	
 	# Adiciona a missão ao sistema

@@ -21,10 +21,12 @@ GameManager="*res://Scripts/globals/game_manager.gd"
 PlayerManager="*res://Scripts/globals/player_manager.gd"
 NpcManager="*res://Scripts/globals/NpcManager.gd"
 MissionManager="*res://Scripts/globals/mission_manager.gd"
+ExternalInventoryManager="*res://Inventory/external_inventory_manager.gd"
 
 [global_group]
 
 Interactable=""
+Player=""
 
 [input]
 

@@ -6320,7 +6320,7 @@ material = SubResource("ShaderMaterial_f6ytl")
 [sub_resource type="BoxShape3D" id="BoxShape3D_wapsa"]
 size = Vector3(1.56768, 1.68375, 1.44822)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_eub8c")
 
 [node name="InteractRay" type="RayCast3D" parent="."]

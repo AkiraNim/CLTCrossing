@@ -5,7 +5,7 @@ class_name Mission
 
 @export var title: String
 @export var description: String
-@export var emotion_requirement: int  # Emoção necessária do NPC para a missão
+@export var npc_name: String  # Emoção necessária do NPC para a missão
 @export var is_completed: bool = false  # Estado da missão
 @export var reward: String  # Pode ser um item, experiência, etc.
 

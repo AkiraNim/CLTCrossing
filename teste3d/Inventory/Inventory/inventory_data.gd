@@ -107,3 +107,16 @@ func get_slot_data_item(index: int) -> ItemData:
 	if !slot_data:
 		return null  # Retorna nulo se o slot estiver vazio
 	return slot_data.item_data  # Retorna o item armazenado no slot
+
+func get_slot_data_quantity(index: int) -> int:
+	var slot_data = slot_datas[index]
+	if !slot_data:
+		return -1
+	return slot_data.quantity
+func can_pick_up_item(item_data: ItemData) -> bool:
+	if item_data.unique:
+	# Verifica se o item único já existe no inventário
+		for slot_data in slot_datas:
+			if slot_data and slot_data.item_data == item_data:
+				return false  # O item já está no inventário, não pode pegar de novo
+	return true  # Caso contrário, permite pegar o item

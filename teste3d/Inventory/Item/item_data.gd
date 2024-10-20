@@ -14,6 +14,8 @@ class_name ItemData
 @export var price: float
 @export var sellable: bool = false
 @export var buyable: bool = false
+@export var unique: bool = false
+@export var droppable: bool = false
 
 # Função de uso do item, destinada a ser sobrescrita por subclasses
 func use(target) -> void:

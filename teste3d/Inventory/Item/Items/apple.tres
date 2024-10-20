@@ -17,3 +17,5 @@ texture = SubResource("AtlasTexture_dmghq")
 price = 0.0
 sellable = true
 buyable = true
+unique = false
+droppable = true

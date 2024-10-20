@@ -114,7 +114,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func interact() -> void:
 	var detected = interact_ray.get_collider()
 	if interact_ray.is_colliding() and detected.is_in_group("Interactable"):
-		interact_ray.get_collider().player_interact()
+		detected.player_interact()
 		
 func get_drop_position() -> Vector3:
 	var direction = -PlayerManager.player.global_transform.basis.z*2 
@@ -145,3 +145,44 @@ func jump ():
 		
 	if gravity > 0 and is_on_floor():
 		gravity = 0
+		
+func check_player_items_by_name(name: String) -> String:
+	if get_player_equiped_slot_data_index_by_name(name)!=-1\
+	or get_player_inventory_slot_data_index_by_name(name)!=-1:
+		return name
+	return ""
+	
+func get_player_equiped_slot_data_index_by_name(name: String) -> int:
+	for i in range(PlayerManager.player.equip_inventory_data.slot_datas.size()):
+		if PlayerManager.player.equip_inventory_data.get_slot_data_name(i, "") == name:
+			return i
+	return -1
+	
+func get_player_inventory_slot_data_index_by_name(name: String) -> int:
+	for i in range(PlayerManager.player.inventory_data.slot_datas.size()):
+		if PlayerManager.player.inventory_data.get_slot_data_name(i, "") == name:
+			return i
+	return -1
+	
+func get_player_equiped_slot_data_quantity_by_name(name: String)-> int:
+	var index = get_player_equiped_slot_data_index_by_name(name)
+	if PlayerManager.player.equip_inventory_data.get_slot_data_quantity(index)!=-1:
+		return PlayerManager.player.equip_inventory_data.get_slot_data_quantity(index)
+	return -1
+	
+func get_player_inventory_slot_data_quantity_by_name(name: String)-> int:
+	var index = get_player_inventory_slot_data_index_by_name(name)
+	if PlayerManager.player.inventory_data.get_slot_data_quantity(index)!=-1:
+		return PlayerManager.player.inventory_data.get_slot_data_quantity(index)
+	return -1
+
+func player_have_this_item(item_data: ItemData)-> bool:
+	for i in range(PlayerManager.player.equip_inventory_data.slot_datas.size()):
+		if PlayerManager.player.equip_inventory_data.get_slot_data_name(i, item_data.name) == item_data.name\
+			and item_data.unique:
+			return true
+	for i in range(PlayerManager.player.inventory_data.slot_datas.size()):
+		if PlayerManager.player.inventory_data.get_slot_data_name(i, item_data.name) == item_data.name\
+		and item_data.unique:
+			return true
+	return false

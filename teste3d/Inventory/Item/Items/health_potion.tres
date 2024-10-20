@@ -15,3 +15,6 @@ description = ""
 tooltip = "Heals you"
 stackable = true
 texture = SubResource("AtlasTexture_nepx1")
+price = 0.0
+sellable = false
+buyable = false

@@ -24,7 +24,6 @@ signal toggle_inventory()
 @onready var background: ColorRect = $RayCast3D/Background
 @onready var prompt: Label = $InteractRay/Prompt
 @onready var interact_ray: RayCast3D = $InteractRay
-@onready var player: CharacterBody3D = $"."
 @onready var pause_menu: CanvasLayer = $"../pause_menu"
 @onready var interact_label: Label = $InteractRay/InteractLabel
 @onready var inventory_interface: Control = $"../Ui/InventoryInterface"
@@ -118,8 +117,8 @@ func interact() -> void:
 		interact_ray.get_collider().player_interact()
 		
 func get_drop_position() -> Vector3:
-	var direction = -player.global_transform.basis.z*2 
-	return player.global_position + direction
+	var direction = -PlayerManager.player.global_transform.basis.z*2 
+	return PlayerManager.player.global_position + direction
 
 func heal(heal_value: int) -> void:
 	health += heal_value

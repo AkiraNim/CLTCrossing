@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=4 format=3 uid="uid://bti2rgq3cgwlu"]
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=5 format=3 uid="uid://bti2rgq3cgwlu"]
 
+[ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="1_r2snd"]
 [ext_resource type="Script" path="res://Inventory/Item/item_data_equip.gd" id="1_u2w1u"]
 [ext_resource type="Texture2D" uid="uid://dn1inlnruiple" path="res://Inventory/Item/#1 - Transparent Icons.png" id="2_0fo8s"]
 
@@ -10,6 +11,7 @@ region = Rect2(0, 416, 32, 32)
 [resource]
 script = ExtResource("1_u2w1u")
 defence = 0
+item_scene = ExtResource("1_r2snd")
 name = "Blue Book"
 description = "A good read"
 tooltip = "A good read"

@@ -4,6 +4,7 @@ extends Resource
 # Define o nome da classe como ItemData para ser reconhecida e utilizada em outros scripts
 class_name ItemData
 
+@export var item_scene: PackedScene  # A cena que representa o item no mundo
 # Variáveis exportadas que definem as propriedades básicas de um item
 @export var name: String = ""  # Nome do item
 @export_multiline var description: String = ""  # Descrição do item, permite múltiplas linhas no editor
@@ -17,3 +18,9 @@ class_name ItemData
 # Função de uso do item, destinada a ser sobrescrita por subclasses
 func use(target) -> void:
 	pass  # Função vazia, a ser implementada por classes que herdam de ItemData
+# Função para instanciar o item no mundo
+
+func instance_item() -> Node:
+	if item_scene:
+		return item_scene.instance()  # Instancia a cena do item
+	return null  # Retorna nulo se não houver cena associada

@@ -18,8 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Scripts/globals/game_manager.gd"
-PlayerManager="*res://Inventory/player/player_manager.gd"
-NpcManager="*res://actors/NPC's/Script/NpcManager.gd"
+PlayerManager="*res://Scripts/globals/player_manager.gd"
+NpcManager="*res://Scripts/globals/NpcManager.gd"
+MissionManager="*res://Scripts/globals/mission_manager.gd"
 
 [global_group]
 

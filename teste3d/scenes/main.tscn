@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://drdqahpk0ql3"]
+[gd_scene load_steps=51 format=4 uid="uid://drdqahpk0ql3"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="2_e5e43"]
@@ -22,33 +22,214 @@
 [ext_resource type="Script" path="res://actors/NPC's/Script/fire_fighter.gd" id="20_1lony"]
 [ext_resource type="PackedScene" uid="uid://cwnpdrf1f7sfu" path="res://actors/NPC's/NPCS tscn/business_man.tscn" id="21_gjno3"]
 
-[sub_resource type="Resource" id="Resource_46at2"]
+[sub_resource type="GDScript" id="GDScript_ljyqx"]
+script/source = "extends CharacterBody3D
+
+@export var inventory_data: InventoryData
+@export var equip_inventory_data: InventoryDataEquip
+
+const SPEED = 3.0
+const JUMP_VELOCITY = 10
+
+var money: float = 100.25
+var stack = false
+var gravity = 0
+var movement_velocity : Vector3
+var rotation_direction : float
+var walking = false
+var health: int = 5
+
+signal toggle_inventory()
+
+@onready var animation_player: AnimationPlayer = $visuals/sophia/AnimationPlayer
+@onready var visuals: Node3D = $visuals
+@onready var camera_point = $camera_point
+@onready var coins_container: HBoxContainer = $\"../CameraRig/HUD/coinsContainer\"
+@onready var life_container: HBoxContainer = $\"../CameraRig/HUD3/lifeContainer\"
+@onready var background: ColorRect = $RayCast3D/Background
+@onready var prompt: Label = $InteractRay/Prompt
+@onready var interact_ray: RayCast3D = $InteractRay
+@onready var pause_menu: CanvasLayer = $\"../pause_menu\"
+@onready var interact_label: Label = $InteractRay/InteractLabel
+@onready var inventory_interface: Control = $\"../Ui/InventoryInterface\"
+
+func _ready():
+	PlayerManager.player = self
+
+	animation_player.set_blend_time(\"Idle\", \"Run\", 0.2)
+	animation_player.set_blend_time(\"Run\", \"Idle\", 0.2)
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _physics_process(delta):
+
+	var input_dir := Input.get_vector(\"move_left\", \"move_right\", \"move_forward\", \"move_backward\")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+		visuals.look_at(direction + position)
+		if !walking:
+			walking=true
+			
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		if walking:
+			walking=false
+			
+	jump()
+
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+		velocity.y = direction.z * SPEED
+		visuals.look_at(direction + position)
+		if !walking:
+			walking=true
+			
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		if walking:
+			walking=false
+			
+	pause_menu.pause_resume()
+	handle_animations()
+	
+	var applied_velocity : Vector3
+	applied_velocity = velocity.lerp(movement_velocity, delta * 10)
+	applied_velocity.y = -gravity
+	
+	velocity = applied_velocity
+	
+	apply_gravity(delta)
+	
+	if is_on_floor():
+			stack = true
+		
+	if !is_on_floor():
+		velocity.y -= gravity * delta
+		if stack:
+			gravity = -JUMP_VELOCITY+5
+			stack= false
+	move_and_slide()
+	
+	if interact_ray.is_colliding() and !inventory_interface.visible:
+		var detected = interact_ray.get_collider()
+		if detected.is_in_group(\"Interactable\"):
+			prompt.show()
+			interact_label.show()
+			prompt.text = detected.name
+	else:
+		prompt.hide()
+		interact_label.hide()
+		prompt.text = \"\"
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		rotate_y(-event.relative.x * .002)
+		
+	if Input.is_action_just_pressed(\"inventory\"):
+		toggle_inventory.emit()
+		
+	
+	if Input.is_action_just_pressed(\"interact\"):
+		interact()
+		
+func interact() -> void:
+	var detected = interact_ray.get_collider()
+	if interact_ray.is_colliding() and detected.is_in_group(\"Interactable\"):
+		detected.player_interact()
+		
+func get_drop_position() -> Vector3:
+	var direction = -PlayerManager.player.global_transform.basis.z*2 
+	return PlayerManager.player.global_position + direction
+
+func heal(heal_value: int) -> void:
+	health += heal_value
+
+func handle_animations():
+	if is_on_floor():
+		if abs(velocity.x) > 1 or abs(velocity.z) > 1:
+			animation_player.play(\"Run\", 0.3)
+		else:
+			animation_player.play(\"Idle\", 0.3)
+	else:
+		animation_player.play(\"Jump\", 0.3)
+		
+	if !is_on_floor() and gravity > 2:
+		animation_player.play(\"Fall\", 0.3)
+	
+func apply_gravity(delta):
+	if !is_on_floor():
+		gravity += 25 * delta
+		
+func jump ():
+	if Input.is_action_just_pressed(\"jump\") and is_on_floor():
+		gravity = -JUMP_VELOCITY-5
+		
+	if gravity > 0 and is_on_floor():
+		gravity = 0
+		
+func check_player_items_by_name(name: String) -> String:
+	if get_player_equiped_slot_data_index_by_name(name)!=-1\\
+	or get_player_inventory_slot_data_index_by_name(name)!=-1:
+		return name
+	return \"\"
+	
+func get_player_equiped_slot_data_index_by_name(name: String) -> int:
+	for i in range(PlayerManager.player.equip_inventory_data.slot_datas.size()):
+		if PlayerManager.player.equip_inventory_data.get_slot_data_name(i, \"\") == name:
+			return i
+	return -1
+	
+func get_player_inventory_slot_data_index_by_name(name: String) -> int:
+	for i in range(PlayerManager.player.inventory_data.slot_datas.size()):
+		if PlayerManager.player.inventory_data.get_slot_data_name(i, \"\") == name:
+			return i
+	return -1
+	
+func get_player_equiped_slot_data_quantity_by_name(name: String)-> int:
+	var index = get_player_equiped_slot_data_index_by_name(name)
+	if PlayerManager.player.equip_inventory_data.get_slot_data_quantity(index)!=-1:
+		return PlayerManager.player.equip_inventory_data.get_slot_data_quantity(index)
+	return -1
+	
+func get_player_inventory_slot_data_quantity_by_name(name: String)-> int:
+	var index = get_player_inventory_slot_data_index_by_name(name)
+	if PlayerManager.player.inventory_data.get_slot_data_quantity(index)!=-1:
+		return PlayerManager.player.inventory_data.get_slot_data_quantity(index)
+	return -1
+
+func player_have_this_item(item_data: ItemData)-> bool:
+	for i in range(PlayerManager.player.equip_inventory_data.slot_datas.size()):
+		if PlayerManager.player.equip_inventory_data.get_slot_data_name(i, item_data.name) == item_data.name\\
+			and item_data.unique:
+			return true
+	for i in range(PlayerManager.player.inventory_data.slot_datas.size()):
+		if PlayerManager.player.inventory_data.get_slot_data_name(i, item_data.name) == item_data.name\\
+		and item_data.unique:
+			return true
+	return false
+"
+
+[sub_resource type="Resource" id="Resource_63k2e"]
 script = ExtResource("4_nafn1")
 item_data = ExtResource("14_lhgay")
 quantity = 1
 
-[sub_resource type="Resource" id="Resource_aaflk"]
+[sub_resource type="Resource" id="Resource_vpie0"]
 script = ExtResource("3_cs1x2")
-slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_46at2"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_63k2e"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 
-[sub_resource type="Resource" id="Resource_53t87"]
+[sub_resource type="Resource" id="Resource_nlq6m"]
 script = ExtResource("4_nafn1")
 item_data = ExtResource("12_b5s0w")
 quantity = 1
 
-[sub_resource type="Resource" id="Resource_iovv6"]
-script = ExtResource("4_nafn1")
-item_data = ExtResource("14_lhgay")
-quantity = 5
-
-[sub_resource type="Resource" id="Resource_uf2pq"]
-script = ExtResource("4_nafn1")
-item_data = ExtResource("11_wyoqs")
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_ghs16"]
+[sub_resource type="Resource" id="Resource_f63g2"]
 script = ExtResource("5_xkuvt")
-slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_53t87"), SubResource("Resource_iovv6"), SubResource("Resource_uf2pq"), null, null, null])
+slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_nlq6m"), null, null, null, null, null])
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mtgxe"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -482,8 +663,9 @@ script = ExtResource("1_u6833")
 [node name="Player" parent="." instance=ExtResource("2_e5e43")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.92428, 0, -9.11045)
 collision_layer = 7
-inventory_data = SubResource("Resource_aaflk")
-equip_inventory_data = SubResource("Resource_ghs16")
+script = SubResource("GDScript_ljyqx")
+inventory_data = SubResource("Resource_vpie0")
+equip_inventory_data = SubResource("Resource_f63g2")
 
 [node name="Root" type="Node" parent="."]
 
@@ -631,7 +813,7 @@ visible = false
 curve = SubResource("Curve3D_j677g")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Npcs/FireFighterPath"]
-transform = Transform3D(0.855132, -1.24319e-05, 0.518406, 0, 1.00002, 2.39804e-05, -0.518406, -2.05069e-05, 0.855132, -5.90387, 0, -10.0074)
+transform = Transform3D(0.855132, -1.24319e-05, 0.518406, 0, 1.00002, 2.39804e-05, -0.518406, -2.0507e-05, 0.855132, -5.90387, 0, -10.0074)
 rotation_mode = 4
 use_model_front = true
 
@@ -647,7 +829,7 @@ equip_inventory_data = SubResource("Resource_seisx")
 curve = SubResource("Curve3D_j677g")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Npcs/FireFighterPath2"]
-transform = Transform3D(0.855132, -1.24319e-05, 0.518406, 0, 1.00002, 2.39804e-05, -0.518406, -2.05069e-05, 0.855132, -5.90387, 0, -10.0074)
+transform = Transform3D(0.855132, -1.24319e-05, 0.518406, 0, 1.00002, 2.39804e-05, -0.518406, -2.0507e-05, 0.855132, -5.90387, 0, -10.0074)
 rotation_mode = 4
 use_model_front = true
 

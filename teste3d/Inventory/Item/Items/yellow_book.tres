@@ -20,3 +20,4 @@ sellable = false
 buyable = true
 unique = true
 droppable = false
+quantity = 0

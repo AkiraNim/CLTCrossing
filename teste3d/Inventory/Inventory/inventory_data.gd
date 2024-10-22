@@ -48,6 +48,8 @@ func drop_single_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 
 	if grabbed_slot_data.quantity > 0:
 		grabbed_slot_data
+		print(grabbed_slot_data.item_data.quantity)
+		print(grabbed_slot_data.item_data.price)
 		return grabbed_slot_data  # Retorna os dados do slot agarrado se ainda houver quantidade
 	else:
 		return null  # Retorna nulo se não houver quantidade

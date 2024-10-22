@@ -16,7 +16,7 @@ class_name ItemData
 @export var buyable: bool = false
 @export var unique: bool = false
 @export var droppable: bool = false
-
+@export var quantity: int
 # Função de uso do item, destinada a ser sobrescrita por subclasses
 func use(target) -> void:
 	pass  # Função vazia, a ser implementada por classes que herdam de ItemData

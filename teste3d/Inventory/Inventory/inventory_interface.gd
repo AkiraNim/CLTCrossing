@@ -3,6 +3,7 @@ extends Control
 
 # Sinal emitido quando um item é solto, passando os dados do slot
 signal drop_slot_data(slot_data: SlotData)
+var grabbed_from_external = false  # Variável para rastrear de onde o item foi retirado
 
 # Variáveis que armazenam os dados do slot atualmente "agarrado" e o dono do inventário externo
 var grabbed_slot_data: SlotData  # Dados do slot que está sendo "segurado" pelo jogador
@@ -14,11 +15,11 @@ var visible_external_inventory: bool = false
 @onready var player_inventory: PanelContainer = $PlayerInventory/PlayerInventory  # Inventário do jogador
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot  # Slot visual que segue o mouse quando um item é agarrado
 @onready var equip_inventory: PanelContainer = $PlayerInventory/EquipInventory  # Inventário de equipamentos do jogador
-@onready var item_descripition: Label = $"../InventoryDescription/ItemDescripition"
 @onready var inventory_description: CanvasLayer = $"../InventoryDescription"
 @onready var player_inventory_node: Node2D = $PlayerInventory
 @onready var external_inventory_node: Node2D = $ExternalInventory
 @onready var item_name: Label = $"../InventoryDescription/ItemName"
+@onready var item_description: Label = $"../InventoryDescription/ItemDescription"
 
 # Função chamada a cada quadro de física, atualiza a posição do slot agarrado para seguir o mouse
 func _physics_process(delta: float) -> void:
@@ -65,6 +66,7 @@ func clear_external_inventory() -> void:
 		external_inventory_node.hide()
 		external_inventory_owner = null
 		external_inventory_opened = false
+
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int) -> void:
 	# Verifica se o inventário em interação é o inventário externo
 	var is_external_inventory = external_inventory_owner != null and inventory_data == external_inventory_owner.inventory_data
@@ -72,33 +74,79 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 	# Realiza ações com base nos dados do slot agarrado e o botão pressionado
 	match [grabbed_slot_data, button]:
 		[null, MOUSE_BUTTON_LEFT]:
-			# Quando grabbed_slot_data é nulo, significa que o jogador está retirando um item
+			# Jogador está retirando um item do inventário
 			grabbed_slot_data = inventory_data.grab_slot_data(index)
-			if is_external_inventory:
-				print("legal")  # Retirando do external_inventory e colocando no player_inventory
+			if grabbed_slot_data !=null:
+			
+				if is_external_inventory:
+					# Retirando item do inventário externo
+					print("Item retirado do inventário externo: ", -grabbed_slot_data.item_data.price * grabbed_slot_data.item_data.quantity)
+					grabbed_from_external = true  # Marca que o item foi retirado do inventário externo
+				else:
+					# Retirando item do inventário do jogador
+					print("Item retirado do inventário do jogador.")
+					grabbed_from_external = false  # Marca que o item foi retirado do inventário do jogador
+			
 		[_, MOUSE_BUTTON_LEFT]:
-			# Aqui o jogador está colocando um item, verificamos para onde ele está colocando
+			# Jogador está colocando um item no inventário
 			if grabbed_slot_data:
 				if is_external_inventory:
-					var index2 = inventory_data.get_slot_data_index_by_name(grabbed_slot_data.item_data.name)
-					
-					print(grabbed_slot_data.item_data.price*inventory_data.get_slot_data_quantity(index2))  # Retirando do player_inventory e colocando no external_inventory
+					# Colocando item no inventário externo (venda)
+					if not grabbed_from_external:
+						# Só ganha dinheiro se o item veio do inventário do jogador
+						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.item_data.quantity
+						PlayerManager.player.add_money(price)
+						print("Item vendido. Dinheiro adicionado: ", price)
+						print("Dinheiro do jogador após vender: ", PlayerManager.player.money)
+						print("Quantidade ", grabbed_slot_data.item_data.quantity)
 					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 				else:
-					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)  # Solta o item no slot
+					# Colocando item no inventário do jogador (compra)
+					if grabbed_from_external:
+						# Só perde dinheiro se o item veio do inventário externo
+						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.item_data.quantity
+						PlayerManager.player.rmv_money(price)
+						print("Item comprado. Dinheiro removido: ", price)
+						print("Dinheiro do jogador após compra: ", PlayerManager.player.money)
+						print("Quantidade ", grabbed_slot_data.item_data.quantity)
+					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
+		
 		[null, MOUSE_BUTTON_RIGHT]:
+			# Ação de mostrar descrição do item
 			var description: String
-			description = inventory_data.get_slot_data_description(index, description)  # Usa o item do slot
-			if description == "":
-				pass
-			elif description != "":
-				item_descripition.text = description
+			description = inventory_data.get_slot_data_description(index, description)
+			if description != "":
+				item_description.text = description
 				var name: String
 				name = inventory_data.get_slot_data_name(index, name)
 				item_name.text = name
 				inventory_description.show()
+		
 		[_, MOUSE_BUTTON_RIGHT]:
-			grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)  # Solta um único item no slot
+			# Jogador está soltando um único item no slot
+			if grabbed_slot_data:
+				if is_external_inventory:
+					# Colocando item no inventário externo (venda)
+					if not grabbed_from_external:
+						# Só ganha dinheiro se o item veio do inventário do jogador
+						var price: float = grabbed_slot_data.item_data.price
+						PlayerManager.player.add_money(price)
+						print("Item vendido. Dinheiro adicionado: ", price)
+						print("Dinheiro do jogador após vender: ", PlayerManager.player.money)
+						print("Quantidade ", grabbed_slot_data.item_data.quantity)
+					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
+				else:
+					# Colocando item no inventário do jogador (compra)
+					if grabbed_from_external:
+						# Só perde dinheiro se o item veio do inventário externo
+						var price: float = grabbed_slot_data.item_data.price
+						PlayerManager.player.rmv_money(price)
+						print("Item comprado. Dinheiro removido: ", price)
+						print("Dinheiro do jogador após compra: ", PlayerManager.player.money)
+						print("Quantidade ", grabbed_slot_data.item_data.quantity)
+					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
+		
+			
 	
 	update_grabbed_slot()  # Atualiza o estado do slot agarrado
 

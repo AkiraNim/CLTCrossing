@@ -47,6 +47,7 @@ func drop_single_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	inventory_updated.emit(self)  # Emite sinal de atualização do inventário
 
 	if grabbed_slot_data.quantity > 0:
+		grabbed_slot_data
 		return grabbed_slot_data  # Retorna os dados do slot agarrado se ainda houver quantidade
 	else:
 		return null  # Retorna nulo se não houver quantidade
@@ -122,8 +123,9 @@ func get_slot_data_quantity(index: int) -> int:
 	if !slot_data:
 		return -1
 	for i in range (slot_datas.size()):
-		if slot_datas[i].item_data.name == name:
-			quantity+=1
+		if slot_datas[i]!=null:
+			if slot_datas[i].item_data.name == name:
+				quantity+=1
 	return quantity
 
 func can_pick_up_item(item_data: ItemData) -> bool:
@@ -133,3 +135,4 @@ func can_pick_up_item(item_data: ItemData) -> bool:
 			if slot_data and slot_data.item_data == item_data:
 				return false  # O item já está no inventário, não pode pegar de novo
 	return true  # Caso contrário, permite pegar o item
+#quando o usuario dropa um unico item de um monte de items, queria que esse unico item tivesse um index diferente

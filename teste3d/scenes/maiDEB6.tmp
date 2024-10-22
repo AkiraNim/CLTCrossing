@@ -610,7 +610,7 @@ offset_bottom = 64.0
 [node name="InventoryDescription" parent="Ui" instance=ExtResource("15_qcpu8")]
 visible = false
 
-[node name="ItemDescription" type="Label" parent="Ui/InventoryDescription"]
+[node name="ItemDescripition" type="Label" parent="Ui/InventoryDescription"]
 offset_left = 236.0
 offset_top = 150.0
 offset_right = 905.0

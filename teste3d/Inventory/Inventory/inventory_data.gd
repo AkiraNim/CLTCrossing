@@ -87,6 +87,13 @@ func use_slot_data(index: int) -> void:
 # Função chamada quando um slot é clicado
 func on_slot_clicked(index: int, button: int) -> void:
 	inventory_interact.emit(self, index, button)  # Emite sinal de interação, passando os dados do slot e o botão pressionado
+	
+func get_slot_data_index_by_name(name: String)->int:
+	var index: int
+	for i in range (slot_datas.size()):
+		if get_slot_data_name(i, name) != "":
+			index = i
+	return index
 
 func get_slot_data_description(index: int, description: String) -> String:
 	var slot_data = slot_datas[index]  # Obtém os dados do slot no índice
@@ -110,9 +117,15 @@ func get_slot_data_item(index: int) -> ItemData:
 
 func get_slot_data_quantity(index: int) -> int:
 	var slot_data = slot_datas[index]
+	var name = slot_datas[index].item_data.name
+	var quantity: int = 0
 	if !slot_data:
 		return -1
-	return slot_data.quantity
+	for i in range (slot_datas.size()):
+		if slot_datas[i].item_data.name == name:
+			quantity+=1
+	return quantity
+
 func can_pick_up_item(item_data: ItemData) -> bool:
 	if item_data.unique:
 	# Verifica se o item único já existe no inventário

@@ -19,3 +19,4 @@ price = 0.0
 sellable = false
 buyable = true
 unique = true
+droppable = false

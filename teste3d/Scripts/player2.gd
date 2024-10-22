@@ -186,3 +186,9 @@ func player_have_this_item(item_data: ItemData)-> bool:
 		and item_data.unique:
 			return true
 	return false
+
+func add_money(external_money: float)-> void:
+	money+=external_money
+
+func rmv_money(external_money: float)-> void:
+	money-=external_money

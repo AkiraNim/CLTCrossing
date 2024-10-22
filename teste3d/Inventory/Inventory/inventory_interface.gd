@@ -7,7 +7,7 @@ signal drop_slot_data(slot_data: SlotData)
 # Variáveis que armazenam os dados do slot atualmente "agarrado" e o dono do inventário externo
 var grabbed_slot_data: SlotData  # Dados do slot que está sendo "segurado" pelo jogador
 var external_inventory_owner  # Referência ao dono do inventário externo
-
+var external_inventory_opened: bool = false
 var visible_external_inventory: bool = false
 # Referências aos nós de diferentes inventários e do slot agarrado
 @onready var external_inventory: PanelContainer = $ExternalInventory/ExternalInventory  # Inventário externo, exibido quando acessado
@@ -53,6 +53,7 @@ func set_external_inventory(_external_inventory_owner) -> void:
 	external_inventory.set_inventory_data(inventory_data)
 	
 	external_inventory_node.show()
+	external_inventory_opened = true
 
 func clear_external_inventory() -> void:
 	if external_inventory_owner:
@@ -63,18 +64,28 @@ func clear_external_inventory() -> void:
 		
 		external_inventory_node.hide()
 		external_inventory_owner = null
-
-# Função chamada quando há interação com o inventário
-# Função chamada quando há interação com o inventário
+		external_inventory_opened = false
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int) -> void:
+	# Verifica se o inventário em interação é o inventário externo
+	var is_external_inventory = external_inventory_owner != null and inventory_data == external_inventory_owner.inventory_data
+	
 	# Realiza ações com base nos dados do slot agarrado e o botão pressionado
 	match [grabbed_slot_data, button]:
 		[null, MOUSE_BUTTON_LEFT]:
+			# Quando grabbed_slot_data é nulo, significa que o jogador está retirando um item
 			grabbed_slot_data = inventory_data.grab_slot_data(index)
-		  # Agarra o item do slot
+			if is_external_inventory:
+				print("legal")  # Retirando do external_inventory e colocando no player_inventory
 		[_, MOUSE_BUTTON_LEFT]:
-			
-			grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)  # Solta o item no slot
+			# Aqui o jogador está colocando um item, verificamos para onde ele está colocando
+			if grabbed_slot_data:
+				if is_external_inventory:
+					var index2 = inventory_data.get_slot_data_index_by_name(grabbed_slot_data.item_data.name)
+					
+					print(grabbed_slot_data.item_data.price*inventory_data.get_slot_data_quantity(index2))  # Retirando do player_inventory e colocando no external_inventory
+					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
+				else:
+					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)  # Solta o item no slot
 		[null, MOUSE_BUTTON_RIGHT]:
 			var description: String
 			description = inventory_data.get_slot_data_description(index, description)  # Usa o item do slot
@@ -90,6 +101,7 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 			grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)  # Solta um único item no slot
 	
 	update_grabbed_slot()  # Atualiza o estado do slot agarrado
+
 # Função que atualiza o estado visual do slot agarrado
 func update_grabbed_slot() -> void:
 	if grabbed_slot_data:

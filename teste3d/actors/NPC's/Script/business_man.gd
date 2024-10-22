@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends StaticBody3D
 
 signal dialog
 

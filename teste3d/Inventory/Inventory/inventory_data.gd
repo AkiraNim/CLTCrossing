@@ -45,11 +45,8 @@ func drop_single_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 		slot_data.fully_merge_with(grabbed_slot_data.create_single_slot_data())  # Mescla um único item
 
 	inventory_updated.emit(self)  # Emite sinal de atualização do inventário
-
 	if grabbed_slot_data.quantity > 0:
 		grabbed_slot_data
-		print(grabbed_slot_data.item_data.quantity)
-		print(grabbed_slot_data.item_data.price)
 		return grabbed_slot_data  # Retorna os dados do slot agarrado se ainda houver quantidade
 	else:
 		return null  # Retorna nulo se não houver quantidade
@@ -120,15 +117,8 @@ func get_slot_data_item(index: int) -> ItemData:
 
 func get_slot_data_quantity(index: int) -> int:
 	var slot_data = slot_datas[index]
-	var name = slot_datas[index].item_data.name
-	var quantity: int = 0
-	if !slot_data:
-		return -1
-	for i in range (slot_datas.size()):
-		if slot_datas[i]!=null:
-			if slot_datas[i].item_data.name == name:
-				quantity+=1
-	return quantity
+	
+	return slot_data.item_data.quantity
 
 func can_pick_up_item(item_data: ItemData) -> bool:
 	if item_data.unique:

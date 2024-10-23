@@ -94,21 +94,21 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 					# Colocando item no inventário externo (venda)
 					if not grabbed_from_external:
 						# Só ganha dinheiro se o item veio do inventário do jogador
-						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.item_data.quantity
+						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
 						PlayerManager.player.add_money(price)
 						print("Item vendido. Dinheiro adicionado: ", price)
 						print("Dinheiro do jogador após vender: ", PlayerManager.player.money)
-						print("Quantidade ", grabbed_slot_data.item_data.quantity)
+						print("Quantidade ", grabbed_slot_data.quantity)
 					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 				else:
 					# Colocando item no inventário do jogador (compra)
 					if grabbed_from_external:
 						# Só perde dinheiro se o item veio do inventário externo
-						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.item_data.quantity
+						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
 						PlayerManager.player.rmv_money(price)
 						print("Item comprado. Dinheiro removido: ", price)
 						print("Dinheiro do jogador após compra: ", PlayerManager.player.money)
-						print("Quantidade ", grabbed_slot_data.item_data.quantity)
+						print("Quantidade ", grabbed_slot_data.quantity)
 					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 		
 		[null, MOUSE_BUTTON_RIGHT]:
@@ -133,7 +133,7 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 						PlayerManager.player.add_money(price)
 						print("Item vendido. Dinheiro adicionado: ", price)
 						print("Dinheiro do jogador após vender: ", PlayerManager.player.money)
-						print("Quantidade ", grabbed_slot_data.item_data.quantity)
+						print("Quantidade ", grabbed_slot_data.quantity)
 					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
 				else:
 					# Colocando item no inventário do jogador (compra)
@@ -143,11 +143,8 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 						PlayerManager.player.rmv_money(price)
 						print("Item comprado. Dinheiro removido: ", price)
 						print("Dinheiro do jogador após compra: ", PlayerManager.player.money)
-						print("Quantidade ", grabbed_slot_data.item_data.quantity)
+						print("Quantidade ", grabbed_slot_data.quantity)
 					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
-		
-			
-	
 	update_grabbed_slot()  # Atualiza o estado do slot agarrado
 
 # Função que atualiza o estado visual do slot agarrado

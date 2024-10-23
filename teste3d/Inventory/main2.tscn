@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://bti2rgq3cgwlu" path="res://Inventory/Item/Items/blue_book.tres" id="12_b5s0w"]
 [ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="13_bs3wm"]
 [ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="14_lhgay"]
-[ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://Formas/Menu/pause_menu.tscn" id="15_00xag"]
+[ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://assets/Formas/Menu/pause_menu.tscn" id="15_00xag"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mtgxe"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

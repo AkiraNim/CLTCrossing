@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://blxiq38o3y2tx"]
 
-[ext_resource type="Texture2D" uid="uid://cx4361dtibf2l" path="res://assetsGlb/cashRegister_MetalBare0043_L.jpg" id="1_l1fxb"]
+[ext_resource type="Texture2D" uid="uid://cx4361dtibf2l" path="res://assets/assetsGlb/cashRegister_MetalBare0043_L.jpg" id="1_l1fxb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7n4ey"]
 resource_name = "RJ dark metal"

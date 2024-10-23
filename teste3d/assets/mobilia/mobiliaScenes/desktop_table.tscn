@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://8r6u27n5ewjq"]
 
-[ext_resource type="Texture2D" uid="uid://bpo5a5o2o0dt4" path="res://assetsGlb/desktopTable_Dark-Wood-Texture-520x339.jpg" id="1_4u55t"]
+[ext_resource type="Texture2D" uid="uid://bpo5a5o2o0dt4" path="res://assets/assetsGlb/desktopTable_Dark-Wood-Texture-520x339.jpg" id="1_4u55t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_77ta4"]
 resource_name = "01 - Default"

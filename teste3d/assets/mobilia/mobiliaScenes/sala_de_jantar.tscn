@@ -1,14 +1,14 @@
 [gd_scene load_steps=41 format=4 uid="uid://cir3nvbhjs85d"]
 
-[ext_resource type="Texture2D" uid="uid://chvthd3ok65b" path="res://assetsGlb/salaDeJantar_wood _texture3200.jpg" id="1_nd5ws"]
-[ext_resource type="Texture2D" uid="uid://cquj7v40kdbxc" path="res://assetsGlb/salaDeJantar_NormalMap (1).png" id="2_gjcap"]
-[ext_resource type="Texture2D" uid="uid://tmigurfteyei" path="res://assetsGlb/salaDeJantar_Furnishings.Fabrics.Linen.jpg" id="3_qt2br"]
-[ext_resource type="Texture2D" uid="uid://bumkfy105itw0" path="res://assetsGlb/salaDeJantar_TexturesCom_MarbleBase0075_1_seamless_S.png" id="4_layla"]
-[ext_resource type="Texture2D" uid="uid://corxsw1sc4vew" path="res://assetsGlb/salaDeJantar_NormalMap.png" id="5_x4p7v"]
-[ext_resource type="Texture2D" uid="uid://ds4co5ij0ffw8" path="res://assetsGlb/salaDeJantar_grass3_cyc.jpg" id="6_1tr22"]
-[ext_resource type="Texture2D" uid="uid://nanmkfomdcf5" path="res://assetsGlb/salaDeJantar_Flowers0018_2_S.png" id="7_egg02"]
-[ext_resource type="Texture2D" uid="uid://bvlc3teiafrbr" path="res://assetsGlb/salaDeJantar_TexturesCom_Carpet0016_1_seamless_S.jpg" id="8_ym35x"]
-[ext_resource type="Texture2D" uid="uid://bjdtt6dluj06a" path="res://assetsGlb/salaDeJantar_NormalMap_10.png" id="9_q3bxi"]
+[ext_resource type="Texture2D" uid="uid://chvthd3ok65b" path="res://assets/assetsGlb/salaDeJantar_wood _texture3200.jpg" id="1_nd5ws"]
+[ext_resource type="Texture2D" uid="uid://cquj7v40kdbxc" path="res://assets/assetsGlb/salaDeJantar_NormalMap (1).png" id="2_gjcap"]
+[ext_resource type="Texture2D" uid="uid://tmigurfteyei" path="res://assets/assetsGlb/salaDeJantar_Furnishings.Fabrics.Linen.jpg" id="3_qt2br"]
+[ext_resource type="Texture2D" uid="uid://bumkfy105itw0" path="res://assets/assetsGlb/salaDeJantar_TexturesCom_MarbleBase0075_1_seamless_S.png" id="4_layla"]
+[ext_resource type="Texture2D" uid="uid://corxsw1sc4vew" path="res://assets/assetsGlb/salaDeJantar_NormalMap.png" id="5_x4p7v"]
+[ext_resource type="Texture2D" uid="uid://ds4co5ij0ffw8" path="res://assets/assetsGlb/salaDeJantar_grass3_cyc.jpg" id="6_1tr22"]
+[ext_resource type="Texture2D" uid="uid://nanmkfomdcf5" path="res://assets/assetsGlb/salaDeJantar_Flowers0018_2_S.png" id="7_egg02"]
+[ext_resource type="Texture2D" uid="uid://bvlc3teiafrbr" path="res://assets/assetsGlb/salaDeJantar_TexturesCom_Carpet0016_1_seamless_S.jpg" id="8_ym35x"]
+[ext_resource type="Texture2D" uid="uid://bjdtt6dluj06a" path="res://assets/assetsGlb/salaDeJantar_NormalMap_10.png" id="9_q3bxi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vopsy"]
 resource_name = "Madeira.001"

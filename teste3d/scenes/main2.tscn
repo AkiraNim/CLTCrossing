@@ -14,10 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="12_bl8hy"]
 [ext_resource type="Script" path="res://Inventory/Inventory/inventory_interface.gd" id="13_4wcn6"]
 [ext_resource type="PackedScene" uid="uid://c7lwx2o8obigc" path="res://Inventory/Inventory/inventory.tscn" id="14_menfc"]
-[ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://Fonts/prstart.ttf" id="15_sfa3y"]
+[ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://assets/Fonts/prstart.ttf" id="15_sfa3y"]
 [ext_resource type="PackedScene" uid="uid://dqilpeh4bal8a" path="res://Inventory/Inventory/slot.tscn" id="16_7f24j"]
 [ext_resource type="PackedScene" uid="uid://ds4sbgxxyc1kt" path="res://Inventory/inventory_description.tscn" id="17_icr3n"]
-[ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://Formas/Menu/pause_menu.tscn" id="18_lsd5f"]
+[ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://assets/Formas/Menu/pause_menu.tscn" id="18_lsd5f"]
 [ext_resource type="PackedScene" uid="uid://svgy5orp7sgb" path="res://assets/SimpleTown/Road2.tscn" id="19_7t1se"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mtgxe"]

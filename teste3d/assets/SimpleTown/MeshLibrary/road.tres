@@ -1,7 +1,7 @@
 [gd_resource type="MeshLibrary" load_steps=14 format=4 uid="uid://c3pq82opyffg1"]
 
 [ext_resource type="Texture2D" uid="uid://b3c87tqkimb2b" path="res://assets/SimpleTown/Road2_road_albedo.png" id="1_mh5se"]
-[ext_resource type="Texture2D" uid="uid://ck1hk04rkynsh" path="res://Texturas/Concrete_02_Green_Square_1.png" id="2_t36xd"]
+[ext_resource type="Texture2D" uid="uid://ck1hk04rkynsh" path="res://assets/Texturas/Concrete_02_Green_Square_1.png" id="2_t36xd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xg1s6"]
 resource_name = "Material.042"

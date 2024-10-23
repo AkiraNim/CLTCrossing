@@ -1,8 +1,8 @@
 [gd_resource type="MeshLibrary" load_steps=34 format=4 uid="uid://m5iov5mceqdh"]
 
-[ext_resource type="Texture2D" uid="uid://d0yovgpajibcx" path="res://GLB format/Textures/colormap.png" id="1_xlk6f"]
-[ext_resource type="Texture2D" uid="uid://bqlmsqqu82kuc" path="res://Texturas/Cobblestones_01_Black_1.png" id="2_a5fh3"]
-[ext_resource type="Texture2D" uid="uid://ck1hk04rkynsh" path="res://Texturas/Concrete_02_Green_Square_1.png" id="3_taaev"]
+[ext_resource type="Texture2D" uid="uid://b5x4cm1wpxpjo" path="res://assets/GLB format/Textures/colormap.png" id="1_xlk6f"]
+[ext_resource type="Texture2D" uid="uid://bqlmsqqu82kuc" path="res://assets/Texturas/Cobblestones_01_Black_1.png" id="2_a5fh3"]
+[ext_resource type="Texture2D" uid="uid://ck1hk04rkynsh" path="res://assets/Texturas/Concrete_02_Green_Square_1.png" id="3_taaev"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uge1f"]
 resource_name = "colormap"

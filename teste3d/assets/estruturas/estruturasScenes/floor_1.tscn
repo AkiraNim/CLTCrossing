@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c46kekk7xw3nq"]
 
-[ext_resource type="Texture2D" uid="uid://bovff0i76pmdr" path="res://Texturas/Brick_Herringbone_Green_1.png" id="1_c86m4"]
+[ext_resource type="Texture2D" uid="uid://bovff0i76pmdr" path="res://assets/Texturas/Brick_Herringbone_Green_1.png" id="1_c86m4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7bdl"]
 albedo_texture = ExtResource("1_c86m4")

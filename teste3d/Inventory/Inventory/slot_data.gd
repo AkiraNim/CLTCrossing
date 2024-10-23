@@ -29,7 +29,6 @@ func can_fully_merge_with(other_slot_data: SlotData) -> bool:
 func create_single_slot_data() -> SlotData:
 	var new_slot_data = duplicate()  # Cria uma duplicata do SlotData atual
 	new_slot_data.quantity = 1
-	item_data.quantity = new_slot_data.quantity  # Define a quantidade do novo slot como 1
 	quantity -= 1  # Reduz a quantidade do slot original em 1
 	return new_slot_data
 
@@ -40,7 +39,6 @@ func fully_merge_with(other_slot_data: SlotData) -> void:
 # Função para definir a quantidade de itens no slot, com validação para itens não empilháveis
 func set_quantity(value: int) -> void:
 	quantity = value  # Define a quantidade
-	item_data.quantity = quantity
 	
 	# Se a quantidade for maior que 1 e o item não for empilhável, ajusta para 1
 	if quantity > 1 and !item_data.stackable:

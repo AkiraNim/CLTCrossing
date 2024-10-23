@@ -91,7 +91,7 @@ func on_slot_clicked(index: int, button: int) -> void:
 func get_slot_data_index_by_name(name: String)->int:
 	var index: int
 	for i in range (slot_datas.size()):
-		if get_slot_data_name(i, name) != "":
+		if get_slot_data_name(i) != "":
 			index = i
 	return index
 
@@ -102,12 +102,11 @@ func get_slot_data_description(index: int, description: String) -> String:
 	description = slot_data.item_data.description
 	return description
 
-func get_slot_data_name(index: int, name: String) -> String:
+func get_slot_data_name(index: int) -> String:
 	var slot_data = slot_datas[index]  # Obtém os dados do slot no índice
 	if !slot_data:
 		return  ""
-	name = slot_data.item_data.name
-	return name
+	return slot_data.item_data.name
 
 func get_slot_data_item(index: int) -> ItemData:
 	var slot_data = slot_datas[index]  # Obtém os dados do slot no índice
@@ -117,8 +116,7 @@ func get_slot_data_item(index: int) -> ItemData:
 
 func get_slot_data_quantity(index: int) -> int:
 	var slot_data = slot_datas[index]
-	
-	return slot_data.item_data.quantity
+	return slot_data.quantity
 
 func can_pick_up_item(item_data: ItemData) -> bool:
 	if item_data.unique:

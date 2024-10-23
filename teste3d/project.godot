@@ -27,6 +27,8 @@ ExternalInventoryManager="*res://Inventory/external_inventory_manager.gd"
 
 Interactable=""
 Player=""
+Selling=""
+external_inventory=""
 
 [input]
 

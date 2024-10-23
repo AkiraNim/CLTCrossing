@@ -467,7 +467,7 @@ quantity = 1
 [sub_resource type="Resource" id="Resource_gejdb"]
 script = ExtResource("4_nafn1")
 item_data = ExtResource("22_5yhpf")
-quantity = 8
+quantity = 1
 
 [sub_resource type="Resource" id="Resource_0wnd0"]
 script = ExtResource("4_nafn1")

@@ -71,14 +71,7 @@ func play_animation_based_on_emotion(delta: float) -> void:
 
 # Função chamada quando o jogador interage com o NPC
 func player_interact() -> void:
-	if PlayerManager.player.check_player_items_by_name("Apple") !="":
-		print(PlayerManager.player.check_player_items_by_name("Achei a maçã no inventario"))
-	if PlayerManager.player.get_player_inventory_slot_data_quantity_by_name("Apple")>=6:
-		pass
-	
-	if PlayerManager.player.get_player_equiped_slot_data_index_by_name("Blue Book") != -1:
-		drop_all_npc_slot_data()
-		dialog.emit(self)
+	dialog.emit(self)
 	# Obtém missões baseadas na emoção do NPC
 	var available_missions = MissionManager.get_available_missions(npc_name)
 
@@ -92,6 +85,7 @@ func player_interact() -> void:
 		if PlayerManager.player.get_player_inventory_slot_data_quantity_by_name("Apple")>=2:
 			for mission in MissionManager.missions:
 				if mission.title == "Encontrar 2 maçãs":
+					drop_npc_slot_data_by_name("Red Book")
 					mission.complete_mission()
 					mission_completed = true
 					break
@@ -110,25 +104,25 @@ func drop_all_npc_slot_data() -> void:
 	var a = 1.0
 	for i in range(NpcManager.npc.inventory_data.slot_datas.size()):
 		
-		var slot_name = NpcManager.npc.inventory_data.get_slot_data_name(i, "")
+		var slot_name = NpcManager.npc.inventory_data.get_slot_data_name(i)
 		
 		if slot_name:  # Checa o item específico para droppar
 			drop_item_from_npc(i, a)
 			a+=0.4
 
 # Solta um item específico do NPC
-func drop_npc_slot_data() -> void:
+func drop_npc_slot_data_by_name(name: String) -> void:
 	for i in range(NpcManager.npc.inventory_data.slot_datas.size()):
-		var slot_name = NpcManager.npc.inventory_data.get_slot_data_name(i, "")
+		var slot_name = NpcManager.npc.inventory_data.get_slot_data_name(i)
 		
-		if slot_name:  # Checa o item específico para droppar
+		if slot_name == name:  # Checa o item específico para droppar
 			drop_item_from_npc(i, 1)
 			break
 
 # Lógica para droppar um item do NPC
 func drop_item_from_npc(index: int, i: float) -> void:
 	var grabbed_slot_data: SlotData = NpcManager.npc.inventory_data.slot_datas[index]
-	print("Item ", NpcManager.npc.inventory_data.get_slot_data_name(index, ""), " foi droppado pelo NPC!")
+	print("Item ", NpcManager.npc.inventory_data.get_slot_data_name(index), " foi droppado pelo NPC!")
 	
 	# Remove o item do inventário do NPC
 	NpcManager.npc.inventory_data.slot_datas[index] = null
@@ -149,7 +143,7 @@ func drop_item_from_npc(index: int, i: float) -> void:
 # Função que retorna o índice do item no inventário do NPC baseado no nome
 func get_npc_equiped_slot_data_index_by_name(name: String) -> int:
 	for i in range(NpcManager.npc.inventory_data.slot_datas.size()):
-		if NpcManager.npc.inventory_data.get_slot_data_name(i, "") == name:
+		if NpcManager.npc.inventory_data.get_slot_data_name(i) == name:
 			return i
 	return -1
 

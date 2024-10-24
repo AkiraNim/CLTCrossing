@@ -3,70 +3,80 @@ extends Control
 
 # Sinal emitido quando um item é solto, passando os dados do slot
 signal drop_slot_data(slot_data: SlotData)
-var grabbed_from_external = false  # Variável para rastrear de onde o item foi retirado
+
+# Variável para rastrear se o item foi retirado do inventário externo
+var grabbed_from_external = false  
 
 # Variáveis que armazenam os dados do slot atualmente "agarrado" e o dono do inventário externo
 var grabbed_slot_data: SlotData  # Dados do slot que está sendo "segurado" pelo jogador
 var external_inventory_owner  # Referência ao dono do inventário externo
-var external_inventory_opened: bool = false
-var visible_external_inventory: bool = false
+var external_inventory_opened: bool = false  # Flag para verificar se o inventário externo está aberto
+var visible_external_inventory: bool = false  # Flag para controlar a visibilidade do inventário externo
+
 # Referências aos nós de diferentes inventários e do slot agarrado
-@onready var external_inventory: PanelContainer = $ExternalInventory/ExternalInventory  # Inventário externo, exibido quando acessado
+@onready var external_inventory: PanelContainer = $ExternalInventory/ExternalInventory  # Inventário externo
 @onready var player_inventory: PanelContainer = $PlayerInventory/PlayerInventory  # Inventário do jogador
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot  # Slot visual que segue o mouse quando um item é agarrado
 @onready var equip_inventory: PanelContainer = $PlayerInventory/EquipInventory  # Inventário de equipamentos do jogador
-@onready var inventory_description: CanvasLayer = $"../InventoryDescription"
-@onready var player_inventory_node: Node2D = $PlayerInventory
-@onready var external_inventory_node: Node2D = $ExternalInventory
-@onready var item_name: Label = $"../InventoryDescription/ItemName"
-@onready var item_description: Label = $"../InventoryDescription/ItemDescription"
+@onready var inventory_description: CanvasLayer = $"../InventoryDescription"  # Descrição do item exibida no inventário
+@onready var player_inventory_node: Node2D = $PlayerInventory  # Nodo do inventário do jogador
+@onready var external_inventory_node: Node2D = $ExternalInventory  # Nodo do inventário externo
+@onready var item_name: Label = $"../InventoryDescription/ItemName"  # Nome do item
+@onready var item_description: Label = $"../InventoryDescription/ItemDescription"  # Descrição do item
 
 # Função chamada a cada quadro de física, atualiza a posição do slot agarrado para seguir o mouse
 func _physics_process(delta: float) -> void:
 	if grabbed_slot.visible:
-		grabbed_slot.global_position = get_global_mouse_position() + Vector2(5, 5)  # Desloca o slot para a posição do mouse
+		# Atualiza a posição do slot agarrado para seguir o mouse com um pequeno deslocamento
+		grabbed_slot.global_position = get_global_mouse_position() + Vector2(5, 5)
+	
+	# Gerencia a visibilidade do inventário e da descrição
 	if inventory_description.visible:
 		if external_inventory_node.visible:
-				visible_external_inventory = true
-		player_inventory_node.hide()
-		external_inventory_node.hide()
+			visible_external_inventory = true
+		player_inventory_node.hide()  # Esconde o inventário do jogador
+		external_inventory_node.hide()  # Esconde o inventário externo
 	elif !inventory_description.visible:
+		# Mostra o inventário do jogador e o externo, se necessário
 		player_inventory_node.show()
 		if visible_external_inventory:
 			visible_external_inventory = false
 			external_inventory_node.show()
-# Função que define os dados do inventário do jogador e conecta a interação do inventário
+
+# Define os dados do inventário do jogador e conecta a interação do inventário
 func set_player_inventory_data(inventory_data: InventoryData) -> void:
-	inventory_data.inventory_interact.connect(on_inventory_interact)  # Conecta o sinal de interação
+	inventory_data.inventory_interact.connect(on_inventory_interact)  # Conecta o sinal de interação do inventário
 	player_inventory.set_inventory_data(inventory_data)  # Define os dados no inventário do jogador
 
-# Função que define os dados do inventário de equipamentos
+# Define os dados do inventário de equipamentos
 func set_equip_inventory_data(inventory_data: InventoryData) -> void:
-	inventory_data.inventory_interact.connect(on_inventory_interact)
-	equip_inventory.set_inventory_data(inventory_data)
+	inventory_data.inventory_interact.connect(on_inventory_interact)  # Conecta o sinal de interação do inventário
+	equip_inventory.set_inventory_data(inventory_data)  # Define os dados no inventário de equipamentos
 
-# Função que define os dados do inventário externo e o exibe
+# Define os dados do inventário externo e o exibe
 func set_external_inventory(_external_inventory_owner) -> void:
-	external_inventory_owner = _external_inventory_owner
+	external_inventory_owner = _external_inventory_owner  # Define o dono do inventário externo
 	var inventory_data = external_inventory_owner.inventory_data
 	
-	inventory_data.inventory_interact.connect(on_inventory_interact)
-	external_inventory.set_inventory_data(inventory_data)
+	inventory_data.inventory_interact.connect(on_inventory_interact)  # Conecta a interação do inventário externo
+	external_inventory.set_inventory_data(inventory_data)  # Define os dados do inventário externo
 	
-	external_inventory_node.show()
-	external_inventory_opened = true
+	external_inventory_node.show()  # Exibe o inventário externo
+	external_inventory_opened = true  # Marca que o inventário externo está aberto
 
+# Limpa e oculta o inventário externo
 func clear_external_inventory() -> void:
 	if external_inventory_owner:
 		var inventory_data = external_inventory_owner.inventory_data
 		
-		inventory_data.inventory_interact.disconnect(on_inventory_interact)
-		external_inventory.clear_inventory_data(inventory_data)
+		inventory_data.inventory_interact.disconnect(on_inventory_interact)  # Desconecta a interação do inventário
+		external_inventory.clear_inventory_data(inventory_data)  # Limpa os dados do inventário externo
 		
-		external_inventory_node.hide()
-		external_inventory_owner = null
-		external_inventory_opened = false
+		external_inventory_node.hide()  # Esconde o inventário externo
+		external_inventory_owner = null  # Remove a referência ao dono do inventário externo
+		external_inventory_opened = false  # Marca que o inventário externo está fechado
 
+# Função chamada quando há interação no inventário
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int) -> void:
 	# Verifica se o inventário em interação é o inventário externo
 	var is_external_inventory = external_inventory_owner != null\
@@ -77,14 +87,13 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 		[null, MOUSE_BUTTON_LEFT]:
 			# Jogador está retirando um item do inventário
 			grabbed_slot_data = inventory_data.grab_slot_data(index)
-			if grabbed_slot_data !=null:
-			
+			if grabbed_slot_data != null:
 				if is_external_inventory and external_inventory_owner.is_in_group("Selling"):
-					# Retirando item do inventário externo
+					# Item retirado do inventário externo (para venda)
 					print("Item retirado do inventário externo: ", -grabbed_slot_data.item_data.price * grabbed_slot_data.quantity)
 					grabbed_from_external = true  # Marca que o item foi retirado do inventário externo
 				else:
-					# Retirando item do inventário do jogador
+					# Item retirado do inventário do jogador
 					print("Item retirado do inventário do jogador.")
 					grabbed_from_external = false  # Marca que o item foi retirado do inventário do jogador
 			
@@ -94,26 +103,22 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 				if is_external_inventory and external_inventory_owner.is_in_group("Selling"):
 					# Colocando item no inventário externo (venda)
 					if not grabbed_from_external:
-						# Só ganha dinheiro se o item veio do inventário do jogador
+						# Jogador ganha dinheiro ao vender o item
 						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
 						PlayerManager.player.add_money(price)
 						print("Item vendido. Dinheiro adicionado: ", price)
-						print("Dinheiro do jogador após vender: ", PlayerManager.player.money)
-						print("Quantidade ", grabbed_slot_data.quantity)
 					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 				else:
 					# Colocando item no inventário do jogador (compra)
 					if grabbed_from_external:
-						# Só perde dinheiro se o item veio do inventário externo
+						# Jogador perde dinheiro ao comprar o item
 						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
 						PlayerManager.player.rmv_money(price)
 						print("Item comprado. Dinheiro removido: ", price)
-						print("Dinheiro do jogador após compra: ", PlayerManager.player.money)
-						print("Quantidade ", grabbed_slot_data.quantity)
 					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 		
 		[null, MOUSE_BUTTON_RIGHT]:
-			# Ação de mostrar descrição do item
+			# Jogador está mostrando a descrição do item
 			var description: String
 			description = inventory_data.get_slot_data_description(index, description)
 			if description != "":
@@ -121,64 +126,59 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 				var name: String
 				name = inventory_data.get_slot_data_name(index)
 				item_name.text = name
-				inventory_description.show()
+				inventory_description.show()  # Exibe a descrição do item
 		
 		[_, MOUSE_BUTTON_RIGHT]:
 			# Jogador está soltando um único item no slot
 			if grabbed_slot_data:
 				if is_external_inventory and external_inventory_owner.is_in_group("Selling"):
-					# Colocando item no inventário externo (venda)
+					# Solta um único item no inventário externo (venda)
 					if not grabbed_from_external:
-						# Só ganha dinheiro se o item veio do inventário do jogador
 						var price: float = grabbed_slot_data.item_data.price
 						PlayerManager.player.add_money(price)
-						print("Item vendido. Dinheiro adicionado: ", price)
-						print("Dinheiro do jogador após vender: ", PlayerManager.player.money)
-						print("Quantidade ", grabbed_slot_data.quantity)
 					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
 				else:
-					# Colocando item no inventário do jogador (compra)
+					# Solta um único item no inventário do jogador (compra)
 					if grabbed_from_external:
-						# Só perde dinheiro se o item veio do inventário externo
 						var price: float = grabbed_slot_data.item_data.price
 						PlayerManager.player.rmv_money(price)
-						print("Item comprado. Dinheiro removido: ", price)
-						print("Dinheiro do jogador após compra: ", PlayerManager.player.money)
-						print("Quantidade ", grabbed_slot_data.quantity)
 					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
-	update_grabbed_slot()  # Atualiza o estado do slot agarrado
+	
+	# Atualiza o estado do slot agarrado
+	update_grabbed_slot()
 
 # Função que atualiza o estado visual do slot agarrado
 func update_grabbed_slot() -> void:
 	if grabbed_slot_data:
-		grabbed_slot.show()
+		grabbed_slot.show()  # Exibe o slot agarrado
 		grabbed_slot.set_slot_data(grabbed_slot_data)  # Atualiza os dados do slot agarrado
 	else:
-		grabbed_slot.hide()  # Esconde o slot agarrado se não houver dados
+		grabbed_slot.hide()  # Esconde o slot se não houver item agarrado
 
 # Função que lida com a entrada de eventos no GUI, como cliques do mouse
 func _on_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton \
-			and event.is_pressed() \
-			and grabbed_slot_data:
-				
+	if event is InputEventMouseButton and event.is_pressed() and grabbed_slot_data:
 		# Verifica qual botão do mouse foi clicado e emite o sinal de soltar o item
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
 				if grabbed_slot_data.item_data.droppable:
-					drop_slot_data.emit(grabbed_slot_data)  # Solta o item agarrado
+					# Solta o item agarrado
+					drop_slot_data.emit(grabbed_slot_data)
 					grabbed_slot_data = null
 			MOUSE_BUTTON_RIGHT:
 				if grabbed_slot_data.item_data.droppable:
-					drop_slot_data.emit(grabbed_slot_data.create_single_slot_data())  # Solta um único item
+					# Solta um único item do slot
+					drop_slot_data.emit(grabbed_slot_data.create_single_slot_data())
 					if grabbed_slot_data.quantity < 1:
 						grabbed_slot_data = null
-		update_grabbed_slot()  # Atualiza o estado do slot agarrado
+		# Atualiza o estado do slot agarrado
+		update_grabbed_slot()
 
 # Função chamada quando a visibilidade da interface muda
 func _on_visibility_changed() -> void:
-	if !visible and grabbed_slot_data:
+	if not visible and grabbed_slot_data:
+		# Solta o item se a interface for escondida
 		if grabbed_slot_data.item_data.droppable:
-			drop_slot_data.emit(grabbed_slot_data)  # Solta o item se a interface for escondida
+			drop_slot_data.emit(grabbed_slot_data)
 			grabbed_slot_data = null
-		update_grabbed_slot()
+		update_grabbed_slot()  # Atualiza o estado do slot agarrado

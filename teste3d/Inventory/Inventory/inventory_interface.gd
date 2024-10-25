@@ -58,6 +58,37 @@ func set_external_inventory(_external_inventory_owner) -> void:
 	external_inventory_owner = _external_inventory_owner  # Define o dono do inventário externo
 	var inventory_data = external_inventory_owner.inventory_data
 	
+	# Verifica e remove itens únicos que o jogador já possui
+	for i in range(inventory_data.slot_datas.size()):
+		if inventory_data.slot_datas[i] != null:
+			if PlayerManager.player.player_have_this_item(inventory_data.slot_datas[i].item_data)\
+			and inventory_data.slot_datas[i].item_data != null\
+			and inventory_data.slot_datas[i].item_data.unique:
+				inventory_data.slot_datas[i] = null
+
+	# Bubble Sort para mover slots nulos para o final
+	for i in range(inventory_data.slot_datas.size()):
+		for j in range(inventory_data.slot_datas.size() - i - 1):
+			if inventory_data.slot_datas[j] == null and inventory_data.slot_datas[j + 1] != null:
+				# Troca slots nulo e não-nulo para mover os nulos para o final
+				var temp = inventory_data.slot_datas[j]
+				inventory_data.slot_datas[j] = inventory_data.slot_datas[j + 1]
+				inventory_data.slot_datas[j + 1] = temp
+
+	# Bubble Sort para organizar slots não nulos em ordem alfabética
+	for i in range(inventory_data.slot_datas.size()):
+		for j in range(inventory_data.slot_datas.size() - i - 1):
+			# Verifica se ambos os slots são não nulos para comparar
+			var current_slot = inventory_data.slot_datas[j]
+			var next_slot = inventory_data.slot_datas[j + 1]
+			
+			if current_slot != null and next_slot != null:
+				if current_slot.item_data.name > next_slot.item_data.name:
+					# Troca slots para organizar em ordem alfabética
+					var temp = inventory_data.slot_datas[j]
+					inventory_data.slot_datas[j] = inventory_data.slot_datas[j + 1]
+					inventory_data.slot_datas[j + 1] = temp
+	
 	inventory_data.inventory_interact.connect(on_inventory_interact)  # Conecta a interação do inventário externo
 	external_inventory.set_inventory_data(inventory_data)  # Define os dados do inventário externo
 	

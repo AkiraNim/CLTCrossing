@@ -138,14 +138,16 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
 						PlayerManager.player.add_money(price)
 						print("Item vendido. Dinheiro adicionado: ", price)
+						print("Saldo:" , PlayerManager.player.money)
 					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 				else:
 					# Colocando item no inventário do jogador (compra)
 					if grabbed_from_external:
 						# Jogador perde dinheiro ao comprar o item
 						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
-						PlayerManager.player.rmv_money(price)
+						PlayerManager.player.add_money(-price)
 						print("Item comprado. Dinheiro removido: ", price)
+						print("Saldo:" , PlayerManager.player.money)
 					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 		
 		[null, MOUSE_BUTTON_RIGHT]:

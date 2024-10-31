@@ -526,7 +526,7 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Scenary/Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_euw2y")
 
-[node name="Bau" parent="Scenary" groups=["Selling"] instance=ExtResource("11_dbpnn")]
+[node name="Bau" parent="Scenary" instance=ExtResource("11_dbpnn")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3.6732, 0, -6.01073)
 inventory_data = SubResource("Resource_vq4vq")
 name_type = "Baú"

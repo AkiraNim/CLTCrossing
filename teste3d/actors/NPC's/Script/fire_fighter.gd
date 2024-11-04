@@ -80,15 +80,17 @@ func player_interact() -> void:
 			print("Missão disponível: ", mission.title)
 	else:
 		print("Nenhuma missão disponível.")
-		
-	if NpcManager.npc_name == "Bombeiro1":
-		if PlayerManager.player.get_player_inventory_slot_data_quantity_by_name("Apple")>=2:
-			for mission in MissionManager.missions:
-				if mission.title == "Encontrar 2 maçãs":
-					drop_npc_slot_data_by_name("Red Book")
-					mission.complete_mission()
-					mission_completed = true
-					break
+	
+	for npc in NpcManager.npc:
+		if NpcManager.npc_name == "Bombeiro1":
+			print(":) ")
+			if PlayerManager.player.get_player_inventory_slot_data_quantity_by_name("Apple")>=2:
+				for mission in MissionManager.missions:
+					if mission.title == "Encontrar 2 maçãs":
+						drop_npc_slot_data_by_name("Red Book")
+						mission.complete_mission()
+						mission_completed = true
+						break
 
 # Função que checa os itens do jogador
 

@@ -1,6 +1,6 @@
 extends Node
 
-var npc = npc_name
+var npc
 
 @export var npc_name: String
 

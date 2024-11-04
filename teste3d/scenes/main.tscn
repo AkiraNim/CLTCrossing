@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://drdqahpk0ql3"]
+[gd_scene load_steps=58 format=4 uid="uid://drdqahpk0ql3"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="2_e5e43"]
@@ -452,6 +452,32 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypvk5"]
+bg_color = Color(0.196078, 0.196078, 0.196078, 0.788235)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.174028, 0.174028, 0.174028, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4dfs"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 0.65098)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.169245, 0.169245, 0.169245, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="Curve3D" id="Curve3D_j677g"]
 _data = {
 "points": PackedVector3Array(-1.26791, -5.8651e-05, -2.09147, 1.26791, 5.8651e-05, 2.09147, -5.90387, 0, -10.0074, 0, 0, 0, 0, 0, 0, -5.83625, 0, -6.49154, -1.23966, 5.8651e-05, 0.769416, 1.23966, -5.8651e-05, -0.769416, 9.10596, 0, -6.28871, -0.600568, 5.8651e-05, -1.46037, 0.600568, -5.8651e-05, 1.46037, 9.10596, 0, -10.2102, 0, 0, 0, 0, 0, 0, -5.90387, 0, -10.0074),
@@ -632,6 +658,37 @@ offset_bottom = 140.0
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("12_o27jf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_jdnre")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractNode" type="Node2D" parent="Ui"]
+visible = false
+
+[node name="InteractLabel" type="Label" parent="Ui/InteractNode"]
+offset_left = 29.0
+offset_top = 90.0
+offset_right = 272.0
+offset_bottom = 141.0
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("12_o27jf")
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_ypvk5")
+text = "Pressione E 
+para interagir"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Prompt" type="Label" parent="Ui/InteractNode"]
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 270.0
+offset_bottom = 71.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("12_o27jf")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_h4dfs")
+text = "Placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 

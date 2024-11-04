@@ -1,7 +1,6 @@
-[gd_scene load_steps=33 format=4 uid="uid://cpc45iqjlvppm"]
+[gd_scene load_steps=30 format=4 uid="uid://cpc45iqjlvppm"]
 
 [ext_resource type="Script" path="res://Scripts/player2.gd" id="1_eub8c"]
-[ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://assets/Fonts/prstart.ttf" id="2_rex7g"]
 [ext_resource type="Texture2D" uid="uid://6jb7dt4d54ck" path="res://actors/models/sophia/model/sophia_diffuse.png" id="3_r5kxk"]
 [ext_resource type="Texture2D" uid="uid://dbg3uqtvqxigv" path="res://actors/models/sophia/model/sophia_roughness.png" id="4_uqeri"]
 [ext_resource type="Texture2D" uid="uid://mdhln8lltmyo" path="res://actors/models/sophia/model/sophia_normal.png" id="5_v0pbd"]
@@ -10,32 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://d3gigd8y5hjg" path="res://actors/models/sophia/model/sophia_mouth_smile_diffuse.png" id="8_xl76g"]
 [ext_resource type="Texture2D" uid="uid://c36m8cv33f0yi" path="res://actors/models/sophia/model/sophia_mouth_smile_normal.png" id="9_502h5"]
 [ext_resource type="Shader" path="res://assets/shaders/pixelart.gdshader" id="10_vrx17"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t8tj8"]
-bg_color = Color(0.196078, 0.196078, 0.196078, 0.788235)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.174028, 0.174028, 0.174028, 1)
-border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfqg1"]
-bg_color = Color(0.12549, 0.12549, 0.12549, 0.65098)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.169245, 0.169245, 0.169245, 1)
-border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_la4yh"]
 radius = 0.400776
@@ -6327,34 +6300,6 @@ script = ExtResource("1_eub8c")
 transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 1.11375, 0)
 target_position = Vector3(0, -1, -2)
 collision_mask = 3
-
-[node name="InteractLabel" type="Label" parent="InteractRay"]
-offset_left = 29.0
-offset_top = 90.0
-offset_right = 272.0
-offset_bottom = 141.0
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("2_rex7g")
-theme_override_font_sizes/font_size = 13
-theme_override_styles/normal = SubResource("StyleBoxFlat_t8tj8")
-text = "Pressione E 
-para interagir"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Prompt" type="Label" parent="InteractRay"]
-offset_left = 30.0
-offset_top = 30.0
-offset_right = 270.0
-offset_bottom = 71.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("2_rex7g")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_gfqg1")
-text = "Placeholder"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="collisionHead" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14702, 0)

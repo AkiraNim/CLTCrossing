@@ -1,11 +1,6 @@
 extends Node
 
-var npc
+var npcs: Array = []
 
-@export var npc_name: String
-
-func get_npc_emotion() -> int:
-	return npc.emotion  # Supondo que o NPC tenha uma propriedade "emotion"
-
-func get_global_position() -> Vector3:
-	return npc.global_position
+func add_npc(npc: Npc)->void:
+	npcs.append(npc)

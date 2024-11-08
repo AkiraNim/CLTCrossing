@@ -45,11 +45,13 @@ func _ready() -> void:
 	npc.inventory_data = inventory_data
 	npc.npc_name = npc_name
 	npcId = rng.randi_range(0,10000)
+	npc.npcId = npcId
 	
 	for npcs in NpcManager.npcs:
 		if npcs.npcId == npcId:
 			while npcs.npcId == npcId:
 				npcId = rng.randi_range(0,10000)
+				npc.npcId = npcId
 	NpcManager.add_npc(npc)
 	
 	update_emotion_animation()
@@ -103,7 +105,7 @@ func player_interact() -> void:
 					break
 """
 	for npcs in NpcManager.npcs:
-		if npcs.npc_name == npc_name:
+		if npcs.npcId == npcId:
 			
 			check_npc_items()
 			print(npcId)

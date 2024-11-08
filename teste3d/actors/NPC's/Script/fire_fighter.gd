@@ -44,14 +44,14 @@ func _ready() -> void:
 	npc.emotion = emotion
 	npc.inventory_data = inventory_data
 	npc.npc_name = npc_name
-	npcId = rng.randi_range(0,10000)
+	npcId = rng.randi_range(0,1000000)
 	npc.npcId = npcId
-	
 	for npcs in NpcManager.npcs:
 		if npcs.npcId == npcId:
 			while npcs.npcId == npcId:
 				npcId = rng.randi_range(0,10000)
 				npc.npcId = npcId
+	
 	NpcManager.add_npc(npc)
 	
 	update_emotion_animation()
@@ -106,39 +106,76 @@ func player_interact() -> void:
 """
 	for npcs in NpcManager.npcs:
 		if npcs.npcId == npcId:
-			
 			check_npc_items()
-			print(npcId)
+			drop_item_from_npc(npcId, 2)
 # Função que checa os itens do NPC
 func check_npc_items() -> void:
 	for npcs in NpcManager.npcs:
-		if npcs.npc_name == npc_name:
+		if npcs.npcId == npcId:
 			for i in range(npcs.inventory_data.slot_datas.size()):
 				var slot_data = npcs.inventory_data.slot_datas[i]
 				if slot_data:
 					var item_name = npcs.inventory_data.get_slot_data_name(i)
-					print(item_name)
 
-func drop_item_from_npc(index: int, i: float) -> void:
+func drop_item_from_npc(npcId: int, index: int) -> void:
+	var grabbed_slot_data: SlotData = null
 
-	var grabbed_slot_data: SlotData = NpcManager.npc.inventory_data.slot_datas[index]
-	print("Item ", NpcManager.npc.inventory_data.get_slot_data_name(index), " foi droppado pelo NPC!")
-	
-	# Remove o item do inventário do NPC
-	NpcManager.npc.inventory_data.slot_datas[index] = null
-	NpcManager.npc.inventory_data.inventory_updated.emit(NpcManager.npc.inventory_data)
-	
+	# Procura o NPC específico pelo npcId
+	for npc in NpcManager.npcs:
+		if npc.npcId == npcId:
+			# Pega os dados do slot especificado e remove o item do inventário
+			if index < npc.inventory_data.slot_datas.size():
+				grabbed_slot_data = npc.inventory_data.slot_datas[index]
+				if grabbed_slot_data:
+					print("Item ", npc.inventory_data.get_slot_data_name(index), " foi droppado pelo NPC!")
+					npc.inventory_data.slot_datas[index] = null
+					npc.inventory_data.inventory_updated.emit(npc.inventory_data)
+				else:
+					print("O slot está vazio. Nenhum item para droppar.")
+			else:
+				print("Índice do slot fora do alcance.")
+			break  # Sai do loop após encontrar o NPC
+
+	# Verifica se existe um item para droppar
+	if grabbed_slot_data == null:
+		print("Nenhum item encontrado para droppar no índice ", index)
+		return
+
+	# Verifica se pickup_scene foi definido corretamente
+	if pickup_scene == null:
+		print("pickup_scene não está definido. Certifique-se de que foi atribuído corretamente.")
+		return
+
 	# Instancia o Pickup para o item dropado
-	if pickup_scene:
-		var pickup_instance = pickup_scene.instantiate()
-		pickup_instance.slot_data = grabbed_slot_data
-		
-		# Define a posição do item no mundo (perto do NPC)
-		var direction = -NpcManager.npc.global_transform.basis.z * -i
-		pickup_instance.global_transform.origin = NpcManager.npc.global_position + direction
-		
-		# Adiciona o Pickup à cena atual
-		get_tree().current_scene.add_child(pickup_instance)
+	var pickup_instance = pickup_scene.instantiate()
+	if pickup_instance == null:
+		print("Falha ao instanciar pickup_instance.")
+		return
+	
+	# Atribui o slot_data ao pickup instance
+	pickup_instance.slot_data = grabbed_slot_data
+
+	# Define o offset fixo (distância do item em relação ao NPC)
+	var offset = 2.0  # Distância fixa para o drop
+
+	# Define a posição do item dropado próximo ao NPC
+	for npc in NpcManager.npcs:
+		if npc.npcId == npcId:
+			# Cálculo da direção
+			var direction = -npc.global_transform.basis.z * offset
+			pickup_instance.global_transform.origin = npc.global_transform.origin + direction
+
+			# Verifica se a posição do item está correta
+			print("Posição do item após cálculo: ", pickup_instance.global_transform.origin)
+			
+			# Verifica se o item foi adicionado à cena
+			var scene = get_tree().current_scene
+			if scene:
+				scene.add_child(pickup_instance)
+				print("Item dropado adicionado à cena.")
+			else:
+				print("Falha ao adicionar item à cena, árvore de cena não encontrada.")
+			break  # Sai do loop após adicionar o item na cena
 
 func drop_all_npc_slot_data() -> void:
 	var a = 1.0
@@ -147,7 +184,7 @@ func drop_all_npc_slot_data() -> void:
 		var slot_name = NpcManager.npc.inventory_data.get_slot_data_name(i)
 		
 		if slot_name:  # Checa o item específico para droppar
-			drop_item_from_npc(i, a)
+			#drop_item_from_npc(i, a)
 			a+=0.4
 
 # Solta um item específico do NPC
@@ -156,7 +193,7 @@ func drop_npc_slot_data_by_name(name: String) -> void:
 		var slot_name = NpcManager.npc.inventory_data.get_slot_data_name(i)
 		
 		if slot_name == name:  # Checa o item específico para droppar
-			drop_item_from_npc(i, 1)
+			#drop_item_from_npc(i, 1)
 			break
 
 # Lógica para droppar um item do NPC

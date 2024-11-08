@@ -703,7 +703,7 @@ transform = Transform3D(1, 1.81899e-12, -5.96046e-08, 9.09495e-13, 1, 1.81899e-1
 script = ExtResource("20_1lony")
 pickup_scene = ExtResource("13_bs3wm")
 emotion = 3
-npc_name = "Bombeiro2"
+npc_name = "Bombeiro1"
 inventory_data = SubResource("Resource_w74e4")
 
 [node name="Bombeiro2" parent="Npcs/FireFighterPath/PathFollow3D" instance=ExtResource("19_d28hn")]

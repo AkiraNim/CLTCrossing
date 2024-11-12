@@ -108,6 +108,9 @@ func player_interact() -> void:
 		if npcs.npcId == npcId:
 			check_npc_items()
 			drop_item_from_npc(npcId, 2)
+			drop_npc_slot_data_by_name("Apple")
+			drop_all_npc_slot_data()
+			
 # Função que checa os itens do NPC
 func check_npc_items() -> void:
 	for npcs in NpcManager.npcs:
@@ -130,74 +133,30 @@ func drop_item_from_npc(npcId: int, index: int) -> void:
 					print("Item ", npc.inventory_data.get_slot_data_name(index), " foi droppado pelo NPC!")
 					npc.inventory_data.slot_datas[index] = null
 					npc.inventory_data.inventory_updated.emit(npc.inventory_data)
-				else:
-					print("O slot está vazio. Nenhum item para droppar.")
-			else:
-				print("Índice do slot fora do alcance.")
-			break  # Sai do loop após encontrar o NPC
+					
+	for i in range(PlayerManager.player.inventory_data.slot_datas.size()):
+		if PlayerManager.player.inventory_data.slot_datas[i] == null:
+			if grabbed_slot_data != null:
+				PlayerManager.player.inventory_data.slot_datas[i] = grabbed_slot_data
+				PlayerManager.player.inventory_data.inventory_updated.emit(PlayerManager.player.inventory_data)
+				grabbed_slot_data = null
 
-	# Verifica se existe um item para droppar
-	if grabbed_slot_data == null:
-		print("Nenhum item encontrado para droppar no índice ", index)
-		return
-
-	# Verifica se pickup_scene foi definido corretamente
-	if pickup_scene == null:
-		print("pickup_scene não está definido. Certifique-se de que foi atribuído corretamente.")
-		return
-
-	# Instancia o Pickup para o item dropado
-	var pickup_instance = pickup_scene.instantiate()
-	if pickup_instance == null:
-		print("Falha ao instanciar pickup_instance.")
-		return
-	
-	# Atribui o slot_data ao pickup instance
-	pickup_instance.slot_data = grabbed_slot_data
-
-	# Define o offset fixo (distância do item em relação ao NPC)
-	var offset = 2.0  # Distância fixa para o drop
-
-	# Define a posição do item dropado próximo ao NPC
-	for npc in NpcManager.npcs:
-		if npc.npcId == npcId:
-			# Cálculo da direção
-			var direction = -npc.global_transform.basis.z * offset
-			pickup_instance.global_transform.origin = npc.global_transform.origin + direction
-
-			# Verifica se a posição do item está correta
-			print("Posição do item após cálculo: ", pickup_instance.global_transform.origin)
-			
-			# Verifica se o item foi adicionado à cena
-			var scene = get_tree().current_scene
-			if scene:
-				scene.add_child(pickup_instance)
-				print("Item dropado adicionado à cena.")
-			else:
-				print("Falha ao adicionar item à cena, árvore de cena não encontrada.")
-			break  # Sai do loop após adicionar o item na cena
 
 func drop_all_npc_slot_data() -> void:
-	var a = 1.0
-	for i in range(NpcManager.npc.inventory_data.slot_datas.size()):
-		
-		var slot_name = NpcManager.npc.inventory_data.get_slot_data_name(i)
-		
-		if slot_name:  # Checa o item específico para droppar
-			#drop_item_from_npc(i, a)
-			a+=0.4
+	for npc in NpcManager.npcs:
+		if npc.npcId == npcId:
+			for i in range(npc.inventory_data.slot_datas.size()):
+				if npc.inventory_data.slot_datas[i]:
+					drop_item_from_npc(npc.npcId, i)
 
 # Solta um item específico do NPC
 func drop_npc_slot_data_by_name(name: String) -> void:
-	for i in range(NpcManager.npc.inventory_data.slot_datas.size()):
-		var slot_name = NpcManager.npc.inventory_data.get_slot_data_name(i)
-		
-		if slot_name == name:  # Checa o item específico para droppar
-			#drop_item_from_npc(i, 1)
-			break
-
-# Lógica para droppar um item do NPC
-
+	for npc in NpcManager.npcs:
+		if npc.npcId == npcId:
+			for i in range(npc.inventory_data.slot_datas.size()):
+				if npc.inventory_data.get_slot_data_name(i) == name:
+					drop_item_from_npc(npc.npcId, i)
+	
 # Função que retorna o índice do item no inventário do NPC baseado no nome
 func get_npc_equiped_slot_data_index_by_name(name: String) -> int:
 	for i in range(NpcManager.npc.inventory_data.slot_datas.size()):
@@ -206,6 +165,7 @@ func get_npc_equiped_slot_data_index_by_name(name: String) -> int:
 	return -1
 
 # Função que retorna o índice do item no inventário do jogador baseado no nome
+
 
 func create_new_mission() -> void:
 	var new_mission = ResourceLoader.load("res://Mission/mission.gd").new()  # Carrega o script da missão

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://drdqahpk0ql3"]
+[gd_scene load_steps=57 format=4 uid="uid://drdqahpk0ql3"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="2_e5e43"]
@@ -492,6 +492,16 @@ quantity = 1
 script = ExtResource("3_cs1x2")
 slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_pkp4j"), null, null, null, null, null, null])
 
+[sub_resource type="Resource" id="Resource_ltdby"]
+script = ExtResource("4_nafn1")
+item_data = ExtResource("12_b5s0w")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_p3npn"]
+script = ExtResource("4_nafn1")
+item_data = ExtResource("14_lhgay")
+quantity = 1
+
 [sub_resource type="Resource" id="Resource_426sq"]
 script = ExtResource("4_nafn1")
 item_data = ExtResource("14_lhgay")
@@ -499,7 +509,7 @@ quantity = 1
 
 [sub_resource type="Resource" id="Resource_r4l57"]
 script = ExtResource("3_cs1x2")
-slot_datas = Array[ExtResource("4_nafn1")]([null, null, SubResource("Resource_426sq"), null, null, null, null, null, null, null])
+slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_ltdby"), SubResource("Resource_p3npn"), SubResource("Resource_426sq"), null, null, null, null, null, null, null])
 
 [sub_resource type="Curve3D" id="Curve3D_3n3hi"]
 _data = {

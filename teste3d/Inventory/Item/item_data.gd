@@ -17,6 +17,13 @@ class_name ItemData
 @export var unique: bool = false
 @export var droppable: bool = false
 
+@export var id :int
+var rng = RandomNumberGenerator.new()
+
+func _ready() -> void:
+	rng.randomize()
+	id = rng.randi_range(0,10000)       
+
 # Função de uso do item, destinada a ser sobrescrita por subclasses
 func use(target) -> void:
 	pass  # Função vazia, a ser implementada por classes que herdam de ItemData

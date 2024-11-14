@@ -4,16 +4,16 @@ extends StaticBody3D
 signal dialog
 
 # Variáveis exportadas
-@export var pickup_scene: PackedScene  # Cena que representa o item dropado
 @export var emotion: int
 @export var npc_name: String
 @export var inventory_data: InventoryData
-@onready var npc: StaticBody3D = $"."
 
+
+@onready var npc: StaticBody3D = $"."
 
 # Variáveis de controle
 var rng = RandomNumberGenerator.new()
-
+var mission: Mission
 var mission_found = false
 var mission_completed: bool = false
 var npcId: int
@@ -36,7 +36,7 @@ const EMOTION_RUNNING = 5
 func _ready() -> void:
 	rng.randomize()
 	if npc_name == "Bombeiro1":
-		create_new_mission()
+		MissionManager.create_new_mission(npc_name, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas")
 	# Atualiza a animação baseada na emoção inicial
 	
 	var npc: Npc = Npc.new()
@@ -82,35 +82,17 @@ func play_animation_based_on_emotion(delta: float) -> void:
 
 # Função chamada quando o jogador interage com o NPC
 func player_interact() -> void:
-	"""
-	dialog.emit(self)
-	# Obtém missões baseadas na emoção do NPC
-	var available_missions = MissionManager.get_available_missions(npc_name)
-
-	if available_missions.size() > 0:
-		for mission in available_missions:
-			print("Missão disponível: ", mission.title)
-	else:
-		print("Nenhuma missão disponível.")
-	
-
-	if NpcManager.npc_name == "Bombeiro1":
-		print(":) ")
-		if PlayerManager.player.get_player_inventory_slot_data_quantity_by_name("Apple")>=2:
-			for mission in MissionManager.missions:
-				if mission.title == "Encontrar 2 maçãs":
-					drop_npc_slot_data_by_name("Red Book")
-					mission.complete_mission()
-					mission_completed = true
-					break
-"""
 	for npcs in NpcManager.npcs:
 		if npcs.npcId == npcId:
 			check_npc_items()
 			drop_item_from_npc(npcId, 2)
 			drop_npc_slot_data_by_name("Apple")
 			drop_all_npc_slot_data()
-			
+			for missions in MissionManager.get_available_missions():
+				print(missions.title)
+				if npcs.npc_name == "Bombeiro1":
+					if missions.title == "Encontrar 2 maçãs":
+						missions.complete_mission(missions)
 # Função que checa os itens do NPC
 func check_npc_items() -> void:
 	for npcs in NpcManager.npcs:
@@ -133,14 +115,9 @@ func drop_item_from_npc(npcId: int, index: int) -> void:
 					print("Item ", npc.inventory_data.get_slot_data_name(index), " foi droppado pelo NPC!")
 					npc.inventory_data.slot_datas[index] = null
 					npc.inventory_data.inventory_updated.emit(npc.inventory_data)
-					
-	for i in range(PlayerManager.player.inventory_data.slot_datas.size()):
-		if PlayerManager.player.inventory_data.slot_datas[i] == null:
-			if grabbed_slot_data != null:
-				PlayerManager.player.inventory_data.slot_datas[i] = grabbed_slot_data
-				PlayerManager.player.inventory_data.inventory_updated.emit(PlayerManager.player.inventory_data)
-				grabbed_slot_data = null
-
+	
+	if grabbed_slot_data:
+		PlayerManager.player.inventory_data.pick_up_slot_data(grabbed_slot_data)
 
 func drop_all_npc_slot_data() -> void:
 	for npc in NpcManager.npcs:
@@ -157,23 +134,10 @@ func drop_npc_slot_data_by_name(name: String) -> void:
 				if npc.inventory_data.get_slot_data_name(i) == name:
 					drop_item_from_npc(npc.npcId, i)
 	
-# Função que retorna o índice do item no inventário do NPC baseado no nome
 func get_npc_equiped_slot_data_index_by_name(name: String) -> int:
-	for i in range(NpcManager.npc.inventory_data.slot_datas.size()):
-		if NpcManager.npc.inventory_data.get_slot_data_name(i) == name:
-			return i
+	for npc in NpcManager.npcs:
+		if npc.npcId == npcId:
+			for i in range(npc.inventory_data.slot_datas.size()):
+				if npc.inventory_data.get_slot_data_name(i) == name:
+					return i
 	return -1
-
-# Função que retorna o índice do item no inventário do jogador baseado no nome
-
-
-func create_new_mission() -> void:
-	var new_mission = ResourceLoader.load("res://Mission/mission.gd").new()  # Carrega o script da missão
-	new_mission.title = "Encontrar 2 maçãs"
-	new_mission.description = "Ajude o NPC a encontrar 2 maçãs."
-	new_mission.npc_name = npc_name # Emoção do NPC necessária para ativar a missão (Idle, por exemplo)
-	new_mission.reward = "50 moedas de ouro"
-	
-	# Adiciona a missão ao sistema
-	MissionManager.add_mission(new_mission)
-	print("Missão criada: ", new_mission.title)

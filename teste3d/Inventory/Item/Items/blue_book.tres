@@ -22,3 +22,4 @@ sellable = false
 buyable = true
 unique = true
 droppable = false
+id = 0

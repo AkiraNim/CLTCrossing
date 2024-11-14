@@ -22,7 +22,8 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	rng.randomize()
-	id = rng.randi_range(0,10000)       
+	id = rng.randi_range(0,10000)
+		 
 
 # Função de uso do item, destinada a ser sobrescrita por subclasses
 func use(target) -> void:

@@ -35,6 +35,7 @@ func _ready():
 	animation_player.set_blend_time("Idle", "Run", 0.2)
 	animation_player.set_blend_time("Run", "Idle", 0.2)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 
 func _physics_process(delta):
 
@@ -98,6 +99,7 @@ func _physics_process(delta):
 	else:
 		interact_node.hide()
 		prompt.text = ""
+		
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

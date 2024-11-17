@@ -23,12 +23,16 @@ NpcManager="*res://Scripts/globals/NpcManager.gd"
 MissionManager="*res://Scripts/globals/mission_manager.gd"
 ExternalInventoryManager="*res://Inventory/external_inventory_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+SaveManagerPlayer="*res://Scripts/globals/save_manager_player.gd"
 
 [dialogic]
 
 directories/dch_directory={}
 directories/dtl_directory={}
 variables={}
+glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
 
 [editor_plugins]
 
@@ -40,6 +44,7 @@ Interactable=""
 Player=""
 Selling=""
 external_inventory=""
+Npc=""
 
 [input]
 

@@ -30,7 +30,10 @@ func create_new_mission(npc_name: String, mission_title: String, mission_descrip
 		new_mission.reward = mission_reward
 		if missions.title == new_mission.title:
 			return
-	
+		else:
+			for mission in PlayerManager.player.missions_complete:
+				if mission.title == mission_title:
+					return
 	# Adiciona a missão ao sistema
 	MissionManager.add_mission(new_mission, npc_name)
 	print("Missão criada: ", new_mission.title)

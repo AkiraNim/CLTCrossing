@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=4 uid="uid://cpc45iqjlvppm"]
 
-[ext_resource type="Script" path="res://Scripts/player2.gd" id="1_eub8c"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_eub8c"]
 [ext_resource type="Texture2D" uid="uid://6jb7dt4d54ck" path="res://actors/models/sophia/model/sophia_diffuse.png" id="3_r5kxk"]
 [ext_resource type="Texture2D" uid="uid://dbg3uqtvqxigv" path="res://actors/models/sophia/model/sophia_roughness.png" id="4_uqeri"]
 [ext_resource type="Texture2D" uid="uid://mdhln8lltmyo" path="res://actors/models/sophia/model/sophia_normal.png" id="5_v0pbd"]

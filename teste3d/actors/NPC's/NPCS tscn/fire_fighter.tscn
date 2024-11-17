@@ -122,7 +122,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[node name="FireFighter" type="StaticBody3D" groups=["Interactable"]]
+[node name="FireFighter" type="StaticBody3D" groups=["Interactable", "Npc"]]
 
 [node name="CollisionHead" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 1.22626, 0)

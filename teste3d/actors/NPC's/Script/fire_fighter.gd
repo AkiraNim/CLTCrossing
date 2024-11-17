@@ -82,25 +82,32 @@ func play_animation_based_on_emotion(delta: float) -> void:
 
 # Função chamada quando o jogador interage com o NPC
 func player_interact() -> void:
+	MissionManager.create_new_mission(npc_name, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas")
 	for npcs in NpcManager.npcs:
 		if npcs.npcId == npcId:
-			check_npc_items()
+			print(check_npc_items())
 			drop_item_from_npc(npcId, 2)
 			drop_npc_slot_data_by_name("Apple")
 			drop_all_npc_slot_data()
 			for missions in MissionManager.get_available_missions():
-				print(missions.title)
+				if !missions.title == "":
+					print(missions.title)
 				if npcs.npc_name == "Bombeiro1":
+					#remove_all_npc_slot_data()
 					if missions.title == "Encontrar 2 maçãs":
 						missions.complete_mission(missions)
+			
 # Função que checa os itens do NPC
-func check_npc_items() -> void:
+func check_npc_items() -> Array:
+	var items := []
 	for npcs in NpcManager.npcs:
 		if npcs.npcId == npcId:
 			for i in range(npcs.inventory_data.slot_datas.size()):
 				var slot_data = npcs.inventory_data.slot_datas[i]
 				if slot_data:
 					var item_name = npcs.inventory_data.get_slot_data_name(i)
+					items.append(item_name)
+	return items
 
 func drop_item_from_npc(npcId: int, index: int) -> void:
 	var grabbed_slot_data: SlotData = null
@@ -133,7 +140,15 @@ func drop_npc_slot_data_by_name(name: String) -> void:
 			for i in range(npc.inventory_data.slot_datas.size()):
 				if npc.inventory_data.get_slot_data_name(i) == name:
 					drop_item_from_npc(npc.npcId, i)
-	
+
+func remove_all_npc_slot_data()-> void:
+	for npc in NpcManager.npcs:
+		if npc.npcId == npcId:
+			for i in range(npc.inventory_data.slot_datas.size()):
+				if npc.inventory_data.slot_datas[i]:
+					npc.inventory_data.slot_datas[i] = null
+					npc.inventory_data.inventory_updated.emit(npc.inventory_data)
+
 func get_npc_equiped_slot_data_index_by_name(name: String) -> int:
 	for npc in NpcManager.npcs:
 		if npc.npcId == npcId:

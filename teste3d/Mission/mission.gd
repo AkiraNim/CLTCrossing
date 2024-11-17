@@ -20,6 +20,7 @@ func check_completion() -> bool:
 # Método para completar a missão
 func complete_mission(mission: Mission) -> void:
 	if !mission.is_completed:
+		PlayerManager.player.missions_complete.append(mission)
 		mission.is_completed = true
 		print("Missão completada: ", title)
 		give_reward()  # Chama a função de recompensa quando a missão é completada

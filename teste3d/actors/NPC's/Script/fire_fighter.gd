@@ -82,7 +82,6 @@ func play_animation_based_on_emotion(delta: float) -> void:
 
 # Função chamada quando o jogador interage com o NPC
 func player_interact() -> void:
-	MissionManager.create_new_mission(npc_name, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas")
 	for npcs in NpcManager.npcs:
 		if npcs.npcId == npcId:
 			print(check_npc_items())

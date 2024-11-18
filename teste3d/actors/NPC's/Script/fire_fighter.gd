@@ -82,20 +82,36 @@ func play_animation_based_on_emotion(delta: float) -> void:
 
 # Função chamada quando o jogador interage com o NPC
 func player_interact() -> void:
-	for npcs in NpcManager.npcs:
-		if npcs.npcId == npcId:
-			print(check_npc_items())
-			drop_item_from_npc(npcId, 2)
-			drop_npc_slot_data_by_name("Apple")
-			drop_all_npc_slot_data()
-			for missions in MissionManager.get_available_missions():
-				if !missions.title == "":
-					print(missions.title)
-				if npcs.npc_name == "Bombeiro1":
-					#remove_all_npc_slot_data()
-					if missions.title == "Encontrar 2 maçãs":
-						missions.complete_mission(missions)
+# Exemplo de Utilização das Funções para Interação com NPCs e Missões
+# Itera sobre todos os NPCs registrados no NpcManager
+	#for npcs in NpcManager.npcs:
+# Verifica se o ID do NPC atual corresponde ao ID fornecido
+		#if npcs.npcId == npcId:
+# Imprime a verificação de itens do NPC usando a função check_npc_items()
+			#remove_npc_slot_data_by_name("Apple")
+			#print(check_npc_items())
+# Dropa 2 itens do NPC com o ID especificado
+			#drop_item_from_npc(npcId, 2)
+# Dropa especificamente o item chamado "Apple" do inventário do NPC
+			#drop_npc_slot_data_by_name("Apple")
+# Dropa todos os itens do inventário do NPC
+			#drop_all_npc_slot_data()
+# Itera sobre todas as missões disponíveis no MissionManager
+			#for missions in MissionManager.get_available_missions():
+# Verifica se o título da missão não está vazio
+				#if !missions.title == "":
+# Imprime o título da missão
+					#print(missions.title)
+# Caso o nome do NPC atual seja "Bombeiro1"
+					#if npcs.npc_name == "Bombeiro1":
+# Remove todos os itens do inventário do NPC
+						#remove_all_npc_slot_data()
+# Verifica se o título da missão é "Encontrar 2 maçãs"
+						#if missions.title == "Encontrar 2 maçãs":
+# Completa a missão encontrada
+							#missions.complete_mission(missions)
 			
+	pass
 # Função que checa os itens do NPC
 func check_npc_items() -> Array:
 	var items := []
@@ -140,13 +156,24 @@ func drop_npc_slot_data_by_name(name: String) -> void:
 				if npc.inventory_data.get_slot_data_name(i) == name:
 					drop_item_from_npc(npc.npcId, i)
 
+func remove_npc_slot_data_by_index(index: int)-> void:
+	for npc in NpcManager.npcs:
+		if npc.npcId == npcId:
+			for i in range (npc.inventory_data.slot_datas.size()):
+				if i == index:
+					npc.inventory_data.slot_datas[index] = null
+					npc.inventory_data.inventory_updated.emit(npc.inventory_data)
+func remove_npc_slot_data_by_name(name: String)-> void:
+	for npc in NpcManager.npcs:
+		if npc.npcId == npcId:
+			for i in range (npc.inventory_data.slot_datas.size()):
+				if npc.inventory_data.get_slot_data_name(i) == name:
+					remove_npc_slot_data_by_index(i)
 func remove_all_npc_slot_data()-> void:
 	for npc in NpcManager.npcs:
 		if npc.npcId == npcId:
 			for i in range(npc.inventory_data.slot_datas.size()):
-				if npc.inventory_data.slot_datas[i]:
-					npc.inventory_data.slot_datas[i] = null
-					npc.inventory_data.inventory_updated.emit(npc.inventory_data)
+				remove_npc_slot_data_by_index(i)
 
 func get_npc_equiped_slot_data_index_by_name(name: String) -> int:
 	for npc in NpcManager.npcs:

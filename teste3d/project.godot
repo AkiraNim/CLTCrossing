@@ -28,7 +28,9 @@ SaveManagerPlayer="*res://Scripts/globals/save_manager_player.gd"
 [dialogic]
 
 directories/dch_directory={}
-directories/dtl_directory={}
+directories/dtl_directory={
+"timeline": "res://timeline.dtl"
+}
 variables={}
 glossary/default_case_sensitive=true
 layout/style_list=[]

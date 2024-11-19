@@ -137,6 +137,9 @@ func drop_item_from_npc(npcId: int, index: int) -> void:
 					print("Item ", npc.inventory_data.get_slot_data_name(index), " foi droppado pelo NPC!")
 					npc.inventory_data.slot_datas[index] = null
 					npc.inventory_data.inventory_updated.emit(npc.inventory_data)
+					if PlayerManager.player.player_have_this_item(grabbed_slot_data.item_data)\
+						and grabbed_slot_data.item_data.unique:
+						grabbed_slot_data = null
 	
 	if grabbed_slot_data:
 		PlayerManager.player.inventory_data.pick_up_slot_data(grabbed_slot_data)
@@ -156,7 +159,7 @@ func drop_npc_slot_data_by_name(name: String) -> void:
 				if npc.inventory_data.get_slot_data_name(i) == name:
 					drop_item_from_npc(npc.npcId, i)
 
-func remove_npc_slot_data_by_index(index: int)-> void:
+func remove_npc_slot_data_by_index(npcId: int, index: int)-> void:
 	for npc in NpcManager.npcs:
 		if npc.npcId == npcId:
 			for i in range (npc.inventory_data.slot_datas.size()):
@@ -169,13 +172,13 @@ func remove_npc_slot_data_by_name(name: String)-> void:
 		if npc.npcId == npcId:
 			for i in range (npc.inventory_data.slot_datas.size()):
 				if npc.inventory_data.get_slot_data_name(i) == name:
-					remove_npc_slot_data_by_index(i)
+					remove_npc_slot_data_by_index(npc.npcId, i)
 
 func remove_all_npc_slot_data()-> void:
 	for npc in NpcManager.npcs:
 		if npc.npcId == npcId:
 			for i in range(npc.inventory_data.slot_datas.size()):
-				remove_npc_slot_data_by_index(i)
+				remove_npc_slot_data_by_index(npc.npcId, i)
 
 func get_npc_equiped_slot_data_index_by_name(name: String) -> int:
 	for npc in NpcManager.npcs:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://drdqahpk0ql3"]
+[gd_scene load_steps=59 format=4 uid="uid://drdqahpk0ql3"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="2_e5e43"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c53dclo0i7vm3" path="res://actors/NPC's/NPCS tscn/fire_fighter.tscn" id="19_d28hn"]
 [ext_resource type="Script" path="res://actors/NPC's/Script/fire_fighter.gd" id="20_1lony"]
 [ext_resource type="Resource" uid="uid://bi8g0lavua2no" path="res://Inventory/Item/Items/iron_helm.tres" id="21_2x74b"]
+[ext_resource type="PackedScene" uid="uid://cwnpdrf1f7sfu" path="res://actors/NPC's/NPCS tscn/business_man.tscn" id="22_ifrb2"]
 
 [sub_resource type="Resource" id="Resource_km0qx"]
 script = ExtResource("4_nafn1")
@@ -511,6 +512,17 @@ quantity = 1
 script = ExtResource("3_cs1x2")
 slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_ltdby"), SubResource("Resource_p3npn"), SubResource("Resource_426sq"), null, null, null, null, null, null, null])
 
+[sub_resource type="Curve3D" id="Curve3D_flyin"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.4111, 0, -1.10114, 0, 0, 0, 0, 0, 0, 1.81689, 0, -1.10114, 0, 0, 0, 0, 0, 0, -1.4111, 0, 1.42745, 0, 0, 0, 0, 0, 0, 1.66894, 0, 1.5216, 0, 0, 0, 0, 0, 0, -1.4111, 0, -1.10114),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Resource" id="Resource_5rqqo"]
+script = ExtResource("3_cs1x2")
+slot_datas = Array[ExtResource("4_nafn1")]([])
+
 [node name="Main" type="Node"]
 script = ExtResource("1_u6833")
 
@@ -697,29 +709,42 @@ visible = false
 curve = SubResource("Curve3D_j677g")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Npcs/FireFighterPath"]
-transform = Transform3D(0.855132, -1.2432e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05071e-05, 0.855132, -5.90387, 0, -10.0074)
+transform = Transform3D(0.855132, -1.2432e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05072e-05, 0.855132, -5.90387, 0, -10.0074)
 rotation_mode = 4
 use_model_front = true
 
-[node name="Bombeiro" parent="Npcs/FireFighterPath/PathFollow3D" instance=ExtResource("19_d28hn")]
+[node name="Bombeiro" parent="Npcs/FireFighterPath/PathFollow3D" groups=["Interactable", "Npc"] instance=ExtResource("19_d28hn")]
 transform = Transform3D(1, 1.81899e-12, -5.96046e-08, 9.09495e-13, 1, 1.81899e-12, 5.96046e-08, -1.81899e-12, 1, 0, 0.0364516, 1.90735e-06)
 script = ExtResource("20_1lony")
 emotion = 3
 npc_name = "Bombeiro1"
 inventory_data = SubResource("Resource_w74e4")
 
-[node name="Bombeiro2" parent="Npcs/FireFighterPath/PathFollow3D" instance=ExtResource("19_d28hn")]
+[node name="Bombeiro2" parent="Npcs/FireFighterPath/PathFollow3D" groups=["Interactable", "Npc"] instance=ExtResource("19_d28hn")]
 transform = Transform3D(1, 1.81899e-12, -2.98023e-08, 1.81899e-12, 1, 1.81899e-12, 2.98023e-08, -3.63798e-12, 1, 1.38436, 0.0364315, 0.839239)
 script = ExtResource("20_1lony")
 npc_name = "Bombeiro"
 inventory_data = SubResource("Resource_w74e4")
 
-[node name="Bombeiro3" parent="Npcs/FireFighterPath/PathFollow3D" instance=ExtResource("19_d28hn")]
+[node name="Bombeiro3" parent="Npcs/FireFighterPath/PathFollow3D" groups=["Interactable", "Npc"] instance=ExtResource("19_d28hn")]
 transform = Transform3D(1, 1.81899e-12, 5.96046e-08, 2.72848e-12, 1, 0, -5.96046e-08, -5.45697e-12, 1, 2.30406, 0.0364181, 1.39679)
 script = ExtResource("20_1lony")
 emotion = 3
 npc_name = "Bombeiro1"
 inventory_data = SubResource("Resource_r4l57")
+
+[node name="Path3D" type="Path3D" parent="Npcs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.6293)
+curve = SubResource("Curve3D_flyin")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Npcs/Path3D"]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, -1.4111, 0, -1.10114)
+use_model_front = true
+
+[node name="BusinessMan" parent="Npcs/Path3D/PathFollow3D" groups=["Interactable", "Npc"] instance=ExtResource("22_ifrb2")]
+emotion = 4
+npc_name = "BusinessMan"
+inventory_data = SubResource("Resource_5rqqo")
 
 [connection signal="drop_slot_data" from="Ui/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="Ui/InventoryInterface" to="Ui/InventoryInterface" method="_on_gui_input"]

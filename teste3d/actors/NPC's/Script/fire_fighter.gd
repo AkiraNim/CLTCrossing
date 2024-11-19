@@ -163,12 +163,14 @@ func remove_npc_slot_data_by_index(index: int)-> void:
 				if i == index:
 					npc.inventory_data.slot_datas[index] = null
 					npc.inventory_data.inventory_updated.emit(npc.inventory_data)
+
 func remove_npc_slot_data_by_name(name: String)-> void:
 	for npc in NpcManager.npcs:
 		if npc.npcId == npcId:
 			for i in range (npc.inventory_data.slot_datas.size()):
 				if npc.inventory_data.get_slot_data_name(i) == name:
 					remove_npc_slot_data_by_index(i)
+
 func remove_all_npc_slot_data()-> void:
 	for npc in NpcManager.npcs:
 		if npc.npcId == npcId:

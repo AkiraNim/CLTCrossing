@@ -24,6 +24,7 @@ MissionManager="*res://Scripts/globals/mission_manager.gd"
 ExternalInventoryManager="*res://Inventory/external_inventory_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SaveManagerPlayer="*res://Scripts/globals/save_manager_player.gd"
+SaveLoad="*res://Savegame/save_load.gd"
 
 [dialogic]
 

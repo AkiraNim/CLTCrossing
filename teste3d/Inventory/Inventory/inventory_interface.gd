@@ -133,7 +133,7 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 			if grabbed_slot_data:
 				if is_external_inventory and external_inventory_owner.is_in_group("Selling"):
 					# Colocando item no inventário externo (venda)
-					if not grabbed_from_external:
+					if ! grabbed_from_external:
 						# Jogador ganha dinheiro ao vender o item
 						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
 						PlayerManager.player.add_money(price)
@@ -166,7 +166,7 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 			if grabbed_slot_data:
 				if is_external_inventory and external_inventory_owner.is_in_group("Selling"):
 					# Solta um único item no inventário externo (venda)
-					if not grabbed_from_external:
+					if ! grabbed_from_external:
 						var price: float = grabbed_slot_data.item_data.price
 						PlayerManager.player.add_money(price)
 					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
@@ -174,7 +174,7 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 					# Solta um único item no inventário do jogador (compra)
 					if grabbed_from_external:
 						var price: float = grabbed_slot_data.item_data.price
-						PlayerManager.player.rmv_money(price)
+						PlayerManager.player.add_money(-price)
 					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
 	
 	# Atualiza o estado do slot agarrado
@@ -209,7 +209,7 @@ func _on_gui_input(event: InputEvent) -> void:
 
 # Função chamada quando a visibilidade da interface muda
 func _on_visibility_changed() -> void:
-	if not visible and grabbed_slot_data:
+	if ! visible and grabbed_slot_data:
 		# Solta o item se a interface for escondida
 		if grabbed_slot_data.item_data.droppable:
 			drop_slot_data.emit(grabbed_slot_data)

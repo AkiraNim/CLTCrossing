@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=4 uid="uid://drdqahpk0ql3"]
+[gd_scene load_steps=59 format=4 uid="uid://drdqahpk0ql3"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="2_e5e43"]
@@ -493,6 +493,25 @@ quantity = 1
 script = ExtResource("3_cs1x2")
 slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_pkp4j"), null, null, null, null, null, null])
 
+[sub_resource type="Resource" id="Resource_ltdby"]
+script = ExtResource("4_nafn1")
+item_data = ExtResource("12_b5s0w")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_p3npn"]
+script = ExtResource("4_nafn1")
+item_data = ExtResource("14_lhgay")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_426sq"]
+script = ExtResource("4_nafn1")
+item_data = ExtResource("14_lhgay")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_r4l57"]
+script = ExtResource("3_cs1x2")
+slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_ltdby"), SubResource("Resource_p3npn"), SubResource("Resource_426sq"), null, null, null, null, null, null, null])
+
 [sub_resource type="Curve3D" id="Curve3D_flyin"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.4111, 0, -1.10114, 0, 0, 0, 0, 0, 0, 1.81689, 0, -1.10114, 0, 0, 0, 0, 0, 0, -1.4111, 0, 1.42745, 0, 0, 0, 0, 0, 0, 1.66894, 0, 1.5216, 0, 0, 0, 0, 0, 0, -1.4111, 0, -1.10114),
@@ -500,14 +519,9 @@ _data = {
 }
 point_count = 5
 
-[sub_resource type="Resource" id="Resource_8gjkk"]
-script = ExtResource("4_nafn1")
-item_data = ExtResource("14_lhgay")
-quantity = 9
-
 [sub_resource type="Resource" id="Resource_5rqqo"]
 script = ExtResource("3_cs1x2")
-slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_8gjkk")])
+slot_datas = Array[ExtResource("4_nafn1")]([])
 
 [node name="Main" type="Node"]
 script = ExtResource("1_u6833")
@@ -712,6 +726,13 @@ script = ExtResource("20_1lony")
 npc_name = "Bombeiro"
 inventory_data = SubResource("Resource_w74e4")
 
+[node name="Bombeiro3" parent="Npcs/FireFighterPath/PathFollow3D" groups=["Interactable", "Npc"] instance=ExtResource("19_d28hn")]
+transform = Transform3D(1, 1.81899e-12, 5.96046e-08, 2.72848e-12, 1, 0, -5.96046e-08, -5.45697e-12, 1, 2.30406, 0.0364181, 1.39679)
+script = ExtResource("20_1lony")
+emotion = 3
+npc_name = "Bombeiro2"
+inventory_data = SubResource("Resource_r4l57")
+
 [node name="Path3D" type="Path3D" parent="Npcs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.6293)
 curve = SubResource("Curve3D_flyin")
@@ -720,7 +741,7 @@ curve = SubResource("Curve3D_flyin")
 transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, -1.4111, 0, -1.10114)
 use_model_front = true
 
-[node name="HomemDeNegocios" parent="Npcs/Path3D/PathFollow3D" groups=["Interactable", "Npc"] instance=ExtResource("22_ifrb2")]
+[node name="BusinessMan" parent="Npcs/Path3D/PathFollow3D" groups=["Interactable", "Npc"] instance=ExtResource("22_ifrb2")]
 npc_name = "BusinessMan"
 inventory_data = SubResource("Resource_5rqqo")
 

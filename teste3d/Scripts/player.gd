@@ -30,6 +30,9 @@ signal toggle_inventory()
 @onready var prompt: Label = $"../Ui/InteractNode/Prompt"
 @onready var interact_node: Node2D = $"../Ui/InteractNode"
 
+var current_money: int = 0  # Valor atual de dinheiro
+var previous_money: int = 0  # Valor anterior de dinheiro
+
 func _ready():
 	PlayerManager.player = self
 
@@ -37,9 +40,19 @@ func _ready():
 	animation_player.set_blend_time("Run", "Idle", 0.2)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
+	current_money = money
+	previous_money = current_money
 
 func _physics_process(delta):
+	if current_money > previous_money:
+		print("Dinheiro aumentou!")
+	elif current_money < previous_money:
+		print("Dinheiro diminuiu!")
 
+# Atualize o valor anterior para o próximo quadro
+	previous_money = current_money
+	
+	
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:

@@ -111,7 +111,12 @@ func player_interact() -> void:
 # Completa a missão encontrada
 							#missions.complete_mission(missions)
 			
-	pass
+	for npcs in NpcManager.npcs:
+		if npcs.npc_name == "Bombeiro1":
+			drop_npc_slot_data_by_name("Apple")
+			SaveLoad.load_game()
+
+			
 # Função que checa os itens do NPC
 func check_npc_items() -> Array:
 	var items := []
@@ -134,6 +139,7 @@ func drop_item_from_npc(npcId: int, index: int) -> void:
 			if index < npc.inventory_data.slot_datas.size():
 				grabbed_slot_data = npc.inventory_data.slot_datas[index]
 				if grabbed_slot_data:
+					npc.inventory_data.drop_single_slot_data(grabbed_slot_data, index)
 					print("Item ", npc.inventory_data.get_slot_data_name(index), " foi droppado pelo NPC!")
 					npc.inventory_data.slot_datas[index] = null
 					npc.inventory_data.inventory_updated.emit(npc.inventory_data)

@@ -111,6 +111,10 @@ func player_interact() -> void:
 # Completa a missão encontrada
 							#missions.complete_mission(missions)
 			
+	for npcs in NpcManager.npcs:
+		if npcs.npc_name == "BusinessMan":
+			drop_npc_slot_data_by_name("Apple")
+			SaveLoad.save_game()
 	pass
 # Função que checa os itens do NPC
 func check_npc_items() -> Array:

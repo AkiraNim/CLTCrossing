@@ -37,7 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
+	if ! is_on_floor():
 		velocity.y -= gravity * delta
  
 	# Handle Jump.

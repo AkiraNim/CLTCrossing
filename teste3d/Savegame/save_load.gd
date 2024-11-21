@@ -13,8 +13,6 @@ saved_game.missions_complete = PlayerManager.player.missions_complete
 func load_game():
 	var saved_game: SavedGame = load("user://savegame.tres") as SavedGame
 	PlayerManager.player.global_position = saved_game.player_position
-	PlayerManager.player.inventory_data = saved_game.inventory
-	PlayerManager.player.equip_inventory_data = saved_game.equip_inventory
 	PlayerManager.player.money = saved_game.money
 	PlayerManager.player.inventory_data.inventory_updated.emit(PlayerManager.player.inventory_data)
 	PlayerManager.player.equip_inventory_data.inventory_updated.emit(PlayerManager.player.equip_inventory_data)

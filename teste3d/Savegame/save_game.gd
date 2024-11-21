@@ -5,3 +5,4 @@ extends Resource
 @export var inventory:InventoryData
 @export var equip_inventory:InventoryDataEquip
 @export var money: float
+@export var missions_complete:=[]

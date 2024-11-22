@@ -1,3 +1,10 @@
-Camera3D
+GridMap
+Generic6DOFJoint3D
 MeshInstance3D
+RigidBody3D
 StaticBody3D
+CollisionShape3D
+CharacterBody3D
+DirectionalLight3D
+WorldEnvironment
+Camera3D

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://boq4315rkn2i1"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 1150.0
+offset_bottom = 650.0

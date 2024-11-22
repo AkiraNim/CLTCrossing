@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends CenterContainer
 
 @onready var resume_button: Button = $ColorRect2/menuGameOver/resume_button
 @onready var quit_button: Button = $ColorRect2/menuGameOver/quit_button

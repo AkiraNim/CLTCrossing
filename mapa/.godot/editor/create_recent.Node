@@ -1,9 +1,9 @@
 GridMap
-Generic6DOFJoint3D
-MeshInstance3D
-RigidBody3D
-StaticBody3D
 CollisionShape3D
+StaticBody3D
+MeshInstance3D
+Generic6DOFJoint3D
+RigidBody3D
 CharacterBody3D
 DirectionalLight3D
 WorldEnvironment

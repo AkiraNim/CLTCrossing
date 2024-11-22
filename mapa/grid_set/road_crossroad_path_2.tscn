@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsf8diydj8fj0"]
+
+[ext_resource type="PackedScene" uid="uid://hx2kn1jwawyx" path="res://city-kit-roads/Models/road_crossroadPath.glb" id="1_xsxoh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b0051"]
+size = Vector3(1, 0.0083313, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5afjy"]
+size = Vector3(0.0994873, 0.0199585, 0.0998535)
+
+[node name="road_crossroadPath2" instance=ExtResource("1_xsxoh")]
+
+[node name="road_crossroadPath" parent="tmpParent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tmpParent/road_crossroadPath" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tmpParent/road_crossroadPath/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00566101, 0)
+shape = SubResource("BoxShape3D_b0051")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="tmpParent/road_crossroadPath/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.450256, 0.00982504, 0.450073)
+shape = SubResource("BoxShape3D_5afjy")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="tmpParent/road_crossroadPath/StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.450207, 0.0100414, 0.450073)
+shape = SubResource("BoxShape3D_5afjy")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="tmpParent/road_crossroadPath/StaticBody3D" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.450256, 0.0100725, -0.449974)
+shape = SubResource("BoxShape3D_5afjy")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="tmpParent/road_crossroadPath/StaticBody3D" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.449542, 0.0098943, -0.449742)
+shape = SubResource("BoxShape3D_5afjy")

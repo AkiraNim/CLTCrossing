@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://uoer6gmdnitx"]
+
+[ext_resource type="PackedScene" uid="uid://dx7ytobdw7qhd" path="res://city-kit-roads/Models/road_curve.glb" id="1_va8eo"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0wvqd"]
+
+[node name="road_curve2" instance=ExtResource("1_va8eo")]
+
+[node name="road_curve" parent="tmpParent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tmpParent/road_curve" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tmpParent/road_curve/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+shape = SubResource("ConcavePolygonShape3D_0wvqd")

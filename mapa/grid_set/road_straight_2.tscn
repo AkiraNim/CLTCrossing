@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://jv2l4c5kxlu6"]
+
+[ext_resource type="PackedScene" uid="uid://dt7g52ibkaoh6" path="res://city-kit-roads/Models/road_straight.glb" id="1_kbasu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fttca"]
+size = Vector3(1, 0.00964355, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gj1sm"]
+size = Vector3(1, 0.0200195, 0.100098)
+
+[node name="road_straight2" instance=ExtResource("1_kbasu")]
+
+[node name="road_straight" parent="tmpParent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tmpParent/road_straight" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tmpParent/road_straight/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00506592, 0)
+shape = SubResource("BoxShape3D_fttca")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="tmpParent/road_straight/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0090332, -0.449951)
+shape = SubResource("BoxShape3D_gj1sm")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="tmpParent/road_straight/StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0110165, 0.449837)
+shape = SubResource("BoxShape3D_gj1sm")

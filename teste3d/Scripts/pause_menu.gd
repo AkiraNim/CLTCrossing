@@ -2,7 +2,7 @@ extends CenterContainer
 
 @onready var resume_button: Button = $ColorRect2/menuGameOver/resume_button
 @onready var quit_button: Button = $ColorRect2/menuGameOver/quit_button
-@onready var inventory_interface: Control = $"../Ui/InventoryInterface"
+@onready var inventory_interface: Control = $"../InventoryInterface"
 
 func pause_resume():
 	if Input.is_action_just_pressed("pause_resume") and !get_tree().paused:

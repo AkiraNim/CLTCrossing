@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://ds4sbgxxyc1kt"]
+[gd_scene load_steps=10 format=4 uid="uid://ds4sbgxxyc1kt"]
 
 [ext_resource type="Script" path="res://Inventory/inventory_description.gd" id="1_54n3s"]
+[ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://assets/Fonts/prstart.ttf" id="2_orids"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87agd"]
 bg_color = Color(0.203922, 0.203922, 0.203922, 0.964706)
@@ -286,6 +287,22 @@ cache/0/50/0/glyphs/69/size = Vector2(34, 45)
 cache/0/50/0/glyphs/69/uv_rect = Rect2(139, 1, 34, 45)
 cache/0/50/0/glyphs/69/texture_idx = 0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iposb"]
+bg_color = Color(0.309385, 0.309385, 0.309385, 0.611765)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_go8su"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 0.615686)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="InventoryDescription" type="CanvasLayer"]
 script = ExtResource("1_54n3s")
 
@@ -309,5 +326,27 @@ theme_override_colors/font_color = Color(0.65098, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_plmmu")
 text = "X
 "
+
+[node name="ItemDescription" type="Label" parent="."]
+offset_left = 236.0
+offset_top = 150.0
+offset_right = 905.0
+offset_bottom = 560.0
+theme_override_fonts/font = ExtResource("2_orids")
+theme_override_styles/normal = SubResource("StyleBoxFlat_iposb")
+text = "Placeholder"
+autowrap_mode = 2
+
+[node name="ItemName" type="Label" parent="."]
+offset_left = 225.0
+offset_top = 93.0
+offset_right = 907.0
+offset_bottom = 140.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_orids")
+theme_override_styles/normal = SubResource("StyleBoxFlat_go8su")
+text = "Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

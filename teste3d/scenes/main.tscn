@@ -556,6 +556,11 @@ slot_data = SubResource("Resource_w7qch")
 
 [node name="Ui" type="CanvasLayer" parent="."]
 
+[node name="pause_menu" parent="Ui" instance=ExtResource("15_00xag")]
+process_mode = 3
+process_priority = 1
+visible = false
+
 [node name="InventoryInterface" type="Control" parent="Ui"]
 visible = false
 layout_mode = 3
@@ -685,17 +690,13 @@ text = "Placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="pause_menu" parent="." instance=ExtResource("15_00xag")]
-process_mode = 3
-visible = false
-
 [node name="Npcs" type="Node" parent="."]
 
 [node name="FireFighterPath" type="Path3D" parent="Npcs"]
 curve = SubResource("Curve3D_j677g")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Npcs/FireFighterPath"]
-transform = Transform3D(0.855132, -1.2432e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05072e-05, 0.855132, -5.90387, 0, -10.0074)
+transform = Transform3D(0.855132, -1.2432e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05071e-05, 0.855132, -5.90387, 0, -10.0074)
 rotation_mode = 4
 use_model_front = true
 

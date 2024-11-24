@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://ds4sbgxxyc1kt"]
+[gd_scene load_steps=12 format=4 uid="uid://ds4sbgxxyc1kt"]
 
 [ext_resource type="Script" path="res://Inventory/inventory_description.gd" id="1_54n3s"]
 [ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://assets/Fonts/prstart.ttf" id="2_mrudk"]
+[ext_resource type="FontFile" uid="uid://cupgn6judq0v1" path="res://assets/Fonts/prstartk.ttf" id="3_t1e50"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87agd"]
 bg_color = Color(0.203922, 0.203922, 0.203922, 0.964706)
@@ -294,21 +295,20 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5vt6"]
-bg_color = Color(0.309385, 0.309385, 0.309385, 0.611765)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_left = 10.0
-expand_margin_top = 5.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgppr"]
 bg_color = Color(0.152941, 0.152941, 0.152941, 0.615686)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cfrf"]
+bg_color = Color(0.172549, 0.172549, 0.172549, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.172549, 0.172549, 0.172549, 1)
 
 [node name="InventoryDescription" type="CanvasLayer"]
 script = ExtResource("1_54n3s")
@@ -340,23 +340,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nn87a")
 text = "X
 "
 
-[node name="ItemDescription" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -334.5
-offset_top = -179.0
-offset_right = 334.5
-offset_bottom = 231.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_mrudk")
-theme_override_styles/normal = SubResource("StyleBoxFlat_k5vt6")
-text = "Placeholder"
-autowrap_mode = 2
-
 [node name="ItemName" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -375,5 +358,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_sgppr")
 text = "Placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ItemDescription" type="RichTextLabel" parent="."]
+offset_left = 348.5
+offset_top = 205.0
+offset_right = 1017.5
+offset_bottom = 615.0
+theme_override_fonts/normal_font = ExtResource("3_t1e50")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8cfrf")
+text = "Placeholder"
 
 [connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

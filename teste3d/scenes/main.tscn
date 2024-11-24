@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://drdqahpk0ql3"]
+[gd_scene load_steps=56 format=4 uid="uid://drdqahpk0ql3"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="2_e5e43"]
@@ -435,6 +435,22 @@ expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2mw0"]
+bg_color = Color(0.309385, 0.309385, 0.309385, 0.611765)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jdnre"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 0.615686)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypvk5"]
 bg_color = Color(0.196078, 0.196078, 0.196078, 0.788235)
 border_width_left = 10
@@ -540,11 +556,6 @@ slot_data = SubResource("Resource_w7qch")
 
 [node name="Ui" type="CanvasLayer" parent="."]
 
-[node name="pause_menu" parent="Ui" instance=ExtResource("15_00xag")]
-process_mode = 3
-process_priority = 1
-visible = false
-
 [node name="InventoryInterface" type="Control" parent="Ui"]
 visible = false
 layout_mode = 3
@@ -623,6 +634,26 @@ offset_bottom = 64.0
 [node name="InventoryDescription" parent="Ui" instance=ExtResource("15_qcpu8")]
 visible = false
 
+[node name="ItemDescription" type="Label" parent="Ui/InventoryDescription"]
+offset_left = 236.0
+offset_top = 150.0
+offset_right = 905.0
+offset_bottom = 560.0
+theme_override_fonts/font = ExtResource("12_o27jf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g2mw0")
+autowrap_mode = 2
+
+[node name="ItemName" type="Label" parent="Ui/InventoryDescription"]
+offset_left = 225.0
+offset_top = 93.0
+offset_right = 907.0
+offset_bottom = 140.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("12_o27jf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jdnre")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="InteractNode" type="Node2D" parent="Ui"]
 visible = false
 
@@ -654,13 +685,17 @@ text = "Placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="pause_menu" parent="." instance=ExtResource("15_00xag")]
+process_mode = 3
+visible = false
+
 [node name="Npcs" type="Node" parent="."]
 
 [node name="FireFighterPath" type="Path3D" parent="Npcs"]
 curve = SubResource("Curve3D_j677g")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Npcs/FireFighterPath"]
-transform = Transform3D(0.855132, -1.2432e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05072e-05, 0.855132, -5.90387, 0, -10.0074)
+transform = Transform3D(0.855132, -1.2432e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05071e-05, 0.855132, -5.90387, 0, -10.0074)
 rotation_mode = 4
 use_model_front = true
 

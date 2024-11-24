@@ -16,7 +16,7 @@ var health: int = 5
 var missions_complete:= []
 
 signal toggle_inventory()
-@onready var pause_menu: CenterContainer = $"../Ui/pause_menu"
+
 @onready var animation_player: AnimationPlayer = $visuals/sophia/AnimationPlayer
 @onready var visuals: Node3D = $visuals
 @onready var camera_point = $camera_point
@@ -24,6 +24,7 @@ signal toggle_inventory()
 @onready var life_container: HBoxContainer = $"../CameraRig/HUD3/lifeContainer"
 @onready var background: ColorRect = $RayCast3D/Background
 @onready var interact_ray: RayCast3D = $InteractRay
+@onready var pause_menu: CanvasLayer = $"../pause_menu"
 @onready var inventory_interface: Control = $"../Ui/InventoryInterface"
 @onready var interact_label: Label = $"../Ui/InteractNode/InteractLabel"
 @onready var prompt: Label = $"../Ui/InteractNode/Prompt"
@@ -109,8 +110,6 @@ func _physics_process(delta):
 		if detected.is_in_group("Interactable"):
 			prompt.text = detected.name
 			interact_node.show()
-			if get_tree().paused:
-				interact_node.hide()
 	else:
 		interact_node.hide()
 		prompt.text = ""

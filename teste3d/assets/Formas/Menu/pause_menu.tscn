@@ -34,36 +34,23 @@ Button/styles/hover = SubResource("StyleBoxEmpty_tt3oy")
 Button/styles/normal = SubResource("StyleBoxEmpty_pfurn")
 Button/styles/pressed = SubResource("StyleBoxEmpty_lbt6k")
 
-[node name="pause_menu" type="CenterContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="pause_menu" type="CanvasLayer"]
 script = ExtResource("1_jkk8d")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-layout_mode = 2
-color = Color(0.192157, 0.219608, 0.266667, 0.737255)
-
-[node name="PanelContainer2" type="PanelContainer" parent="ColorRect2"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2340.0
-offset_top = -1923.0
-offset_right = 2195.0
-offset_bottom = 1872.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.192157, 0.219608, 0.266667, 0.737255)
 
 [node name="PanelContainer" type="PanelContainer" parent="ColorRect2"]
 layout_mode = 0
-offset_left = -200.0
-offset_top = -91.0
-offset_right = 200.0
-offset_bottom = 89.0
+offset_left = 375.0
+offset_top = 230.0
+offset_right = 775.0
+offset_bottom = 410.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_gxset")
 
 [node name="menuGameOver" type="VBoxContainer" parent="ColorRect2"]

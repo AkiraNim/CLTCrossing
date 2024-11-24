@@ -23,6 +23,7 @@ var visible_external_inventory: bool = false  # Flag para controlar a visibilida
 @onready var external_inventory_node: Node2D = $ExternalInventory  # Nodo do inventário externo
 @onready var item_name: Label = $"../InventoryDescription/ItemName"  # Nome do item
 @onready var item_description: Label = $"../InventoryDescription/ItemDescription"  # Descrição do item
+@onready var books: PanelContainer = $PlayerInventory/Books
 
 # Função chamada a cada quadro de física, atualiza a posição do slot agarrado para seguir o mouse
 func _physics_process(delta: float) -> void:
@@ -52,7 +53,8 @@ func set_player_inventory_data(inventory_data: InventoryData) -> void:
 func set_equip_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)  # Conecta o sinal de interação do inventário
 	equip_inventory.set_inventory_data(inventory_data)  # Define os dados no inventário de equipamentos
-
+func set_books(inventory_data: InventoryData) -> void:
+	books.set_inventory_data(inventory_data)
 # Define os dados do inventário externo e o exibe
 func set_external_inventory(_external_inventory_owner) -> void:
 	external_inventory_owner = _external_inventory_owner  # Define o dono do inventário externo

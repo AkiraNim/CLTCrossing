@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @export var inventory_data: InventoryData
 @export var equip_inventory_data: InventoryDataEquip
+@export var books: InventoryData
 
 const SPEED = 3.0
 const JUMP_VELOCITY = 10

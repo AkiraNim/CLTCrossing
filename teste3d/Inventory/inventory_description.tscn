@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://ds4sbgxxyc1kt"]
+[gd_scene load_steps=10 format=4 uid="uid://ds4sbgxxyc1kt"]
 
 [ext_resource type="Script" path="res://Inventory/inventory_description.gd" id="1_54n3s"]
+[ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://assets/Fonts/prstart.ttf" id="2_mrudk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87agd"]
 bg_color = Color(0.203922, 0.203922, 0.203922, 0.964706)
@@ -286,14 +287,37 @@ cache/0/50/0/glyphs/69/size = Vector2(34, 45)
 cache/0/50/0/glyphs/69/uv_rect = Rect2(139, 1, 34, 45)
 cache/0/50/0/glyphs/69/texture_idx = 0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5vt6"]
+bg_color = Color(0.309385, 0.309385, 0.309385, 0.611765)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgppr"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 0.615686)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="InventoryDescription" type="CanvasLayer"]
 script = ExtResource("1_54n3s")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-offset_left = 202.0
-offset_top = 90.0
-offset_right = 961.0
-offset_bottom = 575.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -379.5
+offset_top = -242.5
+offset_right = 379.5
+offset_bottom = 242.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_87agd")
 
 [node name="exit_button" type="Button" parent="."]
@@ -309,5 +333,25 @@ theme_override_colors/font_color = Color(0.65098, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_plmmu")
 text = "X
 "
+
+[node name="ItemDescription" type="Label" parent="."]
+offset_left = 236.0
+offset_top = 150.0
+offset_right = 905.0
+offset_bottom = 560.0
+theme_override_fonts/font = ExtResource("2_mrudk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k5vt6")
+autowrap_mode = 2
+
+[node name="ItemName" type="Label" parent="."]
+offset_left = 225.0
+offset_top = 93.0
+offset_right = 907.0
+offset_bottom = 140.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_mrudk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sgppr")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

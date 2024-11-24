@@ -52,10 +52,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -90.0
-offset_right = 200.0
-offset_bottom = 90.0
+offset_left = -500.0
+offset_top = -200.0
+offset_right = 550.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gxset")
@@ -68,9 +68,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -205.5
-offset_top = -66.0
-offset_right = 205.5
-offset_bottom = 66.0
+offset_top = -74.5
+offset_right = 294.5
+offset_bottom = 175.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_vvw41")
@@ -79,6 +79,7 @@ theme = SubResource("Theme_vvw41")
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_3nvpk")
+theme_override_font_sizes/font_size = 120
 text = "Pausado"
 
 [node name="resume_button" type="Button" parent="ColorRect2/menuGameOver"]
@@ -87,6 +88,7 @@ theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0, 0.545098, 0, 1)
 theme_override_fonts/font = ExtResource("2_3nvpk")
+theme_override_font_sizes/font_size = 100
 text = "Retomar
 "
 
@@ -96,6 +98,7 @@ theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(0.505882, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_3nvpk")
+theme_override_font_sizes/font_size = 100
 text = "Sair"
 
 [connection signal="pressed" from="ColorRect2/menuGameOver/resume_button" to="." method="_on_resume_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://drdqahpk0ql3"]
+[gd_scene load_steps=64 format=4 uid="uid://drdqahpk0ql3"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="2_e5e43"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="14_lhgay"]
 [ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://assets/Formas/Menu/pause_menu.tscn" id="15_00xag"]
 [ext_resource type="PackedScene" uid="uid://ds4sbgxxyc1kt" path="res://Inventory/inventory_description.tscn" id="15_qcpu8"]
+[ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://actors/models/sophia/sophia_skin.tscn" id="16_ayafe"]
 [ext_resource type="PackedScene" uid="uid://c53dclo0i7vm3" path="res://actors/NPC's/NPCS tscn/fire_fighter.tscn" id="19_d28hn"]
 [ext_resource type="Script" path="res://actors/NPC's/Script/fire_fighter.gd" id="20_1lony"]
 [ext_resource type="Resource" uid="uid://bi8g0lavua2no" path="res://Inventory/Item/Items/iron_helm.tres" id="21_2x74b"]
@@ -1044,6 +1045,7 @@ slot_data = SubResource("Resource_w7qch")
 [node name="Ui" type="CanvasLayer" parent="."]
 
 [node name="InventoryInterface" type="Control" parent="Ui"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1062,6 +1064,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ExternalInventory" type="Node2D" parent="Ui/InventoryInterface"]
+visible = false
 
 [node name="ExternalInventoryLabel" type="Label" parent="Ui/InventoryInterface/ExternalInventory"]
 offset_left = 1055.0
@@ -1081,6 +1084,7 @@ offset_right = 965.0
 offset_bottom = 483.0
 
 [node name="PlayerInventory" type="Node2D" parent="Ui/InventoryInterface"]
+visible = false
 
 [node name="PlayerInventoryLabel" type="Label" parent="Ui/InventoryInterface/PlayerInventory"]
 offset_left = 1055.0
@@ -1135,6 +1139,31 @@ offset_top = 100.0
 offset_right = 450.0
 offset_bottom = 140.0
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Ui/InventoryInterface/PlayerInventory"]
+offset_left = 430.0
+offset_top = 60.0
+offset_right = 830.0
+offset_bottom = 660.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Ui/InventoryInterface/PlayerInventory/HBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="Ui/InventoryInterface/PlayerInventory/HBoxContainer/SubViewportContainer"]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(400, 600)
+render_target_update_mode = 0
+
+[node name="SophiaSkin" parent="Ui/InventoryInterface/PlayerInventory/HBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("16_ayafe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.47916, 0)
+script = null
+
+[node name="Camera3D" type="Camera3D" parent="Ui/InventoryInterface/PlayerInventory/HBoxContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.984359, 0.176174, 0, -0.176174, 0.984359, 0, -0.986543, 2.07259)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Ui/InventoryInterface/PlayerInventory/HBoxContainer/SubViewportContainer/SubViewport"]
+
 [node name="GrabbedSlot" parent="Ui/InventoryInterface" instance=ExtResource("9_f7jew")]
 visible = false
 modulate = Color(1, 1, 1, 0.572549)
@@ -1187,7 +1216,7 @@ visible = false
 curve = SubResource("Curve3D_j677g")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Npcs/FireFighterPath"]
-transform = Transform3D(0.855132, -1.2432e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05072e-05, 0.855132, -5.90387, 0, -10.0074)
+transform = Transform3D(0.855132, -1.24321e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05072e-05, 0.855132, -5.90387, 0, -10.0074)
 rotation_mode = 4
 use_model_front = true
 

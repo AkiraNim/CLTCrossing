@@ -6283,12 +6283,12 @@ _data = {
 "WallSlide": SubResource("Animation_mpvua")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f6ytl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bakio"]
 render_priority = 0
 shader = ExtResource("10_vrx17")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tsxfu"]
-material = SubResource("ShaderMaterial_f6ytl")
+material = SubResource("ShaderMaterial_bakio")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wapsa"]
 size = Vector3(1.56768, 1.68375, 1.44822)

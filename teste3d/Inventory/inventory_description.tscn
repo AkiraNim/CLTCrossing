@@ -309,6 +309,10 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.172549, 0.172549, 0.172549, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="InventoryDescription" type="CanvasLayer"]
 script = ExtResource("1_54n3s")

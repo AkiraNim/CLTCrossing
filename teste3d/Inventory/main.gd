@@ -9,6 +9,7 @@ const PickUp = preload("res://Inventory/Item/PickUp/pick_up.tscn")
 @onready var inventory_interface: Control = $Ui/InventoryInterface  # Interface do inventário
 @onready var hot_bar_inventory: PanelContainer = $Ui/HotBarInventory  # Barra de inventário rápido
 
+
 # Função que é executada quando o nó está pronto
 func _ready() -> void:
 	# Conecta o sinal de alternância do inventário do jogador à função de alternância de interface

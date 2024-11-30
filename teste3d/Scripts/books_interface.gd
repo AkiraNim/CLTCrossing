@@ -61,58 +61,6 @@ func set_books(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	books.set_inventory_data(inventory_data)
 # Define os dados do inventário externo e o exibe
-func set_external_inventory(_external_inventory_owner) -> void:
-	external_inventory_owner = _external_inventory_owner  # Define o dono do inventário externo
-	var inventory_data = external_inventory_owner.inventory_data
-	
-	# Verifica e remove itens únicos que o jogador já possui
-	for i in range(inventory_data.slot_datas.size()):
-		if inventory_data.slot_datas[i] != null:
-			if PlayerManager.player.player_have_this_item(inventory_data.slot_datas[i].item_data)\
-			and inventory_data.slot_datas[i].item_data != null\
-			and inventory_data.slot_datas[i].item_data.unique:
-				inventory_data.slot_datas[i] = null
-
-	# Bubble Sort para mover slots nulos para o final
-	for i in range(inventory_data.slot_datas.size()):
-		for j in range(inventory_data.slot_datas.size() - i - 1):
-			if inventory_data.slot_datas[j] == null and inventory_data.slot_datas[j + 1] != null:
-				# Troca slots nulo e não-nulo para mover os nulos para o final
-				var temp = inventory_data.slot_datas[j]
-				inventory_data.slot_datas[j] = inventory_data.slot_datas[j + 1]
-				inventory_data.slot_datas[j + 1] = temp
-
-	# Bubble Sort para organizar slots não nulos em ordem alfabética
-	for i in range(inventory_data.slot_datas.size()):
-		for j in range(inventory_data.slot_datas.size() - i - 1):
-			# Verifica se ambos os slots são não nulos para comparar
-			var current_slot = inventory_data.slot_datas[j]
-			var next_slot = inventory_data.slot_datas[j + 1]
-			
-			if current_slot != null and next_slot != null:
-				if current_slot.item_data.name > next_slot.item_data.name:
-					# Troca slots para organizar em ordem alfabética
-					var temp = inventory_data.slot_datas[j]
-					inventory_data.slot_datas[j] = inventory_data.slot_datas[j + 1]
-					inventory_data.slot_datas[j + 1] = temp
-	
-	inventory_data.inventory_interact.connect(on_inventory_interact)  # Conecta a interação do inventário externo
-	external_inventory.set_inventory_data(inventory_data)  # Define os dados do inventário externo
-	
-	external_inventory_node.show()  # Exibe o inventário externo
-	external_inventory_opened = true  # Marca que o inventário externo está aberto
-
-# Limpa e oculta o inventário externo
-func clear_external_inventory() -> void:
-	if external_inventory_owner:
-		var inventory_data = external_inventory_owner.inventory_data
-		
-		inventory_data.inventory_interact.disconnect(on_inventory_interact)  # Desconecta a interação do inventário
-		external_inventory.clear_inventory_data(inventory_data)  # Limpa os dados do inventário externo
-		
-		external_inventory_node.hide()  # Esconde o inventário externo
-		external_inventory_owner = null  # Remove a referência ao dono do inventário externo
-		external_inventory_opened = false  # Marca que o inventário externo está fechado
 
 # Função chamada quando há interação no inventário
 func on_inventory_interact(inventory_data: InventoryData, index: int, button: int) -> void:
@@ -122,41 +70,7 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 	
 	# Realiza ações com base nos dados do slot agarrado e o botão pressionado
 	match [grabbed_slot_data, button]:
-		[null, MOUSE_BUTTON_LEFT]:
-			# Jogador está retirando um item do inventário
-			grabbed_slot_data = inventory_data.grab_slot_data(index)
-			if grabbed_slot_data != null:
-				if is_external_inventory and external_inventory_owner.is_in_group("Selling"):
-					# Item retirado do inventário externo (para venda)
-					print("Item retirado do inventário externo: ", -grabbed_slot_data.item_data.price * grabbed_slot_data.quantity)
-					grabbed_from_external = true  # Marca que o item foi retirado do inventário externo
-				else:
-					# Item retirado do inventário do jogador
-					print("Item retirado do inventário do jogador.")
-					grabbed_from_external = false  # Marca que o item foi retirado do inventário do jogador
-			
-		[_, MOUSE_BUTTON_LEFT]:
-			# Jogador está colocando um item no inventário
-			if grabbed_slot_data:
-				if is_external_inventory and external_inventory_owner.is_in_group("Selling"):
-					# Colocando item no inventário externo (venda)
-					if ! grabbed_from_external:
-						# Jogador ganha dinheiro ao vender o item
-						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
-						PlayerManager.player.add_money(price)
-						print("Item vendido. Dinheiro adicionado: ", price)
-						print("Saldo:" , PlayerManager.player.money)
-					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
-				else:
-					# Colocando item no inventário do jogador (compra)
-					if grabbed_from_external:
-						# Jogador perde dinheiro ao comprar o item
-						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
-						PlayerManager.player.add_money(-price)
-						print("Item comprado. Dinheiro removido: ", price)
-						print("Saldo:" , PlayerManager.player.money)
-					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
-		
+
 		[null, MOUSE_BUTTON_RIGHT]:
 			# Jogador está mostrando a descrição do item
 			var description: String
@@ -168,22 +82,7 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 				item_name.text = name
 				inventory_description.show()  # Exibe a descrição do item
 		
-		[_, MOUSE_BUTTON_RIGHT]:
-			# Jogador está soltando um único item no slot
-			if grabbed_slot_data:
-				if is_external_inventory and external_inventory_owner.is_in_group("Selling"):
-					# Solta um único item no inventário externo (venda)
-					if ! grabbed_from_external:
-						var price: float = grabbed_slot_data.item_data.price
-						PlayerManager.player.add_money(price)
-					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
-				else:
-					# Solta um único item no inventário do jogador (compra)
-					if grabbed_from_external:
-						var price: float = grabbed_slot_data.item_data.price
-						PlayerManager.player.add_money(-price)
-					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
-	
+
 	# Atualiza o estado do slot agarrado
 	update_grabbed_slot()
 

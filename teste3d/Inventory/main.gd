@@ -19,7 +19,6 @@ func _ready() -> void:
 	# Define os dados de inventário de equipamentos na interface
 	inventory_interface.set_equip_inventory_data(player.equip_inventory_data)
 	# Define os dados do inventário na barra de inventário rápido
-	inventory_interface.set_books(player.books)
 	# Conecta a função de alternância para todos os inventários externos no grupo "external_inventory"
 	for node in get_tree().get_nodes_in_group("external_inventory"):
 		node.toggle_inventory.connect(toggle_inventory_interface)

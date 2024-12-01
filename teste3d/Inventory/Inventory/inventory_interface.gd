@@ -283,6 +283,6 @@ func _on_visibility_changed() -> void:
 	if ! visible and grabbed_slot_data:
 		# Solta o item se a interface for escondida
 		if grabbed_slot_data.item_data.droppable:
-			drop_slot_data.emit(grabbed_slot_data)
+			PlayerManager.player.inventory_data.pick_up_slot_data(grabbed_slot_data)
 			grabbed_slot_data = null
 		update_grabbed_slot()  # Atualiza o estado do slot agarrado

@@ -14,12 +14,12 @@ func _ready() -> void:
 # Função que define os dados do slot, atualizando a aparência e tooltip
 func set_slot_data(slot_data: SlotData) -> void:
 	var item_data = slot_data.item_data  # Obtém os dados do item do slot
+
 	
 	# Verifica se item_data é válido (não null)
 	if item_data != null:
 		texture_rect.texture = item_data.texture  # Define a textura do item no slot
 		tooltip_text = "%s\n%s" % [item_data.name, item_data.tooltip]  # Define o texto do tooltip com o nome e a descrição do item
-		
 		# Atualiza o rótulo de quantidade com o número de itens, se for maior ou igual a 1
 		if slot_data.quantity >= 1:
 			quantity_label.text = "x%s" % slot_data.quantity  # Exibe a quantidade de itens

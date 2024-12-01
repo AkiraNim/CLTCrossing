@@ -45,6 +45,7 @@ window/size/viewport_height=768
 window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+mouse_cursor/custom_image="res://assets/Cursor/pointer_c_shaded.png"
 
 [editor_plugins]
 

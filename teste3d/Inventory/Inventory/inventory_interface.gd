@@ -42,11 +42,13 @@ func _physics_process(delta: float) -> void:
 	if inventory_description.visible:
 		if external_inventory_node.visible:
 			visible_external_inventory = true
+		color_rect.hide()
 		player_inventory_node.hide()  # Esconde o inventário do jogador
 		external_inventory_node.hide()  # Esconde o inventário externo
 	elif !inventory_description.visible:
 		# Mostra o inventário do jogador e o externo, se necessário
 		player_inventory_node.show()
+		color_rect.show()
 		if visible_external_inventory:
 			visible_external_inventory = false
 			external_inventory_node.show()

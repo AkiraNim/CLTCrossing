@@ -10,7 +10,7 @@ func _physics_process(delta: float) -> void:
 func add_mission(mission: Mission, npc_name: String) -> void:
 	mission.npc_name == npc_name
 	missions.append(mission)
-	print("Nova missão adicionada: ", mission.title)
+	
 
 # Retorna uma lista de missões disponíveis com base na emoção
 func get_available_missions() -> Array:

@@ -12,6 +12,7 @@ var grabbed_slot_data: SlotData  # Dados do slot que está sendo "segurado" pelo
 var external_inventory_owner  # Referência ao dono do inventário externo
 var external_inventory_opened: bool = false  # Flag para verificar se o inventário externo está aberto
 var visible_external_inventory: bool = false  # Flag para controlar a visibilidade do inventário externo
+var timer = Timer.new()
 
 # Referências aos nós de diferentes inventários e do slot agarrado
 @onready var external_inventory: PanelContainer = $ExternalInventory/ExternalInventory  # Inventário externo
@@ -23,7 +24,12 @@ var visible_external_inventory: bool = false  # Flag para controlar a visibilida
 @onready var external_inventory_node: Node2D = $ExternalInventory  # Nodo do inventário externo
 @onready var item_name: Label = $"../InventoryDescription/ItemName"  # Nome do item
 @onready var item_description: RichTextLabel = $"../InventoryDescription/ItemDescription"  # Descrição do item
-@onready var panel_container: PanelContainer = $PanelContainer
+@onready var color_rect: ColorRect = $"../ColorRect"
+@onready var inventory_interface: Control = $"."
+@onready var money_label: Label = $PlayerInventory/MoneyLabel
+@onready var pop_up: Control = $"../PopUp"
+@onready var label_pop_up: Label = $"../PopUp/LabelPopUp"
+
 
 # Função chamada a cada quadro de física, atualiza a posição do slot agarrado para seguir o mouse
 func _physics_process(delta: float) -> void:
@@ -43,10 +49,14 @@ func _physics_process(delta: float) -> void:
 		if visible_external_inventory:
 			visible_external_inventory = false
 			external_inventory_node.show()
-	if player_inventory_node.visible:
-		panel_container.show()
-	else:
-		panel_container.hide()
+	if inventory_interface.visible:
+		money_label.text = "R$%.2f" % [PlayerManager.player.money]
+		color_rect.show()
+	elif !inventory_interface.visible:
+		money_label.text = ""
+		color_rect.hide()
+func _timer_pop_up():
+	pop_up.close_popUp()
 # Define os dados do inventário do jogador e conecta a interação do inventário
 func set_player_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)  # Conecta o sinal de interação do inventário
@@ -123,13 +133,27 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 			# Jogador está retirando um item do inventário
 			grabbed_slot_data = inventory_data.grab_slot_data(index)
 			if grabbed_slot_data != null:
-				if is_external_inventory and external_inventory_owner.is_in_group("Selling"):
+				if is_external_inventory:
 					# Item retirado do inventário externo (para venda)
-					print("Item retirado do inventário externo: ", -grabbed_slot_data.item_data.price * grabbed_slot_data.quantity)
+					label_pop_up.text = "Item %s retirado do baú." % [grabbed_slot_data.item_data.name]
+					pop_up.show()
+					pop_up.open_popUp()
+					timer.wait_time = 3.0
+					timer.one_shot = true
+					add_child(timer)
+					timer.start()
+					timer.connect("timeout", Callable(self, "_timer_pop_up"))
 					grabbed_from_external = true  # Marca que o item foi retirado do inventário externo
 				else:
 					# Item retirado do inventário do jogador
-					print("Item retirado do inventário do jogador.")
+					label_pop_up.text = "Item %s retirado do inventário do jogador." % [grabbed_slot_data.item_data.name]
+					pop_up.show()
+					pop_up.open_popUp()
+					timer.wait_time = 3.0
+					timer.one_shot = true
+					add_child(timer)
+					timer.start()
+					timer.connect("timeout", Callable(self, "_timer_pop_up"))
 					grabbed_from_external = false  # Marca que o item foi retirado do inventário do jogador
 			
 		[_, MOUSE_BUTTON_LEFT]:
@@ -141,8 +165,14 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 						# Jogador ganha dinheiro ao vender o item
 						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
 						PlayerManager.player.add_money(price)
-						print("Item vendido. Dinheiro adicionado: ", price)
-						print("Saldo:" , PlayerManager.player.money)
+						label_pop_up.text = "Item %s vendido.\n+R$%.2f\n-%d" % [grabbed_slot_data.item_data.name, price, grabbed_slot_data.quantity]
+						pop_up.show()
+						pop_up.open_popUp()
+						timer.wait_time = 2.0
+						timer.one_shot = true
+						add_child(timer)
+						timer.start()
+						timer.connect("timeout", Callable(self, "_timer_pop_up"))
 					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 				else:
 					# Colocando item no inventário do jogador (compra)
@@ -150,8 +180,14 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 						# Jogador perde dinheiro ao comprar o item
 						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
 						PlayerManager.player.add_money(-price)
-						print("Item comprado. Dinheiro removido: ", price)
-						print("Saldo:" , PlayerManager.player.money)
+						label_pop_up.text = "Item %s comprado.\n-R$%.2f\n+%d" % [grabbed_slot_data.item_data.name, price, grabbed_slot_data.quantity]
+						pop_up.show()
+						pop_up.open_popUp()
+						timer.wait_time = 2.0
+						timer.one_shot = true
+						add_child(timer)
+						timer.start()
+						timer.connect("timeout", Callable(self, "_timer_pop_up"))
 					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 		
 		[null, MOUSE_BUTTON_RIGHT]:
@@ -173,12 +209,28 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 					if ! grabbed_from_external:
 						var price: float = grabbed_slot_data.item_data.price
 						PlayerManager.player.add_money(price)
+						label_pop_up.text = "Item %s vendido.\n+R$%.2f\n-%d" % [grabbed_slot_data.item_data.name, price, 1]
+						pop_up.show()
+						pop_up.open_popUp()
+						timer.wait_time = 2.0
+						timer.one_shot = true
+						add_child(timer)
+						timer.start()
+						timer.connect("timeout", Callable(self, "_timer_pop_up"))
 					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
 				else:
 					# Solta um único item no inventário do jogador (compra)
 					if grabbed_from_external:
 						var price: float = grabbed_slot_data.item_data.price
 						PlayerManager.player.add_money(-price)
+						label_pop_up.text = "Item %s comprado.\n-R$%.2f\n+%d" % [grabbed_slot_data.item_data.name, price, 1]
+						pop_up.show()
+						pop_up.open_popUp()
+						timer.wait_time = 2.0
+						timer.one_shot = true
+						add_child(timer)
+						timer.start()
+						timer.connect("timeout", Callable(self, "_timer_pop_up"))
 					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
 	
 	# Atualiza o estado do slot agarrado
@@ -201,16 +253,31 @@ func _on_gui_input(event: InputEvent) -> void:
 				if grabbed_slot_data.item_data.droppable:
 					# Solta o item agarrado
 					drop_slot_data.emit(grabbed_slot_data)
+					label_pop_up.text = "Item %s dropado.\n-%d" % [grabbed_slot_data.item_data.name, grabbed_slot_data.quantity]
+					pop_up.show()
+					pop_up.open_popUp()
+					timer.wait_time = 2.0
+					timer.one_shot = true
+					add_child(timer)
+					timer.start()
+					timer.connect("timeout", Callable(self, "_timer_pop_up"))
 					grabbed_slot_data = null
 			MOUSE_BUTTON_RIGHT:
 				if grabbed_slot_data.item_data.droppable:
 					# Solta um único item do slot
+					label_pop_up.text = "Item %s dropado.\n-%d" % [grabbed_slot_data.item_data.name, 1]
+					pop_up.show()
+					pop_up.open_popUp()
+					timer.wait_time = 2.0
+					timer.one_shot = true
+					add_child(timer)
+					timer.start()
+					timer.connect("timeout", Callable(self, "_timer_pop_up"))
 					drop_slot_data.emit(grabbed_slot_data.create_single_slot_data())
 					if grabbed_slot_data.quantity < 1:
 						grabbed_slot_data = null
 		# Atualiza o estado do slot agarrado
 		update_grabbed_slot()
-
 # Função chamada quando a visibilidade da interface muda
 func _on_visibility_changed() -> void:
 	if ! visible and grabbed_slot_data:

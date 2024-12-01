@@ -8,10 +8,13 @@ signal dialog
 @export var npc_name: String
 @export var inventory_data: InventoryData
 
+@onready var pop_up: Control = $"../../../../Ui/PopUp"
+@onready var label_pop_up: Label = $"../../../../Ui/PopUp/LabelPopUp"
 
 @onready var npc: StaticBody3D = $"."
 
 # Variáveis de controle
+var timer = Timer.new()
 var rng = RandomNumberGenerator.new()
 var mission: Mission
 var mission_found = false
@@ -35,10 +38,7 @@ const EMOTION_RUNNING = 5
 # Inicialização do NPC
 func _ready() -> void:
 	rng.randomize()
-	if npc_name == "Bombeiro1":
-		MissionManager.create_new_mission(npc_name, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas")
 	# Atualiza a animação baseada na emoção inicial
-	
 	var npc: Npc = Npc.new()
 	
 	npc.emotion = emotion
@@ -55,6 +55,18 @@ func _ready() -> void:
 	NpcManager.add_npc(npc)
 	
 	update_emotion_animation()
+	
+	for npcs in NpcManager.npcs:
+		if npcs.npc_name == "BusinessMan":
+			if MissionManager.create_new_mission(npc_name, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas"):
+				label_pop_up.text = "Nova missão adicionada"
+				pop_up.show()
+				pop_up.open_popUp()
+				timer.wait_time = 2.0
+				timer.one_shot = true
+				add_child(timer)
+				timer.start()
+				timer.connect("timeout", Callable(self, "_timer_pop_up"))
 func _physics_process(delta: float) -> void:
 	play_animation_based_on_emotion(delta)
 
@@ -143,7 +155,18 @@ func drop_item_from_npc(npcId: int, index: int) -> void:
 					npc.inventory_data.inventory_updated.emit(npc.inventory_data)
 	
 	if grabbed_slot_data:
+		label_pop_up.text = "Item %s recebido do npc.\n+%d" % [grabbed_slot_data.item_data.name, grabbed_slot_data.quantity]
+		pop_up.show()
+		pop_up.open_popUp()
+		timer.wait_time = 2.0
+		timer.one_shot = true
+		add_child(timer)
+		timer.start()
+		timer.connect("timeout", Callable(self, "_timer_pop_up"))
 		PlayerManager.player.inventory_data.pick_up_slot_data(grabbed_slot_data)
+
+func _timer_pop_up():
+	pop_up.close_popUp()
 
 func drop_all_npc_slot_data() -> void:
 	for npc in NpcManager.npcs:

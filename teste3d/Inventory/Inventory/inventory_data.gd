@@ -9,6 +9,7 @@ signal inventory_interact(inventory_data: InventoryData, index: int, button: int
 # Variável exportada que contém os dados dos slots do inventário
 @export var slot_datas: Array[SlotData]  # Array que armazena os dados dos slots
 
+
 # Função que agarra os dados de um slot no índice especificado
 func grab_slot_data(index: int) -> SlotData:
 	var slot_data = slot_datas[index]  # Obtém os dados do slot no índice

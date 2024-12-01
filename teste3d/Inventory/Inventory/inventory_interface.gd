@@ -29,6 +29,7 @@ var timer = Timer.new()
 @onready var money_label: Label = $PlayerInventory/MoneyLabel
 @onready var pop_up: Control = $"../PopUp"
 @onready var label_pop_up: Label = $"../PopUp/LabelPopUp"
+@onready var mission_rich_label: RichTextLabel = $PlayerInventory/MissionRichLabel
 
 
 # Função chamada a cada quadro de física, atualiza a posição do slot agarrado para seguir o mouse
@@ -55,6 +56,19 @@ func _physics_process(delta: float) -> void:
 	elif !inventory_interface.visible:
 		money_label.text = ""
 		color_rect.hide()
+	var missions_string : String
+	for missions in MissionManager.get_available_missions():
+		if missions && missions.title !="":
+			missions_string += missions.title
+			missions_string += "\n"
+			missions_string += "Descrição: "
+			missions_string += missions.description
+			missions_string += "\n"
+			missions_string += "Recompensa: "
+			missions_string += missions.reward
+			missions_string += "\n\n"
+	mission_rich_label.text = missions_string
+
 func _timer_pop_up():
 	pop_up.close_popUp()
 # Define os dados do inventário do jogador e conecta a interação do inventário
@@ -135,25 +149,9 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 			if grabbed_slot_data != null:
 				if is_external_inventory:
 					# Item retirado do inventário externo (para venda)
-					label_pop_up.text = "Item %s retirado do baú." % [grabbed_slot_data.item_data.name]
-					pop_up.show()
-					pop_up.open_popUp()
-					timer.wait_time = 3.0
-					timer.one_shot = true
-					add_child(timer)
-					timer.start()
-					timer.connect("timeout", Callable(self, "_timer_pop_up"))
 					grabbed_from_external = true  # Marca que o item foi retirado do inventário externo
 				else:
 					# Item retirado do inventário do jogador
-					label_pop_up.text = "Item %s retirado do inventário do jogador." % [grabbed_slot_data.item_data.name]
-					pop_up.show()
-					pop_up.open_popUp()
-					timer.wait_time = 3.0
-					timer.one_shot = true
-					add_child(timer)
-					timer.start()
-					timer.connect("timeout", Callable(self, "_timer_pop_up"))
 					grabbed_from_external = false  # Marca que o item foi retirado do inventário do jogador
 			
 		[_, MOUSE_BUTTON_LEFT]:

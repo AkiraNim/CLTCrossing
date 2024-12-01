@@ -20,7 +20,7 @@ func get_available_missions() -> Array:
 			available_missions.append(mission)
 	return available_missions
 
-func create_new_mission(npc_name: String, mission_title: String, mission_description: String, mission_reward: String) -> void:
+func create_new_mission(npc_name: String, mission_title: String, mission_description: String, mission_reward: String) -> bool:
 	var new_mission = ResourceLoader.load("res://Mission/mission.gd").new()  # Carrega o script da missão
 	
 	for missions in MissionManager.get_available_missions():
@@ -29,11 +29,11 @@ func create_new_mission(npc_name: String, mission_title: String, mission_descrip
 		new_mission.npc_name = npc_name # Emoção do NPC necessária para ativar a missão (Idle, por exemplo)
 		new_mission.reward = mission_reward
 		if missions.title == new_mission.title:
-			return
+			return false
 		else:
 			for mission in PlayerManager.player.missions_complete:
 				if mission.title == mission_title:
-					return
+					return false
 	# Adiciona a missão ao sistema
 	MissionManager.add_mission(new_mission, npc_name)
-	print("Missão criada: ", new_mission.title)
+	return true

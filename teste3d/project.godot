@@ -26,6 +26,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 SaveManagerPlayer="*res://Scripts/globals/save_manager_player.gd"
 SaveLoad="*res://Savegame/save_load.gd"
 PickDrop="*res://Inventory/pick_drop.gd"
+Globals="*res://Scripts/globals/globals.gd"
 
 [dialogic]
 
@@ -46,6 +47,7 @@ window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="res://assets/Cursor/pointer_c_shaded.png"
+mouse_cursor/tooltip_position_offset=Vector2(50, 20)
 
 [editor_plugins]
 

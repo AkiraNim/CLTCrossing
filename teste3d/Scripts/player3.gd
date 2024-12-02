@@ -44,7 +44,7 @@ func handle_input(delta) :
 	var input = Vector3.ZERO
 	input.x = Input.get_axis("move_left", "move_right")
 	input.z = Input.get_axis("move_forward","move_backward")
-	input = input.rotated(Vector3.UP, view.rotation.y).normalized()
+
 	
 	if !knockbacked:
 		velocity = input * SPEED * delta

@@ -100,7 +100,6 @@ func _physics_process(delta):
 	else:
 		interact_node.hide()
 		prompt.text = ""
-		
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

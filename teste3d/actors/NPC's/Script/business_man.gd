@@ -127,6 +127,8 @@ func player_interact() -> void:
 		if npcs.npc_name == "BusinessMan":
 			drop_npc_slot_data_by_name("Apple")
 			SaveLoad.save_game()
+			Globals.next_scene = "res://scenes/world.tscn"
+			get_tree().change_scene_to_packed(Globals.loading_screen)
 	pass
 # Função que checa os itens do NPC
 func check_npc_items() -> Array:

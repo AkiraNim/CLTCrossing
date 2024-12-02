@@ -5,6 +5,8 @@ extends Node3D
 @onready var move_tilt_path : String = "parameters/StateMachine/Move/tilt/add_amount"
 
 var run_tilt = 0.0 : set = _set_run_tilt
+var rng = RandomNumberGenerator.new()
+var rng_number: int
 
 @export var blink = true : set = set_blink
 @onready var blink_timer = %BlinkTimer
@@ -16,12 +18,13 @@ func _ready():
 		eye_mat.set("uv1_offset", Vector3(0.0, 0.5, 0.0))
 		closed_eyes_timer.start(0.2)
 		)
-		
+	
 	closed_eyes_timer.connect("timeout", func():
 		eye_mat.set("uv1_offset", Vector3.ZERO)
 		blink_timer.start(randf_range(1.0, 4.0))
 		)
-
+	rng.randomize()
+	
 func set_blink(state : bool):
 	if blink == state: return
 	blink = state
@@ -52,3 +55,18 @@ func edge_grab():
 
 func wall_slide():
 	state_machine.travel("WallSlide")
+
+func _on_button_pressed() -> void:
+	rng_number = rng.randi_range(0,5)
+	if rng_number == 0:
+		idle()
+	elif rng_number == 1:
+		move()
+	elif rng_number == 2:
+		fall()
+	elif rng_number == 3:
+		jump()
+	elif rng_number == 4:
+		edge_grab()
+	elif rng_number == 5:
+		wall_slide()

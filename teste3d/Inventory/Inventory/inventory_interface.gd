@@ -28,7 +28,6 @@ var timer = Timer.new()
 @onready var inventory_interface: Control = $"."
 @onready var money_label: Label = $PlayerInventory/MoneyLabel
 @onready var pop_up: Control = $"../PopUp"
-@onready var label_pop_up: Label = $"../PopUp/LabelPopUp"
 @onready var mission_rich_label: RichTextLabel = $PlayerInventory/MissionRichLabel
 
 
@@ -71,8 +70,6 @@ func _physics_process(delta: float) -> void:
 			missions_string += "\n\n"
 	mission_rich_label.text = missions_string
 
-func _timer_pop_up():
-	pop_up.close_popUp()
 # Define os dados do inventário do jogador e conecta a interação do inventário
 func set_player_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)  # Conecta o sinal de interação do inventário
@@ -165,14 +162,7 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 						# Jogador ganha dinheiro ao vender o item
 						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
 						PlayerManager.player.add_money(price)
-						label_pop_up.text = "Item %s vendido.\n+R$%.2f\n-%d" % [grabbed_slot_data.item_data.name, price, grabbed_slot_data.quantity]
-						pop_up.show()
-						pop_up.open_popUp()
-						timer.wait_time = 2.0
-						timer.one_shot = true
-						add_child(timer)
-						timer.start()
-						timer.connect("timeout", Callable(self, "_timer_pop_up"))
+						pop_up.set_popup_text("Item %s vendido.\n+R$%.2f\n-%d" % [grabbed_slot_data.item_data.name, price, grabbed_slot_data.quantity], 2.0)
 					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 				else:
 					# Colocando item no inventário do jogador (compra)
@@ -180,14 +170,7 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 						# Jogador perde dinheiro ao comprar o item
 						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
 						PlayerManager.player.add_money(-price)
-						label_pop_up.text = "Item %s comprado.\n-R$%.2f\n+%d" % [grabbed_slot_data.item_data.name, price, grabbed_slot_data.quantity]
-						pop_up.show()
-						pop_up.open_popUp()
-						timer.wait_time = 2.0
-						timer.one_shot = true
-						add_child(timer)
-						timer.start()
-						timer.connect("timeout", Callable(self, "_timer_pop_up"))
+						pop_up.set_popup_text("Item %s comprado.\n-R$%.2f\n+%d" % [grabbed_slot_data.item_data.name, price, grabbed_slot_data.quantity], 2.0)
 					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 		
 		[null, MOUSE_BUTTON_RIGHT]:
@@ -209,28 +192,14 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 					if ! grabbed_from_external:
 						var price: float = grabbed_slot_data.item_data.price
 						PlayerManager.player.add_money(price)
-						label_pop_up.text = "Item %s vendido.\n+R$%.2f\n-%d" % [grabbed_slot_data.item_data.name, price, 1]
-						pop_up.show()
-						pop_up.open_popUp()
-						timer.wait_time = 2.0
-						timer.one_shot = true
-						add_child(timer)
-						timer.start()
-						timer.connect("timeout", Callable(self, "_timer_pop_up"))
+						pop_up.set_popup_text("Item %s vendido.\n+R$%.2f\n-%d" % [grabbed_slot_data.item_data.name, price, 1], 2.0)
 					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
 				else:
 					# Solta um único item no inventário do jogador (compra)
 					if grabbed_from_external:
 						var price: float = grabbed_slot_data.item_data.price
 						PlayerManager.player.add_money(-price)
-						label_pop_up.text = "Item %s comprado.\n-R$%.2f\n+%d" % [grabbed_slot_data.item_data.name, price, 1]
-						pop_up.show()
-						pop_up.open_popUp()
-						timer.wait_time = 2.0
-						timer.one_shot = true
-						add_child(timer)
-						timer.start()
-						timer.connect("timeout", Callable(self, "_timer_pop_up"))
+						pop_up.set_popup_text("Item %s comprado.\n-R$%.2f\n+%d" % [grabbed_slot_data.item_data.name, price, 1], 2.0)
 					grabbed_slot_data = inventory_data.drop_single_slot_data(grabbed_slot_data, index)
 	
 	# Atualiza o estado do slot agarrado
@@ -253,27 +222,12 @@ func _on_gui_input(event: InputEvent) -> void:
 				if grabbed_slot_data.item_data.droppable:
 					# Solta o item agarrado
 					drop_slot_data.emit(grabbed_slot_data)
-					label_pop_up.text = "Item %s dropado.\n-%d" % [grabbed_slot_data.item_data.name, grabbed_slot_data.quantity]
-					pop_up.show()
-					pop_up.open_popUp()
-					timer.wait_time = 2.0
-					timer.one_shot = true
-					add_child(timer)
-					timer.start()
-					timer.connect("timeout", Callable(self, "_timer_pop_up"))
+					pop_up.set_popup_text("Item %s dropado.\n-%d" % [grabbed_slot_data.item_data.name, grabbed_slot_data.quantity], 2.0)
 					grabbed_slot_data = null
 			MOUSE_BUTTON_RIGHT:
 				if grabbed_slot_data.item_data.droppable:
 					# Solta um único item do slot
-					label_pop_up.text = "Item %s dropado.\n-%d" % [grabbed_slot_data.item_data.name, 1]
-					pop_up.show()
-					pop_up.open_popUp()
-					timer.wait_time = 2.0
-					timer.one_shot = true
-					add_child(timer)
-					timer.start()
-					timer.connect("timeout", Callable(self, "_timer_pop_up"))
-					drop_slot_data.emit(grabbed_slot_data.create_single_slot_data())
+					pop_up.set_popup_text("Item %s dropado.\n-%d" % [grabbed_slot_data.item_data.name, 1], 2.0)
 					if grabbed_slot_data.quantity < 1:
 						grabbed_slot_data = null
 		# Atualiza o estado do slot agarrado

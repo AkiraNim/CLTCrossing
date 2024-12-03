@@ -56,14 +56,7 @@ func _ready() -> void:
 	for npcs in NpcManager.npcs:
 		if npcs.npc_name == "Bombeiro1":
 			if MissionManager.create_new_mission(npc_name, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas"):
-				label_pop_up.text = "Nova missão adicionada"
-				pop_up.show()
-				pop_up.open_popUp()
-				timer.wait_time = 2.0
-				timer.one_shot = true
-				add_child(timer)
-				timer.start()
-				timer.connect("timeout", Callable(self, "_timer_pop_up"))
+				pop_up.set_popup_text("Nova missao adicionada", 2.0)
 func _physics_process(delta: float) -> void:
 	play_animation_based_on_emotion(delta)
 
@@ -147,24 +140,12 @@ func drop_item_from_npc(npcId: int, index: int) -> void:
 			if index < npc.inventory_data.slot_datas.size():
 				grabbed_slot_data = npc.inventory_data.slot_datas[index]
 				if grabbed_slot_data:
-					print("Item ", npc.inventory_data.get_slot_data_name(index), " foi droppado pelo NPC!")
 					npc.inventory_data.slot_datas[index] = null
 					npc.inventory_data.inventory_updated.emit(npc.inventory_data)
 	
 	if grabbed_slot_data:
-		label_pop_up.text = "Item %s recebido do npc.\n+%d" % [grabbed_slot_data.item_data.name, grabbed_slot_data.quantity]
-		pop_up.show()
-		pop_up.open_popUp()
-		timer.wait_time = 2.0
-		timer.one_shot = true
-		add_child(timer)
-		timer.start()
-		timer.connect("timeout", Callable(self, "_timer_pop_up"))
+		pop_up.set_popup_text("Item %s recebido do npc.\n+%d" % [grabbed_slot_data.item_data.name, grabbed_slot_data.quantity], 2.0)
 		PlayerManager.player.inventory_data.pick_up_slot_data(grabbed_slot_data)
-
-func _timer_pop_up():
-	pop_up.close_popUp()
-
 func drop_all_npc_slot_data() -> void:
 	for npc in NpcManager.npcs:
 		if npc.npcId == npcId:

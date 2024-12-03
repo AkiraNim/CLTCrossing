@@ -57,7 +57,7 @@ func wall_slide():
 	state_machine.travel("WallSlide")
 
 func _on_button_pressed() -> void:
-	rng_number = rng.randi_range(0,5)
+	rng_number = rng.randi_range(0,4)
 	if rng_number == 0:
 		idle()
 	elif rng_number == 1:
@@ -66,7 +66,3 @@ func _on_button_pressed() -> void:
 		fall()
 	elif rng_number == 3:
 		jump()
-	elif rng_number == 4:
-		edge_grab()
-	elif rng_number == 5:
-		wall_slide()

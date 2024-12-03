@@ -1,6 +1,19 @@
 [gd_scene load_steps=19 format=4 uid="uid://dwyoex0cqoiom"]
 
-[ext_resource type="Script" path="res://Scripts/pop_up.gd" id="1_x1ivn"]
+[sub_resource type="GDScript" id="GDScript_cg71b"]
+script/source = "extends Control
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+func pop_up_invisible()->void:
+	animation_player.play(\"pop_up_invisible\")
+func open_popUp()->void:
+	animation_player.play(\"popUp\")
+func close_popUp()->void:
+	animation_player.play_backwards(\"popUp\")
+
+func set_popup_text(text: String, duration: float):
+	pass
+"
 
 [sub_resource type="Image" id="Image_ediro"]
 data = {
@@ -923,7 +936,7 @@ offset_bottom = -134.0
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_x1ivn")
+script = SubResource("GDScript_cg71b")
 
 [node name="LabelPopUp" type="Label" parent="."]
 layout_mode = 1

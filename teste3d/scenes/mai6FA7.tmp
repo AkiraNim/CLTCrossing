@@ -1676,9 +1676,9 @@ visible = false
 
 [node name="MissionRichLabel" type="RichTextLabel" parent="Ui/InventoryInterface/PlayerInventory"]
 offset_left = 23.0
-offset_top = 99.0
+offset_top = 330.0
 offset_right = 373.0
-offset_bottom = 349.0
+offset_bottom = 580.0
 size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -1724,9 +1724,9 @@ vertical_alignment = 1
 
 [node name="MissionLabel" type="Label" parent="Ui/InventoryInterface/PlayerInventory"]
 offset_left = 100.0
-offset_top = 63.0
+offset_top = 295.0
 offset_right = 277.0
-offset_bottom = 86.0
+offset_bottom = 318.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = SubResource("FontFile_f5crx")
@@ -1827,7 +1827,7 @@ visible = false
 curve = SubResource("Curve3D_j677g")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Npcs/FireFighterPath"]
-transform = Transform3D(0.855132, -1.24321e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05072e-05, 0.855132, -5.90387, 0, -10.0074)
+transform = Transform3D(0.855132, -1.2432e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05072e-05, 0.855132, -5.90387, 0, -10.0074)
 rotation_mode = 4
 use_model_front = true
 

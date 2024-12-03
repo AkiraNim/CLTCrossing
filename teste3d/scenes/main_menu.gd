@@ -10,3 +10,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+
+
+func _on_btn_jogar_pressed() -> void:
+	print("ok")
+
+
+func _on_btn_interacao_pressed() -> void:
+	print("ok")

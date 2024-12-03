@@ -56,7 +56,7 @@ func edge_grab():
 func wall_slide():
 	state_machine.travel("WallSlide")
 
-func _on_button_pressed() -> void:
+func _on_interacao_pressed() -> void:
 	rng_number = rng.randi_range(0,4)
 	if rng_number == 0:
 		idle()

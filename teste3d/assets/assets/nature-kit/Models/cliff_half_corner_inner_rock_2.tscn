@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://6kvjmjrjblxu"]
+
+[ext_resource type="PackedScene" uid="uid://iyjojs7xvxva" path="res://nature-kit/Models/cliff_halfCornerInner_rock.glb" id="1_8y86x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mpodl"]
+size = Vector3(1, 4.06403, 1)
+
+[node name="cliff_halfCornerInner_rock2" instance=ExtResource("1_8y86x")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tmpParent/cliff_halfCornerInner_rock" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tmpParent/cliff_halfCornerInner_rock/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.01987, 0)
+shape = SubResource("BoxShape3D_mpodl")

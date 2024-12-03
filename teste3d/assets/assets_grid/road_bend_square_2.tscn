@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtour1hryxrmc"]
+
+[ext_resource type="PackedScene" uid="uid://cf2q035o0obo4" path="res://assets/assets/city-kit-roads/Models/road_bendSquare.glb" id="1_e7de1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wo7fa"]
+size = Vector3(1, 0.02, 1)
+
+[node name="road_bendSquare2" instance=ExtResource("1_e7de1")]
+
+[node name="road_bendSquare" parent="tmpParent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tmpParent/road_bendSquare" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tmpParent/road_bendSquare/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00959778, 0)
+shape = SubResource("BoxShape3D_wo7fa")

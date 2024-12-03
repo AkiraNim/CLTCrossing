@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://hcngws7lsh6p"]
+
+[ext_resource type="PackedScene" uid="uid://dpr3qgcpjdt76" path="res://assets/assets/city-kit-roads/Models/road_intersection.glb" id="1_waka3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5jsh7"]
+size = Vector3(1, 0.02, 1)
+
+[node name="road_intersection2" instance=ExtResource("1_waka3")]
+
+[node name="road_intersection" parent="tmpParent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tmpParent/road_intersection" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tmpParent/road_intersection/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+shape = SubResource("BoxShape3D_5jsh7")

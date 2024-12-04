@@ -227,6 +227,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			MOUSE_BUTTON_RIGHT:
 				if grabbed_slot_data.item_data.droppable:
 					# Solta um único item do slot
+					drop_slot_data.emit(grabbed_slot_data.create_single_slot_data())
 					pop_up.set_popup_text("Item %s dropado.\n-%d" % [grabbed_slot_data.item_data.name, 1], 2.0)
 					if grabbed_slot_data.quantity < 1:
 						grabbed_slot_data = null

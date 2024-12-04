@@ -3,14 +3,12 @@ extends Node
 
 func save_game():
 	var saved_game:SavedGame = SavedGame.new()
-	
 	saved_game.player_position = PlayerManager.get_global_position()
 	saved_game.inventory = PlayerManager.player.inventory_data
 	saved_game.equip_inventory = PlayerManager.player.equip_inventory_data
 	saved_game.money = PlayerManager.player.money
 	saved_game.missions_complete = PlayerManager.player.missions_complete
 	ResourceSaver.save(saved_game, "user://savegame.tres")
-	
 func load_game():
 	if FileAccess.file_exists("user://savegame.tres"):
 		var saved_game: SavedGame = load("user://savegame.tres") as SavedGame
@@ -39,4 +37,3 @@ func load_inventory():
 				PlayerManager.player.missions_complete = saved_game.missions_complete
 		else:
 			save_game()
-	

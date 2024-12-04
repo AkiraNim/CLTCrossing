@@ -11,16 +11,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-
-
-
 func _on_btn_jogar_pressed() -> void:
-	print("ok")
-
-
-func _on_btn_interacao_pressed() -> void:
-	pass
-
+	Globals.next_scene = "res://scenes/mapa.tscn"
+	get_tree().change_scene_to_packed(Globals.loading_screen)
+	#SaveLoad.load_game()
 
 func _on_btn_sair_pressed() -> void:
 	get_tree().quit()

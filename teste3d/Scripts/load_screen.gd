@@ -1,7 +1,7 @@
 extends Control
 
 var progress = []
-var scene_name = "res://scenes/world.tscn"
+var scene_name = Globals.next_scene
 @export var scene_name_string:String 
 var scene_load_status = 0
 # Called when the node enters the scene tree for the first time.

@@ -9,7 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 
@@ -20,3 +20,11 @@ func _on_btn_jogar_pressed() -> void:
 
 func _on_btn_interacao_pressed() -> void:
 	pass
+
+
+func _on_btn_sair_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_btn_creditos_pressed() -> void:
+	credits.show()

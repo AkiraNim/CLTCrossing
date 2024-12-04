@@ -182,3 +182,5 @@ text = "Sair"
 
 [connection signal="pressed" from="Interacao" to="Character/SubViewport/SophiaSkin" method="_on_interacao_pressed"]
 [connection signal="pressed" from="VBoxContainer/btnJogar" to="." method="_on_btn_jogar_pressed"]
+[connection signal="pressed" from="VBoxContainer/btnCreditos" to="." method="_on_btn_creditos_pressed"]
+[connection signal="pressed" from="VBoxContainer/btnSair" to="." method="_on_btn_sair_pressed"]

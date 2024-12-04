@@ -22,7 +22,7 @@ func _ready() -> void:
 	# Conecta a função de alternância para todos os inventários externos no grupo "external_inventory"
 	for node in get_tree().get_nodes_in_group("external_inventory"):
 		node.toggle_inventory.connect(toggle_inventory_interface)
-
+	SaveLoad.load_game()
 # Função que alterna a visibilidade da interface do inventário
 
 func toggle_inventory_interface(external_inventory_owner = null) -> void:

@@ -19,4 +19,4 @@ func _on_btn_jogar_pressed() -> void:
 
 
 func _on_btn_interacao_pressed() -> void:
-	print("ok")
+	pass

@@ -1,7 +1,7 @@
 [gd_scene load_steps=67 format=4 uid="uid://bv4srx5hiwdgk"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
-[ext_resource type="PackedScene" path="res://player.tscn" id="2_851es"]
+[ext_resource type="PackedScene" uid="uid://ww653mkc3o88" path="res://player.tscn" id="2_851es"]
 [ext_resource type="Script" path="res://Inventory/Inventory/inventory_data.gd" id="3_cs1x2"]
 [ext_resource type="Script" path="res://Inventory/Inventory/slot_data.gd" id="4_nafn1"]
 [ext_resource type="Script" path="res://Inventory/Inventory/inventory_data_equip.gd" id="5_xkuvt"]
@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://assets/Formas/Menu/pause_menu.tscn" id="15_00xag"]
 [ext_resource type="PackedScene" uid="uid://ds4sbgxxyc1kt" path="res://Inventory/inventory_description.tscn" id="15_qcpu8"]
 [ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://actors/models/sophia/sophia_skin.tscn" id="16_ayafe"]
-[ext_resource type="PackedScene" path="res://Inventory/pop_up.tscn" id="18_3l840"]
+[ext_resource type="PackedScene" uid="uid://buy0hnpkrdqyw" path="res://Inventory/pop_up.tscn" id="18_3l840"]
 [ext_resource type="PackedScene" uid="uid://c53dclo0i7vm3" path="res://actors/NPC's/NPCS tscn/fire_fighter.tscn" id="19_d28hn"]
 [ext_resource type="Script" path="res://actors/NPC's/Script/fire_fighter.gd" id="20_1lony"]
 [ext_resource type="Resource" uid="uid://bi8g0lavua2no" path="res://Inventory/Item/Items/iron_helm.tres" id="21_2x74b"]

@@ -9,10 +9,10 @@ func save_game():
 	saved_game.equip_inventory = PlayerManager.player.equip_inventory_data
 	saved_game.money = PlayerManager.player.money
 	saved_game.missions_complete = PlayerManager.player.missions_complete
-	ResourceSaver.save(saved_game, "user://savegame.tres")
+	ResourceSaver.save(saved_game, "user://savegames.tres")
 	
 func load_game():
-	if FileAccess.file_exists("user://savegame.tres"):
+	if FileAccess.file_exists("user://savegames.tres"):
 		var saved_game: SavedGame = load("user://savegame.tres") as SavedGame
 		if saved_game:
 			PlayerManager.player.global_position = saved_game.player_position
@@ -24,3 +24,5 @@ func load_game():
 				PlayerManager.player.inventory_data.inventory_updated.emit(PlayerManager.player.inventory_data)
 				PlayerManager.player.equip_inventory_data.inventory_updated.emit(PlayerManager.player.equip_inventory_data)
 				PlayerManager.player.missions_complete = saved_game.missions_complete
+		else:
+			save_game()

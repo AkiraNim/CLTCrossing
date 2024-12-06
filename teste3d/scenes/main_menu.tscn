@@ -1,22 +1,31 @@
-[gd_scene load_steps=17 format=3 uid="uid://cwtagae14vq5y"]
+[gd_scene load_steps=21 format=3 uid="uid://cwtagae14vq5y"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_b7mht"]
 [ext_resource type="Texture2D" uid="uid://bdd43yc7lc5wb" path="res://assets/MainMenu/cltCrossing.png" id="1_i5jbs"]
 [ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://actors/models/sophia/sophia_skin.tscn" id="1_l3jwp"]
 [ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://assets/Fonts/prstart.ttf" id="1_ug4lg"]
+[ext_resource type="Shader" path="res://assets/shaders/pixelart.gdshader" id="3_chnun"]
 [ext_resource type="PackedScene" uid="uid://d0xdck6r5nd18" path="res://assets/MainMenu/credits.tscn" id="5_dq443"]
 [ext_resource type="Texture2D" uid="uid://ckukhwxmi4h20" path="res://assets/Texturas/anime_skybox.jpg" id="6_nkuyu"]
 [ext_resource type="PackedScene" uid="uid://b0uk80rfx2vb3" path="res://scenes/mapa.tscn" id="7_15tsw"]
+[ext_resource type="PackedScene" uid="uid://40nk34m1jr3e" path="res://assets/MainMenu/controls.tscn" id="8_r32lb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4h5et"]
 panorama = ExtResource("6_nkuyu")
 
-[sub_resource type="Sky" id="Sky_18hjb"]
+[sub_resource type="Sky" id="Sky_n8e42"]
 sky_material = SubResource("PanoramaSkyMaterial_4h5et")
 
 [sub_resource type="Environment" id="Environment_qypbh"]
 background_mode = 2
-sky = SubResource("Sky_18hjb")
+sky = SubResource("Sky_n8e42")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bakio"]
+render_priority = 0
+shader = ExtResource("3_chnun")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rm1pt"]
+material = SubResource("ShaderMaterial_bakio")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4rh7"]
 bg_color = Color(0.129412, 0, 0, 0.686275)
@@ -45,10 +54,13 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6y3pj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="CanvasLayer" type="Node2D"]
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_b7mht")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -66,18 +78,26 @@ render_target_update_mode = 4
 environment = SubResource("Environment_qypbh")
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 0.790091, 0.61299, 0, -0.61299, 0.790091, 0, 5.08075, 1.68603)
+transform = Transform3D(1, 0, 0, 0, 0.790091, 0.61299, 0, -0.61299, 0.790091, 0, 5.08075, 24.8492)
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(30, 0, 0, 0, 15, -25.9808, 0, 25.9808, 15, 0, 15.3, -9.87307)
+mesh = SubResource("PlaneMesh_rm1pt")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
 
 [node name="Main" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_15tsw")]
 process_mode = 4
-process_priority = -1
 
 [node name="Credits" parent="." instance=ExtResource("5_dq443")]
 visible = false
 
+[node name="Controls" parent="." instance=ExtResource("8_r32lb")]
+visible = false
+
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -93,6 +113,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_i5jbs")
 
 [node name="Character" type="SubViewportContainer" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -123,6 +144,7 @@ transform = Transform3D(1, 0, 0, 0, 0.997883, -0.0650371, 0, 0.0650371, 0.997883
 [node name="SophiaSkin" parent="Character/SubViewport" instance=ExtResource("1_l3jwp")]
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
 offset_left = 30.0
 offset_top = 430.0
 offset_right = 520.0
@@ -130,6 +152,7 @@ offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_o4rh7")
 
 [node name="Interacao" type="Button" parent="."]
+layout_mode = 0
 offset_left = 898.0
 offset_top = 177.0
 offset_right = 1148.0
@@ -142,6 +165,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_6y3pj")
 button_mask = 7
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -182,5 +206,6 @@ text = "Sair"
 
 [connection signal="pressed" from="Interacao" to="Character/SubViewport/SophiaSkin" method="_on_interacao_pressed"]
 [connection signal="pressed" from="VBoxContainer/btnJogar" to="." method="_on_btn_jogar_pressed"]
+[connection signal="pressed" from="VBoxContainer/btnControles" to="." method="_on_btn_controles_pressed"]
 [connection signal="pressed" from="VBoxContainer/btnCreditos" to="." method="_on_btn_creditos_pressed"]
 [connection signal="pressed" from="VBoxContainer/btnSair" to="." method="_on_btn_sair_pressed"]

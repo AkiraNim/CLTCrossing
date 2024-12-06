@@ -17,7 +17,6 @@ var missions_complete:= []
 
 
 signal toggle_inventory()
-
 @onready var animation_player: AnimationPlayer = $visuals/sophia/AnimationPlayer
 @onready var visuals: Node3D = $visuals
 @onready var camera_point = $camera_point
@@ -37,8 +36,7 @@ func _ready():
 	animation_player.set_blend_time("Run", "Idle", 0.2)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 func _physics_process(delta):
-	#if PickDrop.pick_up:
-		
+	
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:

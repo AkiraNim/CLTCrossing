@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=4 uid="uid://dvgt8eok8f657"]
+
+[ext_resource type="Texture2D" uid="uid://cpluqtdp3dup5" path="res://assets/SimpleOfficeInteriors/MousePad_SimpleOffice_Texture.png" id="1_xmjt0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uw7vo"]
+resource_name = "lambert1.098"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("1_xmjt0")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fqi5y"]
+_surfaces = [{
+"aabb": AABB(-0.298883, -0.298883, -0.103523, 0.597766, 0.597766, 0.103523),
+"format": 34359742465,
+"index_count": 120,
+"index_data": PackedByteArray("AgABAAAAAQAIAAMACgABAAIAAQAKAAgADAALAA0ADAAEAAsABgALAAQACQAHAAUABgAJAAsACQAGAAcABgABAAcABgAAAAEAAQAFAAcAAQADAAUABAAAAAYAAAAOAAIADAAAAAQAAAAMAA4ACQADAAgACQAFAAMACQANAAsADwAIAAoACQAPAA0ADwAJAAgADgANAA8ADgAMAA0AAgAPAAoAAgAOAA8AEAATABEAEAASABMAEgAVABMAEgAUABUAFAAXABUAFAAWABcAFgARABcAFgAQABEAEQAVABcAEQATABUAFgASABAAFgAUABIA"),
+"name": "lambert1.098",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("TgTPvYBWkb1ATOS8UATPvQDdCT5ATOS8TgTPvYBWkb3AA9S9UATPvQDdCT7AA9S9wKQ0PYBWkb3AA9S9wKQ0PQDdCT7AA9S9wKQ0PYBWkb1ATOS8wKQ0PQDdCT5ATOS8TgTPvQC0ODzAA9S9wKQ0PQC0ODzAA9S9TgTPvQDaRzvAA9S9wKQ0PQDaRzvAA9S9wFHIvIBWkb3AA9S9uFHIvADaRzvAA9S9YCQGvYBWkb3AA9S9XCQGvQDaRzvAA9S9LAeZvioHmb4AAACALAeZvigHmT4AAACALAeZvioHmb5ATOS8LAeZvigHmT5ATOS8LAeZPigHmb5ATOS8LAeZPigHmT5ATOS8LAeZPigHmb4AAACALAeZPigHmT4AAACA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5jayt"]
+resource_name = "MousePad_Mesh_102"
+_surfaces = [{
+"aabb": AABB(-0.298883, -0.298883, -0.103523, 0.597766, 0.597766, 0.103523),
+"attribute_data": PackedByteArray("QqVqPnrGBT+LQJU+esYFP5OwiD56xgU/QKVqPnrGBT+JQJU+esYFP5KwiD56xgU/f4amPnrGBT+LQJU+esYFP5OwiD56xgU/fYamPnrGBT+JQJU+esYFP5KwiD56xgU/f4amPnrGBT+JQJU+esYFP5OwiD56xgU/fYamPnrGBT+HQJU+esYFP5KwiD56xgU/QqVqPnrGBT+JQJU+esYFP5OwiD56xgU/QKVqPnrGBT+HQJU+esYFP5KwiD56xgU/iZ2HPnnGBT9+hqY+ecYFP5OwiD55xgU/iZ2HPnnGBT9+hqY+ecYFP5OwiD55xgU/iZ2HPnnGBT9+hqY+ecYFP5OwiD55xgU/iZ2HPnnGBT9+hqY+ecYFP5OwiD55xgU/ip2HPnnGBT9/hqY+ecYFP4pAlT55xgU/iZ2HPnnGBT9+hqY+ecYFP4qdhz55xgU/f4amPnnGBT+KQJU+ecYFP4mdhz55xgU/foamPnnGBT9Imi0+JlVwPxx2bT4mVXA/LFZUPiZVcD9Gmi0+JlVwPxh2bT4mVXA/KlZUPiZVcD8CAYg+JlVwPxx2bT4mVXA/LFZUPiZVcD8AAYg+JlVwPxh2bT4mVXA/KlZUPiZVcD8CAYg+JlVwPxh2bT4mVXA/LFZUPiZVcD8AAYg+JlVwPxR2bT4mVXA/KlZUPiZVcD9Imi0+JlVwPxh2bT4mVXA/LFZUPiZVcD9Gmi0+JlVwPxR2bT4mVXA/KlZUPiZVcD8="),
+"format": 34359742487,
+"index_count": 120,
+"index_data": PackedByteArray("CAAFAAIABQAaAAsAIAAFAAgABQAgABoAJQAiACgAJQAMACIAFAAjAA4AHQAXABEAFAAdACMAHQAUABcAEgADABUAEgAAAAMABAAQABYABAAKABAADQABABMAAQArAAcAJgABAA0AAQAmACsAHAAJABkAHAAPAAkAGwAnACEALAAYAB4AGwAsACcALAAbABgAKQAnACwAKQAkACcABgAtAB8ABgAqAC0AMAA5ADMAMAA2ADkANAA9ADcANAA6AD0APABFAD8APABCAEUAQAAxAEMAQAAuADEAMgA+AEQAMgA4AD4AQQA1AC8AQQA7ADUA"),
+"material": SubResource("StandardMaterial3D_uw7vo"),
+"name": "lambert1.098",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 70,
+"vertex_data": PackedByteArray("TgTPvYBWkb1ATOS8TgTPvYBWkb1ATOS8TgTPvYBWkb1ATOS8UATPvQDdCT5ATOS8UATPvQDdCT5ATOS8UATPvQDdCT5ATOS8TgTPvYBWkb3AA9S9TgTPvYBWkb3AA9S9TgTPvYBWkb3AA9S9UATPvQDdCT7AA9S9UATPvQDdCT7AA9S9UATPvQDdCT7AA9S9wKQ0PYBWkb3AA9S9wKQ0PYBWkb3AA9S9wKQ0PYBWkb3AA9S9wKQ0PQDdCT7AA9S9wKQ0PQDdCT7AA9S9wKQ0PQDdCT7AA9S9wKQ0PYBWkb1ATOS8wKQ0PYBWkb1ATOS8wKQ0PYBWkb1ATOS8wKQ0PQDdCT5ATOS8wKQ0PQDdCT5ATOS8wKQ0PQDdCT5ATOS8TgTPvQC0ODzAA9S9TgTPvQC0ODzAA9S9TgTPvQC0ODzAA9S9wKQ0PQC0ODzAA9S9wKQ0PQC0ODzAA9S9wKQ0PQC0ODzAA9S9TgTPvQDaRzvAA9S9TgTPvQDaRzvAA9S9TgTPvQDaRzvAA9S9wKQ0PQDaRzvAA9S9wKQ0PQDaRzvAA9S9wKQ0PQDaRzvAA9S9wFHIvIBWkb3AA9S9wFHIvIBWkb3AA9S9wFHIvIBWkb3AA9S9uFHIvADaRzvAA9S9uFHIvADaRzvAA9S9YCQGvYBWkb3AA9S9YCQGvYBWkb3AA9S9YCQGvYBWkb3AA9S9XCQGvQDaRzvAA9S9XCQGvQDaRzvAA9S9LAeZvioHmb4AAACALAeZvioHmb4AAACALAeZvioHmb4AAACALAeZvigHmT4AAACALAeZvigHmT4AAACALAeZvigHmT4AAACALAeZvioHmb5ATOS8LAeZvioHmb5ATOS8LAeZvioHmb5ATOS8LAeZvigHmT5ATOS8LAeZvigHmT5ATOS8LAeZvigHmT5ATOS8LAeZPigHmb5ATOS8LAeZPigHmb5ATOS8LAeZPigHmb5ATOS8LAeZPigHmT5ATOS8LAeZPigHmT5ATOS8LAeZPigHmT5ATOS8LAeZPigHmb4AAACALAeZPigHmb4AAACALAeZPigHmb4AAACALAeZPigHmT4AAACALAeZPigHmT4AAACALAeZPigHmT4AAACA/3//f////z//fwAA2Sv/vwAA/3////+//3//f////z//f///////vwAA/39tov5///////9//n//fwAA////vwAA/39tov5//////////7//f///////vwAA/3////+//////3NCxZ7/fwAA2Sv/v////3////+//////////7//f///////v////3////+//3//f////z//fwAA////v////3//fwCA/3//f////z//f///////v////3//fwCA/////////7//////////vwAA/3////+//////////7//////////v////3//fwCA/////////7//////////vwAA/39tov5//////////7//////c0LFnv///3////+//////////7//////c0LFnv9/AADZK/+//////////7//////////v/////////+///////9//n//fwAA////v/////////+///////9//n//f/9/////P/9/AAD///+/AAD/f////7//f/9/////P/9///////+/AAD/f////7//////////v/9/AAD///+/AAD/f////7//////////v/9///////+/AAD/f////7//////////v/9/AAD///+/////f////7//////////v/9///////+/////f////7//f/9/////P/9/AAD///+/////f////7//f/9/////P/9///////+/////f////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fqi5y")
+
+[node name="MousePad" type="Node3D"]
+
+[node name="SO_Mousepad_01" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("ArrayMesh_5jayt")
+skeleton = NodePath("")

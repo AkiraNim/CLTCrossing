@@ -1,0 +1,62 @@
+[gd_scene load_steps=16 format=3 uid="uid://yvtlpql8sqop"]
+
+[ext_resource type="PackedScene" uid="uid://dv7iwhg7msbrw" path="res://assets/SimpleBuildings/Models/burguer_shop.tscn" id="1_ggfd7"]
+[ext_resource type="PackedScene" uid="uid://cww5vkoym3g3t" path="res://assets/SimpleBuildings/Models/donut_shop.tscn" id="2_x822w"]
+[ext_resource type="PackedScene" uid="uid://bbmlsxggv5d6u" path="res://assets/SimpleBuildings/Models/factory_1.tscn" id="3_l5lhc"]
+[ext_resource type="PackedScene" uid="uid://q5tnjsa8kq8v" path="res://assets/SimpleBuildings/Models/factory_2.tscn" id="4_gqksh"]
+[ext_resource type="PackedScene" uid="uid://fwyqpm0d1b8q" path="res://assets/SimpleBuildings/Models/factory_3.tscn" id="5_nsixm"]
+[ext_resource type="PackedScene" uid="uid://bdhfenncye67t" path="res://assets/SimpleBuildings/Models/factory_big_1.tscn" id="6_cvm4k"]
+[ext_resource type="PackedScene" uid="uid://cl4gpy7snisw1" path="res://assets/SimpleBuildings/Models/factory_big_2.tscn" id="7_t137a"]
+[ext_resource type="PackedScene" uid="uid://bby4n1adval1v" path="res://assets/SimpleBuildings/Models/fire_station.tscn" id="8_8glgb"]
+[ext_resource type="PackedScene" uid="uid://bvu0wjp71nlqc" path="res://assets/SimpleBuildings/Models/gas_station_1.tscn" id="9_jto6a"]
+[ext_resource type="PackedScene" uid="uid://vv73nmvhypsu" path="res://assets/SimpleBuildings/Models/gas_station_2.tscn" id="10_buawu"]
+[ext_resource type="PackedScene" uid="uid://dav3hloyy2wb1" path="res://assets/SimpleBuildings/Models/ice_cream_shop.tscn" id="11_ktunb"]
+[ext_resource type="PackedScene" uid="uid://cwniarnce4fgu" path="res://assets/SimpleBuildings/Models/police_station.tscn" id="12_1437t"]
+[ext_resource type="PackedScene" uid="uid://dl376dq8wt4uw" path="res://assets/SimpleBuildings/Models/shop_house_3.tscn" id="13_1f3fw"]
+[ext_resource type="PackedScene" uid="uid://bk2ovbjwb0qyo" path="res://assets/SimpleBuildings/Models/shop_house_2.tscn" id="14_eu65f"]
+[ext_resource type="PackedScene" uid="uid://cbi0hqgebmhu8" path="res://assets/SimpleBuildings/Models/shop_house_1.tscn" id="15_uy6q3"]
+
+[node name="Constructions" type="Node3D"]
+
+[node name="BurguerShop" parent="." instance=ExtResource("1_ggfd7")]
+
+[node name="DonutShop" parent="." instance=ExtResource("2_x822w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.518824)
+
+[node name="Factory1" parent="." instance=ExtResource("3_l5lhc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.786754)
+
+[node name="Factory2" parent="." instance=ExtResource("4_gqksh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.973325)
+
+[node name="Factory3" parent="." instance=ExtResource("5_nsixm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.16902)
+
+[node name="FactoryBig1" parent="." instance=ExtResource("6_cvm4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.41711)
+
+[node name="FactoryBig2" parent="." instance=ExtResource("7_t137a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.7038)
+
+[node name="FireStation" parent="." instance=ExtResource("8_8glgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.00662)
+
+[node name="GasStation1" parent="." instance=ExtResource("9_jto6a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.30085)
+
+[node name="GasStation2" parent="." instance=ExtResource("10_buawu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.8167)
+
+[node name="IceCreamShop" parent="." instance=ExtResource("11_ktunb")]
+
+[node name="PoliceStation" parent="." instance=ExtResource("12_1437t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.29032)
+
+[node name="ShopHouse3" parent="." instance=ExtResource("13_1f3fw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.84162)
+
+[node name="ShopHouse2" parent="." instance=ExtResource("14_eu65f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.6558)
+
+[node name="ShopHouse1" parent="." instance=ExtResource("15_uy6q3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://knfxcsqo437e"]
+
+[ext_resource type="PackedScene" uid="uid://c3ptspj1yi8i0" path="res://assets/estruturas/estruturasScenes/curb.tscn" id="1_ib1b2"]
+[ext_resource type="PackedScene" uid="uid://bp2di3gbp3x3f" path="res://assets/estruturas/estruturasScenes/wooden_fence_straight.tscn" id="1_mf4xb"]
+[ext_resource type="PackedScene" uid="uid://bs7843vhsplc4" path="res://assets/estruturas/estruturasScenes/wooden_fence_corner.tscn" id="2_0aeef"]
+[ext_resource type="PackedScene" uid="uid://bx6dtbv4dknn5" path="res://assets/estruturas/estruturasScenes/floor_asphalt.tscn" id="3_a72qn"]
+[ext_resource type="PackedScene" uid="uid://c46kekk7xw3nq" path="res://assets/estruturas/estruturasScenes/floor_1.tscn" id="5_x2ixh"]
+[ext_resource type="PackedScene" uid="uid://6w38qau81a3s" path="res://assets/estruturas/estruturasScenes/floor_2.tscn" id="6_khoy1"]
+
+[node name="structures" type="Node3D"]
+
+[node name="Curb" parent="." instance=ExtResource("1_ib1b2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 0, 0)
+
+[node name="WoodenFenceCorner" parent="." instance=ExtResource("2_0aeef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22653, 0, 0)
+
+[node name="WoodenFenceStraight" parent="." instance=ExtResource("1_mf4xb")]
+
+[node name="FloorAsphalt" parent="." instance=ExtResource("3_a72qn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 0, 0)
+
+[node name="Floor1" parent="." instance=ExtResource("5_x2ixh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67358, 0, 0)
+
+[node name="Floor2" parent="." instance=ExtResource("6_khoy1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0658, 0, 0)

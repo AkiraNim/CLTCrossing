@@ -1,0 +1,5 @@
+Classe InventoryData é responsável por armazenar os dados do inventário, nela está contida o script:
+
+inventory_data.gd: Este script define a classe InventoryData, que gerencia os dados do inventário, 
+incluindo operações para agarrar, soltar, usar e mesclar slots. Ele emite sinais para atualizar a interface 
+quando ocorrem mudanças no inventário e facilita a interação entre os slots e os dados de item.

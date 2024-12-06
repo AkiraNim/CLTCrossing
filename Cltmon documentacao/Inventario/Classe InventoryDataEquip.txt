@@ -1,0 +1,7 @@
+Classe InventoryDataEquip especifica itens equipáveis no inventário nela está contido o script:
+
+inventory_data_equip.gd: Este script define a classe InventoryDataEquip, que especializa a funcionalidade 
+de um inventário para lidar com itens do tipo ItemDataEquip. As funções drop_slot_data e drop_single_slot_data 
+garantem que somente itens equipáveis possam ser soltos no inventário, retornando os dados do slot agarrado sem 
+alterações se não forem do tipo esperado. Isso ajuda a manter a lógica de interação consistente e relevante para o 
+contexto de equipamentos.

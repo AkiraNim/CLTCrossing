@@ -1,0 +1,6 @@
+Classe ItemDataEquip é responsavel por efetivamente atribuir um atributo especifico aositens equipaveis 
+do inventario, nela está contida o script:
+
+item_data_equip.gd: Este script define uma classe chamada ItemDataEquip que herda de ItemData, e adiciona um 
+atributo específico para equipamentos, que é o valor de defesa (defence). A anotação @export permite que o valor 
+possa ser ajustado diretamente no editor do Godot.

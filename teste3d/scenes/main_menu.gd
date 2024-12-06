@@ -1,0 +1,27 @@
+extends Control
+
+@onready var credits: CanvasLayer = $Credits
+@onready var controls: CanvasLayer = $Controls
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if Input.is_action_just_pressed("inventory"):
+		pass
+			
+	if Input.is_action_just_pressed("interact"):
+		pass
+		
+func _on_btn_jogar_pressed() -> void:
+	Globals.next_scene = "res://scenes/mapa.tscn"
+	get_tree().change_scene_to_packed(Globals.loading_screen)
+
+func _on_btn_sair_pressed() -> void:
+	get_tree().quit()
+
+func _on_btn_creditos_pressed() -> void:
+	credits.show()
+
+
+func _on_btn_controles_pressed() -> void:
+	controls.show()

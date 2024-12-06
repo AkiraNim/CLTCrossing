@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://yi0t84v48eir"]
+
+[ext_resource type="PackedScene" uid="uid://16iu10wxub40" path="res://actors/models/sophia/model/sophia.glb" id="1_tpdst"]
+
+[node name="sophia" instance=ExtResource("1_tpdst")]

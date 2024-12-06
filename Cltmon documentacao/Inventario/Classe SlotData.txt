@@ -1,0 +1,6 @@
+Classe SlotData é responsável por administrar informaçoes presentes na classe Slot, nela está contido o script:
+
+slot_data.gd: Este script define a classe SlotData, que gerencia informações sobre os itens presentes em um slot 
+de inventário, como o tipo de item (item_data), a quantidade (quantity), e se eles podem ser empilhados e 
+mesclados com outros slots. As funções permitem operações como verificação de empilhamento, mesclagem de slots e 
+ajuste de quantidade, com regras específicas para itens que não podem ser empilhados.

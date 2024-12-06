@@ -1,0 +1,6 @@
+Classe ItemDataEquipable é responsável por itens equipaveis no inventario do jogador, nela está contido o script:
+
+item_data_equipable.gd: Este script define a classe ItemDataEquipable, que parece focada em itens que podem 
+ser equipados no personagem, como armaduras ou armas. A variável equip_type especifica o tipo de item que pode ser 
+equipado, e o método can_equip() pode ser ajustado para definir as condições específicas para que um item possa ser 
+equipado.

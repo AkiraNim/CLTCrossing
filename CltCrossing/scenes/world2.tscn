@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://ctb3puo7jqigv"]
+[gd_scene load_steps=43 format=4 uid="uid://ctb3puo7jqigv"]
 
 [ext_resource type="PackedScene" uid="uid://cpc45iqjlvppm" path="res://actors/sophia.tscn" id="1_3oxc4"]
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_b2sbc"]
@@ -19,9 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://assets/Formas/Menu/pause_menu.tscn" id="18_m3eq1"]
 [ext_resource type="PackedScene" uid="uid://c53dclo0i7vm3" path="res://actors/NPC's/NPCS tscn/fire_fighter.tscn" id="18_no38v"]
 [ext_resource type="Script" path="res://actors/NPC's/Script/fire_fighter.gd" id="19_3jpko"]
-[ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="20_km6ri"]
-[ext_resource type="Script" path="res://Inventory/Inventory/inventory_data_equip.gd" id="21_g2716"]
-[ext_resource type="Resource" uid="uid://drtte25c8ktfq" path="res://Inventory/Item/Items/livro_vermelho.tres" id="22_37qrn"]
 [ext_resource type="PackedScene" uid="uid://cwnpdrf1f7sfu" path="res://actors/NPC's/NPCS tscn/business_man.tscn" id="23_pah38"]
 [ext_resource type="PackedScene" uid="uid://ds4sbgxxyc1kt" path="res://Inventory/inventory_description.tscn" id="24_udulr"]
 
@@ -68,20 +65,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
-
-[sub_resource type="Resource" id="Resource_o1vpi"]
-script = ExtResource("3_uvi03")
-item_data = ExtResource("22_37qrn")
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_ypejv"]
-script = ExtResource("3_uvi03")
-item_data = ExtResource("4_2nnf1")
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_afqwo"]
-script = ExtResource("21_g2716")
-slot_datas = Array[ExtResource("3_uvi03")]([SubResource("Resource_o1vpi"), SubResource("Resource_ypejv"), null, null, null])
 
 [sub_resource type="Image" id="Image_yu2am"]
 data = {
@@ -533,7 +516,6 @@ transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, -2.89027, 0, 0)
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, -2.89027, 0, -12.2674)
 
 [node name="pause_menu" parent="." instance=ExtResource("18_m3eq1")]
-process_mode = 3
 visible = false
 
 [node name="Npcs" type="Node" parent="."]
@@ -542,23 +524,21 @@ visible = false
 curve = SubResource("Curve3D_jc1rw")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Npcs/FireFighterPath"]
-transform = Transform3D(0.855132, -1.24319e-05, 0.518406, 0, 1.00002, 2.39804e-05, -0.518406, -2.0507e-05, 0.855132, -5.90387, 0, -10.0074)
+transform = Transform3D(0.855132, -1.24319e-05, 0.518406, 0, 1.00002, 2.39804e-05, -0.518406, -2.05069e-05, 0.855132, -5.90387, 0, -10.0074)
 rotation_mode = 4
 use_model_front = true
 
 [node name="Bombeiro" parent="Npcs/FireFighterPath/PathFollow3D" instance=ExtResource("18_no38v")]
 transform = Transform3D(1, 1.18424e-12, 1.40242e-24, -1.18424e-12, 1, 1.18424e-12, 1.97215e-31, -1.18424e-12, 1, 0, -0.109831, -1.90735e-06)
 script = ExtResource("19_3jpko")
-pickup_scene = ExtResource("20_km6ri")
 emotion = 3
 npc_name = "Bombeiro1"
-equip_inventory_data = SubResource("Resource_afqwo")
 
 [node name="FireFighterPath2" type="Path3D" parent="Npcs"]
 curve = SubResource("Curve3D_jc1rw")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Npcs/FireFighterPath2"]
-transform = Transform3D(0.855132, -1.24319e-05, 0.518406, 0, 1.00002, 2.39804e-05, -0.518406, -2.0507e-05, 0.855132, -5.90387, 0, -10.0074)
+transform = Transform3D(0.855132, -1.24319e-05, 0.518406, 0, 1.00002, 2.39804e-05, -0.518406, -2.05069e-05, 0.855132, -5.90387, 0, -10.0074)
 rotation_mode = 4
 use_model_front = true
 
@@ -654,7 +634,7 @@ theme_override_fonts/font = ExtResource("16_2ma11")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5soce")
 autowrap_mode = 2
 
-[node name="ItemName" type="Label" parent="Ui/InventoryDescription"]
+[node name="ItemName2" type="Label" parent="Ui/InventoryDescription"]
 offset_left = 225.0
 offset_top = 93.0
 offset_right = 907.0

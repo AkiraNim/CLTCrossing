@@ -567,7 +567,7 @@ theme_override_fonts/font = ExtResource("15_sfa3y")
 theme_override_styles/normal = SubResource("StyleBoxFlat_g2mw0")
 autowrap_mode = 2
 
-[node name="ItemName" type="Label" parent="Ui/InventoryDescription"]
+[node name="ItemName2" type="Label" parent="Ui/InventoryDescription"]
 offset_left = 225.0
 offset_top = 93.0
 offset_right = 907.0
@@ -579,7 +579,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="pause_menu" parent="." instance=ExtResource("18_lsd5f")]
-process_mode = 3
 visible = false
 
 [node name="Road2" parent="." instance=ExtResource("19_7t1se")]

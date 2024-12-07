@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://bsl2lqum5ig1t"]
+[gd_scene load_steps=6 format=4 uid="uid://bsl2lqum5ig1t"]
 
 [ext_resource type="Texture2D" uid="uid://b81jf1a67mcx7" path="res://assets/SimpleShopInteriors/Enviroment/Wall1_SimpleShopInterior_Texture.png" id="1_caph3"]
 
@@ -42,9 +42,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7c5b8")
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4825m"]
+data = PackedVector3Array(5, 0, -0.2061, 0, 0, -4.2084, 5, 0, -4.2084, 5, 0, -0.2061, 0, 0, -0.2061, 0, 0, -4.2084, 0, 0.0549, -4.2084, 5, 0.0549, -4.4145, 5, 0.0549, -4.2084, 0, 0.0549, -4.2084, 0, 0.0549, -4.4145, 5, 0.0549, -4.4145, 5, 0.0549, -4.2084, 0, 0, -4.2084, 0, 0.0549, -4.2084, 5, 0.0549, -4.2084, 5, 0, -4.2084, 0, 0, -4.2084, 0, 0.0549, 0.2707, 5, 0.0549, -0.2061, 5, 0.0549, 0.2707, 0, 0.0549, 0.2707, 0, 0.0549, -0.2061, 5, 0.0549, -0.2061, 0, 0.0549, -0.2061, 5, 0, -0.2061, 5, 0.0549, -0.2061, 0, 0.0549, -0.2061, 0, 0, -0.2061, 5, 0, -0.2061)
+
 [node name="Wall1" type="Node3D"]
 
 [node name="SI_Env_Wall_01" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_utise")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SI_Env_Wall_01"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SI_Env_Wall_01/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4825m")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://cln5j1hdbuhgc"]
+[gd_scene load_steps=6 format=4 uid="uid://cln5j1hdbuhgc"]
 
 [ext_resource type="Texture2D" uid="uid://bcpaktv1jvuwg" path="res://assets/SimpleShopInteriors/Enviroment/Floor3_SimpleShopInterior_Texture.png" id="1_qg0j3"]
 
@@ -42,9 +42,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1n0a2")
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_g1fe6"]
+data = PackedVector3Array(5, 0, 0, 0, 5, 0, 0, 0, 0, 5, 0, 0, 5, 5, 0, 0, 5, 0)
+
 [node name="Floor3" type="Node3D"]
 
 [node name="SI_Env_Floor_03" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_p433f")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SI_Env_Floor_03"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SI_Env_Floor_03/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_g1fe6")

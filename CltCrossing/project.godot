@@ -32,6 +32,7 @@ Globals="*res://Scripts/globals/globals.gd"
 
 directories/dch_directory={}
 directories/dtl_directory={
+"intro": "res://timeline/intro.dtl",
 "timeline": "res://timeline.dtl"
 }
 variables={}
@@ -57,6 +58,7 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+text/autoadvance_enabled=false
 
 [display]
 

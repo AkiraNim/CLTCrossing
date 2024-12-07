@@ -8,12 +8,11 @@ signal dialog
 @export var npc_name: String
 @export var inventory_data: InventoryData
 
-@onready var pop_up: Control = $"../../../../Ui/PopUp"
-@onready var label_pop_up: Label = $"../../../../Ui/PopUp/LabelPopUp"
-
 @onready var npc: StaticBody3D = $"."
+@onready var pop_up: Control = $"../../../../Ui/PopUp"
 
 # Variáveis de controle
+
 var rng = RandomNumberGenerator.new()
 var mission: Mission
 var mission_found = false
@@ -32,12 +31,12 @@ const EMOTION_RUNNING = 5
 
 # Referências a nós prontos
 @onready var animation_player: AnimationPlayer = $BusinessMan/AnimationPlayer
-@onready var path_follow_3d: PathFollow3D = $".."
+@export var path_follow_3d: PathFollow3D
+@export var have_path: bool
 
 # Inicialização do NPC
 func _ready() -> void:
 	rng.randomize()
-	# Atualiza a animação baseada na emoção inicial
 	var npc: Npc = Npc.new()
 	
 	npc.emotion = emotion
@@ -55,14 +54,15 @@ func _ready() -> void:
 	
 	update_emotion_animation()
 	
-	for npcs in NpcManager.npcs:
-		if npcs.npc_name == "BusinessMan":
-			if MissionManager.create_new_mission(npc_name, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas"):
-				pop_up.set_popup_text("Nova missao adicionada", 2.0)
-				
+	#for npcs in NpcManager.npcs:
+		#if npcs.npc_name == "Bombeiro1":
+			#if MissionManager.create_new_mission(npc_name, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas"):
+				#pop_up.set_popup_text("Nova missao adicionada", 2.0)
 func _physics_process(delta: float) -> void:
 	play_animation_based_on_emotion(delta)
-
+	for missions in PlayerManager.player.missions_complete:
+		if missions.npc_name == npc_name:
+			play_animation_based_on_emotion(3)
 # Atualiza a animação baseada na emoção
 func update_emotion_animation() -> void:
 	play_animation_based_on_emotion(0)
@@ -79,11 +79,13 @@ func play_animation_based_on_emotion(delta: float) -> void:
 		EMOTION_IDLE:
 			animation_player.play("Idle")
 		EMOTION_WALKING:
-			animation_player.play("Walk")
-			path_follow_3d.progress += WALK_SPEED * delta
+			if have_path:
+				animation_player.play("Walk")
+				path_follow_3d.progress += WALK_SPEED * delta
 		EMOTION_RUNNING:
-			animation_player.play("Run")
-			path_follow_3d.progress += RUN_SPEED * delta
+			if have_path:
+				animation_player.play("Run")
+				path_follow_3d.progress += RUN_SPEED * delta
 
 # Função chamada quando o jogador interage com o NPC
 func player_interact() -> void:
@@ -115,13 +117,6 @@ func player_interact() -> void:
 						#if missions.title == "Encontrar 2 maçãs":
 # Completa a missão encontrada
 							#missions.complete_mission(missions)
-			
-	for npcs in NpcManager.npcs:
-		if npcs.npc_name == "BusinessMan":
-			drop_npc_slot_data_by_name("Apple")
-			SaveLoad.save_game()
-			Globals.next_scene = "res://scenes/world.tscn"
-			get_tree().change_scene_to_packed(Globals.loading_screen)
 	pass
 # Função que checa os itens do NPC
 func check_npc_items() -> Array:
@@ -151,7 +146,6 @@ func drop_item_from_npc(npcId: int, index: int) -> void:
 	if grabbed_slot_data:
 		pop_up.set_popup_text("Item %s recebido do npc.\n+%d" % [grabbed_slot_data.item_data.name, grabbed_slot_data.quantity], 2.0)
 		PlayerManager.player.inventory_data.pick_up_slot_data(grabbed_slot_data)
-
 func drop_all_npc_slot_data() -> void:
 	for npc in NpcManager.npcs:
 		if npc.npcId == npcId:
@@ -167,7 +161,7 @@ func drop_npc_slot_data_by_name(name: String) -> void:
 				if npc.inventory_data.get_slot_data_name(i) == name:
 					drop_item_from_npc(npc.npcId, i)
 
-func remove_npc_slot_data_by_index(index: int)-> void:
+func remove_npc_slot_data_by_index(npcId: int, index: int)-> void:
 	for npc in NpcManager.npcs:
 		if npc.npcId == npcId:
 			for i in range (npc.inventory_data.slot_datas.size()):
@@ -180,13 +174,13 @@ func remove_npc_slot_data_by_name(name: String)-> void:
 		if npc.npcId == npcId:
 			for i in range (npc.inventory_data.slot_datas.size()):
 				if npc.inventory_data.get_slot_data_name(i) == name:
-					remove_npc_slot_data_by_index(i)
+					remove_npc_slot_data_by_index(npc.npcId, i)
 
 func remove_all_npc_slot_data()-> void:
 	for npc in NpcManager.npcs:
 		if npc.npcId == npcId:
 			for i in range(npc.inventory_data.slot_datas.size()):
-				remove_npc_slot_data_by_index(i)
+				remove_npc_slot_data_by_index(npc.npcId, i)
 
 func get_npc_equiped_slot_data_index_by_name(name: String) -> int:
 	for npc in NpcManager.npcs:

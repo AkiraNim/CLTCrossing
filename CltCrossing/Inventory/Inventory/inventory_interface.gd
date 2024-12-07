@@ -166,12 +166,17 @@ func on_inventory_interact(inventory_data: InventoryData, index: int, button: in
 					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 				else:
 					# Colocando item no inventário do jogador (compra)
-					if grabbed_from_external:
+					var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
+					if grabbed_from_external and external_inventory_owner.is_in_group("Selling") and price<PlayerManager.player.money:
 						# Jogador perde dinheiro ao comprar o item
-						var price: float = grabbed_slot_data.item_data.price * grabbed_slot_data.quantity
 						PlayerManager.player.add_money(-price)
 						pop_up.set_popup_text("Item %s comprado.\n-R$%.2f\n+%d" % [grabbed_slot_data.item_data.name, price, grabbed_slot_data.quantity], 2.0)
-					grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
+						grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
+					elif grabbed_from_external and external_inventory_owner.is_in_group("Selling") and price>PlayerManager.player.money:
+						pop_up.set_popup_text("Saldo insuficiente", 2.0)
+					else:
+						pop_up.set_popup_text("Item %s retirado." % [grabbed_slot_data.item_data.name], 2.0)
+						grabbed_slot_data = inventory_data.drop_slot_data(grabbed_slot_data, index)
 		
 		[null, MOUSE_BUTTON_RIGHT]:
 			# Jogador está mostrando a descrição do item

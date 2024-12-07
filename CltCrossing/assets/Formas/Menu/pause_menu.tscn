@@ -35,6 +35,7 @@ Button/styles/normal = SubResource("StyleBoxEmpty_pfurn")
 Button/styles/pressed = SubResource("StyleBoxEmpty_lbt6k")
 
 [node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_jkk8d")
 
 [node name="ColorRect2" type="ColorRect" parent="."]

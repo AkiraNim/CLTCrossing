@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://40nk34m1jr3e"]
+[gd_scene load_steps=22 format=4 uid="uid://40nk34m1jr3e"]
 
 [ext_resource type="Script" path="res://assets/MainMenu/controls.gd" id="1_vgrl5"]
 [ext_resource type="Texture2D" uid="uid://c6aafl7qbdg7p" path="res://assets/MainMenu/wasd.png" id="2_bjetu"]
@@ -8,6 +8,98 @@
 [ext_resource type="Texture2D" uid="uid://djyl0kc0lf0rm" path="res://assets/MainMenu/left button.png" id="5_dbq31"]
 [ext_resource type="Texture2D" uid="uid://brk5a4xdjrygd" path="res://assets/MainMenu/right button.png" id="6_4i3sq"]
 [ext_resource type="Texture2D" uid="uid://cclqx5cpltlj2" path="res://assets/MainMenu/mouse.png" id="7_5l7eq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8g2c"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uumih"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34b4h"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_svydd"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jr4kt"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6ri7"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3scxf"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+shadow_size = 10
+shadow_offset = Vector2(0, 2)
 
 [sub_resource type="Image" id="Image_dhbva"]
 data = {
@@ -325,12 +417,14 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -315.0
+offset_top = 8.0
 offset_right = 315.0
-offset_bottom = 71.0
+offset_bottom = 79.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.933679, 1.93486e-05, 0.63755, 1)
 theme_override_fonts/font = ExtResource("2_lcsul")
 theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_u8g2c")
 text = "Controles"
 
 [node name="wasdLabel" type="Label" parent="."]
@@ -341,6 +435,7 @@ offset_bottom = 195.0
 theme_override_colors/font_color = Color(0.937255, 0.0705882, 0.658824, 1)
 theme_override_fonts/font = ExtResource("2_lcsul")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_uumih")
 text = "Controla o personagem pelo mapa."
 
 [node name="tabLabel" type="Label" parent="."]
@@ -351,6 +446,7 @@ offset_bottom = 313.0
 theme_override_colors/font_color = Color(0.937255, 0.0705882, 0.658824, 1)
 theme_override_fonts/font = ExtResource("2_lcsul")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_34b4h")
 text = "Abre a aba de status do
 personagem."
 
@@ -362,6 +458,7 @@ offset_bottom = 389.0
 theme_override_colors/font_color = Color(0.937255, 0.0705882, 0.658824, 1)
 theme_override_fonts/font = ExtResource("2_lcsul")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_svydd")
 text = "Interage com itens/npcs."
 
 [node name="mouseLabel" type="Label" parent="."]
@@ -372,6 +469,7 @@ offset_bottom = 476.0
 theme_override_colors/font_color = Color(0.937255, 0.0705882, 0.658824, 1)
 theme_override_fonts/font = ExtResource("2_lcsul")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_jr4kt")
 text = "Movimenta a camera."
 
 [node name="leftLabel" type="Label" parent="."]
@@ -382,6 +480,7 @@ offset_bottom = 606.0
 theme_override_colors/font_color = Color(0.937255, 0.0705882, 0.658824, 1)
 theme_override_fonts/font = ExtResource("2_lcsul")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_h6ri7")
 text = "Seleciona itens no inventario
 /Dropa todos itens selecionado."
 
@@ -393,6 +492,7 @@ offset_bottom = 701.0
 theme_override_colors/font_color = Color(0.937255, 0.0705882, 0.658824, 1)
 theme_override_fonts/font = ExtResource("2_lcsul")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_3scxf")
 text = "Abre a descrição de itens
 /Dropa um item selecionado."
 

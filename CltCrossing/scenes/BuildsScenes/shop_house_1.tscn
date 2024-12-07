@@ -16,8 +16,8 @@
 [ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://assets/Fonts/prstart.ttf" id="12_p226r"]
 [ext_resource type="PackedScene" uid="uid://dqilpeh4bal8a" path="res://Inventory/Inventory/slot.tscn" id="13_ybic8"]
 [ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://assets/Formas/Menu/pause_menu.tscn" id="14_3ixn2"]
-[ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="16_8blro"]
-[ext_resource type="Resource" uid="uid://bti2rgq3cgwlu" path="res://Inventory/Item/Items/blue_book.tres" id="17_xr3hy"]
+[ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/maça.tres" id="16_8blro"]
+[ext_resource type="Resource" uid="uid://bti2rgq3cgwlu" path="res://Inventory/Item/Items/livro_azul.tres" id="17_xr3hy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yecuh"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

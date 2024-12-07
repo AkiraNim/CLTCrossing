@@ -17,6 +17,8 @@ border_color = Color(0.847059, 0.380392, 0.858824, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
+shadow_size = 7
+shadow_offset = Vector2(0, 2)
 
 [sub_resource type="Image" id="Image_pqgy0"]
 data = {

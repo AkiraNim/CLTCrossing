@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://bv4srx5hiwdgk"]
+[gd_scene load_steps=73 format=4 uid="uid://bv4srx5hiwdgk"]
 
 [ext_resource type="Script" path="res://Inventory/main.gd" id="1_u6833"]
 [ext_resource type="PackedScene" uid="uid://ww653mkc3o88" path="res://actors/player.tscn" id="2_851es"]
@@ -9,20 +9,22 @@
 [ext_resource type="Script" path="res://Inventory/Inventory/inventory_interface.gd" id="7_gxcgx"]
 [ext_resource type="PackedScene" uid="uid://c7lwx2o8obigc" path="res://Inventory/Inventory/inventory.tscn" id="8_fid25"]
 [ext_resource type="PackedScene" uid="uid://dqilpeh4bal8a" path="res://Inventory/Inventory/slot.tscn" id="9_f7jew"]
-[ext_resource type="Resource" uid="uid://ci6nhaw5n1aya" path="res://Inventory/Item/Items/yellow_book.tres" id="10_1b03h"]
+[ext_resource type="Resource" uid="uid://ci6nhaw5n1aya" path="res://Inventory/Item/Items/livro_amarelo.tres" id="10_1b03h"]
 [ext_resource type="PackedScene" uid="uid://ckeu7h6bwny30" path="res://Inventory/Interactable/chest.tscn" id="11_dbpnn"]
-[ext_resource type="Resource" uid="uid://drtte25c8ktfq" path="res://Inventory/Item/Items/red_book.tres" id="11_wyoqs"]
-[ext_resource type="Resource" uid="uid://bti2rgq3cgwlu" path="res://Inventory/Item/Items/blue_book.tres" id="12_b5s0w"]
+[ext_resource type="Resource" uid="uid://54ent424yatb" path="res://Inventory/Item/Items/livro_vermelho.tres" id="11_wyoqs"]
+[ext_resource type="Resource" uid="uid://cypwon4gf8rkl" path="res://Inventory/Item/Items/livro_azul.tres" id="12_b5s0w"]
 [ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://assets/Fonts/prstart.ttf" id="12_o27jf"]
 [ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="13_bs3wm"]
-[ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/apple.tres" id="14_lhgay"]
+[ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/maça.tres" id="14_lhgay"]
+[ext_resource type="Resource" uid="uid://c42p7oit6pqal" path="res://Inventory/Item/Items/livro_bege_.tres" id="14_ql5ik"]
 [ext_resource type="PackedScene" uid="uid://bxithodbbv2wn" path="res://assets/Formas/Menu/pause_menu.tscn" id="15_00xag"]
 [ext_resource type="PackedScene" uid="uid://ds4sbgxxyc1kt" path="res://Inventory/inventory_description.tscn" id="15_qcpu8"]
+[ext_resource type="Resource" uid="uid://bko45ehkde0f8" path="res://Inventory/Item/Items/livro_marrom_.tres" id="15_vmb4g"]
 [ext_resource type="PackedScene" uid="uid://prh35jb6tjtd" path="res://actors/models/sophia/sophia_skin.tscn" id="16_ayafe"]
-[ext_resource type="PackedScene" path="res://Inventory/pop_up.tscn" id="18_3l840"]
+[ext_resource type="Resource" uid="uid://rp21jk7e8mvn" path="res://Inventory/Item/Items/livro_verde_.tres" id="16_xf8rq"]
+[ext_resource type="PackedScene" uid="uid://buy0hnpkrdqyw" path="res://Inventory/pop_up.tscn" id="18_3l840"]
 [ext_resource type="PackedScene" uid="uid://c53dclo0i7vm3" path="res://actors/NPC's/NPCS tscn/fire_fighter.tscn" id="19_d28hn"]
 [ext_resource type="Script" path="res://actors/NPC's/Script/fire_fighter.gd" id="20_1lony"]
-[ext_resource type="Resource" uid="uid://bi8g0lavua2no" path="res://Inventory/Item/Items/iron_helm.tres" id="21_2x74b"]
 [ext_resource type="PackedScene" uid="uid://cwnpdrf1f7sfu" path="res://actors/NPC's/NPCS tscn/business_man.tscn" id="22_ifrb2"]
 
 [sub_resource type="Resource" id="Resource_y4ugt"]
@@ -76,9 +78,24 @@ script = ExtResource("4_nafn1")
 item_data = ExtResource("14_lhgay")
 quantity = 1
 
+[sub_resource type="Resource" id="Resource_oku3x"]
+script = ExtResource("4_nafn1")
+item_data = ExtResource("14_ql5ik")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_ncnnv"]
+script = ExtResource("4_nafn1")
+item_data = ExtResource("15_vmb4g")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_x8lja"]
+script = ExtResource("4_nafn1")
+item_data = ExtResource("16_xf8rq")
+quantity = 1
+
 [sub_resource type="Resource" id="Resource_vq4vq"]
 script = ExtResource("3_cs1x2")
-slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_y3t7h"), SubResource("Resource_05ibi"), SubResource("Resource_1u17u"), SubResource("Resource_rwoqc"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+slot_datas = Array[ExtResource("4_nafn1")]([SubResource("Resource_y3t7h"), SubResource("Resource_05ibi"), SubResource("Resource_1u17u"), SubResource("Resource_rwoqc"), SubResource("Resource_oku3x"), SubResource("Resource_ncnnv"), SubResource("Resource_x8lja"), null, null, null, null, null, null, null, null, null, null, null, null, null])
 
 [sub_resource type="Resource" id="Resource_w7qch"]
 script = ExtResource("4_nafn1")
@@ -1553,9 +1570,12 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Resource" id="Resource_aem03"]
+metadata/__load_path__ = "res://Inventory/Item/Items/iron_helm.tres"
+
 [sub_resource type="Resource" id="Resource_pkp4j"]
 script = ExtResource("4_nafn1")
-item_data = ExtResource("21_2x74b")
+item_data = SubResource("Resource_aem03")
 quantity = 1
 
 [sub_resource type="Resource" id="Resource_w74e4"]
@@ -1612,7 +1632,7 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Scenary/Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_euw2y")
 
-[node name="Bau" parent="Scenary" groups=["Selling"] instance=ExtResource("11_dbpnn")]
+[node name="Bau" parent="Scenary" instance=ExtResource("11_dbpnn")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -3.6732, 0, -6.01073)
 inventory_data = SubResource("Resource_vq4vq")
 name_type = "Baú"
@@ -1812,7 +1832,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="pause_menu" parent="." instance=ExtResource("15_00xag")]
-process_mode = 3
 visible = false
 
 [node name="Npcs" type="Node" parent="."]

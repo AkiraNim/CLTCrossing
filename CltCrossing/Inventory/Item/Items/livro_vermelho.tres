@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=5 format=3 uid="uid://54ent424yatb"]
+
+[ext_resource type="Script" path="res://Inventory/Item/item_data_equip.gd" id="1_dqqya"]
+[ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="1_t0kwu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_icbdy"]
+load_path = "res://.godot/imported/#1 - Transparent Icons.png-fb1d9fea44c0676e2bbb084dae3c94df.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0t0d"]
+atlas = SubResource("CompressedTexture2D_icbdy")
+region = Rect2(32, 416, 32, 32)
+
+[resource]
+script = ExtResource("1_dqqya")
+defence = 0
+item_scene = ExtResource("1_t0kwu")
+name = "Livro vermelho"
+description = "Livro Vermelho: Explorando os Ativos de Renda Fixa
+
+Capítulo 1: O que é Renda Fixa?
+Renda fixa é uma categoria de investimentos onde você sabe, ou pode prever, quanto receberá ao final do prazo. Exemplos incluem Tesouro Direto, CDBs e debêntures.
+Esses ativos são ideais para quem busca segurança e estabilidade, pois têm risco menor que ações. São recomendados para objetivos de curto e médio prazo.
+
+Capítulo 2: Como Escolher um Ativo de Renda Fixa
+Considere três fatores ao escolher:
+
+Rentabilidade: quanto você ganhará.
+Prazo: quanto tempo o dinheiro ficará aplicado.
+Liquidez: facilidade de resgatar o dinheiro.
+Sempre avalie o emissor do ativo para garantir segurança. Instituições sólidas têm menor risco de calote.
+Capítulo 3: Riscos na Renda Fixa
+Embora mais seguros, os ativos de renda fixa não são isentos de riscos. Os principais são:
+
+Risco de crédito: o emissor pode não pagar.
+Risco de liquidez: dificuldade de vender o ativo antes do prazo.
+Risco de mercado: variações nas taxas de juros podem impactar o valor do ativo.
+Entender esses riscos ajuda a escolher com confiança."
+tooltip = "Tenha uma boa leitura."
+stackable = false
+texture = SubResource("AtlasTexture_r0t0d")
+price = 200.0
+sellable = true
+buyable = true
+unique = true
+droppable = false
+id = 0

@@ -6,12 +6,7 @@ extends Control
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if Input.is_action_just_pressed("inventory"):
-		pass
-			
-	if Input.is_action_just_pressed("interact"):
-		pass
-		
+	
 func _on_btn_jogar_pressed() -> void:
 	Globals.next_scene = "res://scenes/mapa.tscn"
 	get_tree().change_scene_to_packed(Globals.loading_screen)

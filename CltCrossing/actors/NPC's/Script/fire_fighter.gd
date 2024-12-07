@@ -10,9 +10,9 @@ signal dialog
 
 @onready var npc: StaticBody3D = $"."
 @onready var pop_up: Control = $"../../../../Ui/PopUp"
-@onready var label_pop_up: Label = $"../../../../Ui/PopUp/LabelPopUp"
+
 # Variáveis de controle
-var timer = Timer.new()
+
 var rng = RandomNumberGenerator.new()
 var mission: Mission
 var mission_found = false
@@ -31,7 +31,8 @@ const EMOTION_RUNNING = 5
 
 # Referências a nós prontos
 @onready var animation_player: AnimationPlayer = $Firefighter/AnimationPlayer
-@onready var path_follow_3d: PathFollow3D = $".."
+@export var path_follow_3d: PathFollow3D
+@export var have_path: bool
 
 # Inicialização do NPC
 func _ready() -> void:
@@ -53,13 +54,15 @@ func _ready() -> void:
 	
 	update_emotion_animation()
 	
-	for npcs in NpcManager.npcs:
-		if npcs.npc_name == "Bombeiro1":
-			if MissionManager.create_new_mission(npc_name, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas"):
-				pop_up.set_popup_text("Nova missao adicionada", 2.0)
+	#for npcs in NpcManager.npcs:
+		#if npcs.npc_name == "Bombeiro1":
+			#if MissionManager.create_new_mission(npc_name, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas"):
+				#pop_up.set_popup_text("Nova missao adicionada", 2.0)
 func _physics_process(delta: float) -> void:
 	play_animation_based_on_emotion(delta)
-
+	for missions in PlayerManager.player.missions_complete:
+		if missions.npc_name == npc_name:
+			play_animation_based_on_emotion(3)
 # Atualiza a animação baseada na emoção
 func update_emotion_animation() -> void:
 	play_animation_based_on_emotion(0)
@@ -76,11 +79,13 @@ func play_animation_based_on_emotion(delta: float) -> void:
 		EMOTION_IDLE:
 			animation_player.play("Idle")
 		EMOTION_WALKING:
-			animation_player.play("Walk")
-			path_follow_3d.progress += WALK_SPEED * delta
+			if have_path:
+				animation_player.play("Walk")
+				path_follow_3d.progress += WALK_SPEED * delta
 		EMOTION_RUNNING:
-			animation_player.play("Run")
-			path_follow_3d.progress += RUN_SPEED * delta
+			if have_path:
+				animation_player.play("Run")
+				path_follow_3d.progress += RUN_SPEED * delta
 
 # Função chamada quando o jogador interage com o NPC
 func player_interact() -> void:

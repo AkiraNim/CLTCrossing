@@ -186,3 +186,4 @@ func player_have_this_item(item_data: ItemData)-> bool:
 
 func add_money(external_money: float)-> void:
 	money+=external_money
+	

@@ -1840,7 +1840,7 @@ visible = false
 curve = SubResource("Curve3D_j677g")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Npcs/FireFighterPath"]
-transform = Transform3D(0.855132, -1.2432e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05072e-05, 0.855132, -5.90387, 0, -10.0074)
+transform = Transform3D(0.855132, -1.2432e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05071e-05, 0.855132, -5.90387, 0, -10.0074)
 rotation_mode = 4
 use_model_front = true
 

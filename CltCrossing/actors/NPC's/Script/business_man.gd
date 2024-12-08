@@ -60,6 +60,9 @@ func _ready() -> void:
 				pop_up.set_popup_text("Nova missao adicionada", 2.0)
 				
 func _physics_process(delta: float) -> void:
+	for missions in MissionManager.get_available_missions():
+		if missions.title == "Encontrar 2 maçãs":
+			print("legal")
 	play_animation_based_on_emotion(delta)
 	for missions in PlayerManager.player.missions_complete:
 		if missions.npcId == npcId:

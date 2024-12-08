@@ -7,11 +7,10 @@ var missions: Array = []
 func _physics_process(delta: float) -> void:
 	pass
 # Adiciona uma nova missão ao sistema
-func add_mission(mission: Mission, npc_name: String) -> void:
-	mission.npc_name == npc_name
+func add_mission(mission: Mission, npc_names: String) -> void:
+	mission.npc_name == npc_names
 	missions.append(mission)
 	
-
 # Retorna uma lista de missões disponíveis com base na emoção
 func get_available_missions() -> Array:
 	var available_missions = []

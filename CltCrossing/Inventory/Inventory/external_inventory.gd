@@ -7,7 +7,7 @@ signal toggle_inventory(external_inventory_owner)
 # Variável exportada que contém os dados do inventário do baú
 @export var inventory_data: InventoryData
 
-@onready var external_inventory_label: Label = $"../../Ui/InventoryInterface/ExternalInventory/ExternalInventoryLabel"
+@onready var external_inventory_label: Label = $"../Ui/InventoryInterface/ExternalInventory/ExternalInventoryLabel"
 
 @export var name_type: String
 

@@ -8,3 +8,4 @@ extends Resource
 @export var missions_complete:=[]
 @export var object_name: String
 @export var npcs:=[]
+@export var missions:=[]

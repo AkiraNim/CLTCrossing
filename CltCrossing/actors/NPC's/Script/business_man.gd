@@ -119,9 +119,7 @@ func player_interact() -> void:
 						#if missions.title == "Encontrar 2 maçãs":
 # Completa a missão encontrada
 							#missions.complete_mission(missions)
-	for missions in MissionManager.get_available_missions():
-		if missions.npc_id == npc_id:
-			pop_up.set_popup_text(missions.complete_mission(missions), 2.0)
+
 	pass
 # Função que checa os itens do NPC
 func check_npc_items() -> Array:

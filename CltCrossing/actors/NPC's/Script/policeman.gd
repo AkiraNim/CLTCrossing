@@ -9,7 +9,8 @@ signal dialog
 @export var inventory_data: InventoryData
 
 
-@onready var pop_up: Control = $"../../../../Ui/PopUp"
+
+@onready var pop_up: Control = $"../../Ui/PopUp"
 
 # Variáveis de controle
 
@@ -55,11 +56,12 @@ func _ready() -> void:
 	update_emotion_animation()
 	
 	"Exemplo de uso da funcao de criar missoes"
-	#for npcs in NpcManager.npcs:
-		#if npcs.npc_id == npc_id:
-			#if MissionManager.create_new_mission(npc_id, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas"):
-				#pop_up.set_popup_text("Nova missao adicionada", 2.0)
-				
+	for npcs in NpcManager.npcs:
+		if npcs.npc_id == npc_id:
+			if MissionManager.create_new_mission(npc_id, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas"):
+				pass
+
+
 func _physics_process(delta: float) -> void:
 	play_animation_based_on_emotion(delta)
 	for missions in PlayerManager.player.missions_complete:
@@ -119,9 +121,7 @@ func player_interact() -> void:
 						#if missions.title == "Encontrar 2 maçãs":
 # Completa a missão encontrada
 							#missions.complete_mission(missions)
-	for missions in MissionManager.get_available_missions():
-		if missions.npc_id == npc_id:
-			pop_up.set_popup_text(missions.complete_mission(missions), 2.0)
+
 	pass
 # Função que checa os itens do NPC
 func check_npc_items() -> Array:

@@ -30,7 +30,7 @@ const EMOTION_WALKING = 4
 const EMOTION_RUNNING = 5
 
 # Referências a nós prontos
-@onready var animation_player: AnimationPlayer = $FireFighter/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $Firefighter/AnimationPlayer
 @export var path_follow_3d: PathFollow3D
 @export var have_path: bool
 @export var RUN_SPEED = 2.0

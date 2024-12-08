@@ -96,7 +96,7 @@ size = Vector3(72.9935, 65.6607, 77.7065)
 radius = 38.767
 height = 250.956
 
-[node name="StreetMan" type="CharacterBody3D" groups=["Interactable"]]
+[node name="StreetMan" type="CharacterBody3D"]
 script = ExtResource("1_thckk")
 
 [node name="StreetMan" type="Node3D" parent="."]

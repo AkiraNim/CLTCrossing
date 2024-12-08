@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://dpt7uoao63q42"]
+[gd_scene load_steps=59 format=4 uid="uid://dpt7uoao63q42"]
 
 [ext_resource type="Texture2D" uid="uid://ckukhwxmi4h20" path="res://assets/Texturas/anime_skybox.jpg" id="1_ccg86"]
 [ext_resource type="PackedScene" uid="uid://bsh8012ta1tua" path="res://assets/SimpleShopInteriors/Enviroment/WallWindow1.tscn" id="1_fop1r"]
@@ -8,7 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bsl2lqum5ig1t" path="res://assets/SimpleShopInteriors/Enviroment/Wall1.tscn" id="3_6pyi1"]
 [ext_resource type="Script" path="res://Inventory/Inventory/slot_data.gd" id="3_kq2fi"]
 [ext_resource type="Resource" uid="uid://d16w2botk1ykg" path="res://Inventory/Item/Items/maça.tres" id="4_201h7"]
+[ext_resource type="Script" path="res://Scripts/sair.gd" id="4_snosk"]
 [ext_resource type="Script" path="res://Inventory/Inventory/inventory_data_equip.gd" id="5_mun5e"]
+[ext_resource type="PackedScene" uid="uid://cwnpdrf1f7sfu" path="res://actors/NPC's/NPCS tscn/business_man.tscn" id="5_q1nr6"]
+[ext_resource type="Resource" uid="uid://c42p7oit6pqal" path="res://Inventory/Item/Items/livro_bege_.tres" id="8_66m5f"]
 [ext_resource type="Script" path="res://Inventory/Inventory/inventory_interface.gd" id="8_hy7u7"]
 [ext_resource type="PackedScene" uid="uid://c7lwx2o8obigc" path="res://Inventory/Inventory/inventory.tscn" id="9_ecmwh"]
 [ext_resource type="FontFile" uid="uid://hox1dvuh7dck" path="res://assets/Fonts/prstart.ttf" id="10_ynf1h"]
@@ -77,6 +80,15 @@ func _on_inventory_interface_drop_slot_data(slot_data: SlotData) -> void:
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_34hoh"]
 size = Vector3(3.79077, 3.9425, 2.30518)
+
+[sub_resource type="Resource" id="Resource_1y8n2"]
+script = ExtResource("3_kq2fi")
+item_data = ExtResource("8_66m5f")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_02adf"]
+script = ExtResource("2_2uv05")
+slot_datas = Array[ExtResource("3_kq2fi")]([SubResource("Resource_1y8n2"), null, null, null, null, null, null, null, null, null])
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vg0ra"]
 
@@ -1619,10 +1631,17 @@ transform = Transform3D(1, 0, 0, 0, 1.6, 0, 0, 0, 0.8, -2.4, -0.5, 8.05)
 
 [node name="Sair" type="StaticBody3D" parent="Scene" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1757)
+script = ExtResource("4_snosk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Scene/Sair" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.258423, 1.47125, 1.47995)
 shape = SubResource("BoxShape3D_34hoh")
+
+[node name="Banqueiro" parent="Scene" groups=["Interactable", "Npc"] instance=ExtResource("5_q1nr6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.58511)
+emotion = 3
+npc_name = "Banqueiro"
+inventory_data = SubResource("Resource_02adf")
 
 [node name="Assets" type="Node" parent="."]
 

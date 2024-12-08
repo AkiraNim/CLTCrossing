@@ -3,13 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dt3jghnh5ll1a" path="res://actors/SimplePeople/Pimp_SimplePeople_Pimp_Black.png" id="1_pq5pv"]
 [ext_resource type="AnimationLibrary" uid="uid://drhpksvbvsgur" path="res://actors/SimplePeople/animation.res" id="2_ux6hn"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_oy65e"]
-size = Vector3(72.9935, 65.6607, 77.7065)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ieuuo"]
-radius = 38.767
-height = 250.956
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y1yds"]
 resource_name = "Material_0.004"
 cull_mode = 2
@@ -149,17 +142,17 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6x56"]
+size = Vector3(72.9935, 65.6607, 77.7065)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r2nf7"]
+radius = 38.767
+height = 250.956
+
 [node name="Pimp" type="CharacterBody3D"]
 
-[node name="CollisionHead" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0652027, 241.212, 2.28833)
-shape = SubResource("BoxShape3D_oy65e")
-
-[node name="CollisionBody" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 134.833, 0)
-shape = SubResource("CapsuleShape3D_ieuuo")
-
 [node name="Pimp" type="Node3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
 
 [node name="SimplePeople_1" type="Node3D" parent="Pimp"]
 
@@ -307,3 +300,11 @@ skin = SubResource("Skin_8quij")
 libraries = {
 "animation": ExtResource("2_ux6hn")
 }
+
+[node name="CollisionHead" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 1.22626, 0)
+shape = SubResource("BoxShape3D_d6x56")
+
+[node name="CollisionBody" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.59547, 0)
+shape = SubResource("CapsuleShape3D_r2nf7")

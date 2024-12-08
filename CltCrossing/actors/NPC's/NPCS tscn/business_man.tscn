@@ -96,7 +96,7 @@ size = Vector3(72.9935, 65.6607, 77.7065)
 radius = 38.767
 height = 250.956
 
-[node name="BusinessMan" type="StaticBody3D"]
+[node name="BusinessMan" type="CharacterBody3D"]
 script = ExtResource("1_7fwu6")
 
 [node name="BusinessMan" type="Node3D" parent="."]

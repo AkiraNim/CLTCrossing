@@ -8,7 +8,7 @@ class_name Mission
 @export var npc_name: String  # Emoção necessária do NPC para a missão
 @export var is_completed: bool = false  # Estado da missão
 @export var reward: String  # Pode ser um item, experiência, etc.
-
+@export var npcId: int
 # Método para verificar se a missão está concluída
 
 

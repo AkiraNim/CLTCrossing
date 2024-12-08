@@ -1840,16 +1840,9 @@ visible = false
 curve = SubResource("Curve3D_j677g")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Npcs/FireFighterPath"]
-transform = Transform3D(0.855132, -1.2432e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05071e-05, 0.855132, -5.90387, 0, -10.0074)
+transform = Transform3D(0.855132, -1.2432e-05, 0.518406, 0, 1.00003, 2.39804e-05, -0.518406, -2.05072e-05, 0.855132, -5.90387, 0, -10.0074)
 rotation_mode = 4
 use_model_front = true
-
-[node name="Bombeiro" parent="Npcs/FireFighterPath/PathFollow3D" groups=["Interactable", "Npc"] instance=ExtResource("19_d28hn")]
-transform = Transform3D(1, 1.81899e-12, -5.96046e-08, 9.09495e-13, 1, 1.81899e-12, 5.96046e-08, -1.81899e-12, 1, 0, 0.0364516, 1.90735e-06)
-script = ExtResource("20_1lony")
-emotion = 3
-npc_name = "Bombeiro1"
-inventory_data = SubResource("Resource_w74e4")
 
 [node name="Bombeiro2" parent="Npcs/FireFighterPath/PathFollow3D" groups=["Interactable", "Npc"] instance=ExtResource("19_d28hn")]
 transform = Transform3D(1, 1.81899e-12, -2.98023e-08, 1.81899e-12, 1, 1.81899e-12, 2.98023e-08, -3.63798e-12, 1, 1.38436, 0.0364315, 0.839239)
@@ -1868,6 +1861,12 @@ use_model_front = true
 [node name="HomemDeNegocios" parent="Npcs/Path3D/PathFollow3D" groups=["Interactable", "Npc"] instance=ExtResource("22_ifrb2")]
 npc_name = "BusinessMan"
 inventory_data = SubResource("Resource_5rqqo")
+
+[node name="Bombeiro" parent="Npcs" groups=["Interactable", "Npc"] instance=ExtResource("19_d28hn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -11)
+script = ExtResource("20_1lony")
+emotion = 3
+npc_name = "Bombeiro1"
 
 [connection signal="drop_slot_data" from="Ui/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="Ui/InventoryInterface" to="Ui/InventoryInterface" method="_on_gui_input"]

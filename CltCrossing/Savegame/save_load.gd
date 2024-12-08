@@ -8,6 +8,7 @@ func save_game():
 	saved_game.equip_inventory = PlayerManager.player.equip_inventory_data
 	saved_game.money = PlayerManager.player.money
 	saved_game.missions_complete = PlayerManager.player.missions_complete
+	saved_game.npcs = NpcManager.npcs
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 func load_game():
 	if FileAccess.file_exists("user://savegame.tres"):
@@ -22,6 +23,7 @@ func load_game():
 				PlayerManager.player.inventory_data.inventory_updated.emit(PlayerManager.player.inventory_data)
 				PlayerManager.player.equip_inventory_data.inventory_updated.emit(PlayerManager.player.equip_inventory_data)
 				PlayerManager.player.missions_complete = saved_game.missions_complete
+			NpcManager.npcs = saved_game.npcs
 		else:
 			save_game()
 func load_inventory():

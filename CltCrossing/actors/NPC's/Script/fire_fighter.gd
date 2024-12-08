@@ -117,6 +117,10 @@ func player_interact() -> void:
 						#if missions.title == "Encontrar 2 maçãs":
 # Completa a missão encontrada
 							#missions.complete_mission(missions)
+	for npc in NpcManager.npcs:
+		if npc.name == npc_name:
+			play_animation_based_on_emotion(3)
+			print("ok")
 	pass
 
 # Função que checa os itens do NPC

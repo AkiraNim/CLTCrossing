@@ -15,4 +15,3 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		  # Usa a função para verificar se o jogador já tem o item
 		if body.inventory_data.pick_up_slot_data(slot_data):  # Adiciona o item ao inventário
 			queue_free()
-			print("ok")  # Remove o item do mundo

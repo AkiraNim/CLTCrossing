@@ -7,3 +7,4 @@ extends Resource
 @export var money: float
 @export var missions_complete:=[]
 @export var object_name: String
+@export var npcs:=[]

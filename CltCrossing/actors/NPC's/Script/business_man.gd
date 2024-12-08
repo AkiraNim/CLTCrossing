@@ -54,14 +54,15 @@ func _ready() -> void:
 	
 	update_emotion_animation()
 	
-	#for npcs in NpcManager.npcs:
-		#if npcs.npc_name == "Bombeiro1":
-			#if MissionManager.create_new_mission(npc_name, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas"):
-				#pop_up.set_popup_text("Nova missao adicionada", 2.0)
+	for npcs in NpcManager.npcs:
+		if npcs.npc_name == "Bombeiro":
+			if MissionManager.create_new_mission(npc_name, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas"):
+				pop_up.set_popup_text("Nova missao adicionada", 2.0)
+				
 func _physics_process(delta: float) -> void:
 	play_animation_based_on_emotion(delta)
 	for missions in PlayerManager.player.missions_complete:
-		if missions.npc_name == npc_name:
+		if missions.npcId == npcId:
 			play_animation_based_on_emotion(3)
 # Atualiza a animação baseada na emoção
 func update_emotion_animation() -> void:
@@ -117,6 +118,9 @@ func player_interact() -> void:
 						#if missions.title == "Encontrar 2 maçãs":
 # Completa a missão encontrada
 							#missions.complete_mission(missions)
+	for npcs in NpcManager.npcs:
+		if npcs.npcId == npcId:
+			print("ok")
 	pass
 # Função que checa os itens do NPC
 func check_npc_items() -> Array:

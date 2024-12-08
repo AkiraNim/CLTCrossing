@@ -141,7 +141,7 @@ func drop_item_from_npc(npc_id: int, index: int) -> void:
 					npc.inventory_data.inventory_updated.emit(npc.inventory_data)
 	
 	if grabbed_slot_data:
-		pop_up.set_popup_text("Item %s recebido do npc.\n+%d" % [grabbed_slot_data.item_data.name, grabbed_slot_data.quantity], 2.0)
+		
 		PlayerManager.player.inventory_data.pick_up_slot_data(grabbed_slot_data)
 func drop_all_npc_slot_data() -> void:
 	for npc in NpcManager.npcs:

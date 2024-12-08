@@ -6,14 +6,11 @@ var missions: Array = []
 # Referência ao sistema de pop-up com @onready
 @onready var pop_up: Control = $Ui/PopUp
 
-func _ready():
-	# Verificando se o pop-up está corretamente conectado
-	print("Pop-up system:", pop_up)
 
-# Adiciona uma nova missão ao sistema
 func add_mission(mission: Mission, npc_id: int) -> void:
 	if mission.npc_id == npc_id:
 		missions.append(mission)
+
 
 # Retorna uma lista de missões disponíveis com base no estado de conclusão
 func get_available_missions() -> Array:
@@ -47,7 +44,6 @@ func create_new_mission(npc_id: int, mission_title: String, mission_description:
 
 	# Exibe o pop-up com a mensagem
 	if pop_up:
-		print("Exibindo pop-up...")  # Verificação de depuração
 		pop_up.show()  # Garante que o pop-up seja mostrado
 		pop_up.set_popup_text("Nova missão criada: %s" % new_mission.title, 3.0)
 
@@ -61,7 +57,7 @@ func complete_mission(mission: Mission) -> String:
 		
 		# Exibe o pop-up com a mensagem
 		if pop_up:
-			print("Exibindo pop-up...")  # Verificação de depuração
+			
 			pop_up.show()  # Garante que o pop-up seja mostrado
 			pop_up.set_popup_text("Missão completada: %s" % mission.title, 3.0)
 

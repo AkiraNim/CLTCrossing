@@ -10,10 +10,10 @@ func save_game():
 	saved_game.missions_complete = PlayerManager.player.missions_complete
 	saved_game.npcs = NpcManager.npcs
 	saved_game.missions = MissionManager.missions
-	ResourceSaver.save(saved_game, "user://savegame.tres")
+	ResourceSaver.save(saved_game, "user://savegames.tres")
 func load_game():
-	if FileAccess.file_exists("user://savegame.tres"):
-		var saved_game: SavedGame = load("user://savegame.tres") as SavedGame
+	if FileAccess.file_exists("user://savegames.tres"):
+		var saved_game: SavedGame = load("user://savegames.tres") as SavedGame
 		if saved_game:
 			PlayerManager.player.global_position = saved_game.player_position
 			PlayerManager.player.money = saved_game.money
@@ -33,8 +33,8 @@ func load_game():
 		else:
 			save_game()
 func load_inventory():
-	if FileAccess.file_exists("user://savegame.tres"):
-		var saved_game: SavedGame = load("user://savegame.tres") as SavedGame
+	if FileAccess.file_exists("user://savegames.tres"):
+		var saved_game: SavedGame = load("user://savegames.tres") as SavedGame
 		if saved_game:
 			PlayerManager.player.money = saved_game.money
 			MissionManager.missions = saved_game.missions
@@ -60,5 +60,5 @@ func save_inventory():
 	saved_game.money = PlayerManager.player.money
 	saved_game.missions_complete = PlayerManager.player.missions_complete
 	saved_game.npcs = NpcManager.npcs
-	ResourceSaver.save(saved_game, "user://savegame.tres")
+	ResourceSaver.save(saved_game, "user://savegames.tres")
 	

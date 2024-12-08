@@ -56,10 +56,10 @@ func _ready() -> void:
 	update_emotion_animation()
 	
 	"Exemplo de uso da funcao de criar missoes"
-	for npcs in NpcManager.npcs:
-		if npcs.npc_id == npc_id:
-			if MissionManager.create_new_mission(npc_id, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas"):
-				pass
+	#for npcs in NpcManager.npcs:
+		#if npcs.npc_id == npc_id:
+			#if MissionManager.create_new_mission(npc_id, "Encontrar 2 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas"):
+				#pass
 
 
 func _physics_process(delta: float) -> void:

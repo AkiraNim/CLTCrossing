@@ -119,11 +119,7 @@ func player_interact() -> void:
 						#if missions.title == "Encontrar 2 maçãs":
 # Completa a missão encontrada
 							#missions.complete_mission(missions)
-	"Exemplo de uso da funcao de criar missoes"
-	for npcs in NpcManager.npcs:
-		if npcs.npc_id == npc_id:
-			if MissionManager.create_new_mission(npc_id, "Encontrar 3 maçãs", "Ajude o npc a encontrar maçãs", "50 moedas"):
-				pass
+
 	pass
 # Função que checa os itens do NPC
 func check_npc_items() -> Array:

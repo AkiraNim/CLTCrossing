@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cwtagae14vq5y"]
+[gd_scene load_steps=22 format=3 uid="uid://cwtagae14vq5y"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_b7mht"]
 [ext_resource type="Texture2D" uid="uid://bdd43yc7lc5wb" path="res://assets/MainMenu/cltCrossing.png" id="1_i5jbs"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ckukhwxmi4h20" path="res://assets/Texturas/anime_skybox.jpg" id="6_nkuyu"]
 [ext_resource type="PackedScene" uid="uid://b0uk80rfx2vb3" path="res://scenes/mapa.tscn" id="7_15tsw"]
 [ext_resource type="PackedScene" uid="uid://40nk34m1jr3e" path="res://assets/MainMenu/controls.tscn" id="8_r32lb"]
+[ext_resource type="AudioStream" uid="uid://byf6bpxuxwx4e" path="res://music/menu_sfx.mp3" id="10_vcbsc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_4h5et"]
 panorama = ExtResource("6_nkuyu")
@@ -203,6 +204,11 @@ theme_override_colors/font_hover_color = Color(1, 0, 0, 0.792157)
 theme_override_fonts/font = ExtResource("1_ug4lg")
 theme_override_font_sizes/font_size = 50
 text = "Sair"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_vcbsc")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Interacao" to="Character/SubViewport/SophiaSkin" method="_on_interacao_pressed"]
 [connection signal="pressed" from="VBoxContainer/btnJogar" to="." method="_on_btn_jogar_pressed"]

@@ -23,7 +23,11 @@ func load_game():
 				PlayerManager.player.inventory_data.inventory_updated.emit(PlayerManager.player.inventory_data)
 				PlayerManager.player.equip_inventory_data.inventory_updated.emit(PlayerManager.player.equip_inventory_data)
 				PlayerManager.player.missions_complete = saved_game.missions_complete
-			NpcManager.npcs = saved_game.npcs
+			for npcs in NpcManager.npcs:
+				for npc in saved_game.npcs:
+					if npcs.npc_name == npc.npc_name:
+						npcs.npc_id = npc.npc_id
+						npcs.emotion = npc.emotion
 		else:
 			save_game()
 func load_inventory():

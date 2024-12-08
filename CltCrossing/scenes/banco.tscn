@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://dpt7uoao63q42"]
+[gd_scene load_steps=54 format=4 uid="uid://dpt7uoao63q42"]
 
 [ext_resource type="Texture2D" uid="uid://ckukhwxmi4h20" path="res://assets/Texturas/anime_skybox.jpg" id="1_ccg86"]
 [ext_resource type="PackedScene" uid="uid://bsh8012ta1tua" path="res://assets/SimpleShopInteriors/Enviroment/WallWindow1.tscn" id="1_fop1r"]
@@ -21,6 +21,62 @@
 [ext_resource type="PackedScene" uid="uid://k6uh682ny348" path="res://assets/SimpleShopInteriors/Props/Bench2.tscn" id="20_tfkjw"]
 [ext_resource type="PackedScene" uid="uid://7wdbqhtkeyaq" path="res://assets/SimpleOfficeInteriors/DeskPreset4.tscn" id="21_0l5gd"]
 [ext_resource type="PackedScene" uid="uid://ctxqsel8cc4ju" path="res://assets/SimpleShopInteriors/Props/Counter2.tscn" id="22_sgk7w"]
+
+[sub_resource type="GDScript" id="GDScript_c18qv"]
+script/source = "# Classe principal que herda de Node
+extends Node
+
+# Carrega o arquivo de cena para o item que pode ser pego
+const PickUp = preload(\"res://Inventory/Item/PickUp/pick_up.tscn\")
+
+# Declaração de variáveis com os nós referenciados
+@onready var player: CharacterBody3D = $Player  # Referência ao nó do jogador
+@onready var inventory_interface: Control = $Ui/InventoryInterface  # Interface do inventário
+@onready var hot_bar_inventory: PanelContainer = $Ui/HotBarInventory  # Barra de inventário rápido
+
+
+# Função que é executada quando o nó está pronto
+func _ready() -> void:
+	# Conecta o sinal de alternância do inventário do jogador à função de alternância de interface
+	player.toggle_inventory.connect(toggle_inventory_interface)
+	# Define os dados do inventário do jogador na interface
+	inventory_interface.set_player_inventory_data(player.inventory_data)
+	# Define os dados de inventário de equipamentos na interface
+	inventory_interface.set_equip_inventory_data(player.equip_inventory_data)
+	# Define os dados do inventário na barra de inventário rápido
+	# Conecta a função de alternância para todos os inventários externos no grupo \"external_inventory\"
+	for node in get_tree().get_nodes_in_group(\"external_inventory\"):
+		node.toggle_inventory.connect(toggle_inventory_interface)
+	SaveLoad.load_inventory()
+# Função que alterna a visibilidade da interface do inventário
+
+func toggle_inventory_interface(external_inventory_owner = null) -> void:
+	# Alterna a visibilidade da interface do inventário
+	inventory_interface.visible = not inventory_interface.visible
+	
+	# Configura o modo do mouse e visibilidade da barra de inventário rápido
+	if inventory_interface.visible:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE  # Mostra o cursor do mouse
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED  # Captura o cursor do mouse para o jogo
+	
+	# Configura o inventário externo se houver um proprietário externo e a interface estiver visível
+	if external_inventory_owner and inventory_interface.visible:
+		inventory_interface.set_external_inventory(external_inventory_owner)
+	else:
+		inventory_interface.clear_external_inventory()  # Limpa o inventário externo
+
+# Função que é chamada quando um item é solto na interface do inventário
+func _on_inventory_interface_drop_slot_data(slot_data: SlotData) -> void:
+	# Cria uma nova instância do item a ser pego
+	var pick_up = PickUp.instantiate()
+	pick_up.slot_data = slot_data  # Define os dados do slot para o item a ser pego
+	pick_up.position = player.get_drop_position()  # Define a posição do item no mundo
+	add_child(pick_up)  # Adiciona o item como um filho deste nó
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_34hoh"]
+size = Vector3(3.79077, 3.9425, 2.30518)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vg0ra"]
 
@@ -1517,7 +1573,8 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Node" type="Node"]
+[node name="Banco" type="Node"]
+script = SubResource("GDScript_c18qv")
 
 [node name="Scene" type="Node" parent="."]
 
@@ -1559,6 +1616,13 @@ transform = Transform3D(1.2, 0, 0, 0, 1.6, 0, 0, 0, 0.8, 2, 0, 8)
 
 [node name="P8" parent="Scene" instance=ExtResource("3_6pyi1")]
 transform = Transform3D(1, 0, 0, 0, 1.6, 0, 0, 0, 0.8, -2.4, -0.5, 8.05)
+
+[node name="Sair" type="StaticBody3D" parent="Scene" groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.1757)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scene/Sair" groups=["Interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.258423, 1.47125, 1.47995)
+shape = SubResource("BoxShape3D_34hoh")
 
 [node name="Assets" type="Node" parent="."]
 

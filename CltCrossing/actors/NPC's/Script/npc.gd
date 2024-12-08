@@ -5,7 +5,7 @@ class_name Npc
 var npc_name: String
 var inventory_data: InventoryData
 var emotion: int
-var npcId: int
+var npc_id: int
 
 func get_npc_emotion() -> int:
 	return emotion  # Supondo que o NPC tenha uma propriedade "emotion"

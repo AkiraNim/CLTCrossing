@@ -8,7 +8,7 @@ class_name Mission
 @export var npc_name: String  # Emoção necessária do NPC para a missão
 @export var is_completed: bool = false  # Estado da missão
 @export var reward: String  # Pode ser um item, experiência, etc.
-@export var npcId: int
+@export var npc_id: int
 # Método para verificar se a missão está concluída
 
 
@@ -18,14 +18,8 @@ func check_completion() -> bool:
 	return false
 
 # Método para completar a missão
-func complete_mission(mission: Mission) -> void:
+func complete_mission(mission: Mission) -> String:
 	if !mission.is_completed:
 		PlayerManager.player.missions_complete.append(mission)
 		mission.is_completed = true
-		print("Missão completada: ", title)
-		give_reward()  # Chama a função de recompensa quando a missão é completada
-
-# Método para dar a recompensa ao jogador
-func give_reward() -> void:
-	print("Recompensa concedida: ", reward)
-	# Adicionar lógica para conceder a recompensa ao jogador (ex: adicionar item, moedas, etc.)
+	return "Missão %s completada com sucesso." % [mission.title]

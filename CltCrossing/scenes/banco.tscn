@@ -1,10 +1,9 @@
-[gd_scene load_steps=53 format=4 uid="uid://bu7g8c3p0eea0"]
+[gd_scene load_steps=52 format=4 uid="uid://dpt7uoao63q42"]
 
 [ext_resource type="Texture2D" uid="uid://ckukhwxmi4h20" path="res://assets/Texturas/anime_skybox.jpg" id="1_ccg86"]
 [ext_resource type="PackedScene" uid="uid://bsh8012ta1tua" path="res://assets/SimpleShopInteriors/Enviroment/WallWindow1.tscn" id="1_fop1r"]
 [ext_resource type="PackedScene" uid="uid://ww653mkc3o88" path="res://actors/player.tscn" id="1_lxmyc"]
 [ext_resource type="Script" path="res://Inventory/Inventory/inventory_data.gd" id="2_2uv05"]
-[ext_resource type="Script" path="res://Scripts/camera_rig2.gd" id="2_gkwce"]
 [ext_resource type="PackedScene" uid="uid://f5kneki8vgis" path="res://assets/SimpleShopInteriors/Enviroment/WallDoor1.tscn" id="2_kahnn"]
 [ext_resource type="PackedScene" uid="uid://bsl2lqum5ig1t" path="res://assets/SimpleShopInteriors/Enviroment/Wall1.tscn" id="3_6pyi1"]
 [ext_resource type="Script" path="res://Inventory/Inventory/slot_data.gd" id="3_kq2fi"]
@@ -1604,6 +1603,9 @@ transform = Transform3D(0.500448, 0, 0, 0, 0.500448, 0, 0, 0, 0.500448, 0, 0, 0)
 inventory_data = SubResource("Resource_86oxo")
 equip_inventory_data = SubResource("Resource_mqy40")
 
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1.99821, 0, 0, 0, 0.517175, 1.93012, 0, -1.93012, 0.517175, 0, 11.7168, 0)
+
 [node name="Root" type="Node" parent="."]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Root"]
@@ -1612,12 +1614,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Root"]
 environment = SubResource("Environment_f433g")
-
-[node name="CameraRig" type="Node3D" parent="Root"]
-script = ExtResource("2_gkwce")
-
-[node name="background_camera" type="Camera3D" parent="Root/CameraRig"]
-cull_mask = 1047553
 
 [node name="Ui" type="CanvasLayer" parent="."]
 

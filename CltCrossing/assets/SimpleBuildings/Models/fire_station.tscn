@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=4 uid="uid://bby4n1adval1v"]
+[gd_scene load_steps=7 format=4 uid="uid://bby4n1adval1v"]
 
 [ext_resource type="Texture2D" uid="uid://bxexspwawfuei" path="res://assets/SimpleBuildings/Models/fire_station_Fire_Station_a.png" id="1_gfgx4"]
-[ext_resource type="Script" path="res://assets/SimpleBuildings/Models/collision_fire_station.gd" id="2_lg1yr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8ihq"]
 resource_name = "lambert1.007"
@@ -69,11 +68,9 @@ shape = SubResource("ConcavePolygonShape3D_3x7oj")
 [node name="FireStationCollision" type="CollisionShape3D" parent="fire_station/firestation_mesh/StaticBody3D/CollisionShape3D/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03741, 4.51663, -2.39063)
 shape = SubResource("BoxShape3D_35fiu")
-script = ExtResource("2_lg1yr")
 
 [node name="FireStationCollision2" type="CollisionShape3D" parent="fire_station/firestation_mesh/StaticBody3D/CollisionShape3D/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03741, -4.65818, -2.39063)
 shape = SubResource("BoxShape3D_35fiu")
-script = ExtResource("2_lg1yr")
 
 [connection signal="body_entered" from="fire_station/firestation_mesh/StaticBody3D/CollisionShape3D/Area3D" to="fire_station/firestation_mesh/StaticBody3D/CollisionShape3D/Area3D/FireStationCollision" method="_on_area_3d_body_entered"]

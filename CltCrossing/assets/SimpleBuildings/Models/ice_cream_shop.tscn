@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=4 uid="uid://dav3hloyy2wb1"]
+[gd_scene load_steps=7 format=4 uid="uid://dav3hloyy2wb1"]
 
-[ext_resource type="Texture2D" uid="uid://b5xkqvegfncbv" path="res://assets/SimpleBuildings/Models/ice_cream_shop_Icecream_Shop_a.png" id="1_ps12u"]
-[ext_resource type="Script" path="res://assets/SimpleBuildings/Models/collision_ice_cream_shop.gd" id="2_rtkv4"]
+[ext_resource type="Texture2D" uid="uid://c3ree2gr172i2" path="res://assets/SimpleBuildings/Models/ice_cream_shop_Icecream_Shop_a.png" id="1_ps12u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ienvu"]
 resource_name = "lambert1.006"
@@ -68,6 +67,5 @@ shape = SubResource("ConcavePolygonShape3D_4aw5a")
 [node name="CollisionIceCreamShop" type="CollisionShape3D" parent="ice_cream_shop/icecream_shop_mesh/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64093, 2.90088, -2.0083)
 shape = SubResource("BoxShape3D_u6g45")
-script = ExtResource("2_rtkv4")
 
 [connection signal="body_entered" from="ice_cream_shop/icecream_shop_mesh/Area3D" to="ice_cream_shop/icecream_shop_mesh/Area3D/CollisionIceCreamShop" method="_on_area_3d_body_entered"]

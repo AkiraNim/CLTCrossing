@@ -17,6 +17,7 @@ script = ExtResource("1_dvp42")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 billboard = 1
+alpha_cut = 2
 texture_filter = 0
 render_priority = 1
 texture = ExtResource("1_7okll")

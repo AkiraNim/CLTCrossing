@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://dv7iwhg7msbrw"]
+[gd_scene load_steps=8 format=4 uid="uid://dv7iwhg7msbrw"]
 
 [ext_resource type="Texture2D" uid="uid://8a74wr3pmpsg" path="res://assets/SimpleBuildings/Models/burguer_shop_Burger_Shop_a.png" id="1_04jg4"]
-[ext_resource type="Script" path="res://assets/SimpleBuildings/Models/collision_burguer_shop.gd" id="2_h6p7f"]
-[ext_resource type="Script" path="res://Scripts/interactable.gd" id="2_qwg18"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e1gcp"]
+size = Vector3(0.128479, 1, 0.187988)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2py0"]
 resource_name = "lambert1.004"
@@ -52,7 +53,11 @@ size = Vector3(4.29169, 3.84932, 5.26709)
 
 [node name="BurguerShop" type="Node3D"]
 
-[node name="burguer_shop" type="Node3D" parent="."]
+[node name="burguer_shop" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="burguer_shop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00479126, 0, 0.00610352)
+shape = SubResource("BoxShape3D_e1gcp")
 
 [node name="burger_shop_base_mesh" type="MeshInstance3D" parent="burguer_shop"]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
@@ -60,7 +65,6 @@ mesh = SubResource("ArrayMesh_lv6je")
 skeleton = NodePath("")
 
 [node name="BurguerShop" type="StaticBody3D" parent="burguer_shop/burger_shop_base_mesh"]
-script = ExtResource("2_qwg18")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="burguer_shop/burger_shop_base_mesh/BurguerShop"]
 shape = SubResource("ConcavePolygonShape3D_2ygpp")
@@ -72,6 +76,5 @@ collision_mask = 4
 [node name="CollisionBurguerShop" type="CollisionShape3D" parent="burguer_shop/burger_shop_base_mesh/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2551, 3.00526, -2.13354)
 shape = SubResource("BoxShape3D_btsj4")
-script = ExtResource("2_h6p7f")
 
 [connection signal="body_entered" from="burguer_shop/burger_shop_base_mesh/Area3D" to="burguer_shop/burger_shop_base_mesh/Area3D/CollisionBurguerShop" method="_on_area_3d_body_entered"]

@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=4 uid="uid://cwniarnce4fgu"]
+[gd_scene load_steps=7 format=4 uid="uid://cwniarnce4fgu"]
 
 [ext_resource type="Texture2D" uid="uid://ci2eax0d0huk1" path="res://assets/SimpleBuildings/Models/police_station_Police_Station_a.png" id="1_8tdyc"]
-[ext_resource type="Script" path="res://assets/SimpleBuildings/Models/collision_police_station.gd" id="2_r3ghy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppel4"]
 resource_name = "lambert1.006"
@@ -68,6 +67,5 @@ shape = SubResource("ConcavePolygonShape3D_16ftv")
 [node name="CollisionPoliceStation" type="CollisionShape3D" parent="police_station/police_station_mesh/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74125, -0.0059509, -2.75879)
 shape = SubResource("BoxShape3D_0cbnr")
-script = ExtResource("2_r3ghy")
 
 [connection signal="body_entered" from="police_station/police_station_mesh/Area3D" to="police_station/police_station_mesh/Area3D/CollisionPoliceStation" method="_on_area_3d_body_entered"]

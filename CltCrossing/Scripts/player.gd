@@ -93,6 +93,7 @@ func _physics_process(delta):
 		if detected.is_in_group("Interactable"):
 			prompt.text = detected.name
 			interact_node.show()
+			print("ok")
 	else:
 		interact_node.hide()
 		prompt.text = ""

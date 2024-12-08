@@ -118,7 +118,7 @@ func player_interact() -> void:
 # Completa a missão encontrada
 							#missions.complete_mission(missions)
 	for npc in NpcManager.npcs:
-		if npc.name == npc_name:
+		if npc.npcId == npcId:
 			play_animation_based_on_emotion(3)
 			print("ok")
 	pass

@@ -15,7 +15,6 @@ var walking = false
 var health: int = 5
 var missions_complete:= []
 
-
 signal toggle_inventory()
 @onready var animation_player: AnimationPlayer = $visuals/sophia/AnimationPlayer
 @onready var visuals: Node3D = $visuals
@@ -186,4 +185,6 @@ func player_have_this_item(item_data: ItemData)-> bool:
 
 func add_money(external_money: float)-> void:
 	money+=external_money
-	
+
+func reset_missions_complete():
+	missions_complete = []

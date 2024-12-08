@@ -59,7 +59,6 @@ func _physics_process(delta: float) -> void:
 		color_rect.hide()
 	var missions_string : String
 	for missions in MissionManager.get_available_missions():
-		print(missions.title)
 		if missions && missions.title !="":
 			missions_string += missions.title
 			missions_string += "\n"

@@ -30,15 +30,18 @@ Globals="*res://Scripts/globals/globals.gd"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"banqueiro": "res://timeline/banqueiro.dch"
+}
 directories/dtl_directory={
+"banqueiro": "res://timeline/banqueiro.dtl",
 "intro": "res://timeline/intro.dtl",
 "timeline": "res://timeline.dtl"
 }
 variables={}
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://dialog_style.tres"]
+layout/default_style="res://dialog_style.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -59,6 +62,7 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 text/autoadvance_enabled=false
+choices/hotkey_behaviour=1
 
 [display]
 

@@ -90,7 +90,7 @@ func play_animation_based_on_emotion(delta: float) -> void:
 				path_follow_3d.progress += RUN_SPEED * delta
 
 # Função chamada quando o jogador interage com o NPC
-func player_interact() -> void:
+#func player_interact() -> void:
 # Exemplo de Utilização das Funções para Interação com NPCs e Missões
 # Itera sobre todos os NPCs registrados no NpcManager
 	#for npcs in NpcManager.npcs:
@@ -119,6 +119,14 @@ func player_interact() -> void:
 						#if missions.title == "Encontrar 2 maçãs":
 # Completa a missão encontrada
 							#missions.complete_mission(missions)
+
+# Função para iniciar o diálogo com o NPC
+func player_interact() -> void:
+	# Verifica se já não existe um diálogo em andamento
+	if Dialogic.current_timeline == null:
+		Dialogic.start('banqueiro')  # Diálogo específico
+	get_viewport().set_input_as_handled()
+
 
 	pass
 # Função que checa os itens do NPC

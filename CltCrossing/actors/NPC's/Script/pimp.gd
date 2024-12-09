@@ -97,6 +97,8 @@ func player_interact() -> void:
 		if npcs.npc_name == npc_name:
 			if MissionManager.create_new_mission(npc_id, "Ajude o Maciota", "Colete 3 maçãs", "Livro Verde, 100 moedas"):
 				pop_up.set_popup_text("Nova missão adicionada", 2.0)
+				if Dialogic.current_timeline == null:
+					Dialogic.start('maciota')
 	for missions in MissionManager.get_available_missions():
 		if missions.npc_name == "Maciota"\
 		and has_dialog:

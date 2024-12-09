@@ -106,6 +106,8 @@ func player_interact() -> void:
 			print("legal")
 			if MissionManager.create_new_mission(npc_id, "Recados dados", "Avise a mulher do bombeiro", "Livro marrom, 30 moedas"):
 				pop_up.set_popup_text("Nova missão adicionada", 2.0)
+				if Dialogic.current_timeline == null:
+					Dialogic.start('bombeiro2')
 
 # Função que checa os itens do NPC
 func check_npc_items() -> Array:

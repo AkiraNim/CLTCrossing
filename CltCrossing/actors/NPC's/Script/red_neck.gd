@@ -98,6 +98,8 @@ func player_interact() -> void:
 		if npcs.npc_name == npc_name:
 			if MissionManager.create_new_mission(npc_id, "Ajude o fazendeiro", "Colete 3 maçãs", "Livro Amarelo, 30 moedas"):
 				pop_up.set_popup_text("Nova missão adicionada", 2.0)
+				if Dialogic.current_timeline == null:
+					Dialogic.start('caipira')
 	for missions in MissionManager.get_available_missions():
 		if missions.npc_name == "Caipira"\
 		and has_dialog:

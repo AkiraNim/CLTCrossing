@@ -8,8 +8,9 @@ func _process(delta: float) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 func _on_btn_jogar_pressed() -> void:
-	if Dialogic.current_timeline == null:
-		Dialogic.start('intro')  # Diálogo específico
+	if !FileAccess.file_exists("user://savegames.tres"):
+		if Dialogic.current_timeline == null:
+			Dialogic.start('intro')  # Diálogo específico
 	Globals.next_scene = "res://scenes/mapa_principal.tscn"
 	get_tree().change_scene_to_packed(Globals.loading_screen)
 

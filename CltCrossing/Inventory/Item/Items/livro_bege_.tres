@@ -12,7 +12,7 @@ region = Rect2(160, 416, 32, 32)
 script = ExtResource("1_ukw7r")
 defence = 0
 item_scene = ExtResource("1_fsijf")
-name = "Livro Bege"
+name = "Livro bege"
 description = "Livro Bege: Planejamento Avançado e Aprofundamento
 
 Capítulo 1: Planejamento de Longo Prazo

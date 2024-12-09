@@ -43,9 +43,6 @@ func create_new_mission(npc_id: int, mission_title: String, mission_description:
 	add_mission(new_mission, npc_id)
 
 	# Exibe o pop-up com a mensagem
-	if pop_up:
-		pop_up.show()  # Garante que o pop-up seja mostrado
-		pop_up.set_popup_text("Nova missão criada: %s" % new_mission.title, 3.0)
 
 	return true
 

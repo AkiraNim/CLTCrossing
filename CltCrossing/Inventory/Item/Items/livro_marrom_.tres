@@ -12,7 +12,7 @@ region = Rect2(128, 416, 32, 32)
 script = ExtResource("1_2gs4p")
 defence = 0
 item_scene = ExtResource("1_dh452")
-name = "Livro Marrom"
+name = "Livro marrom"
 description = "Livro Marrom: Estratégias de Diversificação
 
 Capítulo 1: O que é Diversificação?
@@ -39,7 +39,7 @@ Revise a alocação periodicamente para ajustar às mudanças no mercado ou em s
 tooltip = "Tenha uma boa leitura."
 stackable = false
 texture = SubResource("AtlasTexture_b3bpj")
-price = 0.0
+price = 200.0
 sellable = true
 buyable = false
 unique = true

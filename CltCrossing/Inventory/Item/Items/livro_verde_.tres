@@ -12,7 +12,7 @@ region = Rect2(64, 416, 32, 32)
 script = ExtResource("1_4s1gy")
 defence = 0
 item_scene = ExtResource("1_vvxh8")
-name = "Livro Verde"
+name = "Livro verde"
 description = "Livro Verde: Introdução à Renda Variável
 
 Capítulo 1: Entendendo a Bolsa de Valores
@@ -34,9 +34,9 @@ Para minimizar riscos, diversifique sua carteira e evite tomar decisões com bas
 tooltip = "Tenha uma boa leitura."
 stackable = false
 texture = SubResource("AtlasTexture_hugsi")
-price = 0.0
+price = 200.0
 sellable = true
-buyable = false
+buyable = true
 unique = true
 droppable = false
 id = 0

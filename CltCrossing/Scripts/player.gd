@@ -6,7 +6,7 @@ extends CharacterBody3D
 const SPEED = 3.0
 const JUMP_VELOCITY = 10
 
-var money: float = 100.25
+var money: float = 50
 var stack = false
 var gravity = 0
 var movement_velocity : Vector3

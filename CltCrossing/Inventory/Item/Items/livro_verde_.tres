@@ -34,9 +34,9 @@ Para minimizar riscos, diversifique sua carteira e evite tomar decisões com bas
 tooltip = "Tenha uma boa leitura."
 stackable = false
 texture = SubResource("AtlasTexture_hugsi")
-price = 150.0
+price = 0.0
 sellable = true
-buyable = true
+buyable = false
 unique = true
 droppable = false
 id = 0

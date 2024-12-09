@@ -127,8 +127,8 @@ func player_interact() -> void:
 		Dialogic.start('banqueiro')  # Diálogo específico
 	get_viewport().set_input_as_handled()
 
-
 	pass
+
 # Função que checa os itens do NPC
 func check_npc_items() -> Array:
 	var items := []

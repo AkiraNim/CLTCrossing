@@ -38,9 +38,9 @@ Entender esses riscos ajuda a escolher com confiança."
 tooltip = "Tenha uma boa leitura."
 stackable = false
 texture = SubResource("AtlasTexture_r0t0d")
-price = 150.0
+price = 0.0
 sellable = true
-buyable = true
+buyable = false
 unique = true
 droppable = false
 id = 0

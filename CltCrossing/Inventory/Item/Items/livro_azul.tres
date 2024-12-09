@@ -29,9 +29,9 @@ Comece aos poucos, ajustando seu orçamento. Use uma conta de alta liquidez, com
 tooltip = "Tenha uma boa leitura."
 stackable = false
 texture = SubResource("AtlasTexture_tgwii")
-price = 100.0
+price = 0.0
 sellable = true
-buyable = true
+buyable = false
 unique = true
 droppable = false
 id = 0

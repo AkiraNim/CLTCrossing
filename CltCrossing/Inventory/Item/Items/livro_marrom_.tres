@@ -39,7 +39,7 @@ Revise a alocação periodicamente para ajustar às mudanças no mercado ou em s
 tooltip = "Tenha uma boa leitura."
 stackable = false
 texture = SubResource("AtlasTexture_b3bpj")
-price = 200.0
+price = 150.0
 sellable = true
 buyable = true
 unique = true

@@ -27,7 +27,7 @@ Por exemplo, R$ 1.000 investidos a 10% ao ano se tornam R$ 1.100 no primeiro ano
 tooltip = "Tenha uma boa leitura."
 stackable = false
 texture = SubResource("AtlasTexture_gt7yx")
-price = 200.0
+price = 150.0
 sellable = true
 buyable = true
 unique = true

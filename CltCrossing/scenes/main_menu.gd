@@ -10,6 +10,8 @@ func _process(delta: float) -> void:
 func _on_btn_jogar_pressed() -> void:
 	Globals.next_scene = "res://scenes/mapa.tscn"
 	get_tree().change_scene_to_packed(Globals.loading_screen)
+	if Dialogic.current_timeline == null:
+		Dialogic.start('intro')  # Diálogo específico
 
 func _on_btn_sair_pressed() -> void:
 	get_tree().quit()

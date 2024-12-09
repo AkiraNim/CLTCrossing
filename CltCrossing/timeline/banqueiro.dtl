@@ -37,6 +37,7 @@ banqueiro: Qual é o objetivo principal da educação financeira?
 					- Definir metas claras, investir de forma consistente e reinvestir os lucros.
 						banqueiro: <Muito bem!/Correto!/Parabéns!/Resposta certa!/Isso aí!>
 						banqueiro: Você acertou todas as perguntas! Meus parabéns!
+						banqueiro: Agora você pode sair e explorar, ou aprender mais sobre finanças.
 					- Utilizar alavancagem em todos os investimentos.
 				- Garantir um retorno fixo e previsível ao longo do tempo.
 					banqueiro: Resposta incorreta, tente novamente
@@ -68,5 +69,3 @@ banqueiro: Qual é o objetivo principal da educação financeira?
 - Fazer investimentos de alto risco.
 	banqueiro: Resposta incorreta, tente novamente
 	[end_timeline]
-	[wait_input]
-	[wait_input]

@@ -31,11 +31,24 @@ Globals="*res://Scripts/globals/globals.gd"
 [dialogic]
 
 directories/dch_directory={
-"banqueiro": "res://timeline/banqueiro.dch"
+"banqueiro": "res://timeline/banqueiro.dch",
+"bombeiro1": "res://timeline/bombeiro1.dch",
+"bombeiro2": "res://timeline/bombeiro2.dch",
+"fazendeiro": "res://timeline/fazendeiro.dch",
+"maciota": "res://timeline/maciota.dch",
+"mulher": "res://timeline/mulher.dch",
+"policial": "res://timeline/policial.dch"
 }
 directories/dtl_directory={
 "banqueiro": "res://timeline/banqueiro.dtl",
+"bombeiro": "res://timeline/bombeiro1.dtl",
+"bombeiro2": "res://timeline/bombeiro2.dtl",
+"caipira": "res://timeline/caipira.dtl",
 "intro": "res://timeline/intro.dtl",
+"maciota": "res://timeline/maciota.dtl",
+"mission_complete": "res://timeline/mission_complete.dtl",
+"mulher": "res://timeline/mulher.dtl",
+"policial": "res://timeline/policial.dtl",
 "timeline": "res://timeline.dtl"
 }
 variables={}

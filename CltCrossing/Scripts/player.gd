@@ -160,14 +160,14 @@ func get_player_inventory_slot_data_index_by_name(name: String) -> int:
 			return i
 	return -1
 	
-func get_player_equiped_slot_data_quantity_by_name(name: String)-> int:
-	var index = get_player_equiped_slot_data_index_by_name(name)
+func get_player_equiped_slot_data_quantity_by_name(item_name: String)-> int:
+	var index = get_player_equiped_slot_data_index_by_name(item_name)
 	if PlayerManager.player.equip_inventory_data.get_slot_data_quantity(index)!=-1:
 		return PlayerManager.player.equip_inventory_data.get_slot_data_quantity(index)
 	return -1
 	
-func get_player_inventory_slot_data_quantity_by_name(name: String)-> int:
-	var index = get_player_inventory_slot_data_index_by_name(name)
+func get_player_inventory_slot_data_quantity_by_name(item_name: String)-> int:
+	var index = get_player_inventory_slot_data_index_by_name(item_name)
 	if PlayerManager.player.inventory_data.get_slot_data_quantity(index)!=-1:
 		return PlayerManager.player.inventory_data.get_slot_data_quantity(index)
 	return -1
@@ -182,7 +182,17 @@ func player_have_this_item(item_data: ItemData)-> bool:
 		and item_data.unique:
 			return true
 	return false
-
+func drop_player_item_by_quantity(item_name: String, quantity :int)->int:
+	var grabbed_slot_data = PlayerManager.player.inventory_data.slot_datas[get_player_inventory_slot_data_index_by_name(item_name)]
+	if grabbed_slot_data:
+		if grabbed_slot_data.quantity>0:
+			grabbed_slot_data.quantity -= quantity
+			PlayerManager.player.inventory_data.inventory_updated.emit(PlayerManager.player.inventory_data)
+			return grabbed_slot_data.quantity
+		else:
+			quantity = 0
+	quantity = 0
+	return quantity
 func add_money(external_money: float)-> void:
 	money+=external_money
 

@@ -8,6 +8,7 @@ signal dialog
 @export var npc_name: String
 @export var inventory_data: InventoryData
 @export var has_dialog: bool = false
+@export var quantity_needed: int
 
 @onready var pop_up: Control = $"../../Ui/PopUp"
 
@@ -94,10 +95,14 @@ func play_animation_based_on_emotion(delta: float) -> void:
 func player_interact() -> void:
 	var id
 	
+	for mission in MissionManager.get_available_missions():
+			if mission.title == "Ajude o fazendeiro":
+					PlayerManager.player.drop_player_item_by_quantity("Maçã", quantity_needed)
 	for npcs in NpcManager.npcs:
 		if npcs.npc_name == npc_name:
 			if MissionManager.create_new_mission(npc_id, "Ajude o fazendeiro", "Colete 3 maçãs", "Livro Amarelo, 30 moedas"):
 				pop_up.set_popup_text("Nova missão adicionada", 2.0)
+				quantity_needed = 3
 				if Dialogic.current_timeline == null:
 					Dialogic.start('caipira')
 	for missions in MissionManager.get_available_missions():
@@ -107,7 +112,7 @@ func player_interact() -> void:
 				Dialogic.start('mission_complete')
 				has_dialog = false  # Diálogo específico
 				get_viewport().set_input_as_handled()
-	if PlayerManager.player.get_player_inventory_slot_data_quantity_by_name("Maçã")>=3:
+	if PlayerManager.player.get_player_inventory_slot_data_quantity_by_name("Maçã")>=quantity_needed:
 		for mission in MissionManager.get_available_missions():
 			if mission.title == "Ajude o fazendeiro":
 				Dialogic.start('mission_complete')

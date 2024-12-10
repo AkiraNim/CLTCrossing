@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var npc_name: String
 @export var inventory_data: InventoryData
 @export var has_dialog: bool = false
+@export var quantity_needed: int
 
 @onready var pop_up: Control = $"../../Ui/PopUp"
 

@@ -57,12 +57,6 @@ O projeto foi desenvolvido pela seguinte equipe:
 4. **Executar o Jogo**:
    - Após abrir o projeto no Godot, clique no botão de execução (F5) para rodar o jogo no editor ou exporte para a plataforma de sua escolha.
 
-## Links dos Repositórios
-
-- [Ismael Silva]([link-do-github](https://github.com/AkiraNim))
-- [Laís Lima]([link-do-github](https://github.com/Lys-31))
-- [Thiago Trabuco]([link-do-github](https://github.com/DevThiagoTrabuco))
-- [Rodrigo Oliveira]([link-do-github](https://github.com/umsimplesrodrigo))
 
 ## Licença
 

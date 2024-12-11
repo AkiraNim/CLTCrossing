@@ -187,8 +187,10 @@ func drop_player_item_by_quantity(item_name: String, quantity :int)->int:
 	if grabbed_slot_data:
 		if grabbed_slot_data.quantity>0:
 			grabbed_slot_data.quantity -= quantity
+			if grabbed_slot_data.quantity<0:
+				grabbed_slot_data = null
 			PlayerManager.player.inventory_data.inventory_updated.emit(PlayerManager.player.inventory_data)
-			return grabbed_slot_data.quantity
+			return 0
 		else:
 			quantity = 0
 	quantity = 0

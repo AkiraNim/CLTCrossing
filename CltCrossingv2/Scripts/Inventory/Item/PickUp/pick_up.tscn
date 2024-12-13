@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c525b7yvp0i5v"]
+[gd_scene load_steps=5 format=3 uid="uid://bndvbf45qyqeq"]
 
-[ext_resource type="Texture2D" path="res://Scripts/Inventory/Item/item_atlas.tres" id="1_7okll"]
-[ext_resource type="Script" path="res://Scripts/Inventory/Item/PickUp/pick_up.gd" id="1_dvp42"]
+[ext_resource type="Texture2D" uid="uid://cmwmw88hmyp2o" path="res://Inventory/Item/item_atlas.tres" id="1_7okll"]
+[ext_resource type="Script" path="res://Inventory/Item/PickUp/pick_up.gd" id="1_dvp42"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ufcur"]
 height = 1.71484

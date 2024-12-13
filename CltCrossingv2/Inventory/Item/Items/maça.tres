@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://d16w2botk1ykg"]
+
+[ext_resource type="Script" path="res://Inventory/Item/item_data.gd" id="1_jmtmi"]
+[ext_resource type="Texture2D" uid="uid://dn1inlnruiple" path="res://Inventory/Item/#1 - Transparent Icons.png" id="2_0ecau"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmghq"]
+atlas = ExtResource("2_0ecau")
+region = Rect2(0, 448, 32, 32)
+
+[resource]
+script = ExtResource("1_jmtmi")
+name = "Maçã"
+description = ""
+tooltip = "Uma maçã gostosa"
+stackable = true
+texture = SubResource("AtlasTexture_dmghq")
+price = 10.0
+sellable = true
+buyable = true
+unique = false
+droppable = true
+id = 0

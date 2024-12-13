@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=5 format=3 uid="uid://c42p7oit6pqal"]
+
+[ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="1_fsijf"]
+[ext_resource type="Script" path="res://Inventory/Item/item_data_equip.gd" id="1_ukw7r"]
+[ext_resource type="Texture2D" uid="uid://dn1inlnruiple" path="res://Inventory/Item/#1 - Transparent Icons.png" id="2_8q7mp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqoqf"]
+atlas = ExtResource("2_8q7mp")
+region = Rect2(160, 416, 32, 32)
+
+[resource]
+script = ExtResource("1_ukw7r")
+defence = 0
+item_scene = ExtResource("1_fsijf")
+name = "Livro bege"
+description = "Livro Bege: Planejamento Avançado e Aprofundamento
+
+Capítulo 1: Planejamento de Longo Prazo
+O sucesso financeiro é construído com visão de longo prazo. Para alcançar objetivos como aposentadoria ou independência financeira, defina metas claras e prazos.
+Considere investimentos consistentes e a reinvestimento dos lucros. Use simulações para calcular quanto precisa investir mensalmente para atingir suas metas, considerando fatores como inflação e rentabilidade média.
+
+Capítulo 2: Gestão de Risco e Alavancagem
+Gestão de risco é essencial para proteger seu patrimônio. Estrategias incluem:
+
+Stop Loss: definir limites de perda.
+Hedge: proteger sua carteira com ativos descorrelacionados.
+Já a alavancagem é usar recursos emprestados para aumentar a exposição a investimentos. Ela pode gerar altos ganhos, mas também perdas significativas. Use com cautela e somente quando tiver experiência.
+Capítulo 3: Análise Técnica vs. Fundamentalista
+Existem dois principais métodos para avaliar investimentos:
+
+Análise Técnica: estuda gráficos de preços e padrões para prever movimentos futuros. É útil no curto prazo.
+Análise Fundamentalista: avalia o valor intrínseco de um ativo, considerando lucro, dívidas, setor e outros indicadores. Ideal para o longo prazo.
+Ambos são ferramentas úteis. Muitos investidores combinam as duas para tomar decisões mais completas.
+"
+tooltip = "Tenha uma boa leitura."
+stackable = false
+texture = SubResource("AtlasTexture_kqoqf")
+price = 200.0
+sellable = true
+buyable = true
+unique = true
+droppable = false
+id = 0

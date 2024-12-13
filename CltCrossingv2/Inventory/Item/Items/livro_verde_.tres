@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=5 format=3 uid="uid://rp21jk7e8mvn"]
+
+[ext_resource type="Script" path="res://Inventory/Item/item_data_equip.gd" id="1_4s1gy"]
+[ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="1_vvxh8"]
+[ext_resource type="Texture2D" uid="uid://dn1inlnruiple" path="res://Inventory/Item/#1 - Transparent Icons.png" id="2_iu7sh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hugsi"]
+atlas = ExtResource("2_iu7sh")
+region = Rect2(64, 416, 32, 32)
+
+[resource]
+script = ExtResource("1_4s1gy")
+defence = 0
+item_scene = ExtResource("1_vvxh8")
+name = "Livro verde"
+description = "Livro Verde: Introdução à Renda Variável
+
+Capítulo 1: Entendendo a Bolsa de Valores
+A bolsa de valores é um ambiente onde investidores compram e vendem ações, que são pequenas partes do capital de uma empresa. Quando você compra uma ação, torna-se sócio da empresa e participa dos lucros (dividendos) ou do crescimento de valor no mercado.
+Ações são mais voláteis que renda fixa, pois seus preços variam conforme o mercado. A paciência é essencial: o objetivo é o crescimento no longo prazo. Antes de investir, estude o setor, a saúde financeira da empresa e o comportamento do mercado.
+
+Capítulo 2: Fundos de Investimento
+Fundos de investimento reúnem o dinheiro de vários investidores para aplicar em ativos, como ações, títulos ou imóveis. Eles são geridos por profissionais que tomam decisões para buscar melhores rendimentos.
+Os fundos podem ser de renda fixa, multimercados, imobiliários ou de ações. Cada tipo tem riscos e objetivos diferentes. Escolher um fundo alinhado ao seu perfil de risco e objetivo é essencial para maximizar resultados.
+
+Capítulo 3: Riscos e Recompensas da Renda Variável
+Renda variável oferece altas possibilidades de ganho, mas também maiores riscos. Os principais riscos incluem:
+
+Volatilidade: oscilações nos preços.
+Liquidez: dificuldade em vender ações rapidamente.
+Risco de mercado: crises econômicas ou fatores externos podem impactar negativamente o valor dos ativos.
+Para minimizar riscos, diversifique sua carteira e evite tomar decisões com base em emoções.
+"
+tooltip = "Tenha uma boa leitura."
+stackable = false
+texture = SubResource("AtlasTexture_hugsi")
+price = 200.0
+sellable = true
+buyable = true
+unique = true
+droppable = false
+id = 0

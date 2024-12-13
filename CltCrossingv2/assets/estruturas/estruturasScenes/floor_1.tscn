@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c46kekk7xw3nq"]
+
+[ext_resource type="Texture2D" uid="uid://bovff0i76pmdr" path="res://assets/Texturas/Brick_Herringbone_Green_1.png" id="1_c86m4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7bdl"]
+albedo_texture = ExtResource("1_c86m4")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wdb2p"]
+material = SubResource("StandardMaterial3D_n7bdl")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v2gua"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="Floor1" type="Node3D"]
+
+[node name="Floor1" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_wdb2p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_v2gua")

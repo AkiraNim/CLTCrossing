@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=5 format=3 uid="uid://bko45ehkde0f8"]
+
+[ext_resource type="Script" path="res://Inventory/Item/item_data_equip.gd" id="1_2gs4p"]
+[ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="1_dh452"]
+[ext_resource type="Texture2D" uid="uid://dn1inlnruiple" path="res://Inventory/Item/#1 - Transparent Icons.png" id="2_4k63x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3bpj"]
+atlas = ExtResource("2_4k63x")
+region = Rect2(128, 416, 32, 32)
+
+[resource]
+script = ExtResource("1_2gs4p")
+defence = 0
+item_scene = ExtResource("1_dh452")
+name = "Livro marrom"
+description = "Livro Marrom: Estratégias de Diversificação
+
+Capítulo 1: O que é Diversificação?
+Diversificação é a prática de investir em diferentes tipos de ativos para reduzir riscos. Em vez de concentrar todo o dinheiro em uma ação ou título, distribua entre categorias como ações, renda fixa, imóveis e até moedas estrangeiras.
+Essa estratégia protege contra perdas significativas em um único ativo. Lembre-se: quanto mais diversificada sua carteira, menor o impacto de uma queda em qualquer setor.
+
+Capítulo 2: Classes de Ativos
+Existem diferentes classes de ativos, cada uma com características únicas:
+
+Ações: participação em empresas.
+Fundos Imobiliários: renda de aluguéis e valorização de imóveis.
+Renda Fixa: segurança e estabilidade.
+Commodities: investimento em ouro, petróleo, etc.
+Criptomoedas: ativos digitais de alta volatilidade.
+Combinar ativos com diferentes comportamentos de mercado aumenta a resiliência da carteira.
+Capítulo 3: Montando sua Carteira de Investimentos
+A construção de uma carteira depende dos seus objetivos, prazo e perfil de risco. Uma carteira balanceada pode conter:
+
+30% em renda fixa: segurança e liquidez.
+40% em ações: potencial de crescimento.
+20% em fundos imobiliários: renda passiva.
+10% em ativos alternativos: criptomoedas ou commodities.
+Revise a alocação periodicamente para ajustar às mudanças no mercado ou em sua vida."
+tooltip = "Tenha uma boa leitura."
+stackable = false
+texture = SubResource("AtlasTexture_b3bpj")
+price = 200.0
+sellable = true
+buyable = false
+unique = true
+droppable = false
+id = 0

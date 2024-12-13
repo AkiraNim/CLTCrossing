@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dirdqqvsf5cng"]
+
+[ext_resource type="Shader" path="res://Models/actors/models/smoke_puff/smoke_ball_middle.gdshader" id="1_alvim"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a7d7e"]
+noise_type = 2
+fractal_type = 0
+cellular_jitter = 0.35
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sn1he"]
+noise = SubResource("FastNoiseLite_a7d7e")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_alvim")
+shader_parameter/progress = 0.0
+shader_parameter/smoothness = 0.05
+shader_parameter/ease = 0.5
+shader_parameter/base_scale = 0.0
+shader_parameter/deformation_scale = 0.3
+shader_parameter/texture_offset = 0.0
+shader_parameter/fresnel_offset = 1.0
+shader_parameter/global_alpha = 1.0
+shader_parameter/voronoi_sampler = SubResource("NoiseTexture2D_sn1he")

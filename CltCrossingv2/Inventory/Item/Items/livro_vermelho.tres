@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=3 format=3 uid="uid://owss1rpn0kyo"]
+
+[ext_resource type="Script" path="res://Inventory/Item/item_data_equip.gd" id="1_dqqya"]
+[ext_resource type="Texture2D" uid="uid://cmwmw88hmyp2o" path="res://Inventory/Item/item_atlas.tres" id="2_yeklr"]
+
+[resource]
+script = ExtResource("1_dqqya")
+defence = 0
+name = "Livro vermelho"
+description = "Livro Vermelho: Explorando os Ativos de Renda Fixa
+
+Capítulo 1: O que é Renda Fixa?
+Renda fixa é uma categoria de investimentos onde você sabe, ou pode prever, quanto receberá ao final do prazo. Exemplos incluem Tesouro Direto, CDBs e debêntures.
+Esses ativos são ideais para quem busca segurança e estabilidade, pois têm risco menor que ações. São recomendados para objetivos de curto e médio prazo.
+
+Capítulo 2: Como Escolher um Ativo de Renda Fixa
+Considere três fatores ao escolher:
+
+Rentabilidade: quanto você ganhará.
+Prazo: quanto tempo o dinheiro ficará aplicado.
+Liquidez: facilidade de resgatar o dinheiro.
+Sempre avalie o emissor do ativo para garantir segurança. Instituições sólidas têm menor risco de calote.
+Capítulo 3: Riscos na Renda Fixa
+Embora mais seguros, os ativos de renda fixa não são isentos de riscos. Os principais são:
+
+Risco de crédito: o emissor pode não pagar.
+Risco de liquidez: dificuldade de vender o ativo antes do prazo.
+Risco de mercado: variações nas taxas de juros podem impactar o valor do ativo.
+Entender esses riscos ajuda a escolher com confiança."
+tooltip = "Tenha uma boa leitura."
+stackable = false
+texture = ExtResource("2_yeklr")
+price = 200.0
+sellable = true
+buyable = true
+unique = true
+droppable = false
+id = 0

@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=5 format=3 uid="uid://cypwon4gf8rkl"]
+
+[ext_resource type="PackedScene" uid="uid://bndvbf45qyqeq" path="res://Inventory/Item/PickUp/pick_up.tscn" id="1_olax5"]
+[ext_resource type="Script" path="res://Inventory/Item/item_data_equip.gd" id="2_upoi1"]
+[ext_resource type="Texture2D" uid="uid://dn1inlnruiple" path="res://Inventory/Item/#1 - Transparent Icons.png" id="3_552sr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgwii"]
+atlas = ExtResource("3_552sr")
+region = Rect2(0, 416, 32, 32)
+
+[resource]
+script = ExtResource("2_upoi1")
+defence = 0
+item_scene = ExtResource("1_olax5")
+name = "Livro azul"
+description = "Livro Azul: Fundamentos de Finanças Pessoais
+
+Capítulo 1: O que é Educação Financeira?
+Educação financeira é a base para tomar decisões conscientes sobre seu dinheiro. Ela ensina a organizar seus ganhos, gastos e investimentos, evitando endividamento desnecessário. O primeiro passo é conhecer sua relação com o dinheiro: você sabe quanto gasta e em quê? Sem isso, é impossível traçar objetivos.
+A educação financeira é uma ferramenta para alcançar segurança e liberdade. Ela evita erros comuns, como gastar tudo o que ganha ou fazer dívidas de alto custo. Lembre-se: dinheiro é um meio, não um fim. Aprender a gerenciá-lo é aprender a viver melhor.
+
+Capítulo 2: Orçamento Doméstico
+Um orçamento é como um mapa: ele guia suas decisões financeiras. Comece listando suas receitas (salário, renda extra, etc.) e despesas (fixas, variáveis e eventuais). Use a regra 50-30-20: 50% para necessidades (aluguel, alimentação), 30% para desejos (lazer, viagens) e 20% para investimentos e poupança.
+Ferramentas como planilhas ou aplicativos podem ajudar. A disciplina é essencial. Evite gastos impulsivos e revise o orçamento regularmente para ajustar ao longo do tempo.
+
+Capítulo 3: Construindo um Fundo de Emergência
+O fundo de emergência é seu \"colete salva-vidas\". Ele cobre imprevistos, como desemprego ou problemas de saúde, sem precisar recorrer a empréstimos. O ideal é guardar de 3 a 6 meses do custo de vida.
+Comece aos poucos, ajustando seu orçamento. Use uma conta de alta liquidez, como poupança ou Tesouro Selic, para acessar o dinheiro rapidamente se necessário."
+tooltip = "Tenha uma boa leitura."
+stackable = false
+texture = SubResource("AtlasTexture_tgwii")
+price = 200.0
+sellable = true
+buyable = true
+unique = true
+droppable = false
+id = 0

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://q0jrnvb7x42o"]
+
+[ext_resource type="PackedScene" uid="uid://cwfn6p3f0datl" path="res://assets/assets/nature-kit/Models/grass_leafsLarge.glb" id="1_34p3v"]
+
+[node name="grass_leafsLarge2" instance=ExtResource("1_34p3v")]

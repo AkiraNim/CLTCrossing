@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=4 format=3 uid="uid://ci6nhaw5n1aya"]
+
+[ext_resource type="Script" path="res://Inventory/Item/item_data_equip.gd" id="1_fooim"]
+[ext_resource type="Texture2D" uid="uid://dn1inlnruiple" path="res://Inventory/Item/#1 - Transparent Icons.png" id="2_2xvfu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt7yx"]
+atlas = ExtResource("2_2xvfu")
+region = Rect2(96, 416, 32, 32)
+
+[resource]
+script = ExtResource("1_fooim")
+defence = 0
+name = "Livro amarelo"
+description = "Livro Amarelo: Introdução ao Investimento
+
+Capítulo 1: Por que Investir é Importante?
+Investir é essencial para proteger seu dinheiro contra a inflação e fazê-lo crescer ao longo do tempo. A poupança, sozinha, não basta, pois muitas vezes perde para a inflação.
+Investimentos permitem multiplicar seu patrimônio, realizar sonhos e alcançar independência financeira. Pense em seus objetivos: aposentadoria, compra de um imóvel, estudos? Cada meta pode guiar seu plano de investimentos.
+
+Capítulo 2: Formas Seguras de Investir
+Se você está começando, priorize segurança. Títulos públicos, como o Tesouro Selic, são exemplos confiáveis e de fácil acesso. CDBs de bancos sólidos também são opções seguras.
+Evite promessas de retornos muito altos: se parece bom demais para ser verdade, provavelmente é fraude. Comece pequeno, conheça os riscos e ganhe confiança com o tempo.
+
+Capítulo 3: Juros Compostos: Seu Melhor Aliado
+Juros compostos fazem seu dinheiro crescer mais rápido. A lógica é simples: os rendimentos do investimento são reinvestidos, gerando ganhos sobre ganhos.
+Por exemplo, R$ 1.000 investidos a 10% ao ano se tornam R$ 1.100 no primeiro ano. No segundo, você ganha 10% sobre R$ 1.100, e assim por diante. Quanto mais tempo você investir, maior será o impacto dos juros compostos. Por isso, comece o quanto antes!"
+tooltip = "Tenha uma boa leitura."
+stackable = false
+texture = SubResource("AtlasTexture_gt7yx")
+price = 200.0
+sellable = true
+buyable = true
+unique = true
+droppable = false
+id = 0

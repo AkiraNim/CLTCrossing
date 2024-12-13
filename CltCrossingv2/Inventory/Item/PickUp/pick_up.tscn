@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bndvbf45qyqeq"]
+
+[ext_resource type="Texture2D" uid="uid://cmwmw88hmyp2o" path="res://Inventory/Item/item_atlas.tres" id="1_7okll"]
+[ext_resource type="Script" path="res://Inventory/Item/PickUp/pick_up.gd" id="1_dvp42"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ufcur"]
+height = 1.71484
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gsikc"]
+height = 1.70726
+
+[node name="PickUp" type="RigidBody3D"]
+collision_layer = 0
+lock_rotation = true
+script = ExtResource("1_dvp42")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+billboard = 1
+alpha_cut = 3
+texture_filter = 0
+render_priority = 1
+texture = ExtResource("1_7okll")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.693985, 0, 0, 0, 0.693985, 0, 0, 0, 0.693985, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ufcur")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.693985, 0, 0, 0, 0.693985, 0, 0, 0, 0.693985, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_gsikc")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

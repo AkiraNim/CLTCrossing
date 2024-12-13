@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=4 uid="uid://c2tf7ig03crjy"]
+
+[ext_resource type="Texture2D" uid="uid://brqlo22ots7ls" path="res://assets/SimpleShopInteriors/Food/BurguerWrapped_SimpleShopInterior_Texture.png" id="1_s6oci"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnej7"]
+resource_name = "lambert1.028"
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("1_s6oci")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bhd84"]
+_surfaces = [{
+"aabb": AABB(-0.20864, -0.20864, -0.295864, 0.417279, 0.41728, 0.295864),
+"format": 34896613377,
+"index_count": 108,
+"index_data": PackedByteArray("DAAOAA0ADAAPAA4ACAAKAAkACAALAAoAEAASABEAEAATABIABgABAAcABgAAAAEAAQAFAAcAAQADAAUABgACAAAABgAEAAIAAgAJAAMAAgAIAAkAAwAKAAUAAwAJAAoABQALAAQABQAKAAsABAAIAAIABAALAAgAAAANAAEAAAAMAA0AAQAOAAMAAQANAA4AAwAPAAIAAwAOAA8AAgAMAAAAAgAPAAwABAARAAUABAAQABEABQASAAcABQARABIABwATAAYABwASABMABgAQAAQABgATABAA"),
+"name": "lambert1.028",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAD/////AAD///////8AAAAA//8AAAAA/////wAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAP//AAD//wAA//8AAK8+T8EAAAAAT8FPwQAAAABPwa8+AAAAAK8+rz4AAAAA0yn//x3MAAAr1v//HcwAACvW//+ClwAA0yn//4KXAADTKQAAgpcAACvWAACClwAAK9YAAB3MAADTKQAAHcwAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_eca20"]
+resource_name = "BurguerWrapped_Mesh_052"
+_surfaces = [{
+"aabb": AABB(-0.20864, -0.20864, -0.295864, 0.417279, 0.41728, 0.295864),
+"attribute_data": PackedByteArray("tzxljs5EZY7JS2WOGk1ljrc8ZY7ORGWOyUtljhpNZY7UVGWOzkRljslLZY4aTWWO1FRljs5EZY7JS2WOGk1ljtRUZY7ORGWOyUtljhpNZY7UVGWOzkRljslLZY4aTWWOtzxljs5EZY7JS2WOGk1ljrc8ZY7ORGWOyUtljhpNZY7UVGWO1FTe0dRUZY7UVN7R1FRljtRU3tHUVGWO1FTe0dY6ZY7ORGWOyUtljtY6ZY7ORGWOyUtljtY6ZY7ORGWOyUtljtY6ZY7ORGWOyUtljtY6ZY7ORGWOyUtljtY6ZY7ORGWOyUtljtY6ZY7ORGWOyUtljtY6ZY7ORGWOyUtljg=="),
+"format": 34896613399,
+"index_count": 108,
+"index_data": PackedByteArray("KAAuACsAKAAxAC4AIQAlACMAIQAnACUANAA6ADcANAA9ADoAGAAEABwAGAAAAAQABwAXAB8ABwAPABcAGwALAAMAGwATAAsACAAiAAwACAAgACIADAAkABQADAAiACQAFAAmABAAFAAkACYAEAAgAAgAEAAmACAAAgAtAAYAAgAqAC0ABQAvAA0ABQAsAC8ADgAzAAoADgAwADMACQApAAEACQAyACkAEgA5ABYAEgA2ADkAFQA7AB0AFQA4ADsAHgA/ABoAHgA8AD8AGQA1ABEAGQA+ADUA"),
+"material": SubResource("StandardMaterial3D_dnej7"),
+"name": "lambert1.028",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 64,
+"vertex_data": PackedByteArray("AAD///////8AAP//////vwAA//////+/AAD/////VNX///////////////////+//////////7////////+qKgAA//8AAP//AAD//wAA/78AAP//AAD/vwAA//8AAFTV/////wAA////////AAD/v/////8AAP+//////wAAqioAAAAAAAD//wAAAAAAAP+/AAAAAAAA/78AAAAAAABU1f//AAAAAP////8AAAAA/7///wAAAAD/v///AAAAAKoqAAAAAP////8AAAAA////vwAAAAD///+/AAAAAP//VNX//wAA////////AAD///+///8AAP///7///wAA//+qKq8+T8EAAP//rz5PwQAA//9PwU/BAAD//0/BT8EAAP//T8GvPgAA//9Pwa8+AAD//68+rz4AAP//rz6vPgAA///TKf//HcwAANMp//8dzP+/0yn//x3M/78r1v//HcwAACvW//8dzP+/K9b//x3M/78r1v//gpcAACvW//+Cl/+/K9b//4KX/7/TKf//gpcAANMp//+Cl/+/0yn//4KX/7/TKQAAgpf//9MpAACCl/+/0ykAAIKX/78r1gAAgpf//yvWAACCl/+/K9YAAIKX/78r1gAAHcz//yvWAAAdzP+/K9YAAB3M/7/TKQAAHcz//9MpAAAdzP+/0ykAAB3M/7//f/9/////f////39U1VTV/3//f////3////9/qiqqKv///3////9/////f1TVVNX///9/////f////3+qKqoq////fwAA/38AAP9/VNVU1f///38AAP9/AAD/f6oqqir/f/9/AAD/fwAA/39U1VTV/3//fwAA/38AAP9/qiqqKv///3////9/////f////3////9/////f////3////9//3//v////3////9//3//v////3////9//3//v////3////9//3//v////3////9//3//PwAA/38AAP9//3//PwAA/38AAP9//3//PwAA/38AAP9//3//PwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_bhd84")
+
+[node name="BurguerWrapped" type="Node3D"]
+
+[node name="SI_Food_BurgerWrapped" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("ArrayMesh_eca20")
+skeleton = NodePath("")

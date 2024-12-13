@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx6dtbv4dknn5"]
+
+[ext_resource type="Texture2D" uid="uid://bqlmsqqu82kuc" path="res://assets/Texturas/Cobblestones_01_Black_1.png" id="1_v2swc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ab0h2"]
+albedo_texture = ExtResource("1_v2swc")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pagfs"]
+material = SubResource("StandardMaterial3D_ab0h2")
+
+[node name="FloorAsphalt" type="Node3D"]
+
+[node name="FloorAsphalt" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_pagfs")

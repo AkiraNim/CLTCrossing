@@ -1,0 +1,12 @@
+# Godot editor settings (opcional)
+.godot/
+
+# Arquivos temporários
+*.tmp
+
+# Mono (C#) build files
+*.mono/
+
+# Cache de importação (opcional, mas cuidado)
+.import/
+*.import

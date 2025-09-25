@@ -243,11 +243,11 @@ script = ExtResource("3_r3fl7")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.104376346, 0)
-billboard = 2
+billboard = 1
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_nu31w")
 animation = &"walking_down"
-frame_progress = 0.49059087
+frame_progress = 0.16883631
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08283429, 0)

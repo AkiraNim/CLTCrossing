@@ -233,7 +233,7 @@ size = Vector3(0.17313766, 0.053466797, 0.22315788)
 environment = SubResource("Environment_noarx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.99308074, 0.010396323, 0.11697231, -0.09376431, 0.6698987, 0.7365081, -0.07070265, -0.7423797, 0.6662384, 0, 1.612465, 0)
+transform = Transform3D(0.94492203, -0.26382422, -0.19369844, 0.31956756, 0.61584836, 0.7201441, -0.07070266, -0.7423798, 0.66623837, 0, 1.612465, 0)
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -252,7 +252,7 @@ alpha_cut = 3
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_nu31w")
 animation = &"walking_down"
-frame_progress = 0.7231169
+frame_progress = 0.78182423
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08283429, 0)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://dqn04o50plwpw"]
+[gd_scene load_steps=34 format=3 uid="uid://dqn04o50plwpw"]
 
 [ext_resource type="Texture2D" uid="uid://b4ktwjsuooq4p" path="res://assets/Small-8-Direction-Characters_by_AxulArt.png" id="1_a202f"]
 [ext_resource type="PackedScene" uid="uid://bboydbcso3k6v" path="res://assets/SimpleBuildings/Models/factory_1.glb" id="2_r3fl7"]
 [ext_resource type="Script" uid="uid://jn0ubsg7fbai" path="res://character_body_3d.gd" id="3_r3fl7"]
+[ext_resource type="Texture2D" uid="uid://cwsg77ix72ihx" path="res://assets/Gemini_Generated_Image_4se07l4se07l4se0-removebg-preview.png" id="4_r3fl7"]
 
 [sub_resource type="Environment" id="Environment_noarx"]
 
@@ -224,7 +225,7 @@ height = 0.17601013
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a0tk4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
-size = Vector3(0.1005249, 0.053466797, 0.17565918)
+size = Vector3(0.17313766, 0.053466797, 0.22315788)
 
 [node name="Node3D" type="Node3D"]
 
@@ -232,7 +233,8 @@ size = Vector3(0.1005249, 0.053466797, 0.17565918)
 environment = SubResource("Environment_noarx")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.017469903, 0.9998474, 0, -0.9998474, 0.017469903, 0, 1.612465, 0)
+transform = Transform3D(0.99308074, 0.010396323, 0.11697231, -0.09376431, 0.6698987, 0.7365081, -0.07070265, -0.7423797, 0.6662384, 0, 1.612465, 0)
+shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.7660445, 0.64278764, 0, -0.64278764, 0.7660445, 0, 2, 2.2798502)
@@ -243,11 +245,14 @@ script = ExtResource("3_r3fl7")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.104376346, 0)
+layers = 2
 billboard = 1
+shaded = true
+alpha_cut = 3
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_nu31w")
 animation = &"walking_down"
-frame_progress = 0.16883631
+frame_progress = 0.7231169
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08283429, 0)
@@ -259,7 +264,13 @@ physics_material_override = SubResource("PhysicsMaterial_a0tk4")
 
 [node name="factory_1" parent="StaticBody3D" instance=ExtResource("2_r3fl7")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015563965, 0.025095046, -0.0007934617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019292839, 0.025095046, -0.07322026)
 shape = SubResource("BoxShape3D_a0tk4")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.3718615, -0.10281968, -0.59759855)
+shaded = true
+texture = ExtResource("4_r3fl7")

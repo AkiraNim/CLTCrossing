@@ -1,11 +1,16 @@
-[gd_scene load_steps=34 format=3 uid="uid://dqn04o50plwpw"]
+[gd_scene load_steps=36 format=3 uid="uid://dqn04o50plwpw"]
 
 [ext_resource type="Texture2D" uid="uid://b4ktwjsuooq4p" path="res://assets/Small-8-Direction-Characters_by_AxulArt.png" id="1_a202f"]
 [ext_resource type="PackedScene" uid="uid://bboydbcso3k6v" path="res://assets/SimpleBuildings/Models/factory_1.glb" id="2_r3fl7"]
+[ext_resource type="Script" uid="uid://hg28rxmrdl08" path="res://animated_sprite_3d.gd" id="3_jka67"]
 [ext_resource type="Script" uid="uid://jn0ubsg7fbai" path="res://character_body_3d.gd" id="3_r3fl7"]
-[ext_resource type="Texture2D" uid="uid://cwsg77ix72ihx" path="res://assets/Gemini_Generated_Image_4se07l4se07l4se0-removebg-preview.png" id="4_r3fl7"]
+[ext_resource type="Texture2D" uid="uid://fyhrd70612c1" path="res://assets/Design sem nome.png" id="4_r3fl7"]
 
 [sub_resource type="Environment" id="Environment_noarx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3fl7"]
+transparency = 1
+blend_mode = 3
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a0tk4"]
 atlas = ExtResource("1_a202f")
@@ -225,7 +230,7 @@ height = 0.17601013
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a0tk4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
-size = Vector3(0.17313766, 0.053466797, 0.22315788)
+size = Vector3(0.04059887, 0.053466797, 0.058356285)
 
 [node name="Node3D" type="Node3D"]
 
@@ -236,23 +241,26 @@ environment = SubResource("Environment_noarx")
 transform = Transform3D(0.94492203, -0.26382422, -0.19369844, 0.31956756, 0.61584836, 0.7201441, -0.07070266, -0.7423798, 0.66623837, 0, 1.612465, 0)
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.7660445, 0.64278764, 0, -0.64278764, 0.7660445, 0, 2, 2.2798502)
-fov = 44.8
-
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 script = ExtResource("3_r3fl7")
 
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.8600749, 0.51016766, 0, -0.51016766, 0.8600749, 0.23420331, 1.5650204, 2.2798502)
+projection = 1
+fov = 61.232487
+size = 3.592
+
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.104376346, 0)
-layers = 2
+layers = 524288
+material_override = SubResource("StandardMaterial3D_r3fl7")
 billboard = 1
 shaded = true
 alpha_cut = 3
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_nu31w")
-animation = &"walking_down"
-frame_progress = 0.78182423
+animation = &"walking_d_left"
+script = ExtResource("3_jka67")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08283429, 0)
@@ -267,10 +275,11 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019292839, 0.025095046, -0.07322026)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02250243, 0.09862111, 0.009180537)
 shape = SubResource("BoxShape3D_a0tk4")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.3718615, -0.10281968, -0.59759855)
 shaded = true
+texture_filter = 4
 texture = ExtResource("4_r3fl7")

@@ -4,6 +4,13 @@ extends CharacterBody3D
 
 @onready var anim_sprite: AnimatedSprite3D = $AnimatedSprite3D
 
+func _ready():
+	# Cria e aplica material para o AnimatedSprite3D
+	var mat = StandardMaterial3D.new()
+	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	mat.sort_priority = 5  # maior valor = desenha na frente
+	anim_sprite.material = mat
+
 func _physics_process(delta):
 	var input_dir = Vector3.ZERO
 
@@ -31,8 +38,6 @@ func _physics_process(delta):
 	_update_animation(input_dir)
 
 func _update_animation(dir: Vector3) -> void:
-	
-
 	# Diagonais
 	if dir.x > 0 and dir.z < 0:
 		anim_sprite.play("walking_u_right") # diagonal up-right
